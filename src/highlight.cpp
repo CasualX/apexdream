@@ -41,17 +41,17 @@ void Highlight::run(GameContext& ctx) {
 	if (!(ctx.state.is_in_game() && ctx.state.is_any_button_down() && enable)) {
 		return;
 	}
-	auto local = ctx.state.local_player();
+	const auto local = ctx.state.local_player();
 	for (uint32_t i = 1; i <= 64; i += 1) {
-		if (auto player = ctx.state.get_entity<PlayerEntity>(EHandle{i})) {
+		if (const auto player = ctx.state.get_entity<PlayerEntity>(EHandle{i})) {
 			// Do not glow team members
 			if (local && local->team_num == player->team_num) {
 				continue;
 			}
 			// Brightness and dim if the player is downed
-			float mult = brightness / 255.0;
+			float mult = brightness / 255.0f;
 			if (player->is_downed()) {
-				mult *= 0.4;
+				mult *= 0.4f;
 			}
 			// Grab a nice color per team
 			const auto srgb = (player->team_num < 1) ? RGB(255, 255, 255) : TEAM_COLORS[(player->team_num - 1) % 20];

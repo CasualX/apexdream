@@ -49,13 +49,13 @@ public:
 	template<typename T>
 	bool read(uint64_t address, T& value) const;
 
-	// Reads an array of values from the process.
-	template<typename T>
-	bool read_array(uint64_t address, T* array, size_t len) const;
-
 	// Writes a value to the process.
 	template<typename T>
 	bool write(uint64_t address, const T& value) const;
+
+	// Reads an array of values from the process.
+	template<typename T>
+	bool read_array(uint64_t address, T* array, size_t len) const;
 
 	// Writes an array of values to the process.
 	template<typename T>
@@ -74,12 +74,12 @@ inline bool GameProcess::read(uint64_t address, T& value) const {
 	return read_raw(address, &value, sizeof(T));
 }
 template<typename T>
-inline bool GameProcess::read_array(uint64_t address, T* array, size_t len) const {
-	return read_raw(address, array, sizeof(T) * len);
-}
-template<typename T>
 inline bool GameProcess::write(uint64_t address, const T& value) const {
 	return write_raw(address, &value, sizeof(T));
+}
+template<typename T>
+inline bool GameProcess::read_array(uint64_t address, T* array, size_t len) const {
+	return read_raw(address, array, sizeof(T) * len);
 }
 template<typename T>
 inline bool GameProcess::write_array(uint64_t address, const T* array, size_t len) const {

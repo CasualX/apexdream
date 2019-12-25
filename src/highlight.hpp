@@ -10,5 +10,5 @@ private:
 	// Configuration.
 	bool enable = true;
 	// Brightness factor of the highlight outlines effect.
-	float brightness = 2.55;
+	float brightness = 2.55f;
 };

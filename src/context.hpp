@@ -1,5 +1,7 @@
 #pragma once
 
+#include "sdk.hpp"
+
 #include <cstdint>
 
 class GameProcess;

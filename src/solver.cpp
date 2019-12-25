@@ -16,21 +16,21 @@ static bool optimal(float x, float y, float v0, float g, float& pitch) {
 	if (root < 0.0f) {
 		false;
 	}
-	pitch = atanf((v0 * v0 - sqrtf(root)) / (g * x));
+	pitch = atan((v0 * v0 - sqrt(root)) / (g * x));
 	return true;
 }
 
 static bool solve2d(const Vec3& origin, const ProjectileWeapon& weapon, const Vec3& target, Solution& sol) {
 	const auto v = weapon.get_projectile_fire_setup(origin, target);
-	const float dx = sqrtf(v.x * v.x + v.y * v.y);
+	const float dx = sqrt(v.x * v.x + v.y * v.y);
 	const float dy = v.z;
 	const float v0 = weapon.get_projectile_speed();
 	const float g = weapon.get_projectile_gravity();
 	if (!optimal(dx, dy, v0, g, sol.pitch)) {
 		return false;
 	}
-	sol.time = dx / (cosf(sol.pitch) * v0);
-	sol.yaw = atan2f(v.y, v.x);
+	sol.time = dx / (cos(sol.pitch) * v0);
+	sol.yaw = atan2(v.y, v.x);
 	return true;
 }
 

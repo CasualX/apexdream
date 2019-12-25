@@ -10,7 +10,7 @@ class CheatManager {
 public:
 	CheatManager() = default;
 	void run(GameContext& ctx);
-public:
+private:
 	Highlight highlight;
 	AimAssist aimassist;
 };

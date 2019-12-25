@@ -145,7 +145,7 @@ const char* PlayerResourceEntity::get_name(size_t index) const {
 void WorldEntity::update(const GameProcess& process, const GameData& data) {
 	FloatInt temp[10];
 	if (process.read_array(address + data.world_death_field, temp, 7)) {
-		death_field_is_active = temp[0].i32 & 0xff != 0;
+		death_field_is_active = temp[0].bytes[0] != 0;
 		death_field_origin = Vec3{temp[1].f32, temp[2].f32, temp[3].f32};
 		death_field_radius_start = temp[4].f32;
 		death_field_radius_end = temp[5].f32;
@@ -155,8 +155,8 @@ void WorldEntity::update(const GameProcess& process, const GameData& data) {
 }
 float WorldEntity::death_field_radius(float curtime) const {
 	if (death_field_time_start == death_field_time_end) {
-		return 0.0;
+		return 0.0f;
 	}
-	const float fraction = fmin(fmax((curtime - death_field_time_start) / (death_field_time_end - death_field_time_start), 0.0), 1.0);
+	const float fraction = fmin(fmax((curtime - death_field_time_start) / (death_field_time_end - death_field_time_start), 0.0f), 1.0f);
 	return death_field_radius_start + fraction * (death_field_radius_end - death_field_radius_start);
 }

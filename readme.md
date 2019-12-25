@@ -1,6 +1,8 @@
 Apex Legends external cheat for UnKnoWnCheaTs in C++
 ====================================================
 
+Released on [UnKnoWnCheaTs](https://www.unknowncheats.me/forum/apex-legends/368409-external-apexbot.html#post2651040).
+
 How to compile
 --------------
 
@@ -10,7 +12,7 @@ See `src/process.cpp` and implement the following routines with your bypass:
 
 * `read_process_memory`
 * `write_process_memory`
-* `virtual_query`
+* `virtual_query_ex`
 * `get_mapped_file_name`
 
 Using whichever C++ compiler you fancy point it at `src/stdafx.cpp` or compile the other cpp files individually.

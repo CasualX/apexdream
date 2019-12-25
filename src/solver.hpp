@@ -15,17 +15,22 @@ public:
 };
 
 // Simple linear extrapolation.
-struct LinearPredictor : public TargetPredictor {
+class LinearPredictor : public TargetPredictor {
+public:
 	inline LinearPredictor(Vec3 origin, Vec3 velocity) : origin(origin), velocity(velocity) {}
+	Vec3 predict_position(float time) const override;
 
+public:
 	Vec3 origin;
 	Vec3 velocity;
-
-	Vec3 predict_position(float time) const;
 };
 
 struct Solution {
-	float pitch, yaw, time;
+	// Aim the weapon at these angles to hit the target.
+	// NOTE! These angles are in radians and not normalized to the game's conventions!
+	float pitch, yaw;
+	// Projectile travel time.
+	float time;
 };
 
 // Given a projectile weapon and a predictable target, solve where to aim the weapon to thit the target.

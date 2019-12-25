@@ -70,11 +70,11 @@ private:
 	// Strength of the aim assist, input values around 1.5 to 2.5.
 	float aim_strength = 2.2f;
 	// When a target becomes invalid, wait this many seconds before trying to find a new target.
-	double idle_time = 0.3;
+	float idle_time = 0.3f;
 	// Stop aiming when this close to a target to prevent mouse jitter.
-	double fov_min = 0.25;
+	float fov_min = 0.25f;
 	// Angle required to lock onto a target.
-	double fov_aim = 10.0;
+	float fov_aim = 10.0f;
 	// When locked onto a target, angle required to drop the target.
-	double fov_drop = 25.0;
+	float fov_drop = 25.0f;
 };

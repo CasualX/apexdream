@@ -22,8 +22,8 @@ void GameState::update(const GameProcess& process, const GameData& data) {
 
 	uint64_t view_render_ptr, view_matrix_ptr;
 	if (process.read(process.r5apex_exe + data.view_render, view_render_ptr)) {
-		if (process.read(process.r5apex_exe + data.view_matrix, view_matrix_ptr)) {
-			process.read(view_render_ptr, view_matrix);
+		if (process.read(view_render_ptr + data.view_matrix, view_matrix_ptr)) {
+			process.read(view_matrix_ptr, view_matrix);
 		}
 	}
 
@@ -63,7 +63,7 @@ static bool get_class_name(const GameProcess& process, uint64_t entity_ptr, char
 	}
 	// It's a pointer to the following asm:
 	//
-	// 48 8d 05 ? ? ? ?   mov rax, g_ClientClassForThisEntity
+	// 48 8d 05 ? ? ? ?   lea rax, g_ClientClassForThisEntity
 	// c3                 retn
 	//
 	// The question marks is x64 RIP-relative addressing mode displacement argument:
@@ -72,7 +72,7 @@ static bool get_class_name(const GameProcess& process, uint64_t entity_ptr, char
 	if (!process.read(get_client_class + 3, disp)) {
 		return false;
 	}
-	uint64_t client_class_ptr = get_client_class + disp + 7;
+	const uint64_t client_class_ptr = get_client_class + disp + 7;
 	// Get the ClientClass instance itself.
 	ClientClass client_class;
 	if (!process.read(client_class_ptr, client_class)) {

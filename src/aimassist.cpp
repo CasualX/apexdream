@@ -126,7 +126,7 @@ bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const Playe
 			Solution sol;
 			if (solve(local->camera_origin, *weapon, predictor, sol)) {
 				info.time = sol.time;
-				info.aim = Vec3 {-to_degrees(sol.pitch), to_degrees(sol.yaw), 0.0f};
+				info.aim = Vec3 {-rad2deg(sol.pitch), rad2deg(sol.yaw), 0.0f};
 				return true;
 			}
 			else {
@@ -145,7 +145,7 @@ bool AimAssist::fov_check(GameContext& ctx, const PlayerEntity* local, const Pla
 	info.yaw = info.aim.y - local->camera_angles.y;
 	while (info.yaw <= -180.0f) info.yaw += 360.0f;
 	while (info.yaw > 180.0f) info.yaw -= 360.0f;
-	info.angle = sqrtf(info.pitch * info.pitch + info.yaw * info.yaw);
+	info.angle = sqrt(info.pitch * info.pitch + info.yaw * info.yaw);
 	const float fov = get_fov() * get_fov_scale(ctx.state, local);
 	return info.angle < fov;
 }
@@ -156,12 +156,12 @@ float AimAssist::get_fov() const {
 float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local) const {
 	if (local->zooming) {
 		if (const auto weapon = state.get_entity<WeaponXEntity>(local->active_weapon())) {
-			if (weapon->target_zoom_fov != 0.0 && weapon->target_zoom_fov != 1.0) {
-				return weapon->target_zoom_fov / 90.0;
+			if (weapon->target_zoom_fov != 0.0f && weapon->target_zoom_fov != 1.0f) {
+				return weapon->target_zoom_fov / 90.0f;
 			}
 		}
 	}
-	return 1.0;
+	return 1.0f;
 }
 void AimAssist::aim(const TargetInfo& info, float fov_scale) {
 	// Magic aim smoothing formula :)
@@ -170,8 +170,8 @@ void AimAssist::aim(const TargetInfo& info, float fov_scale) {
 	const float dy = info.pitch * (speed + addy);
 	const int mdx = static_cast<int>(dx);
 	const int mdy = static_cast<int>(dy);
-	addx = (dx - static_cast<float>(mdx));
-	addy = (dy - static_cast<float>(mdy));
+	addx = dx - static_cast<float>(mdx);
+	addy = dy - static_cast<float>(mdy);
 	if (mdx != 0 || mdy != 0) {
 		mouse_move(mdx, mdy);
 	}

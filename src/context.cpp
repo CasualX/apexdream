@@ -1,5 +1,4 @@
 #include "context.hpp"
-#include "sdk.hpp"
 #include "process.hpp"
 #include "data.hpp"
 
@@ -9,7 +8,7 @@ bool GameContext::entity_check(EHandle handle, uint64_t address) const {
 	if (!handle.is_valid()) {
 		return false;
 	}
-	uint32_t offset = handle.index() * sizeof(CEntInfo);
+	const uint32_t offset = handle.index() * sizeof(CEntInfo);
 	uint64_t check;
 	return process.read(process.r5apex_exe + data.entity_list + offset, check) && address == check;
 }

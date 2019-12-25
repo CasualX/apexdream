@@ -62,7 +62,7 @@ bool read_process_memory(uint32_t pid, uint64_t address, void* buffer, size_t si
 bool write_process_memory(uint32_t pid, uint64_t address, const void* buffer, size_t size) {
 	return false;
 }
-bool virtual_query(uint32_t pid, uint64_t address, MEMORY_BASIC_INFORMATION& mbi) {
+bool virtual_query_ex(uint32_t pid, uint64_t address, MEMORY_BASIC_INFORMATION& mbi) {
 	return false;
 }
 const wchar_t* get_mapped_file_name(uint32_t pid, uint64_t address, void* buffer, size_t size) {
@@ -86,7 +86,7 @@ bool GameProcess::heartbeat() const {
 }
 uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 	MEMORY_BASIC_INFORMATION mbi;
-	for (uint64_t address = 0; virtual_query(pid, address, mbi); address += mbi.RegionSize) {
+	for (uint64_t address = 0; virtual_query_ex(pid, address, mbi); address += mbi.RegionSize) {
 		if (mbi.State == MEM_COMMIT && mbi.Type == MEM_IMAGE) {
 			wchar_t buffer[MAX_PATH] = {};
 			if (auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {

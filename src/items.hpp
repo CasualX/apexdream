@@ -68,7 +68,7 @@ enum class ItemID : uint32_t {
 	P2020 = 35,
 	GOLD_P2020 = 36,
 	RE45 = 37,
-	GOLD_RE_45 = 38,
+	GOLD_RE45 = 38,
 
 	LIGHT_ROUNDS = 39,
 	ENERGY_AMMO = 40,
