@@ -32,9 +32,9 @@ void mouse_move(int dx, int dy) {
 
 ProcessEnumerator::ProcessEnumerator() {
 	using NtQuerySystemInformationFn = NTSTATUS WINAPI(IN SYSTEM_INFORMATION_CLASS, OUT PVOID, IN ULONG, OUT PULONG);
-	auto NtQuerySystemInformation = reinterpret_cast<NtQuerySystemInformationFn*>(GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "NtQuerySystemInformation"));
+	const auto NtQuerySystemInformation = reinterpret_cast<NtQuerySystemInformationFn*>(GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "NtQuerySystemInformation"));
 	ULONG return_length;
-	while (NtQuerySystemInformation(SystemProcessInformation, buffer.get(), buffer_len, &return_length) < 0) {
+	while (NtQuerySystemInformation(SystemProcessInformation, buffer.get(), static_cast<ULONG>(buffer_len), &return_length) < 0) {
 		buffer = std::unique_ptr<uint8_t[]>(new uint8_t[return_length]);
 		buffer_len = return_length;
 	}
@@ -43,10 +43,10 @@ bool ProcessEnumerator::next(ProcessEntry& entry) {
 	if (next_offset >= buffer_len) {
 		return false;
 	}
-	auto pi = reinterpret_cast<SYSTEM_PROCESS_INFORMATION*>(buffer.get() + next_offset);
+	const auto pi = reinterpret_cast<const SYSTEM_PROCESS_INFORMATION*>(buffer.get() + next_offset);
 	next_offset += pi->NextEntryOffset != 0 ? pi->NextEntryOffset : buffer_len - next_offset;
 
-	entry.id = reinterpret_cast<uint32_t>(pi->UniqueProcessId);
+	entry.id = static_cast<uint32_t>((size_t)pi->UniqueProcessId);
 	memset(&entry.name, 0, sizeof(entry.name));
 	memcpy(&entry.name, pi->ImageName.Buffer, min(pi->ImageName.Length, sizeof(entry.name) - 1));
 
@@ -89,14 +89,14 @@ uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 	for (uint64_t address = 0; virtual_query_ex(pid, address, mbi); address += mbi.RegionSize) {
 		if (mbi.State == MEM_COMMIT && mbi.Type == MEM_IMAGE) {
 			wchar_t buffer[MAX_PATH] = {};
-			if (auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {
+			if (const auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {
 				size_t offset = 0;
 				for (size_t i = 0; path[i] != L'\0'; i += 1) {
 					if (path[i] == '\\') {
 						offset = i + 1;
 					}
 				}
-				auto file_name = path + offset;
+				const auto file_name = path + offset;
 				if (!wcscmp(file_name, module_name)) {
 					return address;
 				}
@@ -151,9 +151,9 @@ bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) con
 			}
 		}
 
-		auto dump_file = CreateFileW(L"r5apex.dump", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
+		const auto dump_file = CreateFileW(L"r5apex.dump", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
 		if (dump_file != INVALID_HANDLE_VALUE) {
-			if (!WriteFile(dump_file, target.get(), target_len, NULL, NULL)) {
+			if (!WriteFile(dump_file, target.get(), static_cast<DWORD>(target_len), NULL, NULL)) {
 				printf("apex(%d) Error writing r5apex.dump: %d\n", pid, GetLastError());
 			}
 			CloseHandle(dump_file);

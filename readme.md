@@ -1,5 +1,5 @@
-Apex Legends external cheat for UnKnoWnCheaTs in C++
-====================================================
+Apex Legends external cheat in C++
+==================================
 
 Released on [UnKnoWnCheaTs](https://www.unknowncheats.me/forum/apex-legends/368409-external-apexbot.html#post2651040).
 

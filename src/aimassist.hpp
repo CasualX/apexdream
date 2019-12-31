@@ -61,7 +61,7 @@ private:
 	double target_time = 0.0;
 	float addx = 0.0f;
 	float addy = 0.0f;
-	float next_tick = 0.0f;
+	double next_tick = 0.0;
 
 	// Configuration
 	bool enable = true;

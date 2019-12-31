@@ -13,7 +13,7 @@ void AimAssist::run(GameContext& ctx) {
 		return;
 	}
 	// Fixup timer to maintain 60 times per sec
-	static const float TICKRATE = 1.0f / 60.0f;
+	static const double TICKRATE = 1.0 / 60.0;
 	next_tick = ctx.time < next_tick + TICKRATE ? next_tick + TICKRATE : ctx.time + TICKRATE;
 
 	const auto local = ctx.state.local_player();
@@ -64,7 +64,7 @@ const PlayerEntity* AimAssist::find_target(GameContext& ctx, const PlayerEntity*
 	Rank rank = Rank::Downed;
 	float priority = 99999999.0f;
 	// Consider every player a target
-	for (size_t i = 1; i <= 64; i += 1) {
+	for (uint32_t i = 1; i <= 64; i += 1) {
 		if (const auto player = ctx.state.get_entity<PlayerEntity>(EHandle{i})) {
 			// If this player is a valid target
 			TargetInfo info{};

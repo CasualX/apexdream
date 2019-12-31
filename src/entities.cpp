@@ -14,7 +14,7 @@ WorldEntity::WorldEntity(uint64_t address) : BaseEntity(address) {}
 //----------------------------------------------------------------
 
 void PlayerEntity::update(const GameProcess& process, const GameData& data) {
-	FloatInt temp[100];
+	FloatInt temp[20];
 
 	process.read(address + 0x8, handle);
 	process.read(address + data.entity_flags, flags);

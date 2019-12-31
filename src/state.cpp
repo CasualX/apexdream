@@ -37,7 +37,7 @@ void GameState::update(const GameProcess& process, const GameData& data) {
 
 	if (process.read_array(process.r5apex_exe + data.entity_list, prev_info.get(), NUM_ENT_ENTRIES)) {
 		std::swap(prev_info, ent_info);
-		for (size_t i = 0; i < NUM_ENT_ENTRIES; i += 1) {
+		for (uint32_t i = 0; i < NUM_ENT_ENTRIES; i += 1) {
 			if (prev_info[i].pEntity != ent_info[i].pEntity) {
 				entities[i] = create_entity(process, i, ent_info[i].pEntity);
 			}
