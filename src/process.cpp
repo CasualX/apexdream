@@ -6,16 +6,17 @@
 #include <Windows.h>
 #include <winternl.h>
 
-double float_time() {
-	static LARGE_INTEGER start{};
-	static LARGE_INTEGER freq{};
-	if (start.QuadPart == 0) {
-		QueryPerformanceCounter(&start);
-		QueryPerformanceFrequency(&freq);
-	}
+static LARGE_INTEGER TIME_START;
+static LARGE_INTEGER TIME_FREQ;
+
+void init_time() {
+	QueryPerformanceCounter(&TIME_START);
+	QueryPerformanceFrequency(&TIME_FREQ);
+}
+double get_time() {
 	LARGE_INTEGER time;
 	QueryPerformanceCounter(&time);
-	return static_cast<double>(time.QuadPart - start.QuadPart) / static_cast<double>(freq.QuadPart);
+	return static_cast<double>(time.QuadPart - TIME_START.QuadPart) / static_cast<double>(TIME_FREQ.QuadPart);
 }
 
 void sleep(uint32_t ms) {
@@ -86,9 +87,9 @@ bool GameProcess::heartbeat() const {
 }
 uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 	MEMORY_BASIC_INFORMATION mbi;
+	wchar_t buffer[MAX_PATH];
 	for (uint64_t address = 0; virtual_query_ex(pid, address, mbi); address += mbi.RegionSize) {
 		if (mbi.State == MEM_COMMIT && mbi.Type == MEM_IMAGE) {
-			wchar_t buffer[MAX_PATH] = {};
 			if (const auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {
 				size_t offset = 0;
 				for (size_t i = 0; path[i] != L'\0'; i += 1) {

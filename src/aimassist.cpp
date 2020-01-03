@@ -82,7 +82,7 @@ const PlayerEntity* AimAssist::find_target(GameContext& ctx, const PlayerEntity*
 	return target;
 }
 
-bool AimAssist::validate(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) {
+bool AimAssist::validate(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const {
 	if (!rules(ctx, local, target, info)) {
 		return false;
 	}
@@ -95,7 +95,7 @@ bool AimAssist::validate(GameContext& ctx, const PlayerEntity* local, const Play
 	info.priority = info.angle + log(info.distance);
 	return true;
 }
-bool AimAssist::rules(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) {
+bool AimAssist::rules(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const {
 	if (local == target) {
 		return false;
 	}
@@ -108,7 +108,7 @@ bool AimAssist::rules(GameContext& ctx, const PlayerEntity* local, const PlayerE
 	info.rank = target->is_downed() ? Rank::Downed : Rank::Player;
 	return true;
 }
-bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) {
+bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const {
 	if (target == local) {
 		// info.hit = Vec3{35175.1406,-6868.41504,-28173.9688};
 		info.hit = Vec3{};
@@ -140,7 +140,7 @@ bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const Playe
 	info.aim = (info.hit - local->camera_origin).to_angles().norm_angles();
 	return true;
 }
-bool AimAssist::fov_check(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) {
+bool AimAssist::fov_check(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const {
 	info.pitch = info.aim.x - local->camera_angles.x;
 	info.yaw = info.aim.y - local->camera_angles.y;
 	while (info.yaw <= -180.0f) info.yaw += 360.0f;
@@ -166,6 +166,8 @@ float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local
 void AimAssist::aim(const TargetInfo& info, float fov_scale) {
 	// Magic aim smoothing formula :)
 	const float speed = log(aim_strength + info.angle / (fov_scale * fov_scale) * aim_strength) * aim_strength + aim_strength;
+	// Moving the mouse can only be done in whole steps
+	// Keep track of the delta 'residue' and add it next time
 	const float dx = -info.yaw * (speed + addx);
 	const float dy = info.pitch * (speed + addy);
 	const int mdx = static_cast<int>(dx);

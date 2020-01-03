@@ -2,7 +2,7 @@
 #include "process.hpp"
 #include "data.hpp"
 
-GameContext::GameContext(const GameProcess& process, const GameData& data, const GameState& state) : process(process), data(data), state(state), time(float_time()) {}
+GameContext::GameContext(const GameProcess& process, const GameData& data, const GameState& state) : process(process), data(data), state(state), time(get_time()) {}
 
 bool GameContext::entity_check(EHandle handle, uint64_t address) const {
 	if (!handle.is_valid()) {

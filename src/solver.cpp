@@ -14,7 +14,7 @@ Vec3 LinearPredictor::predict_position(float time) const {
 static bool optimal(float x, float y, float v0, float g, float& pitch) {
 	const float root = v0 * v0 * v0 * v0 - g * (g * x * x + 2.0f * y * v0 * v0);
 	if (root < 0.0f) {
-		false;
+		return false;
 	}
 	pitch = atan((v0 * v0 - sqrt(root)) / (g * x));
 	return true;

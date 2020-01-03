@@ -33,6 +33,7 @@ void apex_legends(uint32_t pid) {
 int main(int argc, char* argv[]) {
 	(void)argc;
 	(void)argv;
+	init_time();
 	// Track the last attached process id to prevent reattaching accidentally
 	uint32_t last_process_id = 0;
 	while (true) {

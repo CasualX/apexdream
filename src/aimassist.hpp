@@ -39,20 +39,24 @@ public:
 	AimAssist() = default;
 	void run(GameContext& ctx);
 
+	// Updates the tracking state and aims at the aqcuired targets.
 	void track(GameContext& ctx, const PlayerEntity* local);
 
-	// Finds a target to aim at.
-	// Returns nullptr if no valid target was found.
+	// Finds a target to aim at, returns nullptr if no valid target was found.
 	const PlayerEntity* find_target(GameContext& ctx, const PlayerEntity* local);
 
-	// Checks if this target is good to aim at.
-	bool validate(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info);
-	bool rules(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info);
-	bool compute(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info);
-	bool fov_check(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info);
+	// Checks if this target is valid to aim at.
+	bool validate(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
+	bool rules(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
+	bool compute(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
+	bool fov_check(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
 
+	// Gets the aim fov.
 	float get_fov() const;
+	// Gets the scalar for the aim fov, used when zoomed in with a scoped weapon.
 	float get_fov_scale(const GameState& state, const PlayerEntity* local) const;
+
+	// Moves the mouse towards the target.
 	void aim(const TargetInfo& info, float fov_scale);
 
 private:

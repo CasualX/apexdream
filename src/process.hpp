@@ -3,8 +3,11 @@
 #include <cstdint>
 #include <memory>
 
-// Returns the time in seconds.
-double float_time();
+// Initializes the time base.
+void init_time();
+
+// Returns the time in seconds since init_time was called.
+double get_time();
 
 // Sleeps the thread for the specified duration in milliseconds.
 void sleep(uint32_t ms);
