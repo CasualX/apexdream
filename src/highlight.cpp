@@ -3,6 +3,7 @@
 #include "state.hpp"
 #include "process.hpp"
 #include "entities.hpp"
+#include "data.hpp"
 
 #include <cstdint>
 #include <cmath>
@@ -63,10 +64,10 @@ void Highlight::run(GameContext& ctx) {
 			static const float TIMES[7] = { INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY };
 			// Write the highlight params
 			if (ctx.entity_check(player->handle, player->address)) {
-				ctx.process.write<uint8_t>(player->address + 0x388, 1);
-				ctx.process.write<int32_t>(player->address + 0x310, 1);
-				ctx.process.write(player->address + 0x1D0, color);
-				ctx.process.write(player->address + 0x2D0, TIMES);
+				ctx.process.write<uint8_t>(player->address + ctx.data.highlight_enable, 1);
+				ctx.process.write<int32_t>(player->address + ctx.data.highlight_index, 1);
+				ctx.process.write(player->address + ctx.data.highlight_color, color);
+				ctx.process.write(player->address + ctx.data.highlight_fade, TIMES);
 			}
 		}
 	}

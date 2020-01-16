@@ -1,15 +1,16 @@
-#include "items.hpp"
 #include "data.hpp"
-#include "sdk.hpp"
-#include "entities.hpp"
 #include "process.hpp"
 #include "state.hpp"
 #include "cheats.hpp"
 #include "context.hpp"
 
-void apex_legends(uint32_t pid) {
+void apexbot(uint32_t pid) {
 	// Attach to the process
 	const GameProcess process{pid};
+	if (process.r5apex_exe == 0) {
+		printf("apex(%d) Access denied, did you implement EAC bypass?\n", pid);
+		return;
+	}
 	// Initialize the game's offsets data
 	static const GameData data{};
 	// Check if the offsets are valid for this game version
@@ -26,7 +27,7 @@ void apex_legends(uint32_t pid) {
 		}
 	}
 	else {
-		printf("apex(%d) Gamedata mismatch!\n", pid);
+		printf("apex(%d) Gamedata mismatch! Please update the offsets.\n", pid);
 	}
 }
 
@@ -35,7 +36,7 @@ int main(int argc, char* argv[]) {
 	(void)argv;
 	init_time();
 	// Track the last attached process id to prevent reattaching accidentally
-	uint32_t last_process_id = 0;
+	uint32_t last_process_id = ~0;
 	while (true) {
 		bool seen_last_process_id = false;
 		ProcessEntry entry;
@@ -47,7 +48,7 @@ int main(int argc, char* argv[]) {
 			}
 			// Find the Apex Legends process
 			if (!wcscmp(entry.name, L"r5apex.exe")) {
-				apex_legends(entry.id);
+				apexbot(entry.id);
 				last_process_id = entry.id;
 				seen_last_process_id = true;
 				break;
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
 		}
 		// Clear the last process id if it hasn't been seen
 		if (!seen_last_process_id) {
-			last_process_id = 0;
+			last_process_id = ~0;
 		}
 		// Wait before looking again
 		sleep(100);

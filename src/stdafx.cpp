@@ -1,4 +1,5 @@
 #include "apexbot.cpp"
+#include "items.cpp"
 #include "context.cpp"
 #include "cheats.cpp"
 #include "highlight.cpp"

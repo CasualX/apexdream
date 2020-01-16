@@ -114,8 +114,7 @@ bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const Playe
 		info.hit = Vec3{};
 	}
 	else {
-		const auto& matrix = target->bones[12];
-		info.hit = target->origin + Vec3{matrix.a[3], matrix.a[7], matrix.a[11]};
+		info.hit = target->get_bone_pos(aim_bone);
 	}
 	info.distance = Vec3::distance(info.hit, local->camera_origin);
 

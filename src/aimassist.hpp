@@ -73,6 +73,8 @@ private:
 	ButtonCode aim_key = ButtonCode::Mouse4;
 	// Strength of the aim assist, input values around 1.5 to 2.5.
 	float aim_strength = 2.2f;
+	// Which bone index to aim at.
+	uint32_t aim_bone = 12;
 	// When a target becomes invalid, wait this many seconds before trying to find a new target.
 	float idle_time = 0.3f;
 	// Stop aiming when this close to a target to prevent mouse jitter.

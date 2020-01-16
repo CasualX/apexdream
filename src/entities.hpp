@@ -40,6 +40,15 @@ public:
 	inline EHandle active_weapon() const {
 		return latest_primary_weapons[0];
 	}
+	inline Vec3 get_bone_pos(size_t bone) const {
+		if (bone < MAXSTUDIOBONES) {
+			const auto& mat = bones[bone];
+			return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
+		}
+		else {
+			return origin;
+		}
+	}
 
 public:
 	EHandle handle;
