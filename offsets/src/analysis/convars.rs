@@ -86,8 +86,9 @@ pub struct ConVar<'a> {
 
 pub fn convars(bin: PeFile<'_>) -> Vec<ConVar<'_>> {
 	// Find the main ConVar vtable
+	// Alternative slow pattern: @3 *{'*{}} *{} [8] *"thirdperson_override" (just find a specific ConVar, in .data)
 	let mut save = [0; 4];
-	if !bin.scanner().finds_code(pat!("488BC8 488BD3 E8$ 4053 4883EC60 488BD9 C6411000 33C9 488D05$'"), &mut save) {
+	if !bin.scanner().finds_code(pat!("C6411000 33C9 ?8D?${'}"), &mut save) {
 		crate::print_error(&"ERR: unable to find ConVar vftable");
 		return Vec::new();
 	}

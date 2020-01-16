@@ -4,6 +4,7 @@
 #include <cinttypes>
 
 #include <Windows.h>
+#include <Psapi.h>
 #include <winternl.h>
 
 static LARGE_INTEGER TIME_START;
@@ -57,22 +58,33 @@ bool ProcessEnumerator::next(ProcessEntry& entry) {
 //----------------------------------------------------------------
 // EAC BYPASS GOES HERE
 
-bool read_process_memory(uint32_t pid, uint64_t address, void* buffer, size_t size) {
-	return false;
+bool read_process_memory(void* process, uint64_t address, void* buffer, size_t size) {
+	SIZE_T bytes_read;
+	return ReadProcessMemory(process, (LPCVOID)address, (LPVOID)buffer, size, &bytes_read) != FALSE;
 }
-bool write_process_memory(uint32_t pid, uint64_t address, const void* buffer, size_t size) {
-	return false;
+bool write_process_memory(void* process, uint64_t address, const void* buffer, size_t size) {
+	SIZE_T bytes_written;
+	return WriteProcessMemory(process, (LPVOID)address, (LPCVOID)buffer, size, &bytes_written);
 }
-bool virtual_query_ex(uint32_t pid, uint64_t address, MEMORY_BASIC_INFORMATION& mbi) {
-	return false;
+bool virtual_query_ex(void* process, uint64_t address, MEMORY_BASIC_INFORMATION& mbi) {
+	return VirtualQueryEx(process, (LPCVOID)address, &mbi, sizeof(mbi)) != 0;
 }
-const wchar_t* get_mapped_file_name(uint32_t pid, uint64_t address, void* buffer, size_t size) {
-	return nullptr;
+const wchar_t* get_mapped_file_name(void* process, uint64_t address, void* buffer, size_t size) {
+	if (K32GetMappedFileNameW(process, (LPVOID)address, (LPWSTR)buffer, (DWORD)size) == 0) {
+		return nullptr;
+	}
+	return (const wchar_t*)buffer;
 }
 
 //----------------------------------------------------------------
 
 GameProcess::GameProcess(uint32_t pid) : pid(pid) {
+	process = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
+	if (process == INVALID_HANDLE_VALUE) {
+		printf("apex(%u) Access denied: %u\n", pid, GetLastError());
+		printf("apex(%u) Did you implement EAC bypass?\n", pid);
+		return;
+	}
 	printf("apex(%u) Attached!\n", pid);
 	r5apex_exe = get_module_base(PROCESS_NAME);
 	printf("apex(%u) 0x%" PRIx64 " %S\n", pid, r5apex_exe, PROCESS_NAME);
@@ -88,6 +100,7 @@ GameProcess::GameProcess(uint32_t pid) : pid(pid) {
 	}
 }
 GameProcess::~GameProcess() {
+	CloseHandle(process);
 	printf("apex(%u) Detached!\n", pid);
 }
 
@@ -102,8 +115,7 @@ uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 	while (true) {
 		// Look for mapped images
 		if (mbi.State == MEM_COMMIT && mbi.Type == MEM_IMAGE) {
-			// Find the image matching the module name
-			if (const auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {
+			if (const auto path = get_mapped_file_name(process, address, buffer, sizeof(buffer))) {
 				size_t offset = 0;
 				for (size_t i = 0; path[i] != L'\0'; i += 1) {
 					if (path[i] == '\\') {
@@ -121,7 +133,7 @@ uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 		do {
 			address += mbi.RegionSize;
 			// Returns false once we reach the end of the virtual user address space
-			if (!virtual_query_ex(pid, address, mbi)) {
+			if (!virtual_query_ex(process, address, mbi)) {
 				return 0;
 			}
 		}
@@ -130,10 +142,10 @@ uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 	return 0;
 }
 bool GameProcess::read_raw(uint64_t address, void* buffer, size_t size) const {
-	return read_process_memory(pid, address, buffer, size);
+	return read_process_memory(process, address, buffer, size);
 }
 bool GameProcess::write_raw(uint64_t address, const void* buffer, size_t size) const {
-	return write_process_memory(pid, address, buffer, size);
+	return write_process_memory(process, address, buffer, size);
 }
 bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) const {
 	// Sanity check the image base address...

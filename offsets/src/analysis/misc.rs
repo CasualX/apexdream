@@ -12,12 +12,14 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	local_entity_handle(f, bin);
 	local_player(f, bin);
 	global_vars(f, bin);
+	input_system(f, bin);
 	name_list(f, bin);
 	view_render(f, bin);
 	client_state(f, bin);
 	projectile_speed(f, bin);
 	unknown_magic(f, bin);
 	local_camera(f, bin);
+	network_var(f, bin);
 	let _ = writeln!(f.human, "```\n");
 	let _ = writeln!(f.ini);
 }
@@ -76,9 +78,9 @@ fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn global_vars(f: &mut super::Output, bin: PeFile<'_>) {
 	// Right above "Client.dll Init_PostVideo() in library "
-	// lea r8, qword_XXX
+	// lea rdx, qword_XXX
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B01 4C8D05${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
+	if bin.scanner().finds_code(pat!("488B01 ???${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
 		let global_vars = save[1];
 		let _ = writeln!(f.ini, "GlobalVars={:#x}", global_vars);
 	}
@@ -116,7 +118,7 @@ fn view_render(f: &mut super::Output, bin: PeFile<'_>) {
 	let view_matrix;
 
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!(/*"74 34 48 8B 0D ${'} 40 0F B6 D7"*/ "4C 8B 05 ${'} 48 8D 15 $ [24]* 48 C7"), &mut save) {
+	if bin.scanner().finds_code(pat!("4C 8B 05 ${'} 48 8D 15 $ [24]* 48 C7"), &mut save) {
 		view_render = save[1];
 	}
 	else {
@@ -176,11 +178,14 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 fn projectile_speed(f: &mut super::Output, bin: PeFile<'_>) {
 	// Find near the string 'Speed(%f) is greater than sv_maxvelocity(%f)'
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B05${*[24]*\"sv_maxvelocity\"} F30F59?u4"), &mut save) {
+	if bin.scanner().finds_code(pat!("488B05${*[24]*\"sv_maxvelocity\"} F30F??u20000 0F"), &mut save) {
 		let projectile_speed = save[1];
 		let projectile_scale = save[1] + 8;
 		let _ = writeln!(f.ini, "CWeaponX!m_flProjectileSpeed={:#x}", projectile_speed);
 		let _ = writeln!(f.ini, "CWeaponX!m_flProjectileScale={:#x}", projectile_scale);
+	}
+	else {
+		crate::print_error(&"unable to find projectile_speed");
 	}
 }
 
@@ -198,10 +203,52 @@ fn unknown_magic(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn local_camera(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("f3 0f 10 83 u4 f3 0f 10 8b d4 1e 00 00"), &mut save) {
+	if bin.scanner().finds_code(pat!("488BF9 0F2E89u4 7A"), &mut save) {
 		let camera_origin = save[1];
 		let camera_angles = save[1] + 12;
 		let _ = writeln!(f.ini, "CPlayer!camera_origin={:#x}", camera_origin);
 		let _ = writeln!(f.ini, "CPlayer!camera_angles={:#x}", camera_angles);
+	}
+	else {
+		crate::print_error(&"unable to find CPlayer camera offsets");
+	}
+}
+
+fn network_var(f: &mut super::Output, bin: PeFile<'_>) {
+	let mut save = [0; 4];
+
+	if bin.scanner().finds_code(pat!("486BCA38 488D15${'} 837C110C07"), &mut save) {
+		let network_var_table_ptr = save[1];
+		let _ = writeln!(f.ini, "NetworkVarTablePtr={:#x}", network_var_table_ptr);
+	}
+	else {
+		crate::print_error(&"unable to find NetworkVarTablePtr");
+	}
+
+	if bin.scanner().finds_code(pat!("81?u4 73% [1-10]$ \"Network var\""), &mut save) {
+		let network_var_table_len = save[1];
+		let _ = writeln!(f.ini, "NetworkVarTableLen={}", network_var_table_len);
+	}
+	else {
+		crate::print_error(&"unable to find NetworkVarTableLen");
+	}
+
+	if bin.scanner().finds_code(pat!("@4 8B01 83F8FF 741C 0FB7C8 488D15${'}"), &mut save) {
+		let network_data_table_ptr = save[1];
+		let _ = writeln!(f.ini, "NetworkDataTablePtr={:#x}", network_data_table_ptr);
+	}
+	else {
+		crate::print_error(&"unable to find NetworkDataTablePtr");
+	}
+}
+
+fn input_system(f: &mut super::Output, bin: PeFile<'_>) {
+	let mut save = [0; 4];
+	if bin.scanner().finds_code(pat!("00000000 894C2420 488D0D$'"), &mut save) {
+		let input_system = save[1];
+		let _ = writeln!(f.ini, "InputSystem={:#x}", input_system);
+	}
+	else {
+		crate::print_error(&"unable to find InputSystem");
 	}
 }

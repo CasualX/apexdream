@@ -32,6 +32,14 @@ pub fn print(f: &mut super::Output, bin: PeFile) {
 				{prop.name}"="{prop.offset;#06x}"\n"
 			}
 			"\n"
+			"[RecvTableTypes."{table.name}"]\n"
+			if let Some(base) = (table.base) {
+				"@extends="{base}"\n"
+			}
+			for prop in (&table.props) {
+				{prop.name}"="{prop.ty}"\n"
+			}
+			"\n"
 		}
 	};
 }

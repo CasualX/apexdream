@@ -67,6 +67,13 @@ ItemSet weapon_set(WeaponName weapon_name) {
 		item_flag(ItemID::HCOG_RANGER) |
 		item_flag(ItemID::VARIABLE_AOG);
 
+	const auto BOW_OPTICS =
+		item_flag(ItemID::HOLO) |
+		item_flag(ItemID::HCOG_CLASSIC) |
+		item_flag(ItemID::HCOG_BRUISER) |
+		item_flag(ItemID::VARIABLE_HOLO) |
+		item_flag(ItemID::HCOG_RANGER);
+
 	const auto LMG_OPTICS =
 		item_flag(ItemID::HOLO) |
 		item_flag(ItemID::HCOG_CLASSIC) |
@@ -97,7 +104,57 @@ ItemSet weapon_set(WeaponName weapon_name) {
 		item_flag(ItemID::DIGITAL_THREAT);
 
 	switch (weapon_name) {
-		// Energy weapons
+		//----------------------------------------------------------------
+		// Assault weapons
+
+		case WeaponName::HAVOC: return
+			item_flag(ItemID::ENERGY_AMMO) |
+			ENERGY_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK |
+			item_flag(ItemID::TURBOCHARGER);
+
+		case WeaponName::FLATLINE: return
+			item_flag(ItemID::HEAVY_ROUNDS) |
+			HEAVY_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK |
+			item_flag(ItemID::ANVIL_RECEIVER);
+
+		case WeaponName::HEMLOK: return
+			item_flag(ItemID::HEAVY_ROUNDS) |
+			BARREL_STABILIZER |
+			HEAVY_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK;
+
+		case WeaponName::R301: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK |
+			item_flag(ItemID::ANVIL_RECEIVER);
+
+		//----------------------------------------------------------------
+		// SMGs
+
+		case WeaponName::ALTERNATOR: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			SMG_OPTICS |
+			STANDARD_STOCK;
+
+		case WeaponName::PROWLER: return
+			SMG_OPTICS;
+
+		case WeaponName::R99: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			SMG_OPTICS |
+			STANDARD_STOCK;
 
 		case WeaponName::VOLT: return
 			item_flag(ItemID::ENERGY_AMMO) |
@@ -105,6 +162,9 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			ENERGY_MAGAZINE |
 			SMG_OPTICS |
 			STANDARD_STOCK;
+
+		//----------------------------------------------------------------
+		// LMGs
 
 		case WeaponName::DEVOTION: return
 			item_flag(ItemID::ENERGY_AMMO) |
@@ -114,31 +174,45 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			STANDARD_STOCK |
 			item_flag(ItemID::TURBOCHARGER);
 
-		case WeaponName::HAVOC: return
-			item_flag(ItemID::ENERGY_AMMO) |
-			ENERGY_MAGAZINE |
-			AR_OPTICS |
-			STANDARD_STOCK |
-			item_flag(ItemID::TURBOCHARGER);
-
 		case WeaponName::LSTAR: return
 			item_flag(ItemID::ENERGY_AMMO) |
 			LMG_OPTICS |
 			STANDARD_STOCK;
 
-		// Heirloom weapons
+		case WeaponName::SPITFIRE: return
+			item_flag(ItemID::HEAVY_ROUNDS) |
+			BARREL_STABILIZER |
+			HEAVY_MAGAZINE |
+			LMG_OPTICS |
+			STANDARD_STOCK;
 
-		case WeaponName::KRABER: return ItemSet();
-		case WeaponName::PROWLER: return ItemSet();
-		case WeaponName::PEACEKEEPER: return ItemSet();
+		//----------------------------------------------------------------
+		// Marksman weapons
 
-		// Sniper weapons
+		case WeaponName::G7_SCOUT: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK;
 
-		case WeaponName::SENTINEL: return
-			item_flag(ItemID::SNIPER_AMMO) |
-			SNIPER_MAGAZINE |
-			SNIPER_OPTICS |
-			SNIPER_STOCK;
+		case WeaponName::TRIPLE_TAKE: return
+			AR_OPTICS;
+
+		case WeaponName::REPEATER: return
+			item_flag(ItemID::HEAVY_ROUNDS) |
+			HEAVY_MAGAZINE |
+			AR_OPTICS |
+			STANDARD_STOCK;
+
+		case WeaponName::BOCEK: return
+			item_flag(ItemID::ARROWS) |
+			BOW_OPTICS |
+			item_flag(ItemID::SHATTER_CAPS) |
+			item_flag(ItemID::DEADEYE_TEMPO);
+
+		//----------------------------------------------------------------
+		// Sniper rifles
 
 		case WeaponName::CHARGE_RIFLE: return
 			item_flag(ItemID::SNIPER_AMMO) |
@@ -153,84 +227,28 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			SNIPER_STOCK |
 			item_flag(ItemID::SKULLPIERCER_RIFLING);
 
-		case WeaponName::TRIPLE_TAKE: return
+		case WeaponName::KRABER: return ItemSet();
+
+		case WeaponName::SENTINEL: return
 			item_flag(ItemID::SNIPER_AMMO) |
 			SNIPER_MAGAZINE |
 			SNIPER_OPTICS |
-			SNIPER_STOCK;
+			SNIPER_STOCK |
+			item_flag(ItemID::SHATTER_CAPS) |
+			item_flag(ItemID::DEADEYE_TEMPO);
 
-		// Heavy weapons
+		//----------------------------------------------------------------
+		// Shotguns
 
-		case WeaponName::WINGMAN: return
-			item_flag(ItemID::HEAVY_ROUNDS) |
-			HEAVY_MAGAZINE |
-			PISTOL_OPTICS |
-			item_flag(ItemID::SKULLPIERCER_RIFLING);
+		case WeaponName::EVA8_AUTO: return
+			item_flag(ItemID::SHOTGUN_SHELLS) |
+			SHOTGUN_BOLT |
+			SHOTGUN_OPTICS;
 
-		case WeaponName::SPITFIRE: return
-			item_flag(ItemID::HEAVY_ROUNDS) |
-			BARREL_STABILIZER |
-			HEAVY_MAGAZINE |
-			LMG_OPTICS |
-			STANDARD_STOCK;
-
-		case WeaponName::HEMLOK: return
-			item_flag(ItemID::HEAVY_ROUNDS) |
-			BARREL_STABILIZER |
-			HEAVY_MAGAZINE |
-			AR_OPTICS |
-			STANDARD_STOCK;
-
-		case WeaponName::FLATLINE: return
-			item_flag(ItemID::HEAVY_ROUNDS) |
-			HEAVY_MAGAZINE |
-			AR_OPTICS |
-			STANDARD_STOCK;
-
-		// Light weapons
-
-		case WeaponName::RE45: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			BARREL_STABILIZER |
-			LIGHT_MAGAZINE |
-			PISTOL_OPTICS;
-
-		case WeaponName::P2020: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			LIGHT_MAGAZINE |
-			PISTOL_OPTICS |
-			item_flag(ItemID::HAMMERPOINT_ROUNDS);
-
-		case WeaponName::R301: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			BARREL_STABILIZER |
-			LIGHT_MAGAZINE |
-			AR_OPTICS |
-			STANDARD_STOCK;
-
-		case WeaponName::R99: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			BARREL_STABILIZER |
-			LIGHT_MAGAZINE |
-			SMG_OPTICS |
-			STANDARD_STOCK;
-
-		case WeaponName::ALTERNATOR: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			BARREL_STABILIZER |
-			LIGHT_MAGAZINE |
-			SMG_OPTICS |
-			STANDARD_STOCK;
-
-		case WeaponName::G7_SCOUT: return
-			item_flag(ItemID::LIGHT_ROUNDS) |
-			BARREL_STABILIZER |
-			LIGHT_MAGAZINE |
-			AR_OPTICS |
-			STANDARD_STOCK |
-			item_flag(ItemID::DOUBLE_TAP_TRIGGER);
-
-		// Shotgun weapons
+		case WeaponName::MASTIFF: return
+			item_flag(ItemID::SHOTGUN_SHELLS) |
+			SHOTGUN_BOLT |
+			SHOTGUN_OPTICS;
 
 		case WeaponName::MOZAMBIQUE: return
 			item_flag(ItemID::SHOTGUN_SHELLS) |
@@ -238,16 +256,33 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			SHOTGUN_OPTICS |
 			item_flag(ItemID::HAMMERPOINT_ROUNDS);
 
-		case WeaponName::EVA8_AUTO: return
-			item_flag(ItemID::SHOTGUN_SHELLS) |
-			SHOTGUN_BOLT |
-			SHOTGUN_OPTICS |
-			item_flag(ItemID::DOUBLE_TAP_TRIGGER);
-
-		case WeaponName::MASTIFF: return
+		case WeaponName::PEACEKEEPER: return
 			item_flag(ItemID::SHOTGUN_SHELLS) |
 			SHOTGUN_BOLT |
 			SHOTGUN_OPTICS;
+
+		//----------------------------------------------------------------
+		// Pistols
+
+		case WeaponName::RE45: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			PISTOL_OPTICS |
+			item_flag(ItemID::QUICKDRAW_HOLSTER);
+
+		case WeaponName::P2020: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			LIGHT_MAGAZINE |
+			PISTOL_OPTICS |
+			item_flag(ItemID::HAMMERPOINT_ROUNDS);
+
+		case WeaponName::WINGMAN: return
+			item_flag(ItemID::HEAVY_ROUNDS) |
+			HEAVY_MAGAZINE |
+			PISTOL_OPTICS |
+			item_flag(ItemID::SKULLPIERCER_RIFLING) |
+			item_flag(ItemID::QUICKDRAW_HOLSTER);
 
 		default: return ItemSet();
 	}
