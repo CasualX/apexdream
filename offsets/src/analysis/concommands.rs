@@ -65,16 +65,17 @@ pub struct ConCommand<'a> {
 pub fn concommands(bin: PeFile<'_>) -> Vec<ConCommand<'_>> {
 	let mut concommands = Vec::new();
 	let mut save = [0; 4];
-	// Find the ConCommand vtable
-	if !bin.scanner().finds_code(pat!("8D?${'} 33FF ?891D???? ?8D"), &mut save) {
-		crate::print_error(&"ERR: unable to find ConCommand vftable");
-		return concommands;
-	}
-	let vftable = save[1];
 	// Find all concommands in .data
 	let data_section = bin.section_headers().iter()
 		.find(|sect| &sect.Name == b".data\0\0\0")
 		.expect("unable to find `.data` section");
+	// Find the ConCommand vtable
+	// No fast pattern, just find the vtable of a specific command
+	if !bin.scanner().finds(pat!("@3 *{'*{}} *{} [8] *\"quit\""), data_section.virtual_range(), &mut save) {
+		crate::print_error(&"ERR: unable to find ConCommand vftable");
+		return concommands;
+	}
+	let vftable = save[1];
 	// Find matches by scanning for the ConCommand vtable
 	let pat = pat!("@3 *{'} (0000000000000000|*{}) 0100000000000000 *{}");
 	let mut matches = bin.scanner().matches(pat, data_section.virtual_range());

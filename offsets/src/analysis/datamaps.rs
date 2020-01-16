@@ -34,6 +34,14 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 				{field.name}"="{field.offset;#06x}"\n"
 			}
 			"\n"
+			"[DataMapTypes."{datamap.name}"]\n"
+			if let Some(base) = (datamap.base) {
+				"@extends="{base}"\n"
+			}
+			for field in (&datamap.fields) {
+				{field.name}"="{field.ty}"\n"
+			}
+			"\n"
 		}
 	};
 }
