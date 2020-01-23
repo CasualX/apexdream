@@ -6,6 +6,25 @@ class GameContext;
 class GameState;
 class PlayerEntity;
 
+struct AimAssistConfig {
+	// Configuration
+	bool enable = true;
+	// Hold down this key to activate aimbot.
+	ButtonCode aim_key = ButtonCode::Mouse4;
+	// Strength of the aim assist, input values around 1.5 to 2.5.
+	float aim_strength = 2.2f;
+	// Which bone index to aim at.
+	uint32_t aim_bone = 12;
+	// When a target becomes invalid, wait this many seconds before trying to find a new target.
+	float idle_time = 0.3f;
+	// Stop aiming when this close to a target to prevent mouse jitter.
+	float fov_min = 0.25f;
+	// Angle required to lock onto a target.
+	float fov_aim = 10.0f;
+	// When locked onto a target, angle required to drop the target.
+	float fov_drop = 25.0f;
+};
+
 // Target priority by rank.
 enum class Rank {
 	// Downed players are still targetted but at a lower priority.
@@ -66,21 +85,6 @@ private:
 	float addx = 0.0f;
 	float addy = 0.0f;
 	double next_tick = 0.0;
-
-	// Configuration
-	bool enable = true;
-	// Hold down this key to activate aimbot.
-	ButtonCode aim_key = ButtonCode::Mouse4;
-	// Strength of the aim assist, input values around 1.5 to 2.5.
-	float aim_strength = 2.2f;
-	// Which bone index to aim at.
-	uint32_t aim_bone = 12;
-	// When a target becomes invalid, wait this many seconds before trying to find a new target.
-	float idle_time = 0.3f;
-	// Stop aiming when this close to a target to prevent mouse jitter.
-	float fov_min = 0.25f;
-	// Angle required to lock onto a target.
-	float fov_aim = 10.0f;
-	// When locked onto a target, angle required to drop the target.
-	float fov_drop = 25.0f;
+public:
+	AimAssistConfig config;
 };

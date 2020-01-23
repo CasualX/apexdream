@@ -11,7 +11,7 @@ class CheatManager {
 public:
 	CheatManager() = default;
 	void run(GameContext& ctx);
-private:
+public:
 	Highlight highlight;
 	AimAssist aimassist;
 	Scripts scripts;

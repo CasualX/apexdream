@@ -3,6 +3,7 @@
 #include "state.hpp"
 #include "cheats.hpp"
 #include "context.hpp"
+#include "config.hpp"
 
 void apexbot(uint32_t pid) {
 	// Attach to the process
@@ -17,10 +18,13 @@ void apexbot(uint32_t pid) {
 	if (process.check_version(data.time_date_stamp, data.checksum)) {
 		GameState state{};
 		CheatManager cheats{};
+		Config config{};
 		// The heart of the cheat is simple, repeat until the process dies
 		while (process.heartbeat()) {
 			// Update our copy of the game state
 			state.update(process, data);
+			// Reload the weapon config
+			config.run(state, cheats);
 			// Run the cheat modules
 			GameContext ctx{process, data, state};
 			ctx.pre();

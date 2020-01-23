@@ -5,7 +5,7 @@
 
 void Scripts::run(GameContext& ctx) {
 	const auto local = ctx.state.local_player();
-	if (bunnyhop) {
+	if (config.bunnyhop) {
 		ctx.jump.force = true;
 		// Very simply bunnyhop:
 		// Force the jump button to be released while airborne

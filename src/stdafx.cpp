@@ -5,6 +5,7 @@
 #include "highlight.cpp"
 #include "aimassist.cpp"
 #include "scripts.cpp"
+#include "config.cpp"
 #include "solver.cpp"
 #include "entities.cpp"
 #include "state.cpp"

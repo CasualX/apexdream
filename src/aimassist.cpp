@@ -17,7 +17,7 @@ void AimAssist::run(GameContext& ctx) {
 	next_tick = ctx.time < next_tick + TICKRATE ? next_tick + TICKRATE : ctx.time + TICKRATE;
 
 	const auto local = ctx.state.local_player();
-	if (enable && ctx.state.is_button_down(aim_key) && local) {
+	if (config.enable && ctx.state.is_button_down(config.aim_key) && local) {
 		track(ctx, local);
 	}
 	else {
@@ -29,7 +29,7 @@ void AimAssist::run(GameContext& ctx) {
 void AimAssist::track(GameContext& ctx, const PlayerEntity* local) {
 	// If we were locked onto a target, only find a new target when sufficient time has passed
 	// Else find a new target if we don't already have one
-	const bool new_target = target_locked ? ctx.time > target_time + idle_time : !target_entity.is_valid();
+	const bool new_target = target_locked ? ctx.time > target_time + config.idle_time : !target_entity.is_valid();
 
 	// Find a new target if desired
 	if (new_target) {
@@ -46,7 +46,7 @@ void AimAssist::track(GameContext& ctx, const PlayerEntity* local) {
 			// Adjust the fov setting based on scoping state
 			const float fov_scale = get_fov_scale(ctx.state, local);
 			// Avoid aim jitter with minimum angle
-			if (info.angle >= fov_min * fov_scale) {
+			if (info.angle >= config.fov_min * fov_scale) {
 				aim(info, fov_scale);
 			}
 			// Update the time we've last seen this target
@@ -114,7 +114,7 @@ bool AimAssist::compute(GameContext& ctx, const PlayerEntity* local, const Playe
 		info.hit = Vec3{};
 	}
 	else {
-		info.hit = target->get_bone_pos(aim_bone);
+		info.hit = target->get_bone_pos(config.aim_bone);
 	}
 	info.distance = Vec3::distance(info.hit, local->camera_origin);
 
@@ -150,7 +150,7 @@ bool AimAssist::fov_check(GameContext& ctx, const PlayerEntity* local, const Pla
 }
 
 float AimAssist::get_fov() const {
-	return target_entity.is_valid() && target_locked ? fov_drop : fov_aim;
+	return target_entity.is_valid() && target_locked ? config.fov_drop : config.fov_aim;
 }
 float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local) const {
 	if (local->zooming) {
@@ -164,6 +164,7 @@ float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local
 }
 void AimAssist::aim(const TargetInfo& info, float fov_scale) {
 	// Magic aim smoothing formula :)
+	const float aim_strength = config.aim_strength;
 	const float speed = log(aim_strength + info.angle / (fov_scale * fov_scale) * aim_strength) * aim_strength + aim_strength;
 	// Moving the mouse can only be done in whole steps
 	// Keep track of the delta 'residue' and add it next time

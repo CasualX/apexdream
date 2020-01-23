@@ -39,7 +39,7 @@ const uint32_t TEAM_COLORS[20] = {
 };
 
 void Highlight::run(GameContext& ctx) {
-	if (!(ctx.state.is_in_game() && ctx.state.is_any_button_down() && enable)) {
+	if (!(ctx.state.is_in_game() && ctx.state.is_any_button_down() && config.enable)) {
 		return;
 	}
 	const auto local = ctx.state.local_player();
@@ -50,7 +50,7 @@ void Highlight::run(GameContext& ctx) {
 				continue;
 			}
 			// Brightness and dim if the player is downed
-			float mult = brightness / 255.0f;
+			float mult = config.brightness / 255.0f;
 			if (player->is_downed()) {
 				mult *= 0.4f;
 			}
