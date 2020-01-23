@@ -2,6 +2,7 @@
 
 #include "highlight.hpp"
 #include "aimassist.hpp"
+#include "scripts.hpp"
 
 class GameContext;
 
@@ -13,4 +14,5 @@ public:
 private:
 	Highlight highlight;
 	AimAssist aimassist;
+	Scripts scripts;
 };

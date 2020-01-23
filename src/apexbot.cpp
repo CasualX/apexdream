@@ -23,7 +23,9 @@ void apexbot(uint32_t pid) {
 			state.update(process, data);
 			// Run the cheat modules
 			GameContext ctx{process, data, state};
+			ctx.pre();
 			cheats.run(ctx);
+			ctx.post();
 		}
 	}
 	else {

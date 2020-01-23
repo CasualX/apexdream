@@ -3,4 +3,5 @@
 void CheatManager::run(GameContext& ctx) {
 	highlight.run(ctx);
 	aimassist.run(ctx);
+	scripts.run(ctx);
 }

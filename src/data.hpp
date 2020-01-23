@@ -20,6 +20,9 @@ public:
 	uint32_t input_system = 0x1196540;
 	uint32_t input_button_state = 0xb0;
 
+	uint32_t in_attack = 0x0cae9f98;
+	uint32_t in_jump = 0x0caea008;
+
 	uint32_t local_entity = 0x104f9e4;
 	uint32_t entity_list = 0x1855fd8;
 

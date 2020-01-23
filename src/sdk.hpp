@@ -65,6 +65,12 @@ struct ClientClass {
 	uint32_t ClassSize;
 };
 
+// https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/client/kbutton.h
+struct kbutton_t {
+	int down[2];
+	int state;
+};
+
 inline float rad2deg(float rad) {
 	return rad * 180.0f / 3.1415927f;
 }
