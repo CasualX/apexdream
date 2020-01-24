@@ -16,8 +16,8 @@ GameState::GameState()
 {}
 
 void GameState::update(const GameProcess& process, const GameData& data) {
-	process.read(process.r5apex_exe + data.signon_state, signon_state);
-	process.read(process.r5apex_exe + data.level_name, level_buffer);
+	process.read(process.r5apex_exe + data.client_state + data.client_signon_state, signon_state);
+	process.read(process.r5apex_exe + data.client_state + data.client_level_name, level_buffer);
 	process.read(process.r5apex_exe + data.local_entity, local_entity);
 
 	uint64_t view_render_ptr, view_matrix_ptr;
@@ -83,8 +83,11 @@ static bool get_class_name(const GameProcess& process, uint64_t entity_ptr, char
 }
 
 std::unique_ptr<BaseEntity> GameState::create_entity(const GameProcess& process, uint32_t index, uint64_t entity_ptr) {
+	if (entity_ptr == 0) {
+		return {};
+	}
 	// When the hack is running before the game has decrypted itself, these contain bad addresses
-	if (entity_ptr == 0 || (entity_ptr & 0x7) != 0 || entity_ptr >= (1LL << 48)) {
+	if ((entity_ptr & 0x7) != 0 || entity_ptr >= (1ULL << 48)) {
 		return {};
 	}
 	char class_buffer[128];
@@ -93,6 +96,9 @@ std::unique_ptr<BaseEntity> GameState::create_entity(const GameProcess& process,
 	}
 	if (!strcmp(class_buffer, "CPlayer")) {
 		return std::make_unique<PlayerEntity>(entity_ptr);
+	}
+	if (!strcmp(class_buffer, "CAI_BaseNPC")) {
+		return std::make_unique<BaseNPCEntity>(entity_ptr);
 	}
 	if (!strcmp(class_buffer, "CPropSurvival")) {
 		return std::make_unique<PropSurvivalEntity>(entity_ptr);

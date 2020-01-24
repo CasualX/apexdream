@@ -10,8 +10,8 @@ public:
 	uint32_t checksum = 0x1f3c00c;
 
 	uint32_t client_state = 0x1126be0;
-	uint32_t signon_state = 0x1126c78;
-	uint32_t level_name = 0x1126d98;
+	uint32_t client_signon_state = 0x0098;
+	uint32_t client_level_name = 0x01b8;
 
 	uint32_t view_render = 0xcac7638;
 	uint32_t view_matrix = 0x1a93d0;

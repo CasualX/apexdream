@@ -6,6 +6,7 @@
 
 BaseEntity::BaseEntity(uint64_t address) : address(address) {}
 PlayerEntity::PlayerEntity(uint64_t address) : BaseEntity(address), bones(new Mat3x4[MAXSTUDIOBONES]) {}
+BaseNPCEntity::BaseNPCEntity(uint64_t address) : BaseEntity(address), bones(new Mat3x4[MAXSTUDIOBONES]) {}
 WeaponXEntity::WeaponXEntity(uint64_t address) : BaseEntity(address) {}
 PropSurvivalEntity::PropSurvivalEntity(uint64_t address) : BaseEntity(address) {}
 PlayerResourceEntity::PlayerResourceEntity(uint64_t address) : BaseEntity(address), name_pointers(new uint64_t[64]), names(new std::string[64]()) {}
@@ -73,6 +74,32 @@ void PlayerEntity::update(const GameProcess& process, const GameData& data) {
 	if (process.read_array(address + data.player_camera_data, temp, 6)) {
 		camera_origin = Vec3{temp[0].f32, temp[1].f32, temp[2].f32};
 		camera_angles = Vec3{temp[3].f32, temp[4].f32, temp[5].f32};
+	}
+}
+
+//----------------------------------------------------------------
+
+void BaseNPCEntity::update(const GameProcess& process, const GameData& data) {
+	FloatInt temp[10];
+
+	process.read(address + 0x8, handle);
+
+	if (process.read_array(address + data.entity_origin, temp, 9)) {
+		origin = Vec3{temp[0].f32, temp[1].f32, temp[2].f32};
+		angles = Vec3{temp[6].f32, temp[7].f32, temp[8].f32};
+	}
+
+	uint64_t model_name_ptr;
+	if (process.read(address + data.entity_model_name, model_name_ptr)) {
+		char model_buffer[128];
+		if (process.read(model_name_ptr, model_buffer)) {
+			model_name.assign(&model_buffer[0]);
+		}
+	}
+
+	uint64_t bones_ptr;
+	if (process.read(address + data.entity_bones, bones_ptr)) {
+		process.read_array(bones_ptr, bones.get(), MAXSTUDIOBONES);
 	}
 }
 

@@ -17,6 +17,7 @@ public:
 	virtual void update(const GameProcess& process, const GameData& data) = 0;
 public:
 	uint64_t address;
+	EHandle handle;
 };
 
 class PlayerEntity : public BaseEntity {
@@ -51,8 +52,6 @@ public:
 	}
 
 public:
-	EHandle handle;
-
 	Vec3 origin;
 	Vec3 angles;
 	Vec3 velocity;
@@ -84,6 +83,28 @@ public:
 	Vec3 camera_angles;
 };
 
+class BaseNPCEntity : public BaseEntity {
+public:
+	explicit BaseNPCEntity(uint64_t entity_ptr);
+	void update(const GameProcess& process, const GameData& data) override;
+
+	inline Vec3 get_bone_pos(size_t bone) const {
+		if (bone < MAXSTUDIOBONES) {
+			const auto& mat = bones[bone];
+			return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
+		}
+		else {
+			return origin;
+		}
+	}
+
+public:
+	Vec3 origin;
+	Vec3 angles;
+	std::string model_name;
+	std::unique_ptr<Mat3x4[]> bones;
+};
+
 class WeaponXEntity : public BaseEntity, public ProjectileWeapon {
 public:
 	explicit WeaponXEntity(uint64_t entity_ptr);
@@ -93,8 +114,7 @@ public:
 	float get_projectile_gravity() const;
 
 public:
-	uint32_t handle;
-	uint32_t weapon_owner;
+	EHandle weapon_owner;
 	WeaponID weapon_name_index;
 	float cur_zoom_fov;
 	float target_zoom_fov;
@@ -108,7 +128,6 @@ public:
 	void update(const GameProcess& process, const GameData& data) override;
 
 public:
-	EHandle handle;
 	Vec3 origin;
 	int32_t ammo_in_clip;
 	ItemID custom_script_int;
@@ -125,7 +144,6 @@ public:
 	// Gets the name of a player.
 	const char* get_name(size_t index) const;
 public:
-	EHandle handle;
 	std::unique_ptr<uint64_t[]> name_pointers;
 	std::unique_ptr<std::string[]> names;
 };
