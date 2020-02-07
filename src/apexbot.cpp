@@ -9,7 +9,7 @@ void apexbot(uint32_t pid) {
 	// Attach to the process
 	const GameProcess process{pid};
 	if (process.r5apex_exe == 0) {
-		printf("apex(%d) Access denied, did you implement EAC bypass?\n", pid);
+		printf("apex(%u) Access denied, did you implement EAC bypass?\n", pid);
 		return;
 	}
 	// Initialize the game's offsets data
@@ -33,7 +33,7 @@ void apexbot(uint32_t pid) {
 		}
 	}
 	else {
-		printf("apex(%d) Gamedata mismatch! Please update the offsets.\n", pid);
+		printf("apex(%u) Gamedata mismatch! Please update the offsets.\n", pid);
 	}
 }
 
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 	(void)argv;
 	init_time();
 	// Track the last attached process id to prevent reattaching accidentally
-	uint32_t last_process_id = ~0;
+	uint32_t last_process_id = ~0U;
 	while (true) {
 		bool seen_last_process_id = false;
 		ProcessEntry entry;

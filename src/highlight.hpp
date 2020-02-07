@@ -1,5 +1,7 @@
 #pragma once
 
+#include "entities.hpp"
+
 class GameContext;
 
 struct HighlightConfig {
@@ -13,6 +15,8 @@ class Highlight {
 public:
 	Highlight() = default;
 	void run(GameContext& ctx);
+
+	void highlight_player(GameContext& ctx, const PlayerEntity* player, const PlayerEntity* local) const;
 public:
 	HighlightConfig config;
 };

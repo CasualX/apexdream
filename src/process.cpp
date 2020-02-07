@@ -73,12 +73,12 @@ const wchar_t* get_mapped_file_name(uint32_t pid, uint64_t address, void* buffer
 //----------------------------------------------------------------
 
 GameProcess::GameProcess(uint32_t pid) : pid(pid) {
-	printf("apex(%d) Attached!\n", pid);
+	printf("apex(%u) Attached!\n", pid);
 	r5apex_exe = get_module_base(L"r5apex.exe");
-	printf("apex(%d) 0x%" PRIx64 " r5apex.exe\n", pid, r5apex_exe);
+	printf("apex(%u) 0x%" PRIx64 " r5apex.exe\n", pid, r5apex_exe);
 }
 GameProcess::~GameProcess() {
-	printf("apex(%d) Detached!\n", pid);
+	printf("apex(%u) Detached!\n", pid);
 }
 
 bool GameProcess::heartbeat() const {
@@ -155,12 +155,12 @@ bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) con
 		const auto dump_file = CreateFileW(L"r5apex.dump", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
 		if (dump_file != INVALID_HANDLE_VALUE) {
 			if (!WriteFile(dump_file, target.get(), static_cast<DWORD>(target_len), NULL, NULL)) {
-				printf("apex(%d) Error writing r5apex.dump: %d\n", pid, GetLastError());
+				printf("apex(%u) Error writing r5apex.dump: %u\n", pid, GetLastError());
 			}
 			CloseHandle(dump_file);
 		}
 		else {
-			printf("apex(%d) Error writing r5apex.dump: %d\n", pid, GetLastError());
+			printf("apex(%u) Error writing r5apex.dump: %u\n", pid, GetLastError());
 		}
 	}
 

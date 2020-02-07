@@ -2,7 +2,6 @@
 #include "context.hpp"
 #include "state.hpp"
 #include "process.hpp"
-#include "entities.hpp"
 #include "data.hpp"
 
 #include <cstdint>
@@ -43,32 +42,36 @@ void Highlight::run(GameContext& ctx) {
 		return;
 	}
 	const auto local = ctx.state.local_player();
+	const auto weapon = local ? ctx.state.get_entity<WeaponXEntity>(local->active_weapon()) : nullptr;
 	for (uint32_t i = 1; i <= 64; i += 1) {
 		if (const auto player = ctx.state.get_entity<PlayerEntity>(EHandle{i})) {
-			// Do not glow team members
-			if (local && local->team_num == player->team_num) {
-				continue;
-			}
-			// Brightness and dim if the player is downed
-			float mult = config.brightness / 255.0f;
-			if (player->is_downed()) {
-				mult *= 0.4f;
-			}
-			// Grab a nice color per team
-			const auto srgb = (player->team_num < 1) ? RGB(255, 255, 255) : TEAM_COLORS[(player->team_num - 1) % 20];
-			const float color[3] = {
-				((srgb >> 16) & 0xff) * mult,
-				((srgb >> 8) & 0xff) * mult,
-				((srgb >> 0) & 0xff) * mult,
-			};
-			static const float TIMES[7] = { INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY };
-			// Write the highlight params
-			if (ctx.entity_check(player->handle, player->address)) {
-				ctx.process.write<uint8_t>(player->address + ctx.data.highlight_enable, 1);
-				ctx.process.write<int32_t>(player->address + ctx.data.highlight_index, 1);
-				ctx.process.write(player->address + ctx.data.highlight_color, color);
-				ctx.process.write(player->address + ctx.data.highlight_fade, TIMES);
-			}
+			highlight_player(ctx, player, local);
 		}
+	}
+}
+void Highlight::highlight_player(GameContext& ctx, const PlayerEntity* player, const PlayerEntity* local) const {
+	// Do not glow team members
+	if (local && local->team_num == player->team_num) {
+		return;
+	}
+	// Brightness and dim if the player is downed
+	float mult = config.brightness / 255.0f;
+	if (player->is_downed()) {
+		mult *= 0.4f;
+	}
+	// Grab a nice color per team
+	const auto srgb = (player->team_num < 1) ? RGB(255, 255, 255) : TEAM_COLORS[(player->team_num - 1) % 20];
+	const float color[3] = {
+		((srgb >> 16) & 0xff) * mult,
+		((srgb >> 8) & 0xff) * mult,
+		((srgb >> 0) & 0xff) * mult,
+	};
+	static const float TIMES[7] = { INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY };
+	// Write the highlight params
+	if (ctx.entity_check(player->handle, player->address)) {
+		ctx.process.write<bool>(player->address + ctx.data.highlight_enable, true);
+		ctx.process.write<int32_t>(player->address + ctx.data.highlight_index, 1);
+		ctx.process.write(player->address + ctx.data.highlight_color, color);
+		ctx.process.write(player->address + ctx.data.highlight_fade, TIMES);
 	}
 }
