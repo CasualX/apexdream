@@ -6,25 +6,25 @@ class GameData {
 public:
 	GameData() = default;
 
-	uint32_t time_date_stamp = 0x5e31fce3;
-	uint32_t checksum = 0x1f460ef;
+	uint32_t time_date_stamp = 0x5e3e3104;
+	uint32_t checksum = 0x1f44f88;
 
-	uint32_t client_state = 0x112eac0;
+	uint32_t client_state = 0x112bac0;
 	uint32_t client_signon_state = 0x0098;
 	uint32_t client_level_name = 0x01b8;
 
-	uint32_t view_render = 0xcacf788;
+	uint32_t view_render = 0xcacc708;
 	uint32_t view_matrix = 0x1a93d0;
-	uint32_t global_vars = 0x112e7c0;
+	uint32_t global_vars = 0x112b7c0;
 
-	uint32_t input_system = 0x119e4c0;
+	uint32_t input_system = 0x0119b4c0;
 	uint32_t input_button_state = 0xb0;
 
-	uint32_t in_attack = 0x0caf20e8;
-	uint32_t in_jump = 0x0caf2160;
+	uint32_t in_attack = 0x0caef068;
+	uint32_t in_jump = 0x0caef0e0;
 
-	uint32_t local_entity = 0x1057a84;
-	uint32_t entity_list = 0x185db98;
+	uint32_t local_entity = 0x1054a84;
+	uint32_t entity_list = 0x185ab98;
 
 	uint32_t entity_model_name = 0x0030;
 	uint32_t entity_flags = 0x0098;
@@ -56,7 +56,7 @@ public:
 
 	uint32_t prop_survival = 0x1544;
 
-	uint32_t player_resources = 0xcaf05e0;
+	uint32_t player_resources = 0xcaed560;
 	uint32_t player_resource_names = 0x0a00;
 
 	uint32_t world_death_field = 0x0a40;

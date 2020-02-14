@@ -76,6 +76,65 @@ void PlayerEntity::update(const GameProcess& process, const GameData& data) {
 		camera_angles = Vec3{temp[3].f32, temp[4].f32, temp[5].f32};
 	}
 }
+Vec3 PlayerEntity::get_bone_pos(size_t bone) const {
+	if (bone < MAXSTUDIOBONES) {
+		const auto& mat = bones[bone];
+		return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
+	}
+	else {
+		return origin;
+	}
+}
+ItemSet PlayerEntity::get_desired_items() const {
+	// TODO! Learn if this player already has these items in their inventory
+	ItemSet set =
+		item_flag(ItemID::KNOCKDOWN_SHIELD_LV3) |
+		item_flag(ItemID::KNOCKDOWN_SHIELD_LV4) |
+		item_flag(ItemID::BACKPACK_LV2) |
+		item_flag(ItemID::BACKPACK_LV3) |
+		item_flag(ItemID::BACKPACK_LV4);
+
+	bool needs_health = health < max_health;
+	bool needs_shields = shields < max_shields;
+
+	// Healing items
+	if (needs_health) {
+		set |= item_flag(ItemID::SYRINGE);
+	}
+	if (needs_shields) {
+		set |= item_flag(ItemID::SHIELD_CELL);
+	}
+	if (needs_health && needs_shields) {
+		set |= item_flag(ItemID::PHOENIX_KIT);
+	}
+	set |= item_flag(ItemID::MED_KIT);
+	set |= item_flag(ItemID::SHIELD_BATTERY);
+
+	// Helmets
+	if (helmet_type < 1) {
+		set |= item_flag(ItemID::HELMET_LV1);
+	}
+	if (helmet_type < 2) {
+		set |= item_flag(ItemID::HELMET_LV2);
+	}
+	if (helmet_type < 3) {
+		set |= item_flag(ItemID::HELMET_LV3);
+	}
+	if (helmet_type <= 4) {
+		set |= item_flag(ItemID::HELMET_LV4);
+	}
+
+	// Body armors
+	if (armor_type < 1 || armor_type == 1 && needs_shields) {
+		set |= item_flag(ItemID::BODY_ARMOR_LV1);
+	}
+	if (armor_type < 2 || armor_type == 2 && needs_shields) {
+		set |= item_flag(ItemID::BODY_ARMOR_LV2);
+	}
+	set |= item_flag(ItemID::BODY_ARMOR_LV3) | item_flag(ItemID::BODY_ARMOR_LV4);
+
+	return set;
+}
 
 //----------------------------------------------------------------
 
@@ -100,6 +159,15 @@ void BaseNPCEntity::update(const GameProcess& process, const GameData& data) {
 	uint64_t bones_ptr;
 	if (process.read(address + data.entity_bones, bones_ptr)) {
 		process.read_array(bones_ptr, bones.get(), MAXSTUDIOBONES);
+	}
+}
+Vec3 BaseNPCEntity::get_bone_pos(size_t bone) const {
+	if (bone < MAXSTUDIOBONES) {
+		const auto& mat = bones[bone];
+		return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
+	}
+	else {
+		return origin;
 	}
 }
 
@@ -127,6 +195,10 @@ float WeaponXEntity::get_projectile_speed() const {
 }
 float WeaponXEntity::get_projectile_gravity() const {
 	return /*sv_gravity*/750.0f * projectile_scale;
+}
+ItemSet WeaponXEntity::get_desired_items() const {
+	// TODO! Filter items which are worse than the attachments we already have.
+	return weapon_set(weapon_name_index);
 }
 
 //----------------------------------------------------------------

@@ -41,15 +41,8 @@ public:
 	inline EHandle active_weapon() const {
 		return latest_primary_weapons[0];
 	}
-	inline Vec3 get_bone_pos(size_t bone) const {
-		if (bone < MAXSTUDIOBONES) {
-			const auto& mat = bones[bone];
-			return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
-		}
-		else {
-			return origin;
-		}
-	}
+	Vec3 get_bone_pos(size_t bone) const;
+	ItemSet get_desired_items() const;
 
 public:
 	Vec3 origin;
@@ -88,15 +81,7 @@ public:
 	explicit BaseNPCEntity(uint64_t entity_ptr);
 	void update(const GameProcess& process, const GameData& data) override;
 
-	inline Vec3 get_bone_pos(size_t bone) const {
-		if (bone < MAXSTUDIOBONES) {
-			const auto& mat = bones[bone];
-			return origin + Vec3{mat.a[3], mat.a[7], mat.a[11]};
-		}
-		else {
-			return origin;
-		}
-	}
+	Vec3 get_bone_pos(size_t bone) const;
 
 public:
 	Vec3 origin;
@@ -112,6 +97,9 @@ public:
 
 	float get_projectile_speed() const;
 	float get_projectile_gravity() const;
+
+	// Gets the set of desired items and attachments.
+	ItemSet get_desired_items() const;
 
 public:
 	EHandle weapon_owner;
