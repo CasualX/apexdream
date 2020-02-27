@@ -32,9 +32,6 @@ void apexbot(uint32_t pid) {
 			ctx.post();
 		}
 	}
-	else {
-		printf("apex(%u) Gamedata mismatch! Please update the offsets.\n", pid);
-	}
 }
 
 int main(int argc, char* argv[]) {

@@ -113,18 +113,38 @@ bool GameProcess::write_raw(uint64_t address, const void* buffer, size_t size) c
 	return write_process_memory(pid, address, buffer, size);
 }
 bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) const {
+	// Sanity check the image base address...
+	if (r5apex_exe == 0 || (r5apex_exe & 0xfff) != 0) {
+		printf("apex(%u) Invalid image base: perhaps your bypass is incomplete.\n", pid);
+		return false;
+	}
+
 	IMAGE_DOS_HEADER dos_header;
 	IMAGE_NT_HEADERS64 nt_headers;
 	if (!(read(r5apex_exe, dos_header) && read(r5apex_exe + dos_header.e_lfanew, nt_headers))) {
+		printf("apex(%u) Error reading headers: incorrect image base, broken bypass or other issue!\n", pid);
+		return false;
+	}
+
+	// Sanity check the image magic values...
+	if (
+		dos_header.e_magic != IMAGE_DOS_SIGNATURE ||
+		nt_headers.Signature != IMAGE_NT_SIGNATURE ||
+		nt_headers.OptionalHeader.Magic != IMAGE_NT_OPTIONAL_HDR64_MAGIC
+	) {
+		printf("apex(%u) Incorrect magic values: the image base address is incorrect!\n", pid);
 		return false;
 	}
 
 	// If TimeDateStamp and CheckSum match then our offsets are probably up-to-date
+	// This can also happen if the base address points to the wrong image in memory
 	if (nt_headers.FileHeader.TimeDateStamp == time_date_stamp && nt_headers.OptionalHeader.CheckSum == checksum) {
 		return true;
 	}
+	printf("apex(%u) Gamedata mismatch! Please update the offsets.\n", pid);
 
 	// Wait a minute to give the game a chance to decrypt itself
+	printf("apex(%u) Proceeding to dump the game executable in ~1 minute.\n", pid);
 	sleep(1000 * 60);
 
 	// Dump the game binary from memory
@@ -135,9 +155,9 @@ bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) con
 		auto pnt_headers = reinterpret_cast<PIMAGE_NT_HEADERS64>(target.get() + dos_header.e_lfanew);
 		auto section_headers = reinterpret_cast<PIMAGE_SECTION_HEADER>(
 			target.get() +
-			dos_header.e_lfanew +
-			FIELD_OFFSET(IMAGE_NT_HEADERS, OptionalHeader) +
-			nt_headers.FileHeader.SizeOfOptionalHeader);
+			static_cast<size_t>(dos_header.e_lfanew) +
+			static_cast<size_t>(FIELD_OFFSET(IMAGE_NT_HEADERS, OptionalHeader)) +
+			static_cast<size_t>(nt_headers.FileHeader.SizeOfOptionalHeader));
 		for (size_t i = 0; i < nt_headers.FileHeader.NumberOfSections; i += 1) {
 			auto& section = section_headers[i];
 			// Rewrite the file offsets to the virtual addresses
@@ -162,6 +182,10 @@ bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) con
 		else {
 			printf("apex(%u) Error writing r5apex.dump: %u\n", pid, GetLastError());
 		}
+		printf("apex(%u) Wrote r5apex.dump!\n", pid);
+	}
+	else {
+		printf("apex(%u) Error reading the image from memory!\n", pid);
 	}
 
 	return false;
