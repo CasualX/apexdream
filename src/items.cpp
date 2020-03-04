@@ -74,6 +74,8 @@ const char* item_str(ItemID item) {
 		case ItemID::GOLD_P2020: return "GOLD_P2020";
 		case ItemID::RE45: return "RE45";
 		case ItemID::GOLD_RE45: return "GOLD_RE45";
+		case ItemID::SENTINEL: return "SENTINEL";
+		case ItemID::GOLD_SENTINEL: return "GOLD_SENTINEL";
 
 		case ItemID::LIGHT_ROUNDS: return "LIGHT_ROUNDS";
 		case ItemID::ENERGY_AMMO: return "ENERGY_AMMO";
@@ -96,6 +98,10 @@ const char* item_str(ItemID item) {
 		case ItemID::BODY_ARMOR_LV2: return "BODY_ARMOR_LV2";
 		case ItemID::BODY_ARMOR_LV3: return "BODY_ARMOR_LV3";
 		case ItemID::BODY_ARMOR_LV4: return "BODY_ARMOR_LV4";
+		case ItemID::EVO_SHIELD_LV1: return "EVO_SHIELD_LV1";
+		case ItemID::EVO_SHIELD_LV2: return "EVO_SHIELD_LV2";
+		case ItemID::EVO_SHIELD_LV3: return "EVO_SHIELD_LV3";
+		case ItemID::EVO_SHIELD_LV4: return "EVO_SHIELD_LV4";
 		case ItemID::KNOCKDOWN_SHIELD_LV1: return "KNOCKDOWN_SHIELD_LV1";
 		case ItemID::KNOCKDOWN_SHIELD_LV2: return "KNOCKDOWN_SHIELD_LV2";
 		case ItemID::KNOCKDOWN_SHIELD_LV3: return "KNOCKDOWN_SHIELD_LV3";
@@ -192,6 +198,8 @@ Rarity item_rarity(ItemID item) {
 	case ItemID::GOLD_P2020: return Rarity::Legendary;
 	case ItemID::RE45: return Rarity::Common;
 	case ItemID::GOLD_RE45: return Rarity::Legendary;
+	case ItemID::SENTINEL: return Rarity::Common;
+	case ItemID::GOLD_SENTINEL: return Rarity::Legendary;
 
 	case ItemID::LIGHT_ROUNDS: return Rarity::Rare;
 	case ItemID::ENERGY_AMMO: return Rarity::Rare;
@@ -214,6 +222,10 @@ Rarity item_rarity(ItemID item) {
 	case ItemID::BODY_ARMOR_LV2: return Rarity::Rare;
 	case ItemID::BODY_ARMOR_LV3: return Rarity::Epic;
 	case ItemID::BODY_ARMOR_LV4: return Rarity::Legendary;
+	case ItemID::EVO_SHIELD_LV1: return Rarity::Common;
+	case ItemID::EVO_SHIELD_LV2: return Rarity::Rare;
+	case ItemID::EVO_SHIELD_LV3: return Rarity::Epic;
+	case ItemID::EVO_SHIELD_LV4: return Rarity::Legendary;
 	case ItemID::KNOCKDOWN_SHIELD_LV1: return Rarity::Common;
 	case ItemID::KNOCKDOWN_SHIELD_LV2: return Rarity::Rare;
 	case ItemID::KNOCKDOWN_SHIELD_LV3: return Rarity::Epic;

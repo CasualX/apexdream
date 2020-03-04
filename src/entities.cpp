@@ -132,6 +132,7 @@ ItemSet PlayerEntity::get_desired_items() const {
 		set |= item_flag(ItemID::BODY_ARMOR_LV2);
 	}
 	set |= item_flag(ItemID::BODY_ARMOR_LV3) | item_flag(ItemID::BODY_ARMOR_LV4);
+	set |= item_flag(ItemID::EVO_SHIELD_LV1) | item_flag(ItemID::EVO_SHIELD_LV2) | item_flag(ItemID::EVO_SHIELD_LV3) | item_flag(ItemID::EVO_SHIELD_LV4);
 
 	return set;
 }
