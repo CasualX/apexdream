@@ -39,21 +39,25 @@ const char* rarity_str(Rarity rarity) {
 const char* item_str(ItemID item) {
 	switch (item) {
 		case ItemID::GOLD_KRABER: return "GOLD_KRABER";
+		case ItemID::MASTIFF: return "MASTIFF";
 		case ItemID::GOLD_MASTIFF: return "GOLD_MASTIFF";
 		case ItemID::LSTAR: return "LSTAR";
+		case ItemID::GOLD_LSTAR: return "GOLD_LSTAR";
 		case ItemID::HAVOC: return "HAVOC";
 		case ItemID::GOLD_HAVOC: return "GOLD_HAVOC";
-		case ItemID::DEVOTION: return "DEVOTION";
+		case ItemID::GOLD_DEVOTION: return "GOLD_DEVOTION";
 		case ItemID::TRIPLE_TAKE: return "TRIPLE_TAKE";
 		case ItemID::GOLD_TRIPLE_TAKE: return "GOLD_TRIPLE_TAKE";
 		case ItemID::FLATLINE: return "FLATLINE";
 		case ItemID::GOLD_FLATLINE: return "GOLD_FLATLINE";
 		case ItemID::HEMLOCK: return "HEMLOCK";
+		case ItemID::GOLD_HEMLOCK: return "GOLD_HEMLOCK";
 		case ItemID::G7_SCOUT: return "G7_SCOUT";
 		case ItemID::GOLD_G7_SCOUT: return "GOLD_G7_SCOUT";
 		case ItemID::ALTERNATOR: return "ALTERNATOR";
 		case ItemID::GOLD_ALTERNATOR: return "GOLD_ALTERNATOR";
 		case ItemID::R99: return "R99";
+		case ItemID::GOLD_R99: return "GOLD_R99";
 		case ItemID::PROWLER: return "PROWLER";
 		case ItemID::GOLD_PROWLER: return "GOLD_PROWLER";
 		case ItemID::LONGBOW: return "LONGBOW";
@@ -61,10 +65,11 @@ const char* item_str(ItemID item) {
 		case ItemID::CHARGE_RIFLE: return "CHARGE_RIFLE";
 		case ItemID::GOLD_CHARGE_RIFLE: return "GOLD_CHARGE_RIFLE";
 		case ItemID::SPITFIRE: return "SPITFIRE";
+		case ItemID::GOLD_SPITFIRE: return "GOLD_SPITFIRE";
 		case ItemID::R301: return "R301";
 		case ItemID::GOLD_R301: return "GOLD_R301";
 		case ItemID::EVA8_AUTO: return "EVA8_AUTO";
-		case ItemID::PEACEKEEPER: return "PEACEKEEPER";
+		case ItemID::GOLD_EVA8_AUTO: return "GOLD_EVA8_AUTO";
 		case ItemID::GOLD_PEACEKEEPER: return "GOLD_PEACEKEEPER";
 		case ItemID::MOZAMBIQUE: return "MOZAMBIQUE";
 		case ItemID::GOLD_MOZAMBIQUE: return "GOLD_MOZAMBIQUE";
@@ -151,8 +156,8 @@ const char* item_str(ItemID item) {
 
 		case ItemID::SELECTFIRE_RECEIVER: return "SELECTFIRE_RECEIVER";
 		case ItemID::PRECISION_CHOKE: return "PRECISION_CHOKE";
+		case ItemID::SKULLPIERCER_RIFLING: return "SKULLPIERCER_RIFLING";
 		case ItemID::HAMMERPOINT_ROUNDS: return "HAMMERPOINT_ROUNDS";
-		case ItemID::ANVIL_RECEIVER: return "ANVIL_RECEIVER";
 		case ItemID::DOUBLE_TAP_TRIGGER: return "DOUBLE_TAP_TRIGGER";
 		case ItemID::VAULT_KEY: return "VAULT_KEY";
 
@@ -163,21 +168,25 @@ const char* item_str(ItemID item) {
 Rarity item_rarity(ItemID item) {
 	switch (item) {
 	case ItemID::GOLD_KRABER: return Rarity::Legendary;
+	case ItemID::MASTIFF: return Rarity::Common;
 	case ItemID::GOLD_MASTIFF: return Rarity::Legendary;
 	case ItemID::LSTAR: return Rarity::Common;
+	case ItemID::GOLD_LSTAR: return Rarity::Legendary;
 	case ItemID::HAVOC: return Rarity::Common;
 	case ItemID::GOLD_HAVOC: return Rarity::Legendary;
-	case ItemID::DEVOTION: return Rarity::Common;
+	case ItemID::GOLD_DEVOTION: return Rarity::Legendary;
 	case ItemID::TRIPLE_TAKE: return Rarity::Common;
 	case ItemID::GOLD_TRIPLE_TAKE: return Rarity::Legendary;
 	case ItemID::FLATLINE: return Rarity::Common;
 	case ItemID::GOLD_FLATLINE: return Rarity::Legendary;
 	case ItemID::HEMLOCK: return Rarity::Common;
+	case ItemID::GOLD_HEMLOCK: return Rarity::Legendary;
 	case ItemID::G7_SCOUT: return Rarity::Common;
 	case ItemID::GOLD_G7_SCOUT: return Rarity::Legendary;
 	case ItemID::ALTERNATOR: return Rarity::Common;
 	case ItemID::GOLD_ALTERNATOR: return Rarity::Legendary;
 	case ItemID::R99: return Rarity::Common;
+	case ItemID::GOLD_R99: return Rarity::Legendary;
 	case ItemID::PROWLER: return Rarity::Common;
 	case ItemID::GOLD_PROWLER: return Rarity::Legendary;
 	case ItemID::LONGBOW: return Rarity::Common;
@@ -185,10 +194,11 @@ Rarity item_rarity(ItemID item) {
 	case ItemID::CHARGE_RIFLE: return Rarity::Common;
 	case ItemID::GOLD_CHARGE_RIFLE: return Rarity::Legendary;
 	case ItemID::SPITFIRE: return Rarity::Common;
+	case ItemID::GOLD_SPITFIRE: return Rarity::Legendary;
 	case ItemID::R301: return Rarity::Common;
 	case ItemID::GOLD_R301: return Rarity::Legendary;
 	case ItemID::EVA8_AUTO: return Rarity::Common;
-	case ItemID::PEACEKEEPER: return Rarity::Common;
+	case ItemID::GOLD_EVA8_AUTO: return Rarity::Legendary;
 	case ItemID::GOLD_PEACEKEEPER: return Rarity::Legendary;
 	case ItemID::MOZAMBIQUE: return Rarity::Common;
 	case ItemID::GOLD_MOZAMBIQUE: return Rarity::Legendary;
@@ -275,8 +285,8 @@ Rarity item_rarity(ItemID item) {
 
 	case ItemID::SELECTFIRE_RECEIVER: return Rarity::Epic;
 	case ItemID::PRECISION_CHOKE: return Rarity::Epic;
+	case ItemID::SKULLPIERCER_RIFLING: return Rarity::Legendary;
 	case ItemID::HAMMERPOINT_ROUNDS: return Rarity::Epic;
-	case ItemID::ANVIL_RECEIVER: return Rarity::Legendary;
 	case ItemID::DOUBLE_TAP_TRIGGER: return Rarity::Epic;
 	case ItemID::VAULT_KEY: return Rarity::Special;
 
@@ -391,8 +401,8 @@ ItemSet weapon_set(WeaponID weapon) {
 		// Legendary weapons
 
 		case WeaponID::KRABER: return ItemSet();
-		case WeaponID::MASTIFF: return ItemSet();
 		case WeaponID::DEVOTION: return ItemSet();
+		case WeaponID::PEACEKEEPER: return ItemSet();
 
 		// Sniper weapons
 
@@ -412,7 +422,8 @@ ItemSet weapon_set(WeaponID weapon) {
 			BARREL_STABILIZER |
 			SNIPER_MAGAZINE |
 			SNIPER_OPTICS |
-			SNIPER_STOCK;
+			SNIPER_STOCK |
+			item_flag(ItemID::SKULLPIERCER_RIFLING);
 
 		case WeaponID::TRIPLE_TAKE: return
 			item_flag(ItemID::SNIPER_AMMO) |
@@ -426,7 +437,8 @@ ItemSet weapon_set(WeaponID weapon) {
 		case WeaponID::WINGMAN: return
 			item_flag(ItemID::HEAVY_ROUNDS) |
 			HEAVY_MAGAZINE |
-			PISTOL_OPTICS;
+			PISTOL_OPTICS |
+			item_flag(ItemID::SKULLPIERCER_RIFLING);
 
 		case WeaponID::SPITFIRE: return
 			item_flag(ItemID::HEAVY_ROUNDS) |
@@ -453,8 +465,7 @@ ItemSet weapon_set(WeaponID weapon) {
 			item_flag(ItemID::HEAVY_ROUNDS) |
 			HEAVY_MAGAZINE |
 			AR_OPTICS |
-			STANDARD_STOCK |
-			item_flag(ItemID::ANVIL_RECEIVER);
+			STANDARD_STOCK;
 
 		// Light weapons
 
@@ -475,8 +486,7 @@ ItemSet weapon_set(WeaponID weapon) {
 			BARREL_STABILIZER |
 			LIGHT_MAGAZINE |
 			AR_OPTICS |
-			STANDARD_STOCK |
-			item_flag(ItemID::ANVIL_RECEIVER);
+			STANDARD_STOCK;
 
 		case WeaponID::R99: return
 			item_flag(ItemID::LIGHT_ROUNDS) |
@@ -507,17 +517,16 @@ ItemSet weapon_set(WeaponID weapon) {
 			SHOTGUN_BOLT |
 			SHOTGUN_OPTICS;
 
-		case WeaponID::PEACEKEEPER: return
-			item_flag(ItemID::SHOTGUN_SHELLS) |
-			SHOTGUN_BOLT |
-			SHOTGUN_OPTICS |
-			item_flag(ItemID::PRECISION_CHOKE);
-
 		case WeaponID::EVA8_AUTO: return
 			item_flag(ItemID::SHOTGUN_SHELLS) |
 			SHOTGUN_BOLT |
 			SHOTGUN_OPTICS |
 			item_flag(ItemID::DOUBLE_TAP_TRIGGER);
+
+		case WeaponID::MASTIFF: return
+			item_flag(ItemID::SHOTGUN_SHELLS) |
+			SHOTGUN_BOLT |
+			SHOTGUN_OPTICS;
 
 		default: return ItemSet();
 	}
@@ -528,8 +537,8 @@ AmmoType weapon_ammo(WeaponID weapon) {
 		case WeaponID::LSTAR: return AmmoType::EnergyAmmo;
 
 		case WeaponID::KRABER: return AmmoType::SpecialHeavyRounds;
-		case WeaponID::MASTIFF: return AmmoType::SpecialShotgunShells;
 		case WeaponID::DEVOTION: return AmmoType::ExperimentalAmmo;
+		case WeaponID::PEACEKEEPER: return AmmoType::SpecialShotgunShells;
 
 		case WeaponID::SENTINEL: return AmmoType::SniperAmmo;
 		case WeaponID::CHARGE_RIFLE: return AmmoType::SniperAmmo;
@@ -550,8 +559,8 @@ AmmoType weapon_ammo(WeaponID weapon) {
 		case WeaponID::G7_SCOUT: return AmmoType::LightRounds;
 
 		case WeaponID::MOZAMBIQUE: return AmmoType::ShotgunShells;
-		case WeaponID::PEACEKEEPER: return AmmoType::ShotgunShells;
 		case WeaponID::EVA8_AUTO: return AmmoType::ShotgunShells;
+		case WeaponID::MASTIFF: return AmmoType::ShotgunShells;
 
 		default: return static_cast<AmmoType>(255);
 	}
