@@ -1,0 +1,8 @@
+[package]
+name = "apex-offsets-dumper"
+version = "1.0.0"
+edition = "2018"
+
+[dependencies]
+pelite = "0.8"
+format_xml = "0.1"

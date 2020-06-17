@@ -1,0 +1,8 @@
+Apex Legends Offset Dumper
+==========================
+
+The `r5apex.exe` binary on disk is encrypted and must be dumped from memory first.
+
+Simply run apexbot, if its offsets are not correct it'll dump the game for you instead. You'll find an `r5apex.bin` file in the current directory.
+
+From there you can dump its offsets with `cargo run --release -- "r5apex.bin" > stdout.md`. The script will analyze the dumped binary and extract its offsets. Use these offsets to update the cheat.

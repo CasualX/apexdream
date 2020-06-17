@@ -172,17 +172,17 @@ bool GameProcess::check_version(uint32_t time_date_stamp, uint32_t checksum) con
 			}
 		}
 
-		const auto dump_file = CreateFileW(L"r5apex.dump", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
+		const auto dump_file = CreateFileW(L"r5apex.bin", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_COMPRESSED, NULL);
 		if (dump_file != INVALID_HANDLE_VALUE) {
 			if (!WriteFile(dump_file, target.get(), static_cast<DWORD>(target_len), NULL, NULL)) {
-				printf("apex(%u) Error writing r5apex.dump: %u\n", pid, GetLastError());
+				printf("apex(%u) Error writing r5apex.bin: %u\n", pid, GetLastError());
 			}
 			CloseHandle(dump_file);
 		}
 		else {
-			printf("apex(%u) Error writing r5apex.dump: %u\n", pid, GetLastError());
+			printf("apex(%u) Error writing r5apex.bin: %u\n", pid, GetLastError());
 		}
-		printf("apex(%u) Wrote r5apex.dump!\n", pid);
+		printf("apex(%u) Wrote r5apex.bin!\n", pid);
 	}
 	else {
 		printf("apex(%u) Error reading the image from memory!\n", pid);

@@ -6,8 +6,8 @@ class GameData {
 public:
 	GameData() = default;
 
-	uint32_t time_date_stamp = 0x5eb4f980;
-	uint32_t checksum = 0x1e59bde;
+	uint32_t time_date_stamp = 0x5ebb3355;
+	uint32_t checksum = 0x1e5802e;
 
 	uint32_t client_state = 0x111c190;
 	uint32_t client_signon_state = 0x0098;
