@@ -1,10 +1,11 @@
+use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 
 pub fn print(bin: PeFile, dll_name: &str) {
 	let globals = globals(bin);
 
-	tprint! {
+	template::print! {
 		"## Globals\n\n"
 		"List of global variables with an associated vtable and their type name.\n\n"
 		"```\n"

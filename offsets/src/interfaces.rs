@@ -1,4 +1,4 @@
-
+use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::pattern as pat;
@@ -6,7 +6,7 @@ use pelite::pattern as pat;
 pub fn print(bin: PeFile, dll_name: &str) {
 	let ifaces = interfaces(bin);
 
-	tprint! {
+	template::print! {
 		"## Interfaces\n\n"
 		"```\n"
 		for iface in (&ifaces) {

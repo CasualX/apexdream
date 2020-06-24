@@ -1,3 +1,4 @@
+use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
@@ -6,7 +7,7 @@ use pelite::pattern as pat;
 pub fn print(bin: PeFile, dll_name: &str) {
 	let cvars = convars(bin);
 
-	tprint! {
+	template::print! {
 		"## ConVars\n\n"
 		for cvar in (&cvars) {
 			"<details>\n"

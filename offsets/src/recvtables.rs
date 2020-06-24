@@ -1,13 +1,13 @@
-use std::{fmt, mem};
-
+use format_xml::template;
 use pelite::pe64::*;
 use pelite::pattern as pat;
 use pelite::{Pod, util::CStr};
+use std::{fmt, mem};
 
 pub fn print(bin: PeFile, _dll_name: &str) {
 	let tables = tables(bin);
 
-	tprint! {
+	template::print! {
 		"## RecvTables\n\n"
 		for table in (&tables) {
 			"<details>\n"
@@ -16,11 +16,11 @@ pub fn print(bin: PeFile, _dll_name: &str) {
 				" extends "{base}
 			}
 			"</code></summary>\n\n"
-			"```\n{{\n"
+			"```\n{\n"
 			for prop in (&table.props) {
 				"\t"{prop.name}": "{prop.ty}",\n"
 			}
-			"}}\n```\n\n"
+			"}\n```\n\n"
 			"### Offsets\n\n"
 			"```\n"
 			for prop in (&table.props) {

@@ -5,4 +5,4 @@ edition = "2018"
 
 [dependencies]
 pelite = "0.8"
-format_xml = "0.1"
+format_xml = "0.1.5"

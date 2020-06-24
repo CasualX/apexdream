@@ -1,4 +1,4 @@
-
+use format_xml::template;
 use pelite;
 use pelite::pe64::{Va, Ptr, Pe, PeFile};
 use pelite::{util::CStr, Pod};
@@ -9,7 +9,7 @@ use pelite::pattern as pat;
 pub fn print(bin: PeFile, dll_name: &str) {
 	let classes = classes(bin);
 
-	tprint! {
+	template::print! {
 		"## ClientClasses\n\n"
 		for cls in (&classes) {
 			"<details>\n"

@@ -6,6 +6,7 @@ From the Source SDK 2013: https://github.com/ValveSoftware/source-sdk-2013/blob/
 
  */
 
+use format_xml::template;
 use pelite::Pod;
 use pelite::pattern as pat;
 use pelite::pe64::*;
@@ -13,7 +14,7 @@ use pelite::pe64::*;
 pub fn print(bin: PeFile<'_>, dll_name: &str) {
 	let btns = buttons(bin);
 
-	tprint! {
+	template::print! {
 		"## Buttons\n\n"
 		"These are addresses to global instances of the [`kbutton_t`](https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/client/kbutton.h#L14-L20) struct.\n\n"
 		"```\n"

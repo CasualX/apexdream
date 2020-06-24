@@ -44,7 +44,7 @@ fn entity_list(bin: PeFile<'_>, dll_name: &str) {
 
 fn local_entity_handle(bin: PeFile<'_>, dll_name: &str) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("833D${?'}FF 74? 0FB70D${'} 0FB705${'}"), &mut save) {
+	if bin.scanner().matches_code(pat!("833D${?'}FF 74? 0FB70D${'} 0FB705${'}")).next(&mut save) {
 		let local_entity_handle = save[1];
 		println!("{}!{:#x} LocalEntityHandle", dll_name, local_entity_handle);
 	}
@@ -56,7 +56,7 @@ fn local_entity_handle(bin: PeFile<'_>, dll_name: &str) {
 fn local_player(bin: PeFile<'_>, dll_name: &str) {
 	// The global instance of C_GameMovement contains as its first member a pointer to local player right after its vtable.
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("48 89 05 ${[8]'} 48 85 C9 74 0D"), &mut save) {
+	if bin.scanner().finds_code(pat!("48 89 05 ${[8]'} 48 85 C9 74 % 48 8D 05"), &mut save) {
 		let local_player_ptr = save[1];
 			println!("{}!{:#x} LocalPlayer", dll_name, local_player_ptr);
 	}
@@ -69,7 +69,7 @@ fn global_vars(bin: PeFile<'_>, dll_name: &str) {
 	// Right above "Client.dll Init_PostVideo() in library "
 	// lea r8, qword_XXX
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B01 4C8D05${'} [17] $\"Client.dll Init_PostVideo\""), &mut save) {
+	if bin.scanner().finds_code(pat!("488B01 4C8D05${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
 		let global_vars = save[1];
 		println!("{}!{:#x} GlobalVars", dll_name, global_vars);
 	}
@@ -82,7 +82,7 @@ fn player_resource(bin: PeFile<'_>, dll_name: &str) {
 	// References "#UNCONNECTED_PLAYER_NAME" and the C_PlayerResource vtable
 	// At the very end of the constructor assigns this to global variable
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B6C24? 488BC3 48891D$'"), &mut save) {
+	if bin.scanner().finds_code(pat!("4883EA01 0F85???? [8] 4889?$'"), &mut save) {
 		let player_resource = save[1];
 		println!("{}!{:#x} PlayerResources", dll_name, player_resource);
 	}
@@ -105,7 +105,7 @@ fn game_version(bin: PeFile<'_>) {
 
 fn view_render(bin: PeFile<'_>, dll_name: &str) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("74 34 48 8B 0D ${'} 40 0F B6 D7"), &mut save) {
+	if bin.scanner().finds_code(pat!(/*"74 34 48 8B 0D ${'} 40 0F B6 D7"*/ "4C 8B 05 ${'} 48 8D 15 $ [24]* 48 C7"), &mut save) {
 		let view_render = save[1];
 		print!("{}!{:#x} ViewRender", dll_name, view_render);
 	}
@@ -125,7 +125,7 @@ fn view_render(bin: PeFile<'_>, dll_name: &str) {
 fn client_state(bin: PeFile<'_>, dll_name: &str) {
 	let mut save = [0; 4];
 	// Address of global CClientState instance
-	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} 488D0D$'"), &mut save) {
+	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} (???75%|) 488D0D$'"), &mut save) {
 		let client_state = save[1];
 		println!("{}!{:#x} ClientState", dll_name, client_state);
 	}

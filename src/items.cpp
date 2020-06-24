@@ -160,6 +160,8 @@ const char* item_str(ItemID item) {
 		case ItemID::HAMMERPOINT_ROUNDS: return "HAMMERPOINT_ROUNDS";
 		case ItemID::DOUBLE_TAP_TRIGGER: return "DOUBLE_TAP_TRIGGER";
 		case ItemID::VAULT_KEY: return "VAULT_KEY";
+		case ItemID::MOBILE_RESPAWN_BEACON: return "MOBILE_RESPAWN_BEACON";
+		case ItemID::TREASURE_PACK: return "TREASURE_PACK";
 
 		default: return nullptr;
 	}

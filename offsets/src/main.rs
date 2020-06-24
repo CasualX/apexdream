@@ -2,12 +2,6 @@
 use std::env;
 use std::path::PathBuf;
 
-macro_rules! tprint {
-	($($tt:tt)*) => {
-		print!("{}", format_xml::template!{$($tt)*});
-	};
-}
-
 fn parse_arg() -> Option<PathBuf> {
 	let mut args_os = env::args_os();
 	args_os.next();

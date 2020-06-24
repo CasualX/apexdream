@@ -1,14 +1,14 @@
-use std::mem;
-
+use format_xml::template;
 use pelite;
 use pelite::pattern as pat;
 use pelite::{Pod, util::CStr};
 use pelite::pe64::*;
+use std::mem;
 
 pub fn print(bin: PeFile<'_>, _dll_name: &str) {
 	let datamaps = datamaps(bin);
 
-	tprint! {
+	template::print! {
 		"## Datamaps\n\n"
 		for datamap in (&datamaps) {
 			"<details>\n"
@@ -17,11 +17,11 @@ pub fn print(bin: PeFile<'_>, _dll_name: &str) {
 				" extends "{base}
 			}
 			"</code></summary>\n\n"
-			"```\n{{\n"
+			"```\n{\n"
 			for field in (&datamap.fields) {
 				"\t"{field.name}": "{field.ty}",\n"
 			}
-			"}}\n```\n\n"
+			"}\n```\n\n"
 			"### Offsets\n\n"
 			"```\n"
 			for field in (&datamap.fields) {

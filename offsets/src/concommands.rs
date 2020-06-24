@@ -1,3 +1,4 @@
+use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
@@ -6,7 +7,7 @@ use pelite::pattern as pat;
 pub fn print(bin: PeFile, dll_name: &str) {
 	let cmds = concommands(bin);
 
-	tprint! {
+	template::print! {
 		"## ConCommands\n\n"
 		for cmd in (&cmds) {
 			"<details>\n"
@@ -62,7 +63,7 @@ pub fn concommands(bin: PeFile<'_>) -> Vec<ConCommand<'_>> {
 	let mut concommands = Vec::new();
 	let mut save = [0; 4];
 	// Find the ConCommand vtable
-	if !bin.scanner().finds_code(pat!("8D?${'} 33FF ?89????? ?8D"), &mut save) {
+	if !bin.scanner().finds_code(pat!("8D?${'} 33FF ?891D???? ?8D"), &mut save) {
 		eprintln!("ERR: unable to find ConCommand vftable");
 		return concommands;
 	}
