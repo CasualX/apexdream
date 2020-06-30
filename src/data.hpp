@@ -6,22 +6,22 @@ class GameData {
 public:
 	GameData() = default;
 
-	uint32_t time_date_stamp = 0x5ee977b0;
-	uint32_t checksum = 0x1e5a811;
+	uint32_t time_date_stamp = 0x5ef50a80;
+	uint32_t checksum = 0x1e60c36;
 
 	uint32_t client_state = 0x1115220;
 	uint32_t client_signon_state = 0x0098;
 	uint32_t client_level_name = 0x01b0;
 
-	uint32_t view_render = 0x3f5a970;
+	uint32_t view_render = 0x3f5a9f8;
 	uint32_t view_matrix = 0x1b3bd0;
 	uint32_t global_vars = 0x1114f20;
 
 	uint32_t input_system = 0x01185e80;
 	uint32_t input_button_state = 0xb0;
 
-	uint32_t in_attack = 0x03f5d218;
-	uint32_t in_jump = 0x03f5d290;
+	uint32_t in_attack = 0x03f5d298;
+	uint32_t in_jump = 0x03f5d310;
 
 	uint32_t local_entity = 0x104451c;
 	uint32_t entity_list = 0x175dc28;
@@ -56,7 +56,7 @@ public:
 
 	uint32_t prop_survival = 0x1544;
 
-	uint32_t player_resources = 0x3f5a9a0;
+	uint32_t player_resources = 0x3f5aa28;
 	uint32_t player_resource_names = 0x0a00;
 
 	uint32_t world_death_field = 0x0a40;
