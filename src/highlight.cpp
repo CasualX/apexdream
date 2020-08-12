@@ -54,6 +54,10 @@ void Highlight::highlight_player(GameContext& ctx, const PlayerEntity* player, c
 	if (local && local->team_num == player->team_num) {
 		return;
 	}
+	// Ghettofix for glow crash while in the plane
+	if (local->origin.z > 14000.0) {
+		return;
+	}
 	// Brightness and dim if the player is downed
 	float mult = config.brightness / 255.0f;
 	if (player->is_downed()) {
