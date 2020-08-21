@@ -28,13 +28,20 @@ struct AimAssistConfig {
 // Target priority by rank.
 enum class Rank {
 	// Downed players are still targetted but at a lower priority.
-	Downed,
+	Low,
 	// Regular players are always targetted before downed players.
-	Player,
+	Normal,
 };
 
 // This structures represents intermediate data calculated when validating a target.
 struct TargetInfo {
+	// Target origin in the world.
+	Vec3 origin;
+	// Target velocity for linear prediction.
+	Vec3 velocity;
+	// Target bone position in the world we're trying to hit.
+	Vec3 bone_pos;
+
 	// Position in the world we're trying to aim at.
 	Vec3 hit;
 	// Aim angle required to hit the position we're trying to shoot.
@@ -43,12 +50,15 @@ struct TargetInfo {
 	float distance;
 	// Projectile travel time required to hit the target.
 	float time;
+
 	// Delta angle from local player's current viewangles to the target.
 	float angle;
 	// Delta pitch and yaw in individual components.
 	float pitch, yaw;
+
 	// Priority calculated for this target.
 	float priority;
+
 	// Rank given for this target.
 	Rank rank;
 };
@@ -62,13 +72,14 @@ public:
 	void track(GameContext& ctx, const PlayerEntity* local);
 
 	// Finds a target to aim at, returns nullptr if no valid target was found.
-	const PlayerEntity* find_target(GameContext& ctx, const PlayerEntity* local);
+	const BaseEntity* find_target(const GameState& state, const PlayerEntity* local);
 
 	// Checks if this target is valid to aim at.
-	bool validate(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
-	bool rules(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
-	bool compute(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
-	bool fov_check(GameContext& ctx, const PlayerEntity* local, const PlayerEntity* target, TargetInfo& info) const;
+	bool validate(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
+	bool rules(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
+	bool hitpoint(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
+	bool compute(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
+	bool fov_check(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
 
 	// Gets the aim fov.
 	float get_fov() const;

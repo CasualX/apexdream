@@ -285,8 +285,8 @@ Rarity item_rarity(ItemID item) {
 	case ItemID::SNIPER_STOCK_LV2: return Rarity::Rare;
 	case ItemID::SNIPER_STOCK_LV3: return Rarity::Epic;
 
+	case ItemID::TURBOCHARGER: return Rarity::Legendary;
 	case ItemID::SELECTFIRE_RECEIVER: return Rarity::Epic;
-	case ItemID::PRECISION_CHOKE: return Rarity::Epic;
 	case ItemID::SKULLPIERCER_RIFLING: return Rarity::Legendary;
 	case ItemID::HAMMERPOINT_ROUNDS: return Rarity::Epic;
 	case ItemID::DOUBLE_TAP_TRIGGER: return Rarity::Epic;

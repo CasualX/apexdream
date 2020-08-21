@@ -8,13 +8,12 @@
 #include <memory>
 
 class GameProcess;
-class GameData;
 
 class BaseEntity {
 public:
 	explicit BaseEntity(uint64_t address);
 	virtual ~BaseEntity() = default;
-	virtual void update(const GameProcess& process, const GameData& data) = 0;
+	virtual void update(const GameProcess& process) = 0;
 public:
 	uint64_t address;
 	EHandle handle;
@@ -24,7 +23,7 @@ class PlayerEntity : public BaseEntity {
 public:
 	explicit PlayerEntity(uint64_t entity_ptr);
 
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 	inline bool is_onground() const {
 		return (flags & 0x1) != 0;
@@ -42,12 +41,15 @@ public:
 		return latest_primary_weapons[0];
 	}
 	Vec3 get_bone_pos(size_t bone) const;
+	bool is_visible(float curtime) const;
 	ItemSet get_desired_items() const;
 
 public:
 	Vec3 origin;
 	Vec3 angles;
 	Vec3 velocity;
+
+	EHandle ground_entity;
 
 	int32_t health, max_health;
 	int32_t shields, max_shields;
@@ -66,6 +68,8 @@ public:
 	int32_t observer_mode;
 	EHandle observer_target;
 
+	float last_visible_time;
+
 	bool zooming;
 	float zoom_base_frac;
 	float zoom_base_time;
@@ -79,21 +83,23 @@ public:
 class BaseNPCEntity : public BaseEntity {
 public:
 	explicit BaseNPCEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 	Vec3 get_bone_pos(size_t bone) const;
+	bool is_visible(float curtime) const;
 
 public:
 	Vec3 origin;
 	Vec3 angles;
 	std::string model_name;
 	std::unique_ptr<Mat3x4[]> bones;
+	float last_visible_time;
 };
 
 class WeaponXEntity : public BaseEntity, public ProjectileWeapon {
 public:
 	explicit WeaponXEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 	float get_projectile_speed() const;
 	float get_projectile_gravity() const;
@@ -113,7 +119,7 @@ public:
 class PropSurvivalEntity : public BaseEntity {
 public:
 	explicit PropSurvivalEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 public:
 	Vec3 origin;
@@ -127,7 +133,7 @@ public:
 class PlayerResourceEntity : public BaseEntity {
 public:
 	explicit PlayerResourceEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 	// Gets the name of a player.
 	const char* get_name(size_t index) const;
@@ -139,7 +145,7 @@ public:
 class WorldEntity : public BaseEntity {
 public:
 	explicit WorldEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process, const GameData& data) override;
+	void update(const GameProcess& process) override;
 
 	// Returns the radius of the death field.
 	float death_field_radius(float curtime) const;

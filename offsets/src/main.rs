@@ -30,6 +30,7 @@ mod kbuttons;
 mod convars;
 mod concommands;
 mod globals;
+mod string_tables;
 
 fn parse(image: &[u8]) {
 	use pelite::pe64::*;
@@ -37,6 +38,7 @@ fn parse(image: &[u8]) {
 	let dll_name = bin.exports().unwrap().dll_name().unwrap().to_str().unwrap();
 	interfaces::print(bin, dll_name);
 	misc::print(bin, dll_name);
+	string_tables::print(bin, dll_name);
 	kbuttons::print(bin, dll_name);
 	classes::print(bin, dll_name);
 	recvtables::print(bin, dll_name);

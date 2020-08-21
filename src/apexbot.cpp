@@ -13,20 +13,19 @@ void apexbot(uint32_t pid) {
 		return;
 	}
 	// Initialize the game's offsets data
-	static const GameData data{};
 	// Check if the offsets are valid for this game version
-	if (process.check_version(data.time_date_stamp, data.checksum)) {
+	if (process.check_version(data::TIME_DATE_STAMP, data::CHECKSUM)) {
 		GameState state{};
 		CheatManager cheats{};
 		Config config{};
 		// The heart of the cheat is simple, repeat until the process dies
 		while (process.heartbeat()) {
 			// Update our copy of the game state
-			state.update(process, data);
+			state.update(process);
 			// Reload the weapon config
 			config.run(state, cheats);
 			// Run the cheat modules
-			GameContext ctx{process, data, state};
+			GameContext ctx{process, state};
 			ctx.pre();
 			cheats.run(ctx);
 			ctx.post();

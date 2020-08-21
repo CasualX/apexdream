@@ -73,9 +73,9 @@ void Highlight::highlight_player(GameContext& ctx, const PlayerEntity* player, c
 	static const float TIMES[7] = { INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY, INFINITY };
 	// Write the highlight params
 	if (ctx.entity_check(player->handle, player->address)) {
-		ctx.process.write<bool>(player->address + ctx.data.highlight_enable, true);
-		ctx.process.write<int32_t>(player->address + ctx.data.highlight_index, 1);
-		ctx.process.write(player->address + ctx.data.highlight_color, color);
-		ctx.process.write(player->address + ctx.data.highlight_fade, TIMES);
+		ctx.process.write<bool>(player->address + data::highlight_enable, true);
+		ctx.process.write<int32_t>(player->address + data::highlight_index, 1);
+		ctx.process.write(player->address + data::highlight_color, color);
+		ctx.process.write(player->address + data::highlight_fade, TIMES);
 	}
 }

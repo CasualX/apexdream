@@ -4,5 +4,6 @@ version = "1.0.0"
 edition = "2018"
 
 [dependencies]
-pelite = "0.8"
+pelite = { git = "https://github.com/CasualX/pelite" }
 format_xml = "0.1.5"
+dataview = "0.1"

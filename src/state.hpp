@@ -2,18 +2,19 @@
 
 #include "entities.hpp"
 #include "sdk.hpp"
+#include "hash.hpp"
 
 #include <cstring>
 #include <memory>
+#include <vector>
 
 class GameProcess;
-class GameData;
 
 class GameState {
 public:
 	GameState();
 
-	void update(const GameProcess& process, const GameData& data);
+	void update(const GameProcess& process);
 
 	std::unique_ptr<BaseEntity> create_entity(const GameProcess& process, uint32_t index, uint64_t entity_ptr);
 
@@ -42,9 +43,13 @@ public:
 	inline const TEntity* get_entity(EHandle handle) const {
 		return handle.is_valid() ? dynamic_cast<const TEntity*>(entities[handle.index()].get()) : nullptr;
 	}
+	inline uint32_t weapon_name(uint32_t weapon_name_index) const {
+		return weapon_name_index < weapon_names.size() ? hash(weapon_names[weapon_name_index].c_str()) : 0;
+	}
 
 public:
 	SignonState signon_state;
+	bool connected;
 	char level_buffer[0x40];
 	EHandle local_entity;
 	EHandle resources_entity;
@@ -55,4 +60,5 @@ public:
 	std::unique_ptr<std::unique_ptr<BaseEntity>[]> entities;
 	std::unique_ptr<CEntInfo[]> ent_info;
 	std::unique_ptr<CEntInfo[]> prev_info;
+	std::vector<std::string> weapon_names;
 };

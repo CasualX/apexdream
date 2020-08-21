@@ -5,7 +5,6 @@
 #include <cstdint>
 
 class GameProcess;
-class GameData;
 class GameState;
 
 // Controls the game's state of kbutton_t instance.
@@ -29,7 +28,7 @@ struct InState {
 // The game context groups data together to make it convenient to pass around.
 class GameContext {
 public:
-	GameContext(const GameProcess& process, const GameData& data, const GameState& state);
+	GameContext(const GameProcess& process, const GameState& state);
 	void pre();
 	void post();
 
@@ -39,7 +38,6 @@ public:
 
 public:
 	const GameProcess& process;
-	const GameData& data;
 	const GameState& state;
 	double time;
 

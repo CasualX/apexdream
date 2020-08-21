@@ -121,8 +121,8 @@ struct Mat3x4 {
 
 union FloatInt {
 	float f32;
-	int32_t i32;
-	uint32_t u32;
+	int32_t int32_t;
+	uint32_t uint32_t;
 	uint8_t bytes[4];
 };
 
@@ -134,4 +134,48 @@ struct EHandle {
 
 	inline bool is_valid() const { return value != 0xffffffff; }
 	inline size_t index() const { return value & static_cast<uint32_t>(NUM_ENT_ENTRIES - 1); }
+};
+
+struct CNetStringTableItem {
+	/*0x00*/ uint64_t unk00;
+	/*0x08*/ uint64_t unk08;
+	/*0x10*/ uint64_t string;
+	/*0x18*/ uint64_t unk18;
+	/*0x20*/ uint64_t unk20;
+	/*0x28*/ uint64_t unk28;
+	/*0x30*/ uint64_t unk30;
+	/*0x38*/ uint64_t unk38;
+	/*0x40*/ uint64_t unk40;
+};
+struct CNetStringDict {
+	/*0x00*/ uint64_t vtable;
+	/*0x08*/ uint64_t _unk08;
+	/*0x10*/ uint64_t _unk10;
+	/*0x18*/ uint64_t elements;
+	/*0x20*/ uint16_t allocation_count;
+	/*0x22*/ uint16_t grow_size;
+	/*0x24*/ uint32_t _unk24;
+	/*0x28*/ uint64_t _unk28;
+	/*0x30*/ uint16_t _unk30;
+	/*0x32*/ uint16_t used;
+	/*0x34*/ uint16_t _unk34;
+	/*0x36*/ uint16_t highest;
+};
+struct CNetStringTable {
+	/*0x00*/ uint64_t vtable;
+	/*0x08*/ int32_t table_id;
+	/*0x0c*/ uint32_t table_id_pad;
+	/*0x10*/ uint64_t table_name;
+	/*0x18*/ int32_t max_entries;
+	/*0x1c*/ int32_t entry_bits;
+	/*0x20*/ int32_t tick_count;
+	/*0x24*/ int32_t last_changed_tick;
+	/*0x28*/ uint32_t flags;
+	/*0x2c*/ int32_t user_data_size;
+	/*0x30*/ int32_t user_data_size_bits;
+	/*0x34*/ uint32_t pad;
+	/*0x38*/ uint64_t change_func;
+	/*0x40*/ uint64_t object;
+	/*0x48*/ uint64_t items;
+	/*0x50*/ uint64_t items_client_side;
 };

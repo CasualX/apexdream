@@ -116,6 +116,16 @@ struct Table<'a> {
 fn tables<'a>(bin: PeFile<'a>) -> Vec<Table<'a>> {
 	let mut save = [0; 8];
 	let mut list = Vec::new();
+
+	// Because RecvTable.props goes through heap, find their constructors instead...
+/*
+4C 8D 0D ?? ?? ?? ??            lea     r9, RecvTableName
+41 B8 ?? ?? ?? ??               mov     r8d, 7
+48 8D 15 ?? ?? ?? ??            lea     rdx, g_RecvProps
+48 8D 0D ?? ?? ?? ??            lea     rcx, g_RecvTable
+E8 ?? ?? ?? ??                  call    constructor
+B8 01 00 00 00                  mov     eax, 1
+*/
 	let mut matches = bin.scanner().matches_code(pat!("4C8D0D${} 41B8???? 488D15${'} 488D0D${'} E8${} B801000000"));
 	while matches.next(&mut save) {
 		if let Ok(table) = table(bin, (save[2], save[1])) {

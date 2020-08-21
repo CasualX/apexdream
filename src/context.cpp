@@ -2,15 +2,15 @@
 #include "process.hpp"
 #include "data.hpp"
 
-GameContext::GameContext(const GameProcess& process, const GameData& data, const GameState& state)
-	: process(process), data(data), state(state), time(get_time()) {}
+GameContext::GameContext(const GameProcess& process, const GameState& state)
+	: process(process), state(state), time(get_time()) {}
 void GameContext::pre() {
-	attack.update(process, data.in_attack);
-	jump.update(process, data.in_jump);
+	attack.update(process, data::IN_ATTACK);
+	jump.update(process, data::IN_JUMP);
 }
 void GameContext::post() {
-	attack.post(process, data.in_attack);
-	jump.post(process, data.in_jump);
+	attack.post(process, data::IN_ATTACK);
+	jump.post(process, data::IN_JUMP);
 }
 
 bool GameContext::entity_check(EHandle handle, uint64_t address) const {
@@ -19,7 +19,7 @@ bool GameContext::entity_check(EHandle handle, uint64_t address) const {
 	}
 	const uint32_t offset = static_cast<uint32_t>(handle.index() * sizeof(CEntInfo));
 	uint64_t check;
-	return process.read(process.r5apex_exe + data.entity_list + offset, check) && address == check;
+	return process.read(process.r5apex_exe + data::ENTITY_LIST + offset, check) && address == check;
 }
 
 void InState::update(const GameProcess& process, uint32_t address) {
