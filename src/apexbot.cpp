@@ -9,7 +9,6 @@ void apexbot(uint32_t pid) {
 	// Attach to the process
 	const GameProcess process{pid};
 	if (process.r5apex_exe == 0) {
-		printf("apex(%u) Access denied, did you implement EAC bypass?\n", pid);
 		return;
 	}
 	// Initialize the game's offsets data
@@ -49,7 +48,7 @@ int main(int argc, char* argv[]) {
 				continue;
 			}
 			// Find the Apex Legends process
-			if (!wcscmp(entry.name, L"r5apex.exe")) {
+			if (!wcscmp(entry.name, PROCESS_NAME)) {
 				apexbot(entry.id);
 				last_process_id = entry.id;
 				seen_last_process_id = true;

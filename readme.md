@@ -17,6 +17,22 @@ See `src/process.cpp` and implement the following routines with your bypass:
 
 Using whichever C++ compiler you fancy point it at `src/stdafx.cpp` or compile the other cpp files individually.
 
+For testing and development without EasyAntiCheat bypass:
+
+1. Locate the folder `C:\Program Files (x86)\Origin Games\Apex`.
+2. Rename `EasyAntiCheat_launcher.exe` to something else, eg. `EasyAntiCheat_launcher.exe.bak`.
+3. Rename `r5apex.exe` to `EasyAntiCheat_launcher.exe` and launch it.
+4. To restore functionality simply undo the previous steps.
+
+Some modifications to the source code are also needed:
+
+1. Checkout the `win32` branch of this repo with `git checkout win32`.
+2. In `process.hpp` find the defition of `PROCESS_NAME` and set it to `L"EasyAntiCheat_launcher.exe"`.
+
+This launches the game without EasyAntiCheat enabled.
+You can now load the Firing Range and mess around.
+If you join an online game you will be kicked shortly after landing on the ground.
+
 Features
 --------
 

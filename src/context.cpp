@@ -1,25 +1,32 @@
 #include "context.hpp"
 #include "process.hpp"
 #include "data.hpp"
+#include "state.hpp"
 
 GameContext::GameContext(const GameProcess& process, const GameState& state)
 	: process(process), state(state), time(get_time()) {}
 void GameContext::pre() {
 	attack.update(process, data::IN_ATTACK);
 	jump.update(process, data::IN_JUMP);
+	reload.update(process, data::IN_RELOAD);
 }
 void GameContext::post() {
 	attack.post(process, data::IN_ATTACK);
 	jump.post(process, data::IN_JUMP);
+	reload.post(process, data::IN_RELOAD);
 }
 
-bool GameContext::entity_check(EHandle handle, uint64_t address) const {
-	if (!handle.is_valid()) {
+bool GameContext::entity_check(const BaseEntity* entity) const {
+	if (!entity || !entity->handle.is_valid()) {
 		return false;
 	}
-	const uint32_t offset = static_cast<uint32_t>(handle.index() * sizeof(CEntInfo));
+	const uint32_t offset = static_cast<uint32_t>(entity->handle.index() * sizeof(CEntInfo));
 	uint64_t check;
-	return process.read(process.r5apex_exe + data::ENTITY_LIST + offset, check) && address == check;
+	return process.read(process.r5apex_exe + data::ENTITY_LIST + offset, check) && entity->address == check;
+}
+bool GameContext::rapidfire() const {
+	// Tap at the rate of interval per tick
+	return (static_cast<int64_t>(time / state.interval_per_tick) & 1) != 0;
 }
 
 void InState::update(const GameProcess& process, uint32_t address) {

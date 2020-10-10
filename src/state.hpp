@@ -33,32 +33,64 @@ public:
 	inline const PlayerEntity* local_player() const {
 		return get_entity<PlayerEntity>(local_entity);
 	}
+	inline const PlayerEntity* camera_player() const {
+		const auto local = local_player();
+		if (!local || local->is_alive()) {
+			return local;
+		}
+		return get_entity<PlayerEntity>(local->observer_target);
+	}
+	inline const WeaponXEntity* active_weapon() const {
+		const auto local = local_player();
+		if (!local) {
+			return nullptr;
+		}
+		return get_entity<WeaponXEntity>(local->active_weapon());
+	}
 	inline const WorldEntity* world_entity() const {
 		return get_entity<WorldEntity>(EHandle{0});
-	}
-	inline const PlayerResourceEntity* player_resources() const {
-		return get_entity<PlayerResourceEntity>(resources_entity);
 	}
 	template<typename TEntity>
 	inline const TEntity* get_entity(EHandle handle) const {
 		return handle.is_valid() ? dynamic_cast<const TEntity*>(entities[handle.index()].get()) : nullptr;
 	}
-	inline uint32_t weapon_name(uint32_t weapon_name_index) const {
-		return weapon_name_index < weapon_names.size() ? hash(weapon_names[weapon_name_index].c_str()) : 0;
+	inline WeaponName weapon_name(WeaponIndex weapon_index) const {
+		size_t index = static_cast<uint32_t>(weapon_index);
+		return static_cast<WeaponName>(index < weapon_names.size() ? hash(weapon_names[index].c_str()) : 0);
+	}
+	inline const char* get_player_name(EHandle handle) const {
+		if (!handle.is_valid()) {
+			return nullptr;
+		}
+		size_t index = handle.index() - 1;
+		if (index >= MAX_PLAYERS) {
+			return nullptr;
+		}
+		return player_names[index].c_str();
 	}
 
 public:
 	SignonState signon_state;
 	bool connected;
 	char level_buffer[0x40];
+
 	EHandle local_entity;
 	EHandle resources_entity;
+
 	uint32_t max_clients;
 	float curtime;
+	float interval_per_tick;
+
 	float view_matrix[16];
 	uint32_t button_state[4];
+
 	std::unique_ptr<std::unique_ptr<BaseEntity>[]> entities;
 	std::unique_ptr<CEntInfo[]> ent_info;
 	std::unique_ptr<CEntInfo[]> prev_info;
+
+	std::unique_ptr<std::string[]> player_names;
+	std::unique_ptr<NameEntry[]> player_ptrs1;
+	std::unique_ptr<NameEntry[]> player_ptrs2;
+
 	std::vector<std::string> weapon_names;
 };

@@ -9,7 +9,6 @@ PlayerEntity::PlayerEntity(uint64_t address) : BaseEntity(address), bones(new Ma
 BaseNPCEntity::BaseNPCEntity(uint64_t address) : BaseEntity(address), bones(new Mat3x4[MAXSTUDIOBONES]) {}
 WeaponXEntity::WeaponXEntity(uint64_t address) : BaseEntity(address) {}
 PropSurvivalEntity::PropSurvivalEntity(uint64_t address) : BaseEntity(address) {}
-PlayerResourceEntity::PlayerResourceEntity(uint64_t address) : BaseEntity(address), name_pointers(new uint64_t[64]), names(new std::string[64]()) {}
 WorldEntity::WorldEntity(uint64_t address) : BaseEntity(address) {}
 
 //----------------------------------------------------------------
@@ -45,6 +44,8 @@ void PlayerEntity::update(const GameProcess& process) {
 		latest_primary_weapons[0] = EHandle{temp[0].u32};
 		latest_primary_weapons[1] = EHandle{temp[1].u32};
 	}
+
+	process.read(address + data::BCC_LAST_VISIBLE_TIME, last_visible_time);
 
 	uint64_t model_name_ptr;
 	if (process.read(address + data::ENTITY_MODEL_NAME, model_name_ptr)) {
@@ -88,57 +89,6 @@ Vec3 PlayerEntity::get_bone_pos(size_t bone) const {
 bool PlayerEntity::is_visible(float curtime) const {
 	return last_visible_time > 0.0f && fabsf(last_visible_time - curtime) < 0.1f;
 }
-ItemSet PlayerEntity::get_desired_items() const {
-	// TODO! Learn if this player already has these items in their inventory
-	ItemSet set =
-		item_flag(ItemID::KNOCKDOWN_SHIELD_LV3) |
-		item_flag(ItemID::KNOCKDOWN_SHIELD_LV4) |
-		item_flag(ItemID::BACKPACK_LV2) |
-		item_flag(ItemID::BACKPACK_LV3) |
-		item_flag(ItemID::BACKPACK_LV4);
-
-	bool needs_health = health < max_health;
-	bool needs_shields = shields < max_shields;
-
-	// Healing items
-	if (needs_health) {
-		set |= item_flag(ItemID::SYRINGE);
-	}
-	if (needs_shields) {
-		set |= item_flag(ItemID::SHIELD_CELL);
-	}
-	if (needs_health && needs_shields) {
-		set |= item_flag(ItemID::PHOENIX_KIT);
-	}
-	set |= item_flag(ItemID::MED_KIT);
-	set |= item_flag(ItemID::SHIELD_BATTERY);
-
-	// Helmets
-	if (helmet_type < 1) {
-		set |= item_flag(ItemID::HELMET_LV1);
-	}
-	if (helmet_type < 2) {
-		set |= item_flag(ItemID::HELMET_LV2);
-	}
-	if (helmet_type < 3) {
-		set |= item_flag(ItemID::HELMET_LV3);
-	}
-	if (helmet_type <= 4) {
-		set |= item_flag(ItemID::HELMET_LV4);
-	}
-
-	// Body armors
-	if (armor_type < 1 || armor_type == 1 && needs_shields) {
-		set |= item_flag(ItemID::BODY_ARMOR_LV1);
-	}
-	if (armor_type < 2 || armor_type == 2 && needs_shields) {
-		set |= item_flag(ItemID::BODY_ARMOR_LV2);
-	}
-	set |= item_flag(ItemID::BODY_ARMOR_LV3) | item_flag(ItemID::BODY_ARMOR_LV4);
-	set |= item_flag(ItemID::EVO_SHIELD_LV1) | item_flag(ItemID::EVO_SHIELD_LV2) | item_flag(ItemID::EVO_SHIELD_LV3) | item_flag(ItemID::EVO_SHIELD_LV4);
-
-	return set;
-}
 
 //----------------------------------------------------------------
 
@@ -164,6 +114,8 @@ void BaseNPCEntity::update(const GameProcess& process) {
 	if (process.read(address + data::ANIMATING_BONE_ARRAY, bones_ptr)) {
 		process.read_array(bones_ptr, bones.get(), MAXSTUDIOBONES);
 	}
+
+	process.read(address + data::BCC_LAST_VISIBLE_TIME, last_visible_time);
 }
 Vec3 BaseNPCEntity::get_bone_pos(size_t bone) const {
 	if (bone < MAXSTUDIOBONES) {
@@ -185,7 +137,17 @@ void WeaponXEntity::update(const GameProcess& process) {
 
 	process.read(address + 0x8, handle);
 	process.read(address + data::WEAPONX_WEAPON_OWNER, weapon_owner);
-	process.read(address + data::WEAPONX_WEAPON_NAME_INDEX, weapon_name_index);
+	process.read(address + data::WEAPONX_WEAPON_NAME_INDEX, weapon_index);
+
+	if (process.read_array(address + data::WEAPONX_AMMO_IN_CLIP, temp, 6)) {
+		ammo_in_clip = temp[0].i32;
+		ammo_in_stockpile = temp[1].i32;
+		lifetime_shots = temp[2].i32;
+		time_weapon_idle = temp[3].f32;
+		weap_state = temp[4].i32;
+		discarded = temp[5].bytes[1];
+		in_reload = temp[5].bytes[2];
+	}
 
 	if (process.read_array(address + data::WEAPONX_PLAYER_DATA_ZOOM_FOV, temp, 2)) {
 		cur_zoom_fov = temp[0].f32;
@@ -203,10 +165,6 @@ float WeaponXEntity::get_projectile_speed() const {
 float WeaponXEntity::get_projectile_gravity() const {
 	return /*sv_gravity*/750.0f * projectile_scale;
 }
-ItemSet WeaponXEntity::get_desired_items() const {
-	// TODO! Filter items which are worse than the attachments we already have.
-	return weapon_set(weapon_name_index);
-}
 
 //----------------------------------------------------------------
 
@@ -219,31 +177,9 @@ void PropSurvivalEntity::update(const GameProcess& process) {
 		ammo_in_clip = temp[0].i32;
 		custom_script_int = static_cast<ItemID>(temp[1].u32);
 		survival_property = temp[2].u32;
-		weapon_name_index = static_cast<WeaponID>(temp[3].u32);
+		weapon_index = static_cast<WeaponIndex>(temp[3].u32);
 		mod_bit_field = temp[4].u32;
 	}
-}
-
-//----------------------------------------------------------------
-
-void PlayerResourceEntity::update(const GameProcess& process) {
-	process.read(address + 0x8, handle);
-
-	uint64_t new_name_pointers[64];
-	char buffer[256];
-	if (process.read_array(address + data::PR_NAMES, new_name_pointers, 64)) {
-		for (size_t i = 0; i < 64; i += 1) {
-			if (name_pointers[i] != new_name_pointers[i]) {
-				if (process.read(new_name_pointers[i], buffer)) {
-					names[i].assign(buffer);
-				}
-			}
-		}
-		memcpy(name_pointers.get(), new_name_pointers, sizeof(new_name_pointers));
-	}
-}
-const char* PlayerResourceEntity::get_name(size_t index) const {
-	return index < 64 ? names[index].c_str() : nullptr;
 }
 
 //----------------------------------------------------------------

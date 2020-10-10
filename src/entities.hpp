@@ -42,7 +42,6 @@ public:
 	}
 	Vec3 get_bone_pos(size_t bone) const;
 	bool is_visible(float curtime) const;
-	ItemSet get_desired_items() const;
 
 public:
 	Vec3 origin;
@@ -104,12 +103,16 @@ public:
 	float get_projectile_speed() const;
 	float get_projectile_gravity() const;
 
-	// Gets the set of desired items and attachments.
-	ItemSet get_desired_items() const;
-
 public:
 	EHandle weapon_owner;
-	WeaponID weapon_name_index;
+	WeaponIndex weapon_index;
+	int32_t ammo_in_clip;
+	int32_t ammo_in_stockpile;
+	int32_t lifetime_shots;
+	float time_weapon_idle;
+	int32_t weap_state;
+	bool discarded;
+	bool in_reload;
 	float cur_zoom_fov;
 	float target_zoom_fov;
 	float projectile_scale;
@@ -126,20 +129,8 @@ public:
 	int32_t ammo_in_clip;
 	ItemID custom_script_int;
 	uint32_t survival_property;
-	WeaponID weapon_name_index;
+	WeaponIndex weapon_index;
 	uint32_t mod_bit_field;
-};
-
-class PlayerResourceEntity : public BaseEntity {
-public:
-	explicit PlayerResourceEntity(uint64_t entity_ptr);
-	void update(const GameProcess& process) override;
-
-	// Gets the name of a player.
-	const char* get_name(size_t index) const;
-public:
-	std::unique_ptr<uint64_t[]> name_pointers;
-	std::unique_ptr<std::string[]> names;
 };
 
 class WorldEntity : public BaseEntity {

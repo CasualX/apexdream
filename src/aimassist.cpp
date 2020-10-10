@@ -4,8 +4,11 @@
 #include "state.hpp"
 #include "process.hpp"
 #include "solver.hpp"
+#include "sdk.hpp"
 
 #include <cmath>
+
+static const int TICKRATE = 144;
 
 void AimAssist::run(GameContext& ctx) {
 	// Rate limit the aimbot to 60 times per sec
@@ -13,8 +16,8 @@ void AimAssist::run(GameContext& ctx) {
 		return;
 	}
 	// Fixup timer to maintain 60 times per sec
-	static const double TICKRATE = 1.0 / 60.0;
-	next_tick = ctx.time < next_tick + TICKRATE ? next_tick + TICKRATE : ctx.time + TICKRATE;
+	const double step_time = 1.0 / TICKRATE;
+	next_tick = ctx.time < next_tick + step_time ? next_tick + step_time : ctx.time + step_time;
 
 	const auto local = ctx.state.local_player();
 	if (config.enable && ctx.state.is_button_down(config.aim_key) && local) {
@@ -36,19 +39,18 @@ void AimAssist::track(GameContext& ctx, const PlayerEntity* local) {
 		if (const auto target = find_target(ctx.state, local)) {
 			target_entity = target->handle;
 			target_locked = true;
+			pidx.reset();
+			pidy.reset();
 		}
 	}
 
 	// Aim at the target if we have one
-	if (const auto target = ctx.state.get_entity<PlayerEntity>(target_entity)) {
+	if (const auto target = ctx.state.get_entity<BaseEntity>(target_entity)) {
 		TargetInfo info{};
-		if (validate(ctx.state, local, target, info)) {
-			// Adjust the fov setting based on scoping state
+		if (validate(ctx.state, local, target, info) && !teleported(new_target, info)) {
+			// Target is valid, aim at the target
 			const float fov_scale = get_fov_scale(ctx.state, local);
-			// Avoid aim jitter with minimum angle
-			if (info.angle >= config.fov_min * fov_scale) {
-				aim(info, fov_scale);
-			}
+			aim(info, fov_scale);
 			// Update the time we've last seen this target
 			target_time = ctx.time;
 		}
@@ -58,13 +60,21 @@ void AimAssist::track(GameContext& ctx, const PlayerEntity* local) {
 		}
 	}
 }
+bool AimAssist::teleported(bool new_target, const TargetInfo& info) {
+	// If we only just acquired the target it did not teleport
+	const bool teleported = !new_target && Vec3::distance(target_pos, info.hit) > config.teledist;
+	// Keep track of the target's position
+	// Use bone position to ensure smooth transitions
+	target_pos = info.hit;
+	return teleported;
+}
 
 const BaseEntity* AimAssist::find_target(const GameState& state, const PlayerEntity* local) {
 	const BaseEntity* target = nullptr;
 	Rank rank = Rank::Low;
 	float priority = 99999999.0f;
 	// Consider every player a target
-	for (uint32_t i = 1; i <= 64; i += 1) {
+	for (uint32_t i = 1; i < NUM_ENT_ENTRIES; i += 1) {
 		if (const auto candidate = state.get_entity<BaseEntity>(EHandle{i})) {
 			// If this candidate target is a valid target
 			TargetInfo info{};
@@ -183,7 +193,7 @@ bool AimAssist::fov_check(const GameState& state, const PlayerEntity* local, con
 float AimAssist::get_fov() const {
 	return target_entity.is_valid() && target_locked ? config.fov_drop : config.fov_aim;
 }
-float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local) const {
+float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local) {
 	if (local->zooming) {
 		if (const auto weapon = state.get_entity<WeaponXEntity>(local->active_weapon())) {
 			if (weapon->target_zoom_fov != 0.0f && weapon->target_zoom_fov != 1.0f) {
@@ -193,14 +203,37 @@ float AimAssist::get_fov_scale(const GameState& state, const PlayerEntity* local
 	}
 	return 1.0f;
 }
-void AimAssist::aim(const TargetInfo& info, float fov_scale) {
+
+void AimAssist::aim_pid(const TargetInfo& info, float fov_scale, float& dx, float& dy) {
+	const float dt = 1.0f / TICKRATE;
+	const float strength = 1.0f / fov_scale;
+	dx = -pidx.step(info.yaw * strength, dt, config.pid_config);
+	dy = pidy.step(info.pitch * strength, dt, config.pid_config);
+}
+void AimAssist::aim_smooth(const TargetInfo& info, float fov_scale, float& dx, float& dy) {
+	// Avoid aim jitter with a minimum angle
+	if (info.angle < config.fov_min * fov_scale) {
+		dx = 0.0f;
+		dy = 0.0f;
+	}
 	// Magic aim smoothing formula :)
 	const float aim_strength = config.aim_strength;
 	const float speed = logf(aim_strength + info.angle / (fov_scale * fov_scale) * aim_strength) * aim_strength + aim_strength;
+	dx = -info.yaw * speed;
+	dy = info.pitch * speed;
+}
+void AimAssist::aim(const TargetInfo& info, float fov_scale) {
+	float dx, dy;
+	if (config.pid_enable) {
+		aim_pid(info, fov_scale, dx, dy);
+	}
+	else {
+		aim_smooth(info, fov_scale, dx, dy);
+	}
 	// Moving the mouse can only be done in whole steps
 	// Keep track of the delta 'residue' and add it next time
-	const float dx = -info.yaw * (speed + addx);
-	const float dy = info.pitch * (speed + addy);
+	dx += addx;
+	dy += addy;
 	const int mdx = static_cast<int>(dx);
 	const int mdy = static_cast<int>(dy);
 	addx = dx - static_cast<float>(mdx);

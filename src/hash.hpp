@@ -2,6 +2,7 @@
 
 #include <cstdint>
 
+// Simple compiletime string hasher
 constexpr uint32_t hash(const char* s) {
 	uint32_t hash = 5381;
 	for (size_t i = 0; s[i] != '\0'; i += 1) {

@@ -9,11 +9,14 @@ GameState::GameState()
 	, local_entity{}
 	, max_clients{}
 	, curtime{}
-	, VIEW_MATRIX{}
+	, view_matrix{}
 	, button_state{}
 	, entities(new std::unique_ptr<BaseEntity>[NUM_ENT_ENTRIES]())
 	, ent_info(new CEntInfo[NUM_ENT_ENTRIES]())
 	, prev_info(new CEntInfo[NUM_ENT_ENTRIES]())
+	, player_names(new std::string[MAX_PLAYERS]())
+	, player_ptrs1(new NameEntry[MAX_PLAYERS]())
+	, player_ptrs2(new NameEntry[MAX_PLAYERS]())
 	, weapon_names{}
 {}
 
@@ -53,14 +56,17 @@ void GameState::update(const GameProcess& process) {
 	uint64_t view_render_ptr, view_matrix_ptr;
 	if (process.read(process.r5apex_exe + data::VIEW_RENDER, view_render_ptr)) {
 		if (process.read(view_render_ptr + data::VIEW_MATRIX, view_matrix_ptr)) {
-			process.read(view_matrix_ptr, VIEW_MATRIX);
+			process.read(view_matrix_ptr, view_matrix);
 		}
 	}
 
 	CGlobalVars global_vars;
+	FloatInt temp[20];
+	process.read(process.r5apex_exe + data::GLOBAL_VARS, temp);
 	if (process.read(process.r5apex_exe + data::GLOBAL_VARS, global_vars)) {
 		max_clients = global_vars.maxClients;
 		curtime = global_vars.curtime;
+		interval_per_tick = global_vars.interval_per_tick;
 	}
 
 	process.read(process.r5apex_exe + data::INPUT_SYSTEM + data::INPUT_BUTTON_STATE, button_state);
@@ -73,6 +79,19 @@ void GameState::update(const GameProcess& process) {
 			}
 			if (entities[i]) {
 				entities[i]->update(process);
+			}
+		}
+	}
+
+	if (process.read_array(process.r5apex_exe + data::NAME_LIST, player_ptrs2.get(), MAX_PLAYERS)) {
+		char name_buf[128];
+		std::swap(player_ptrs2, player_ptrs1);
+		for (size_t i = 0; i < MAX_PLAYERS; i += 1) {
+			// Lazily update names as they change
+			if (player_ptrs1[i].name1 != player_ptrs2[i].name1) {
+				if (process.read(player_ptrs1[i].name1, name_buf)) {
+					player_names[i].assign(name_buf);
+				}
 			}
 		}
 	}
@@ -139,10 +158,6 @@ std::unique_ptr<BaseEntity> GameState::create_entity(const GameProcess& process,
 	}
 	if (!strcmp(class_buffer, "CWeaponX")) {
 		return std::make_unique<WeaponXEntity>(entity_ptr);
-	}
-	if (!strcmp(class_buffer, "CPlayerResource")) {
-		resources_entity = EHandle{index};
-		return std::make_unique<PlayerResourceEntity>(entity_ptr);
 	}
 	if (!strcmp(class_buffer, "CWorld")) {
 		return std::make_unique<WorldEntity>(entity_ptr);

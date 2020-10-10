@@ -5,19 +5,19 @@
 
 void Config::run(const GameState& state, CheatManager& cheats) {
 	// Get the player's active weapon id
-	WeaponID weapon_id = static_cast<WeaponID>(~0u);
+	WeaponIndex weapon_index = static_cast<WeaponIndex>(~0u);
 	if (const auto local = state.local_player()) {
 		if (const auto weapon = state.get_entity<WeaponXEntity>(local->active_weapon())) {
-			weapon_id = weapon->weapon_name_index;
+			weapon_index = weapon->weapon_index;
 		}
 	}
 	// If the active weapon id has changed, reload the config
-	if (active_id != weapon_id) {
-		active_id = weapon_id;
-		reload(weapon_id, cheats);
+	if (active_id != weapon_index) {
+		active_id = weapon_index;
+		reload(state.weapon_name(weapon_index), cheats);
 	}
 }
-void Config::reload(WeaponID weapon, CheatManager& cheats) const {
+void Config::reload(WeaponName weapon_name, CheatManager& cheats) const {
 	auto& aimassist = cheats.aimassist.config;
 	auto& highlight = cheats.highlight.config;
 
@@ -26,57 +26,62 @@ void Config::reload(WeaponID weapon, CheatManager& cheats) const {
 	// Which is probably not what is intended.
 
 	// Once an appropriate default is selected modify any settings on a per weapon basis:
-	switch (weapon) {
-	case WeaponID::BARE_HANDS:
+	switch (weapon_name) {
+	case WeaponName::BARE_HANDS:
 		break;
 
-	case WeaponID::TRIPLE_TAKE:
+	case WeaponName::VOLT:
 		break;
-	case WeaponID::DEVOTION:
+	case WeaponName::DEVOTION:
 		break;
-	case WeaponID::HAVOC:
+	case WeaponName::HAVOC:
 		break;
-	case WeaponID::CHARGE_RIFLE:
-		break;
-
-	case WeaponID::WINGMAN:
-		break;
-	case WeaponID::SPITFIRE:
-		break;
-	case WeaponID::LONGBOW:
-		break;
-	case WeaponID::PROWLER:
-		break;
-	case WeaponID::HEMLOCK:
-		break;
-	case WeaponID::FLATLINE:
+	case WeaponName::LSTAR:
 		break;
 
-	case WeaponID::RE45:
+	case WeaponName::KRABER:
 		break;
-	case WeaponID::P2020:
+	case WeaponName::R99:
 		break;
-	case WeaponID::R301:
-		break;
-	case WeaponID::R99:
-		break;
-	case WeaponID::ALTERNATOR:
-		break;
-	case WeaponID::G7_SCOUT:
+	case WeaponName::PEACEKEEPER:
 		break;
 
-	case WeaponID::MOZAMBIQUE:
+	case WeaponName::SENTINEL:
 		break;
-	case WeaponID::PEACEKEEPER:
+	case WeaponName::CHARGE_RIFLE:
 		break;
-	case WeaponID::EVA8_AUTO:
+	case WeaponName::LONGBOW:
+		break;
+	case WeaponName::TRIPLE_TAKE:
 		break;
 
-	case WeaponID::LSTAR:
+	case WeaponName::WINGMAN:
 		break;
-	case WeaponID::MASTIFF:
+	case WeaponName::SPITFIRE:
 		break;
-	case WeaponID::KRABER:
+	case WeaponName::PROWLER:
+		break;
+	case WeaponName::HEMLOK:
+		break;
+	case WeaponName::FLATLINE:
+		break;
+
+	case WeaponName::RE45:
+		break;
+	case WeaponName::P2020:
+		break;
+	case WeaponName::R301:
+		break;
+	case WeaponName::ALTERNATOR:
+		break;
+	case WeaponName::G7_SCOUT:
+		break;
+
+	case WeaponName::MOZAMBIQUE:
+		break;
+	case WeaponName::EVA8_AUTO:
+		break;
+	case WeaponName::MASTIFF:
 		break;
 	}
 }

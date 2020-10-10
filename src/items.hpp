@@ -1,5 +1,7 @@
 #pragma once
 
+#include "hash.hpp"
+
 #include <cstdint>
 #include <bitset>
 
@@ -23,18 +25,18 @@ enum class Rarity: uint8_t {
 	Special,
 };
 
-enum class WeaponID: uint32_t {
+enum class WeaponIndex: uint32_t {
 	R301 = 0,
 	SENTINEL = 1,
 	BARE_HANDS = 17,
-	ALTERNATOR = 55,
+	ALTERNATOR = 57,
 	RE45,
 	DEVOTION,
 	LONGBOW,
 	EVA8_AUTO,
 	FLATLINE,
 	G7_SCOUT,
-	HEMLOCK,
+	HEMLOK,
 	KRABER,
 	MASTIFF,
 	MOZAMBIQUE,
@@ -49,6 +51,34 @@ enum class WeaponID: uint32_t {
 	LSTAR,
 	CHARGE_RIFLE,
 	VOLT,
+};
+
+enum class WeaponName: uint32_t {
+	R301 = hash("mp_weapon_rspn101"),
+	SENTINEL = hash("mp_weapon_sentinel"),
+	BARE_HANDS = hash("mp_weapon_melee_survival"),
+	ALTERNATOR = hash("mp_weapon_alternator_smg"),
+	RE45 = hash("mp_weapon_autopistol"),
+	DEVOTION = hash("mp_weapon_esaw"),
+	LONGBOW = hash("mp_weapon_dmr"),
+	EVA8_AUTO = hash("mp_weapon_shotgun"),
+	FLATLINE = hash("mp_weapon_vinson"),
+	G7_SCOUT = hash("mp_weapon_g2"),
+	HEMLOK = hash("mp_weapon_hemlok"),
+	KRABER = hash("mp_weapon_sniper"),
+	MASTIFF = hash("mp_weapon_mastiff"),
+	MOZAMBIQUE = hash("mp_weapon_shotgun_pistol"),
+	PROWLER = hash("mp_weapon_pdw"),
+	PEACEKEEPER = hash("mp_weapon_energy_shotgun"),
+	R99 = hash("mp_weapon_r97"),
+	P2020 = hash("mp_weapon_semipistol"),
+	SPITFIRE = hash("mp_weapon_lmg"),
+	TRIPLE_TAKE = hash("mp_weapon_doubletake"),
+	WINGMAN = hash("mp_weapon_wingman"),
+	HAVOC = hash("mp_weapon_energy_ar"),
+	LSTAR = hash("mp_weapon_lstar"),
+	CHARGE_RIFLE = hash("mp_weapon_defender"),
+	VOLT = hash("mp_weapon_volt_smg"),
 };
 
 enum class ItemID : uint32_t {
@@ -67,8 +97,8 @@ enum class ItemID : uint32_t {
 	GOLD_FLATLINE = 13,
 	// = 14,
 	// = 15,
-	HEMLOCK = 16,
-	GOLD_HEMLOCK = 17,
+	HEMLOK = 16,
+	GOLD_HEMLOK = 17,
 	// = 18,
 	// = 19,
 	G7_SCOUT = 20,
@@ -202,21 +232,5 @@ enum class ItemID : uint32_t {
 
 using ItemSet = std::bitset<144>;
 
-// Returns the ItemID for the AmmoType.
-ItemID ammo_item(AmmoType ammo);
-// Stringifies the AmmoType type.
-const char* ammo_str(AmmoType ammo);
-// Stringifies the Rarity level.
-const char* rarity_str(Rarity rarity);
-// Stringifies the ItemID.
-const char* item_str(ItemID item);
-// Returns the Rarity for the ItemID.
-Rarity item_rarity(ItemID item);
-// Converts the ItemID to a flag.
-ItemSet item_flag(ItemID item);
-// Stringifies the WeaponID.
-const char* weapon_str(WeaponID weapon);
-// Returns the set of ItemID attachments compatible with this weapon.
-ItemSet weapon_set(WeaponID weapon);
-// Returns the AmmoType for the WeaponID.
-AmmoType weapon_ammo(WeaponID weapon);
+// Returns the set of attachment items compatible with this weapon.
+ItemSet weapon_set(WeaponName weapon_name);

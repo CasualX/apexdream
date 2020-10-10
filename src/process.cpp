@@ -74,8 +74,18 @@ const wchar_t* get_mapped_file_name(uint32_t pid, uint64_t address, void* buffer
 
 GameProcess::GameProcess(uint32_t pid) : pid(pid) {
 	printf("apex(%u) Attached!\n", pid);
-	r5apex_exe = get_module_base(L"r5apex.exe");
-	printf("apex(%u) 0x%" PRIx64 " r5apex.exe\n", pid, r5apex_exe);
+	r5apex_exe = get_module_base(PROCESS_NAME);
+	printf("apex(%u) 0x%" PRIx64 " %S\n", pid, r5apex_exe, PROCESS_NAME);
+	if (r5apex_exe == 0)
+	{
+		if (sizeof(size_t) != 8) {
+			// When running a 32-bit build the previous may succeed but unable to scan the address space
+			printf("apex(%u) Running x86 build, did you mean to build as x86_64 instead?\n", pid);
+		}
+		else {
+			printf("apex(%u) Unable to find %S, incomplete EAC bypass?\n", pid, PROCESS_NAME);
+		}
+	}
 }
 GameProcess::~GameProcess() {
 	printf("apex(%u) Detached!\n", pid);
@@ -86,10 +96,13 @@ bool GameProcess::heartbeat() const {
 	return read(r5apex_exe, dummy);
 }
 uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
-	MEMORY_BASIC_INFORMATION mbi;
+	MEMORY_BASIC_INFORMATION mbi{};
 	wchar_t buffer[MAX_PATH];
-	for (uint64_t address = 0; virtual_query_ex(pid, address, mbi); address += mbi.RegionSize) {
+	uint64_t address = 0;
+	while (true) {
+		// Look for mapped images
 		if (mbi.State == MEM_COMMIT && mbi.Type == MEM_IMAGE) {
+			// Find the image matching the module name
 			if (const auto path = get_mapped_file_name(pid, address, buffer, sizeof(buffer))) {
 				size_t offset = 0;
 				for (size_t i = 0; path[i] != L'\0'; i += 1) {
@@ -103,6 +116,16 @@ uint64_t GameProcess::get_module_base(const wchar_t* module_name) const {
 				}
 			}
 		}
+		// Look for the next allocation
+		const auto allocation_base = mbi.AllocationBase;
+		do {
+			address += mbi.RegionSize;
+			// Returns false once we reach the end of the virtual user address space
+			if (!virtual_query_ex(pid, address, mbi)) {
+				return 0;
+			}
+		}
+		while (mbi.AllocationBase == NULL || mbi.AllocationBase == allocation_base);
 	}
 	return 0;
 }

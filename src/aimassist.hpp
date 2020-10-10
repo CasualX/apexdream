@@ -1,10 +1,12 @@
 #pragma once
 
 #include "sdk.hpp"
+#include "pid.hpp"
 
 class GameContext;
 class GameState;
 class PlayerEntity;
+class BaseEntity;
 
 struct AimAssistConfig {
 	// Configuration
@@ -23,6 +25,12 @@ struct AimAssistConfig {
 	float fov_aim = 10.0f;
 	// When locked onto a target, angle required to drop the target.
 	float fov_drop = 25.0f;
+	// If a target moves more than this distance in a single tick then it is considered teleported and will be dropped.
+	float teledist = 72.0f;
+	// Enable the PID controller for aim smoothing.
+	bool pid_enable = true;
+	// The PID controller configuration.
+	PidConfig pid_config = { 2.0, 10.0, 0.0 };
 };
 
 // Target priority by rank.
@@ -70,6 +78,7 @@ public:
 
 	// Updates the tracking state and aims at the aqcuired targets.
 	void track(GameContext& ctx, const PlayerEntity* local);
+	bool teleported(bool new_target, const TargetInfo& info);
 
 	// Finds a target to aim at, returns nullptr if no valid target was found.
 	const BaseEntity* find_target(const GameState& state, const PlayerEntity* local);
@@ -84,18 +93,28 @@ public:
 	// Gets the aim fov.
 	float get_fov() const;
 	// Gets the scalar for the aim fov, used when zoomed in with a scoped weapon.
-	float get_fov_scale(const GameState& state, const PlayerEntity* local) const;
+	static float get_fov_scale(const GameState& state, const PlayerEntity* local);
 
 	// Moves the mouse towards the target.
+	void aim_pid(const TargetInfo& info, float fov_scale, float& dx, float& dy);
+	void aim_smooth(const TargetInfo& info, float fov_scale, float& dx, float& dy);
 	void aim(const TargetInfo& info, float fov_scale);
 
 private:
+	double next_tick = 0.0;
+
+	// Aiming state
+	float addx = 0.0f;
+	float addy = 0.0f;
+	PidController pidx;
+	PidController pidy;
+
+	// Keep track of the current target
 	bool target_locked = false;
 	EHandle target_entity;
 	double target_time = 0.0;
-	float addx = 0.0f;
-	float addy = 0.0f;
-	double next_tick = 0.0;
+	Vec3 target_pos;
+
 public:
 	AimAssistConfig config;
 };

@@ -6,6 +6,7 @@
 
 class GameProcess;
 class GameState;
+class BaseEntity;
 
 // Controls the game's state of kbutton_t instance.
 struct InState {
@@ -34,13 +35,17 @@ public:
 
 	// Checks if the given entity handle still points to the specified entity address.
 	// Use this to reduce the chance of losing the race condition when writing to entity memory.
-	bool entity_check(EHandle handle, uint64_t address) const;
+	bool entity_check(const BaseEntity* entity) const;
+
+	// Produces a stream of alternating true/false values at the rate of the server's interval per tick.
+	bool rapidfire() const;
 
 public:
 	const GameProcess& process;
 	const GameState& state;
 	double time;
 
-	InState attack;
-	InState jump;
+	InState attack{};
+	InState jump{};
+	InState reload{};
 };

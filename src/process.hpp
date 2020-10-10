@@ -31,6 +31,11 @@ private:
 	size_t next_offset = 0;
 };
 
+const wchar_t* const PROCESS_NAME = L"r5apex.exe";
+
+// When debugging without EasyAntiCheat use the following PROCESS_NAME definition
+// const wchar_t* const PROCESS_NAME = L"EasyAntiCheat_launcher.exe";
+
 class GameProcess {
 public:
 	GameProcess(uint32_t pid);

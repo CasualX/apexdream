@@ -29,21 +29,25 @@ enum class ButtonCode: uint32_t {
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/globalvars_base.h
 struct CGlobalVars {
-	double realtime;
-	int32_t framecount;
-	float absoluteframetime;
-	float curtime;
-	float frametime;
-	int32_t maxClients;
-	int32_t tickcount;
-	float interval_per_tick;
-	float interpolation_amount;
-	int32_t simTicksThisFrame;
-	int32_t network_protocol;
-	uint64_t pSaveData;
-	bool m_bClient;
-	int32_t nTimestampNetworkingBase;
-	int32_t nTimestampRandomizeWindow;
+	/*0x00*/double realtime;
+	/*0x08*/int32_t framecount;
+	/*0x0c*/float absoluteframetime;
+	/*0x10*/float curtime;
+	/*0x14*/float curtime2;
+	/*0x18*/float curtime3;
+	/*0x1c*/float curtime4;
+	/*0x20*/float frametime;
+	/*0x24*/float curtime5;
+	/*0x28*/float curtime6;
+	/*0x2c*/float zero;
+	/*0x30*/float frametime2;
+	/*0x34*/int32_t maxClients;
+	/*0x38*/int32_t unk38;
+	/*0x3c*/int32_t unk3C;
+	/*0x40*/int32_t tickcount;
+	/*0x44*/float interval_per_tick;
+	/*0x48*/float interpolation_amount;
+	// There's more stuff after this but I don't know and I don't care
 };
 
 // https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/shared/entitylist_base.h#L20-L29
@@ -81,7 +85,7 @@ inline float deg2rad(float deg) {
 struct Vec3 {
 	float x, y, z;
 
-	static inline float distance(Vec3 lhs, Vec3 rhs) {
+	inline static float distance(Vec3 lhs, Vec3 rhs) {
 		Vec3 delta = Vec3{rhs.x - lhs.x, rhs.y - lhs.y, rhs.z - lhs.z};
 		return sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
 	}
@@ -121,19 +125,25 @@ struct Mat3x4 {
 
 union FloatInt {
 	float f32;
-	int32_t int32_t;
-	uint32_t uint32_t;
+	int32_t i32;
+	uint32_t u32;
 	uint8_t bytes[4];
 };
 
 const size_t NUM_ENT_ENTRIES = 0x10000;
 const size_t MAXSTUDIOBONES = 128;
+const size_t MAX_PLAYERS = 128;
 
 struct EHandle {
 	uint32_t value = 0xffffffff;
 
 	inline bool is_valid() const { return value != 0xffffffff; }
 	inline size_t index() const { return value & static_cast<uint32_t>(NUM_ENT_ENTRIES - 1); }
+};
+
+struct NameEntry {
+	uint64_t name1;
+	uint64_t name2; // For whatever reason there's two name entries...
 };
 
 struct CNetStringTableItem {
