@@ -111,7 +111,7 @@ void Highlight::highlight_loot(GameContext& ctx, const PropSurvivalEntity* loot,
 		ctx.process.write<bool>(loot->address + 0x3E0, true);
 		ctx.process.write<float>(loot->address + 0x33C, config.distance);
 		ctx.process.write<float>(loot->address + 0x314, time);
-		ctx.process.write<uint32_t>(loot->address + 0x308, style);
+		ctx.process.write<uint32_t>(loot->address + 0x2A8, style);
 	}
 }
 

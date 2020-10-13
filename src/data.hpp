@@ -3,8 +3,8 @@
 #include <cstdint>
 
 namespace data {
-	const uint32_t TIME_DATE_STAMP = 0x5f6d432f;
-	const uint32_t CHECKSUM = 0x1fc1a53;
+	const uint32_t TIME_DATE_STAMP = 0x5f7e603a;
+	const uint32_t CHECKSUM = 0x1fc86ea;
 
 	const uint32_t GLOBAL_VARS = 0x1261c80;
 
@@ -15,19 +15,19 @@ namespace data {
 	const uint32_t CLIENT_SIGNON_STATE = 0x0098;
 	const uint32_t CLIENT_LEVEL_NAME = 0x01b0;
 
-	const uint32_t NST_WEAPON_NAMES = 0x040d54d8;
+	const uint32_t NST_WEAPON_NAMES = 0x040d5558;
 
-	const uint32_t VIEW_RENDER = 0x40d5d98;
+	const uint32_t VIEW_RENDER = 0x40d5e18;
 	const uint32_t VIEW_MATRIX = 0x1b3bd0;
 
 	const uint32_t INPUT_SYSTEM = 0x012d6900;
 	const uint32_t INPUT_BUTTON_STATE = 0xb0;
 
-	const uint32_t NAME_LIST = 0x8167BB0;
+	const uint32_t NAME_LIST = 0x8167c30;
 
-	const uint32_t IN_ATTACK = 0x040d5e68;
-	const uint32_t IN_JUMP = 0x040d5ee0;
-	const uint32_t IN_RELOAD = 0x040d5e88;
+	const uint32_t IN_ATTACK = 0x040d5ee8;
+	const uint32_t IN_JUMP = 0x040d5f60;
+	const uint32_t IN_RELOAD = 0x040d5f08;
 
 	const uint32_t ENTITY_MODEL_NAME = 0x0030;
 	const uint32_t ENTITY_FLAGS = 0x0098;

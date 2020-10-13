@@ -10,10 +10,11 @@ pub fn print(bin: PeFile<'_>, dll_name: &str) {
 	local_entity_handle(bin, dll_name);
 	local_player(bin, dll_name);
 	global_vars(bin, dll_name);
-	player_resource(bin, dll_name);
+	name_list(bin, dll_name);
 	view_render(bin, dll_name);
 	client_state(bin, dll_name);
 	projectile_speed(bin, dll_name);
+	unknown_magic(bin, dll_name);
 	println!("```\n");
 }
 
@@ -78,16 +79,14 @@ fn global_vars(bin: PeFile<'_>, dll_name: &str) {
 	}
 }
 
-fn player_resource(bin: PeFile<'_>, dll_name: &str) {
-	// References "#UNCONNECTED_PLAYER_NAME" and the C_PlayerResource vtable
-	// At the very end of the constructor assigns this to global variable
+fn name_list(bin: PeFile<'_>, dll_name: &str) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("4883EA01 0F85???? [8] 4889?$'"), &mut save) {
-		let player_resource = save[1];
-		println!("{}!{:#x} PlayerResources", dll_name, player_resource);
+	if bin.scanner().matches_code(pat!("48634338 488D0D${'} 4803C0 488B44C1F0")).next(&mut save) {
+		let name_list = save[1];
+		println!("{}!{:#x} NameList", dll_name, name_list);
 	}
 	else {
-		eprintln!("unable to find PlayerResources!");
+		eprintln!("unable to find NameList!");
 	}
 }
 
@@ -162,5 +161,15 @@ fn projectile_speed(bin: PeFile<'_>, _dll_name: &str) {
 		let projectile_speed = save[1];
 		println!("CWeaponX!{:#x} m_flProjectileSpeed", projectile_speed);
 		println!("CWeaponX!{:#x} m_flProjectileScale", projectile_speed + 8);
+	}
+}
+
+fn unknown_magic(bin: PeFile<'_>, _dll_name: &str) {
+	// Some unknown magic offsets
+	let mut save = [0; 4];
+	let mut matches = bin.scanner().matches_code(pat!("488D15${'} [5] E8${} 4885C0 74? 8B 8B u4"));
+	while matches.next(&mut save) {
+		let name = bin.derva_c_str(save[1]).ok().and_then(|cstr| cstr.to_str().ok()).unwrap_or("");
+		println!("CPlayer!{:#x} {}", save[2], name);
 	}
 }

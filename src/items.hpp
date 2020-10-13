@@ -228,6 +228,7 @@ enum class ItemID : uint32_t {
 	VAULT_KEY,
 	MOBILE_RESPAWN_BEACON,
 	TREASURE_PACK = 141,
+	GRAVITY_LIFT_KEYCARD = 144,
 };
 
 using ItemSet = std::bitset<144>;
