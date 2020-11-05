@@ -119,7 +119,6 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			ENERGY_MAGAZINE |
 			AR_OPTICS |
 			STANDARD_STOCK |
-			item_flag(ItemID::SELECTFIRE_RECEIVER) |
 			item_flag(ItemID::TURBOCHARGER);
 
 		case WeaponName::LSTAR: return
@@ -130,7 +129,7 @@ ItemSet weapon_set(WeaponName weapon_name) {
 		// Heirloom weapons
 
 		case WeaponName::KRABER: return ItemSet();
-		case WeaponName::R99: return ItemSet();
+		case WeaponName::PROWLER: return ItemSet();
 		case WeaponName::PEACEKEEPER: return ItemSet();
 
 		// Sniper weapons
@@ -175,13 +174,6 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			LMG_OPTICS |
 			STANDARD_STOCK;
 
-		case WeaponName::PROWLER: return
-			item_flag(ItemID::HEAVY_ROUNDS) |
-			HEAVY_MAGAZINE |
-			SMG_OPTICS |
-			STANDARD_STOCK |
-			item_flag(ItemID::SELECTFIRE_RECEIVER);
-
 		case WeaponName::HEMLOK: return
 			item_flag(ItemID::HEAVY_ROUNDS) |
 			BARREL_STABILIZER |
@@ -214,6 +206,13 @@ ItemSet weapon_set(WeaponName weapon_name) {
 			BARREL_STABILIZER |
 			LIGHT_MAGAZINE |
 			AR_OPTICS |
+			STANDARD_STOCK;
+
+		case WeaponName::R99: return
+			item_flag(ItemID::LIGHT_ROUNDS) |
+			BARREL_STABILIZER |
+			LIGHT_MAGAZINE |
+			SMG_OPTICS |
 			STANDARD_STOCK;
 
 		case WeaponName::ALTERNATOR: return

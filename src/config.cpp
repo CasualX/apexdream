@@ -27,7 +27,7 @@ void Config::reload(WeaponName weapon_name, CheatManager& cheats) const {
 
 	// Once an appropriate default is selected modify any settings on a per weapon basis:
 	switch (weapon_name) {
-	case WeaponName::BARE_HANDS:
+	case WeaponName::MELEE_SURVIVAL:
 		break;
 
 	case WeaponName::VOLT:

@@ -49,7 +49,7 @@ void Highlight::run(GameContext& ctx) {
 	// Here's the deal: writing highlight parameters is risky
 	// Due to the racy nature of writing the highlight parameters
 	// Reduce to chance of crashes by only writing if any key is being pressed
-	if (!(ctx.state.is_any_button_down() && camera->origin.z < 14000.0)) {
+	if (!(ctx.state.is_any_button_down() && camera->origin.z < 11000.0)) {
 		return;
 	}
 	// Update the loot filter
@@ -120,7 +120,7 @@ void Highlight::update_filter(const GameState& state, const PlayerEntity* camera
 	// Update the last seen weapon relevant weapon
 	if (auto weapon = state.get_entity<WeaponXEntity>(camera->active_weapon())) {
 		// Ignore bare hands as weapon used to filter loot
-		if (state.weapon_name(weapon->weapon_index) == WeaponName::BARE_HANDS) {
+		if (state.weapon_is_melee(weapon->weapon_index)) {
 			// Try last seen weapon instead
 			if (const auto last_weapon = state.get_entity<WeaponXEntity>(weapon_handle)) {
 				weapon = last_weapon;

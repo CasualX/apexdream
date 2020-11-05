@@ -58,6 +58,13 @@ public:
 		size_t index = static_cast<uint32_t>(weapon_index);
 		return static_cast<WeaponName>(index < weapon_names.size() ? hash(weapon_names[index].c_str()) : 0);
 	}
+	inline bool weapon_is_melee(WeaponIndex weapon_index) const {
+		size_t index = static_cast<uint32_t>(weapon_index);
+		if (index >= weapon_names.size()) {
+			return false;
+		}
+		return weapon_names[index].find("melee_") != std::string::npos;
+	}
 	inline const char* get_player_name(EHandle handle) const {
 		if (!handle.is_valid()) {
 			return nullptr;
