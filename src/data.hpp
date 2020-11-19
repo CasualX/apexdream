@@ -3,31 +3,31 @@
 #include <cstdint>
 
 namespace data {
-	const uint32_t TIME_DATE_STAMP = 0x5f9b6223;
-	const uint32_t CHECKSUM = 0x1fd97e0;
+	const uint32_t TIME_DATE_STAMP = 0x5faee648;
+	const uint32_t CHECKSUM = 0x1fe5717;
 
-	const uint32_t GLOBAL_VARS = 0x127ad40;
+	const uint32_t GLOBAL_VARS = 0x127bde0;
 
-	const uint32_t ENTITY_LIST = 0x18c6928;
-	const uint32_t LOCAL_ENTITY = 0x11aaf5c;
+	const uint32_t ENTITY_LIST = 0x18c7af8;
+	const uint32_t LOCAL_ENTITY = 0x11abf5c;
 
-	const uint32_t CLIENT_STATE = 0x127b040;
+	const uint32_t CLIENT_STATE = 0x127c0e0;
 	const uint32_t CLIENT_SIGNON_STATE = 0x0098;
 	const uint32_t CLIENT_LEVEL_NAME = 0x01b0;
 
-	const uint32_t NST_WEAPON_NAMES = 0x04072938;
+	const uint32_t NST_WEAPON_NAMES = 0x04077318;
 
-	const uint32_t VIEW_RENDER = 0x4072958;
+	const uint32_t VIEW_RENDER = 0x4077bd8;
 	const uint32_t VIEW_MATRIX = 0x1b3bd0;
 
-	const uint32_t INPUT_SYSTEM = 0x012efcc0;
+	const uint32_t INPUT_SYSTEM = 0x012f0ec0;
 	const uint32_t INPUT_BUTTON_STATE = 0xb0;
 
-	const uint32_t NAME_LIST = 0x814c2b0;
+	const uint32_t NAME_LIST = 0x8151950;
 
-	const uint32_t IN_ATTACK = 0x04072a20;
-	const uint32_t IN_JUMP = 0x04072a90;
-	const uint32_t IN_RELOAD = 0x04072a40;
+	const uint32_t IN_ATTACK = 0x04077c80;
+	const uint32_t IN_JUMP = 0x04077d20;
+	const uint32_t IN_RELOAD = 0x04077cb0;
 
 	const uint32_t ENTITY_MODEL_NAME = 0x0030;
 	const uint32_t ENTITY_FLAGS = 0x0098;
