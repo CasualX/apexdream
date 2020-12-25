@@ -1,16 +1,25 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite::pattern as pat;
 use pelite::pe64::*;
 
-pub fn print(bin: PeFile<'_>, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	let sts = string_tables(bin);
-	template::print! {
+
+	let _ = template::write! { f.human,
 		"## NetworkedStringTables\n\n```\n"
 		for st in (&sts) {
-			{dll_name}"!"{st.offset;#010x}" "{st.name}"\n"
+			{st.name}"\n"
 		}
 		"```\n\n"
-	}
+	};
+	let _ = template::write! { f.ini,
+		"[NetworkedStringTables]\n"
+		for st in (&sts) {
+			{st.name}"="{st.offset;#010x}"\n"
+		}
+		"\n"
+	};
 }
 
 struct StringTable<'a> {

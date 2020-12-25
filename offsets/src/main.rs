@@ -1,11 +1,24 @@
-
-use std::env;
+use std::{env, fmt};
 use std::path::PathBuf;
 
-fn parse_arg() -> Option<PathBuf> {
+mod analysis;
+
+fn parse_arg() -> Option<(PathBuf, bool)> {
 	let mut args_os = env::args_os();
-	args_os.next();
-	args_os.next().map(|path| path.into())
+	args_os.next()?;
+	let path = args_os.next().map(|path| path.into())?;
+	let human = args_os.next().map(|arg| {
+		let arg = arg.to_string_lossy();
+		if arg == "human" { true }
+		else if arg == "ini" { false }
+		else { panic!("Expected `human` or `ini` argument!") }
+	}).unwrap_or(true);
+
+	Some((path, human))
+}
+
+pub fn print_error<T: fmt::Display>(error: &T) {
+	eprintln!("{}", error);
 }
 
 fn main() {
@@ -14,36 +27,12 @@ fn main() {
 			eprintln!("Give the path to a dump apex binary.");
 			return;
 		},
-		Some(path) => {
+		Some((path, human)) => {
 			let filemap = pelite::FileMap::open(&path).unwrap();
-			parse(filemap.as_ref());
+			let mut output = analysis::Output::default();
+			analysis::parse(&mut output, filemap.as_ref());
+			let s = if human { &output.human } else { &output.ini };
+			print!("{}", s);
 		},
 	}
-}
-
-mod interfaces;
-mod classes;
-mod recvtables;
-mod datamaps;
-mod misc;
-mod kbuttons;
-mod convars;
-mod concommands;
-mod globals;
-mod string_tables;
-
-fn parse(image: &[u8]) {
-	use pelite::pe64::*;
-	let bin = PeFile::from_bytes(image).unwrap();
-	let dll_name = bin.exports().unwrap().dll_name().unwrap().to_str().unwrap();
-	interfaces::print(bin, dll_name);
-	misc::print(bin, dll_name);
-	string_tables::print(bin, dll_name);
-	kbuttons::print(bin, dll_name);
-	classes::print(bin, dll_name);
-	recvtables::print(bin, dll_name);
-	datamaps::print(bin, dll_name);
-	convars::print(bin, dll_name);
-	concommands::print(bin, dll_name);
-	globals::print(bin, dll_name);
 }

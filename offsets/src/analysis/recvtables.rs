@@ -1,13 +1,13 @@
+use std::{fmt::{self, Write}, mem};
 use format_xml::template;
 use pelite::pe64::*;
 use pelite::pattern as pat;
 use pelite::{Pod, util::CStr};
-use std::{fmt, mem};
 
-pub fn print(bin: PeFile, _dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let tables = tables(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## RecvTables\n\n"
 		for table in (&tables) {
 			"<details>\n"
@@ -21,16 +21,19 @@ pub fn print(bin: PeFile, _dll_name: &str) {
 				"\t"{prop.name}": "{prop.ty}",\n"
 			}
 			"}\n```\n\n"
-			"### Offsets\n\n"
-			"```\n"
-			for prop in (&table.props) {
-				{table.name}"!"{prop.offset;#06x}" "{prop.name}"\n"
-			}
-			"```\n"
 			"</details>\n"
 		}
 		"\n"
-	}
+	};
+	let _ = template::write! { f.ini,
+		for table in (&tables) {
+			"[RecvTable."{table.name}"]\n"
+			for prop in (&table.props) {
+				{prop.name}"="{prop.offset;#06x}"\n"
+			}
+			"\n"
+		}
+	};
 }
 
 #[derive(Copy, Clone, Pod)]

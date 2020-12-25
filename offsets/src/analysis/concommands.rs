@@ -1,13 +1,14 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
 use pelite::pattern as pat;
 
-pub fn print(bin: PeFile, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let cmds = concommands(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## ConCommands\n\n"
 		for cmd in (&cmds) {
 			"<details>\n"
@@ -18,13 +19,15 @@ pub fn print(bin: PeFile, dll_name: &str) {
 			"flags: `"{cmd.flags;#x}"`  \n"
 			"</details>\n"
 		}
-		"\n### Addresses\n\n"
-		"```\n"
+		"\n"
+	};
+	let _ = template::write! { f.ini,
+		"[ConCommands]\n"
 		for cmd in (&cmds) {
-			{dll_name}"!"{cmd.address;#010x}" ConCommand "{cmd.name}"\n"
+			{cmd.name}"="{cmd.address;#010x}"\n"
 		}
-		"```\n\n"
-	}
+		"\n"
+	};
 }
 
 #[allow(non_snake_case)]
@@ -64,7 +67,7 @@ pub fn concommands(bin: PeFile<'_>) -> Vec<ConCommand<'_>> {
 	let mut save = [0; 4];
 	// Find the ConCommand vtable
 	if !bin.scanner().finds_code(pat!("8D?${'} 33FF ?891D???? ?8D"), &mut save) {
-		eprintln!("ERR: unable to find ConCommand vftable");
+		crate::print_error(&"ERR: unable to find ConCommand vftable");
 		return concommands;
 	}
 	let vftable = save[1];

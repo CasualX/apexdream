@@ -163,7 +163,7 @@ float WeaponXEntity::get_projectile_speed() const {
 	return projectile_speed;
 }
 float WeaponXEntity::get_projectile_gravity() const {
-	return /*sv_gravity*/750.0f * projectile_scale;
+	return /*sv_gravity*/750.0f / projectile_scale;
 }
 
 //----------------------------------------------------------------
