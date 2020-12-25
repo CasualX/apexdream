@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Apex Legends Offset Dumper</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script>
+async function load_wasm(wasmPath, imports) {
+	let response = await fetch(wasmPath);
+	let arrayBuffer = await response.arrayBuffer();
+	return await WebAssembly.instantiate(arrayBuffer, imports);
+}
+window.onload = () => {
+	let fileInput = document.getElementById('file');
+	let displayDiv = document.getElementById('display');
+	let outputIniTextarea = document.getElementById('output-ini');
+	let outputHumanTextarea = document.getElementById('output-human');
+	displayDiv.textContent = "> Waiting for an input file.";
+
+	let log = text => {
+		displayDiv.textContent += text;
+	};
+	let instance = null;
+	let module = null;
+
+	const APEX_DUMPER = "apexdumper.wasm";
+	let textDecoder = new TextDecoder('utf-8');
+	(async () => {
+		try {
+			({ module, instance } = await load_wasm(APEX_DUMPER, {
+				env: {
+					setError(ptr, len) {
+						let message = textDecoder.decode(new Uint8Array(instance.exports.memory.buffer, ptr, len));
+						displayDiv.textContent += "\n! " + message;
+					},
+					setINI(ptr, len) {
+						outputIniTextarea.value = textDecoder.decode(new Uint8Array(instance.exports.memory.buffer, ptr, len));
+					},
+					setHuman(ptr, len) {
+						outputHumanTextarea.value = textDecoder.decode(new Uint8Array(instance.exports.memory.buffer, ptr, len));
+					},
+				}
+			}));
+			log(`\n> Loaded ${APEX_DUMPER}!`);
+		}
+		catch (err) {
+			log(`\n! Error loading ${APEX_DUMPER}!`);
+		}
+	})();
+
+	fileInput.addEventListener('input', async e => {
+		let files = e.target.files;
+		if (files.length != 1) {
+			log("\n! Please select a single file!");
+			return;
+		}
+		if (instance == null) {
+			log(`\n! Not ready ${APEX_DUMPER}!`);
+			return;
+		}
+		log("\n> Loading " + files[0].name + "...");
+		let arrayBuffer = await readFileAsync(files[0]);
+		log(" ok!");
+		log("\n> Dumping offsets...");
+		let bytes = new Uint8Array(arrayBuffer);
+		let ptr = instance.exports.allocate(bytes.length);
+		new Uint8Array(instance.exports.memory.buffer, ptr, bytes.length).set(bytes);
+		instance.exports.analyze(ptr, bytes.length);
+		instance.exports.free(ptr, bytes.length);
+		log(" ok!");
+	});
+};
+function readFileAsync(file) {
+	return new Promise((resolve, reject) => {
+		let reader = new FileReader();
+		reader.onload = () => {
+			resolve(reader.result);
+		};
+		reader.onerror = reject;
+		reader.readAsArrayBuffer(file);
+	});
+}
+</script>
+</head>
+<body>
+	<h1>Apex Legends Offset Dumper</h1>
+	<p>The <b>r5apex.exe</b> binary on disk is encrypted and must be dumped from memory first.</p>
+	<p>Simply run apexbot, if its offsets are not correct it'll dump the game for you instead. You'll find an <b>r5apex.exe</b> file in the current directory.</p>
+	<p>Drop the dumped executable in the file input below and the script on this page analyzes it for you returning offsets and other goodies.</p>
+	<p>This can take a while, do not stop this page! Give it a minute to crunch the binary...</p>
+	<p><input type="file" id="file"></p>
+	<hr>
+	<div style="display: grid; grid-template: auto / 50% 50%; width: 100%">
+		<textarea id="output-ini" readonly style="resize: vertical; margin: 5px;" rows="32">INI</textarea>
+		<textarea id="output-human" readonly style="resize: vertical; margin: 5px;" rows="32">HUMAN</textarea>
+	</div>
+	<pre id="display"></pre>
+</body>
+</html>

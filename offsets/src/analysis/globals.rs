@@ -1,19 +1,18 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 
-pub fn print(bin: PeFile, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let globals = globals(bin);
 
-	template::print! {
-		"## Globals\n\n"
-		"List of global variables with an associated vtable and their type name.\n\n"
-		"```\n"
+	let _ = template::write! { f.ini,
+		"[Globals]\n"
 		for g in (&globals) {
-			{dll_name}"!"{g.address;#010x}" "{g.ty_name}"\n"
+			{g.ty_name}"="{g.address;#010x}"\n"
 		}
-		"```\n\n"
-	}
+		"\n"
+	};
 }
 
 pub struct Global<'a> {

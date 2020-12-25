@@ -1,3 +1,4 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pattern as pat;
@@ -5,10 +6,10 @@ use pelite::{Pod, util::CStr};
 use pelite::pe64::*;
 use std::mem;
 
-pub fn print(bin: PeFile<'_>, _dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	let datamaps = datamaps(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## Datamaps\n\n"
 		for datamap in (&datamaps) {
 			"<details>\n"
@@ -22,16 +23,19 @@ pub fn print(bin: PeFile<'_>, _dll_name: &str) {
 				"\t"{field.name}": "{field.ty}",\n"
 			}
 			"}\n```\n\n"
-			"### Offsets\n\n"
-			"```\n"
-			for field in (&datamap.fields) {
-				{datamap.name}"!"{field.offset;#06x}" "{field.name}"\n"
-			}
-			"```\n"
 			"</details>\n"
 		}
 		"\n"
-	}
+	};
+	let _ = template::write! { f.ini,
+		for datamap in (&datamaps) {
+			"[DataMap."{datamap.name}"]\n"
+			for field in (&datamap.fields) {
+				{field.name}"="{field.offset;#06x}"\n"
+			}
+			"\n"
+		}
+	};
 }
 
 #[allow(non_snake_case)]

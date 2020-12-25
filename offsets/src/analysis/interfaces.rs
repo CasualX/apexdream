@@ -1,19 +1,28 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::pattern as pat;
 
-pub fn print(bin: PeFile, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let ifaces = interfaces(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## Interfaces\n\n"
 		"```\n"
 		for iface in (&ifaces) {
-			{dll_name}"!"{iface.address;#010x}" "{iface.name}"\n"
+			{iface.name}"\n"
 		}
 		"```\n\n"
-	}
+	};
+
+	let _ = template::write! { f.ini,
+		"[Interfaces]\n"
+		for iface in (&ifaces) {
+			{iface.name}"="{iface.address;#010x}"\n"
+		}
+		"\n"
+	};
 }
 
 #[derive(Copy, Clone, Debug)]
@@ -34,7 +43,7 @@ pub fn interfaces(bin: PeFile<'_>) -> Vec<Interface<'_>> {
 	}
 
 	if list.is_empty() {
-		eprintln!("unable to find any interfaces!");
+		crate::print_error(&"unable to find any interfaces!");
 	}
 
 	list.sort_by_key(|item| item.name);

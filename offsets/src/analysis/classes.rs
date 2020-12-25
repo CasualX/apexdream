@@ -1,3 +1,4 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pe64::{Va, Ptr, Pe, PeFile};
@@ -7,25 +8,37 @@ use dataview::Pod;
 
 //----------------------------------------------------------------
 
-pub fn print(bin: PeFile, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let classes = classes(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## ClientClasses\n\n"
 		for cls in (&classes) {
 			"<details>\n"
 			"<summary><code>client_class "{cls.name}"</code></summary>\n\n"
 			"class_id: `"{cls.id}"`  \n"
-			"sizeof: `"{cls.size}"`  \n"
+			"sizeof: `"{cls.size;#x}"`  \n"
 			"</details>\n"
 		}
-		"\n### Addresses\n"
-		"\n```\n"
-		for cls in (&classes) {
-			{dll_name}"!"{cls.address;#010x}" ClientClass "{cls.name}"\n"
-		}
 		"```\n\n"
-	}
+	};
+	let _ = template::write! { f.ini,
+		"[ClientClasses]\n"
+		for cls in (&classes) {
+			{cls.name}"="{cls.address;#010x}"\n"
+		}
+		"\n"
+		"[ClientClass.Ids]\n"
+		for cls in (&classes) {
+			{cls.name}"="{cls.id}"\n"
+		}
+		"\n"
+		"[ClientClass.Sizes]\n"
+		for cls in (&classes) {
+			{cls.name}"="{cls.size;#x}"\n"
+		}
+		"\n"
+	};
 }
 
 //----------------------------------------------------------------

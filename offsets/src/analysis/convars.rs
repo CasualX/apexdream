@@ -1,13 +1,14 @@
+use std::fmt::Write;
 use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
 use pelite::pattern as pat;
 
-pub fn print(bin: PeFile, dll_name: &str) {
+pub fn print(f: &mut super::Output, bin: PeFile) {
 	let cvars = convars(bin);
 
-	template::print! {
+	let _ = template::write! { f.human,
 		"## ConVars\n\n"
 		for cvar in (&cvars) {
 			"<details>\n"
@@ -25,13 +26,15 @@ pub fn print(bin: PeFile, dll_name: &str) {
 			}
 			"</details>\n"
 		}
-		"\n### Addresses\n\n"
-		"```\n"
+		"\n"
+	};
+	let _ = template::write! { f.ini,
+		"[ConVars]\n"
 		for cvar in (&cvars) {
-			{dll_name}"!"{cvar.address;#010x}" ConVar "{cvar.name}"\n"
+			{cvar.name}"="{cvar.address;#010x}"\n"
 		}
-		"```\n\n"
-	}
+		"\n"
+	};
 }
 
 // Find information in the 'setinfo' command
@@ -85,7 +88,7 @@ pub fn convars(bin: PeFile<'_>) -> Vec<ConVar<'_>> {
 	// Find the main ConVar vtable
 	let mut save = [0; 4];
 	if !bin.scanner().finds_code(pat!("488BC8 488BD3 E8$ 4053 4883EC60 488BD9 C6411000 33C9 488D05$'"), &mut save) {
-		eprintln!("ERR: unable to find ConVar vftable");
+		crate::print_error(&"ERR: unable to find ConVar vftable");
 		return Vec::new();
 	}
 	// Get the virtual address of the ConVar vtable
