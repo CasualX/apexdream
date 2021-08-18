@@ -16,6 +16,8 @@ window.onload = () => {
 	let displayDiv = document.getElementById('display');
 	let outputIniTextarea = document.getElementById('output-ini');
 	let outputHumanTextarea = document.getElementById('output-human');
+	let downloadIni = document.getElementById('download-ini');
+	let downloadHuman = document.getElementById('download-human');
 	displayDiv.textContent = "> Waiting for an input file.";
 
 	let log = text => {
@@ -36,9 +38,23 @@ window.onload = () => {
 					},
 					setINI(ptr, len) {
 						outputIniTextarea.value = textDecoder.decode(new Uint8Array(instance.exports.memory.buffer, ptr, len));
+						downloadIni.href = 'data:text/ini' + ';charset=utf-8,' + encodeURIComponent(outputIniTextarea.value);
+
+						// Extract the game version and set it to the download name
+						let versionLine = /GameVersion=v[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*/.exec(outputIniTextarea.value)[0];
+						downloadIni.download = versionLine == undefined ? 'offsets.ini' : versionLine.replace('GameVersion=', '') + '.ini';
+
+						downloadIni.style.display = 'block';
 					},
 					setHuman(ptr, len) {
 						outputHumanTextarea.value = textDecoder.decode(new Uint8Array(instance.exports.memory.buffer, ptr, len));
+						downloadHuman.href = 'data:text/md' + ';charset=utf-8,' + encodeURIComponent(outputHumanTextarea.value);
+						
+						// Extract the game version and set it to the download name
+						let versionLine = /GameVersion = "v[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*/.exec(outputHumanTextarea.value)[0]; // We don't use an end quote so we don't have to remove it on the next line.
+						downloadHuman.download = versionLine == undefined ? 'offsets.md' : versionLine.replace('GameVersion = "', '') + '.md';
+
+						downloadHuman.style.display = 'block';
 					},
 				}
 			}));
@@ -94,6 +110,8 @@ function readFileAsync(file) {
 	<div style="display: grid; grid-template: auto / 50% 50%; width: 100%">
 		<textarea id="output-ini" readonly style="resize: vertical; margin: 5px;" rows="32">INI</textarea>
 		<textarea id="output-human" readonly style="resize: vertical; margin: 5px;" rows="32">HUMAN</textarea>
+		<a id='download-ini' download='offsets.ini' style="font-size: 20px; display: none; margin: 5px">Download INI</a>
+		<a id='download-human' download='offsets.md' style="font-size: 20px; display: none; margin: 5px">Download HUMAN</a>
 	</div>
 	<pre id="display"></pre>
 </body>
