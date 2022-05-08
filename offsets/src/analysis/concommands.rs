@@ -66,7 +66,7 @@ pub fn concommands(bin: PeFile<'_>) -> Vec<ConCommand<'_>> {
 	let mut concommands = Vec::new();
 	let mut save = [0; 4];
 	// Find the ConCommand vtable
-	if !bin.scanner().finds_code(pat!("8D?${'} 33FF ?891D???? ?8D"), &mut save) {
+	if !bin.scanner().matches_code(pat!("488D05${} 488905${*{'}} 4885D2")).next(&mut save) {
 		crate::print_error(&"ERR: unable to find ConCommand vftable");
 		return concommands;
 	}

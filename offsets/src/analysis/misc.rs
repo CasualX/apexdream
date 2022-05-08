@@ -78,7 +78,7 @@ fn global_vars(f: &mut super::Output, bin: PeFile<'_>) {
 	// Right above "Client.dll Init_PostVideo() in library "
 	// lea r8, qword_XXX
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B01 4C8D05${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
+	if bin.scanner().finds_code(pat!("488B01 488D15${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
 		let global_vars = save[1];
 		let _ = writeln!(f.ini, "GlobalVars={:#x}", global_vars);
 	}
