@@ -7,7 +7,6 @@ From the Source SDK 2013: https://github.com/ValveSoftware/source-sdk-2013/blob/
 */
 
 use std::fmt::Write;
-use format_xml::template;
 use pelite::Pod;
 use pelite::pattern as pat;
 use pelite::pe64::*;
@@ -15,19 +14,19 @@ use pelite::pe64::*;
 pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	let btns = buttons(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## Buttons\n\n"
 		"These are addresses to global instances of the [`kbutton_t`](https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/game/client/kbutton.h#L14-L20) struct.\n\n"
 		"```\n"
-		for btn in (&btns) {
+		for btn in &btns {
 			"kbutton_t in_"{&btn.name[1..]}";\n"
 		}
 		"```\n\n"
 	};
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[Buttons]\n"
-		for btn in (&btns) {
-			"in_"{&btn.name[1..]}"="{btn.kbutton;#010x}"\n"
+		for btn in &btns {
+			"in_"{&btn.name[1..]}"="{btn.kbutton:#010x}"\n"
 		}
 		"\n"
 	};

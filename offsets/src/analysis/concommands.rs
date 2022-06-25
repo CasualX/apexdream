@@ -1,30 +1,30 @@
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
 use pelite::pattern as pat;
+use super::ident;
 
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let cmds = concommands(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## ConCommands\n\n"
-		for cmd in (&cmds) {
+		for cmd in &cmds {
 			"<details>\n"
-			"<summary><code>"{cmd.name}"</code></summary>\n\n"
-			if let Some(desc) = (cmd.desc) {
+			"<summary><code>"{ident(cmd.name)}"</code></summary>\n\n"
+			if let Some(desc) = cmd.desc {
 				{desc}"\n\n"
 			}
-			"flags: `"{cmd.flags;#x}"`  \n"
+			"flags: `"{cmd.flags:#x}"`  \n"
 			"</details>\n"
 		}
 		"\n"
 	};
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[ConCommands]\n"
-		for cmd in (&cmds) {
-			{cmd.name}"="{cmd.address;#010x}"\n"
+		for cmd in &cmds {
+			{ident(cmd.name)}"="{cmd.address:#010x}"\n"
 		}
 		"\n"
 	};

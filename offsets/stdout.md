@@ -1,34 +1,14 @@
 ## Interfaces
 
 ```
-ClientRenderTargets001
-EngineTraceClient004
-EngineTraceClientDecals004
-EventSystem001
-GameUI011
-ISoundC002
-RunGameEngine005
-ShaderSystem002
-VClient018
-VClientEntityList003
-VClientPrediction001
-VCvarQuery001
-VDebugOverlay004
-VENGINE_GAMEUIFUNCS_VERSION005
-VENGINE_LAUNCHER_API_VERSION004
-VEngineModel016
-VEngineRandom001
-VEngineRenderView013
-VGUI_System010
-VMaterialSystemConfig004
 ```
 
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x626c3337
-CheckSum = 0x210f3b5
-GameVersion = "v3.0.7.26"
+TimeDateStamp = 0x62a3d3b8
+CheckSum = 0x213262f
+GameVersion = "v3.0.3.26"
 ```
 
 ## NetworkedStringTables
@@ -106,6 +86,30 @@ kbutton_t in_zoom;
 ## ClientClasses
 
 <details>
+<summary><code>client_class {empty}</code></summary>
+
+class_id: `0`  
+sizeof: `0x50`  
+</details>
+<details>
+<summary><code>client_class {empty}</code></summary>
+
+class_id: `0`  
+sizeof: `0x40`  
+</details>
+<details>
+<summary><code>client_class {empty}</code></summary>
+
+class_id: `0`  
+sizeof: `0x58`  
+</details>
+<details>
+<summary><code>client_class {empty}</code></summary>
+
+class_id: `0`  
+sizeof: `0xa80`  
+</details>
+<details>
 <summary><code>client_class CAI_BaseNPC</code></summary>
 
 class_id: `0`  
@@ -121,13 +125,13 @@ sizeof: `0xad0`
 <summary><code>client_class CBaseAnimating</code></summary>
 
 class_id: `0`  
-sizeof: `0x16b0`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CBaseAnimatingOverlay</code></summary>
 
 class_id: `0`  
-sizeof: `0x1a20`  
+sizeof: `0x19e0`  
 </details>
 <details>
 <summary><code>client_class CBaseButton</code></summary>
@@ -146,12 +150,6 @@ sizeof: `0x1c50`
 
 class_id: `0`  
 sizeof: `0xa60`  
-</details>
-<details>
-<summary><code>client_class CBaseGrenade</code></summary>
-
-class_id: `0`  
-sizeof: `0x2ee0`  
 </details>
 <details>
 <summary><code>client_class CBaseParticleEntity</code></summary>
@@ -187,7 +185,7 @@ sizeof: `0xa70`
 <summary><code>client_class CBaseViewModel</code></summary>
 
 class_id: `0`  
-sizeof: `0x4ff0`  
+sizeof: `0x4fa0`  
 </details>
 <details>
 <summary><code>client_class CBoneFollower</code></summary>
@@ -199,7 +197,7 @@ sizeof: `0xa70`
 <summary><code>client_class CBreakableProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x16b0`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CBreakableSurface</code></summary>
@@ -223,13 +221,13 @@ sizeof: `0xbb0`
 <summary><code>client_class CCrossbowBolt</code></summary>
 
 class_id: `0`  
-sizeof: `0x2e50`  
+sizeof: `0x2e60`  
 </details>
 <details>
 <summary><code>client_class CDeathBoxProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1730`  
+sizeof: `0x1720`  
 </details>
 <details>
 <summary><code>client_class CDynamicLight</code></summary>
@@ -241,13 +239,13 @@ sizeof: `0xa80`
 <summary><code>client_class CDynamicProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x16f0`  
+sizeof: `0x16e0`  
 </details>
 <details>
 <summary><code>client_class CDynamicPropLightweight</code></summary>
 
 class_id: `0`  
-sizeof: `0x16f0`  
+sizeof: `0x16e0`  
 </details>
 <details>
 <summary><code>client_class CEntityBlocker</code></summary>
@@ -271,7 +269,7 @@ sizeof: `0x1270`
 <summary><code>client_class CEnvDecoy</code></summary>
 
 class_id: `0`  
-sizeof: `0x16b0`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CEnvWind</code></summary>
@@ -283,7 +281,7 @@ sizeof: `0xbe0`
 <summary><code>client_class CFirstPersonProxy</code></summary>
 
 class_id: `0`  
-sizeof: `0x1720`  
+sizeof: `0x1710`  
 </details>
 <details>
 <summary><code>client_class CFuncBrush</code></summary>
@@ -319,7 +317,7 @@ sizeof: `0x1270`
 <summary><code>client_class CGrappleHook</code></summary>
 
 class_id: `0`  
-sizeof: `0x16c0`  
+sizeof: `0x16b0`  
 </details>
 <details>
 <summary><code>client_class CHardPointEntity</code></summary>
@@ -337,16 +335,10 @@ sizeof: `0xaa0`
 <summary><code>client_class CHealthKit</code></summary>
 
 class_id: `0`  
-sizeof: `0x16b0`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CImportantOnEntSound</code></summary>
-
-class_id: `0`  
-sizeof: `0xa80`  
-</details>
-<details>
-<summary><code>client_class CInfoPlacementHelper</code></summary>
 
 class_id: `0`  
 sizeof: `0xa80`  
@@ -373,19 +365,19 @@ sizeof: `0xa60`
 <summary><code>client_class CLootGrabber</code></summary>
 
 class_id: `0`  
-sizeof: `0x1700`  
+sizeof: `0x16f0`  
 </details>
 <details>
 <summary><code>client_class CLootRoller</code></summary>
 
 class_id: `0`  
-sizeof: `0x1720`  
+sizeof: `0x1710`  
 </details>
 <details>
 <summary><code>client_class CMissile</code></summary>
 
 class_id: `0`  
-sizeof: `0x2fa0`  
+sizeof: `0x2fb0`  
 </details>
 <details>
 <summary><code>client_class CMovieDisplay</code></summary>
@@ -427,7 +419,7 @@ sizeof: `0xb20`
 <summary><code>client_class CPhysicsProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1710`  
+sizeof: `0x1700`  
 </details>
 <details>
 <summary><code>client_class CPlayer</code></summary>
@@ -439,7 +431,7 @@ sizeof: `0x48d0`
 <summary><code>client_class CPlayerDecoy</code></summary>
 
 class_id: `0`  
-sizeof: `0x1720`  
+sizeof: `0x1710`  
 </details>
 <details>
 <summary><code>client_class CPlayerTasklist</code></summary>
@@ -451,19 +443,13 @@ sizeof: `0xfb0`
 <summary><code>client_class CPlayerVehicle</code></summary>
 
 class_id: `0`  
-sizeof: `0x1db0`  
+sizeof: `0x1d60`  
 </details>
 <details>
 <summary><code>client_class CPlayerWaypoint</code></summary>
 
 class_id: `0`  
 sizeof: `0xd60`  
-</details>
-<details>
-<summary><code>client_class CPointCamera</code></summary>
-
-class_id: `0`  
-sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPortal_PointPush</code></summary>
@@ -481,25 +467,25 @@ sizeof: `0xa80`
 <summary><code>client_class CPredictedFirstPersonProxy</code></summary>
 
 class_id: `0`  
-sizeof: `0x1740`  
+sizeof: `0x1730`  
 </details>
 <details>
 <summary><code>client_class CProjectile</code></summary>
 
 class_id: `0`  
-sizeof: `0x2e20`  
+sizeof: `0x2e30`  
 </details>
 <details>
 <summary><code>client_class CPropDoor</code></summary>
 
 class_id: `0`  
-sizeof: `0x17b0`  
+sizeof: `0x17a0`  
 </details>
 <details>
 <summary><code>client_class CPropSurvival</code></summary>
 
 class_id: `0`  
-sizeof: `0x16e0`  
+sizeof: `0x16d0`  
 </details>
 <details>
 <summary><code>client_class CRopeKeyframe</code></summary>
@@ -511,7 +497,7 @@ sizeof: `0xf60`
 <summary><code>client_class CScriptMover</code></summary>
 
 class_id: `0`  
-sizeof: `0x18e0`  
+sizeof: `0x18d0`  
 </details>
 <details>
 <summary><code>client_class CScriptMoverTrainNode</code></summary>
@@ -583,7 +569,7 @@ sizeof: `0xcf0`
 <summary><code>client_class CScriptProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1790`  
+sizeof: `0x1780`  
 </details>
 <details>
 <summary><code>client_class CScriptTraceVolume</code></summary>
@@ -595,7 +581,7 @@ sizeof: `0xa90`
 <summary><code>client_class CShieldProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1700`  
+sizeof: `0x16f0`  
 </details>
 <details>
 <summary><code>client_class CSkyCamera</code></summary>
@@ -607,7 +593,7 @@ sizeof: `0xa60`
 <summary><code>client_class CStatueProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1740`  
+sizeof: `0x1730`  
 </details>
 <details>
 <summary><code>client_class CStatusEffectPlugin</code></summary>
@@ -653,24 +639,6 @@ sizeof: `0x60`
 </details>
 <details>
 <summary><code>client_class CTEProjectileTrail</code></summary>
-
-class_id: `0`  
-sizeof: `0x58`  
-</details>
-<details>
-<summary><code>client_class CTEScriptParticleSystem</code></summary>
-
-class_id: `0`  
-sizeof: `0x50`  
-</details>
-<details>
-<summary><code>client_class CTEScriptParticleSystemOnEntity</code></summary>
-
-class_id: `0`  
-sizeof: `0x40`  
-</details>
-<details>
-<summary><code>client_class CTEScriptParticleSystemOnEntityWithPos</code></summary>
 
 class_id: `0`  
 sizeof: `0x58`  
@@ -757,7 +725,7 @@ sizeof: `0xaa0`
 <summary><code>client_class CTurret</code></summary>
 
 class_id: `0`  
-sizeof: `0x1ae0`  
+sizeof: `0x1aa0`  
 </details>
 <details>
 <summary><code>client_class CVFogVolume</code></summary>
@@ -787,7 +755,7 @@ sizeof: `0xa70`
 <summary><code>client_class CWeaponX</code></summary>
 
 class_id: `0`  
-sizeof: `0x6980`  
+sizeof: `0x6990`  
 </details>
 <details>
 <summary><code>client_class CWorld</code></summary>
@@ -808,27 +776,83 @@ class_id: `0`
 sizeof: `0xa70`  
 </details>
 <details>
+<summary><code>client_class "Destroys the particle effect created with the particle_create console command."</code></summary>
+
+class_id: `0`  
+sizeof: `0xb10`  
+</details>
+<details>
 <summary><code>client_class DoorMover</code></summary>
 
 class_id: `0`  
-sizeof: `0x18f0`  
+sizeof: `0x18e0`  
 </details>
 <details>
 <summary><code>client_class ScriptMoverLightweight</code></summary>
 
 class_id: `0`  
-sizeof: `0x18f0`  
+sizeof: `0x18e0`  
 </details>
 <details>
 <summary><code>client_class Titan_Cockpit</code></summary>
 
 class_id: `0`  
-sizeof: `0x18b0`  
+sizeof: `0x18a0`  
+</details>
+<details>
+<summary><code>client_class "me invalid."</code></summary>
+
+class_id: `0`  
+sizeof: `0x2ef0`  
 </details>
 ```
 
 ## RecvTables
 
+<details>
+<summary><code>class {empty} extends DT_BaseTempEntity</code></summary>
+
+```
+{
+	{empty}: Int,
+	{empty}: Int,
+	{empty}: Int,
+	{empty}: Int,
+	{empty}: Int,
+	{empty}: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class {empty} extends DT_BaseTempEntity</code></summary>
+
+```
+{
+	{empty}: Int,
+	{empty}: Vector,
+	{empty}: Vector,
+	{empty}: Vector,
+}
+```
+
+</details>
+<details>
+<summary><code>class {empty}</code></summary>
+
+```
+{
+	m_localOrigin: Vector,
+	moveparent: Int,
+	m_parentAttachmentType: Int,
+	m_parentAttachmentIndex: Int,
+	m_localAngles: Vector,
+	m_parentAttachmentHitbox: Int,
+	m_parentAttachmentModel: Int,
+}
+```
+
+</details>
 <details>
 <summary><code>class DT_AI_BaseNPC extends DT_BaseCombatCharacter</code></summary>
 
@@ -907,12 +931,12 @@ sizeof: `0x18b0`
 {
 	serveranimdata: DT_ServerAnimationData,
 	m_animPlaybackRate: Float,
-	m_animFrozen: Int,
 	m_animModelIndex: Int,
 	m_nNewSequenceParity: Int,
-	m_flPoseParameter: DataTable,
+	m_animFrozen: Int,
 	m_bClientSideRagdoll: Int,
 	m_vecForce: Vector,
+	m_flPoseParameter: DataTable,
 	m_flEstIkOffset: Float,
 	m_passDamageToParent: Int,
 	m_animNetworkFlags: Int,
@@ -981,7 +1005,7 @@ sizeof: `0x18b0`
 	m_cloakFlickerEndTime: Time,
 	m_networkedFlags: Int,
 	m_deathVelocity: Vector,
-	m_minimapData: DT_MinimapBaseEntityData,
+	m_minimapData: DataTable(?),
 	m_nameVisibilityFlags: Int,
 	m_lastFiredTime: Time,
 	m_lastFiredWeapon: Int,
@@ -1011,7 +1035,6 @@ sizeof: `0x18b0`
 	m_phaseShiftType: Int,
 	m_phaseShiftTimeStart: Time,
 	m_phaseShiftTimeEnd: Time,
-	m_targetInfoIconName: String,
 	m_targetInfoPingValue: Int,
 }
 ```
@@ -1068,8 +1091,8 @@ sizeof: `0x18b0`
 	m_holdUsePrompt: String,
 	m_pressUsePrompt: String,
 	m_phaseShiftFlags: Int,
-	m_baseTakeDamage: Int,
-	m_invulnerableToDamageCount: Int,
+	"ed hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
+	"nt of %s (%s %i) to itself.\n": Int,
 	m_attachmentLerpStartTime: Time,
 	m_attachmentLerpEndTime: Time,
 	m_attachmentLerpStartOrigin: Vector,
@@ -1090,26 +1113,6 @@ sizeof: `0x18b0`
 
 </details>
 <details>
-<summary><code>class DT_BaseGrenade extends DT_Projectile</code></summary>
-
-```
-{
-	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
-	m_baseTakeDamage: Int,
-	m_invulnerableToDamageCount: Int,
-	m_parentAttachmentHitbox: Int,
-	m_parentAttachmentModel: Int,
-	m_doesExplode: Int,
-	m_DmgRadius: Float,
-	m_grenadeStatusFlags: Int,
-	m_ziplineGrenadeExpectedEndPosition: Vector,
-}
-```
-
-</details>
-<details>
 <summary><code>class DT_BaseViewModel</code></summary>
 
 ```
@@ -1119,11 +1122,11 @@ sizeof: `0x18b0`
 	m_animOverlayIsActive: DataTable,
 	m_animStartCycle: Float,
 	m_animPlaybackRate: Float,
-	m_animFrozen: Int,
-	m_animOverlayStartTime: DataTable,
 	m_animModelIndex: Int,
-	m_animSequence: Int,
+	m_animOverlayStartTime: DataTable,
 	m_nNewSequenceParity: Int,
+	m_animSequence: Int,
+	m_animFrozen: Int,
 	m_animOverlayStartCycle: DataTable,
 	m_fEffects: Int,
 	m_clrRender: Int,
@@ -1207,6 +1210,7 @@ sizeof: `0x18b0`
 	m_localOrigin: Vector,
 	m_nModelIndex: Int,
 	m_networkedFlags: Int,
+	m_iTeamNum: Int,
 	m_localAngles: Vector,
 	m_nSkin: Int,
 	m_skinMod: Int,
@@ -1634,7 +1638,7 @@ sizeof: `0x18b0`
 {
 	m_localOrigin: Vector,
 	m_iTeamNum: Int,
-	m_minimapData: DT_MinimapBaseEntityData,
+	m_minimapData: DataTable(?),
 	m_state: Int,
 	m_estimatedCaptureTime: Float,
 	m_progressRefPoint: Float,
@@ -1681,22 +1685,6 @@ sizeof: `0x18b0`
 
 </details>
 <details>
-<summary><code>class DT_InfoPlacementHelper</code></summary>
-
-```
-{
-	m_localOrigin: Vector,
-	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
-	m_localAngles: Vector,
-	m_parentAttachmentHitbox: Int,
-	m_parentAttachmentModel: Int,
-}
-```
-
-</details>
-<details>
 <summary><code>class DT_InfoTarget</code></summary>
 
 ```
@@ -1730,7 +1718,7 @@ sizeof: `0x18b0`
 
 ```
 {
-	m_airMoveBlockPlanes: Array,
+	"PAK_STATUS_FREED on success.": Array,
 	m_iHideHUD: Int,
 	m_superJumpsUsed: Int,
 	m_jumpedOffRodeo: Int,
@@ -1740,111 +1728,111 @@ sizeof: `0x18b0`
 	m_jetpackDeactivateTime: Time,
 	m_flSuitPower: Float,
 	m_flSuitJumpPower: Float,
-	m_flSuitGrapplePower: Float,
-	m_flFallVelocity: Float,
-	m_flStepSize: Float,
-	m_airSlowMoFrac: Float,
-	predictableFlags: Int,
-	m_bitsActiveDevices: Int,
+	" this npc titan.": Float,
+	" set from the server for this npc titan.": Float,
+	State: Float,
+	"kRequest is already pending.": Float,
+	dl_store: Int,
+	"Trying to load more than MAX_LOADED_PAKS(%d) pak files\n.": Int,
 	m_forceStance: Int,
 	m_forceSlide: Int,
 	m_duckToggleOn: Int,
-	m_bDrawViewmodel: Int,
-	m_bAllowAutoMovement: Int,
-	m_accelScale: Float,
-	m_powerRegenRateScale: Float,
-	m_dodgePowerDelayScale: Float,
-	m_hSkyCamera: Int,
-	m_skybox3d.scale: Int,
-	m_skybox3d.useWorldFog: Int,
-	m_skybox3d.fog.botAlt: Float,
+	DT_NPC_SentryTurret: Int,
+	m_killCount: Int,
+	GetCanStand: Float,
+	C_NPC_Titan: Float,
+	CNPC_SentryTurret: Float,
+	"ady pending.": Int,
+	" files\n.": Int,
+	" MAX_LOADED_PAKS(%d) pak files\n.": Int,
+	" unload a pak file that isn't loaded. Pak status %s.\n": Float,
 	m_skybox3d.fog.topAlt: Float,
 	m_skybox3d.fog.halfDistBot: Float,
-	m_skybox3d.fog.halfDistTop: Float,
-	m_skybox3d.fog.distColorStr: Float,
-	m_skybox3d.fog.dirColorStr: Float,
+	{empty}: Float,
+	"he server": Float,
+	" turret's control panel set on the server": Float,
 	m_skybox3d.fog.distOffset: Float,
-	m_skybox3d.fog.densityScale: Float,
-	m_skybox3d.fog.halfAngleDeg: Float,
-	m_skybox3d.fog.HDRColorScale: Float,
-	m_skybox3d.fog.distColor: Int,
-	m_skybox3d.fog.dirColor: Int,
-	m_skybox3d.fog.direction: Vector,
-	m_skybox3d.fog.enable: Int,
-	m_audio.localSound[0]: Vector,
-	m_audio.localSound[1]: Vector,
-	m_audio.localSound[2]: Vector,
-	m_audio.localSound[3]: Vector,
-	m_audio.localSound[4]: Vector,
-	m_audio.localSound[5]: Vector,
-	m_audio.localSound[6]: Vector,
-	m_audio.localSound[7]: Vector,
-	m_audio.soundscapeIndex: Int,
-	m_audio.localBits: Int,
-	m_audio.entIndex: Int,
-	m_animNearZ: Float,
-	lastAttacker: Int,
-	attackedCount: Int,
-	m_airMoveBlockPlanes[0]: Vector,
-	m_airMoveBlockPlaneTime: Time,
-	m_airMoveBlockPlaneCount: Int,
-	m_queuedMeleePressTime: Time,
-	m_queuedGrappleMeleeTime: Time,
-	m_disableMeleeUntilRelease: Int,
-	m_meleePressTime: Time,
-	m_meleeDisabledCounter: Int,
-	m_meleeInputIndex: Int,
-	m_trackedChildProjectileCount: Int,
-	m_oneHandedWeaponUsage: Int,
-	m_flCockpitEntryTime: Time,
-	m_ejectStartTime: Time,
-	m_disembarkStartTime: Time,
-	m_hotDropImpactTime: Time,
-	m_outOfBoundsDeadTime: Time,
-	m_objectiveIndex: Int,
-	m_objectiveEntity: Int,
-	m_objectiveEndTime: Time,
-	m_cinematicEventFlags: Int,
-	m_forcedDialogueOnly: Int,
-	m_titanBuildTime: Time,
-	m_titanBubbleShieldTime: Time,
-	m_titanEmbarkEnabled: Int,
-	m_titanDisembarkEnabled: Int,
-	m_voicePackIndex: Int,
-	m_playerAnimStationaryGoalFeetYaw: Float,
-	m_playerAnimJumping: Int,
-	m_playerAnimJumpStartTime: Time,
-	m_playerAnimFirstJumpFrame: Int,
-	m_playerAnimDodging: Int,
-	m_playerAnimJumpActivity: Int,
-	m_playerAnimLanding: Int,
-	m_playerAnimShouldLand: Int,
-	m_playerAnimLandStartTime: Time,
-	m_playerAnimInAirWalk: Int,
-	m_playerAnimPrevFrameSequenceMotionYaw: Float,
-	m_playerAnimMeleeParity: Int,
-	m_playerAnimMeleeStartTime: Time,
-	m_playerLocalGravityBlendStartRotation: Rotation,
-	m_playerLocalGravityBlendEndRotation: Rotation,
-	m_playerLocalGravityBlendEndDirection: Vector,
-	m_playerLocalGravityBlendStartTime: Time,
-	m_playerLocalGravityBlendEndTime: Time,
-	m_playerLocalGravityBlendStrength: Float,
-	m_playerLocalGravityStrength: Float,
-	m_playerLocalGravityType: Int,
-	m_playerLocalGravityPoint: Vector,
-	m_playerLocalGravityLineStart: Vector,
-	m_playerLocalGravityLineEnd: Vector,
-	m_playerLocalGravityEntity: Int,
-	m_playerLocalGravityLineStartEntity: Int,
-	m_playerLocalGravityLineEndEntity: Int,
-	m_playerFloatLookStartTime: Time,
-	m_playerFloatLookEndTime: Time,
-	m_wallrunLatestFloorHeight: Float,
-	m_wallrunFromJetpack: Int,
-	m_groundNormal: Vector,
-	m_continuousUseBlocked: Int,
-	m_useEnt: Int,
+	T_***: Float,
+	"t state. Enum values under TURRET_***": Float,
+	NNING: Float,
+	{empty}: Int,
+	led: Int,
+	C_NPC_Dropship: Vector,
+	"isn't loaded. Pak status %s.\n": Int,
+	CNPC_Titan: Vector,
+	ed: Vector,
+	itan: Vector,
+	n: Vector,
+	ClientPakFile_TryToGetLock: Vector,
+	"ucceeds or fails.": Vector,
+	questAsyncLoad: Vector,
+	ck: Vector,
+	{empty}: Int,
+	pakPath: Int,
+	"eturns an error code or PAK_STATUS_FREED on success.": Int,
+	"asset pakfile. Returns an error code or PAK_STATUS_FREED on success.": Float,
+	"s prevents need to hang if a pak request can't be done at this time.": Int,
+	"et pak lock. This prevents need to hang if a pak request can't be done at this time.": Int,
+	ess.: Vector,
+	STARTING: Time,
+	kFile_Unload: Int,
+	US_LOAD_PATCH_INIT: Time,
+	US_LOAD_REPAK_DONE: Time,
+	PAK_STATUS_LOAD_ASSETS: Int,
+	PAK_STATUS_LOAD_PAKHDR: Time,
+	"alid pak file.": Int,
+	" %s.\n": Int,
+	" can't be done at this time.": Int,
+	"to hang if a pak request can't be done at this time.": Int,
+	"ile a ClientPakFile_RequestAsyncLoad is still pending.\n": Time,
+	"Tried to unload a pak while a ClientPakFile_RequestAsyncLoad is still pending.\n": Time,
+	"nding.\n": Time,
+	"estAsyncLoad is still pending.\n": Time,
+	"turn the file handle or -1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Time,
+	" of an asset pakfile. Return the file handle or -1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Int,
+	"deCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Int,
+	"-1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Time,
+	" file status when load succeeds or fails.": Int,
+	"ished is called with the file status when load succeeds or fails.": Int,
+	fterWarmup: Time,
+	over_limit: Time,
+	"%i/%s - %s:  SetDroppedModel:  modelname '%s' is not registered\n": Int,
+	ime: Int,
+	{empty}: Int,
+	"odel:  modelname '%s' is not registered\n": Float,
+	e: Int,
+	DT_ParticleSystem: Time,
+	RenderAlways: Int,
+	m_nStopType: Int,
+	rControlPoints[0]: Int,
+	m_bInSkybox: Int,
+	nts[0]: Int,
+	OverLimit: Time,
+	m_hControlPointEnts: Int,
+	Points: Float,
+	PAK_STATUS_LOADED: Int,
+	US_LOAD_PATCH_EDIT_STREAM: Time,
+	US_FREE_PENDING: Rotation,
+	PAK_STATUS_LOAD_DO_HOTSWAP: Rotation,
+	US_CANCELING: Vector,
+	G: Time,
+	dl_mini: Time,
+	US_INVALID_PAKHANDLE: Float,
+	s: Float,
+	{empty}: Int,
+	m_iTeamNum: Vector,
+	m_vServerControlPointColorIds: Vector,
+	{empty}: Vector,
+	ttachmentIndex: Int,
+	in_skybox: Int,
+	tive: Int,
+	acters: Time,
+	m_ignoresCollisionWithCombatCharacters: Time,
+	m_isRolling: Float,
+	kTableRollSoundId: Int,
+	ionMins: Vector,
+	m_spawnflags: Int,
+	nd_pause: Int,
 }
 ```
 
@@ -1903,6 +1891,15 @@ sizeof: `0x18b0`
 	m_blackholeActive: Int,
 	m_jetDriveActive: Int,
 	m_jetDriveTargetPos: Vector,
+	m_jetDriveTargetEntOffset: Vector,
+	m_jetDriveStartPos: Vector,
+	m_jetDriveStartTime: Time,
+	m_jetDriveSpeed: Float,
+	m_jetDriveAccel: Float,
+	m_jetDriveDecelWindowTimeOutTime: Time,
+	m_jetDriveInDecelWindow: Int,
+	m_jetDriveTimeout: Float,
+	m_jetDriveDoubleJumpVelocity: Vector,
 	m_slowMoEnabled: Int,
 	m_sliding: Int,
 	m_slideLongJumpAllowed: Int,
@@ -1920,6 +1917,7 @@ sizeof: `0x18b0`
 	m_ziplineViewOffsetVelocity: Vector,
 	m_ziplineGrenadeEntity: Int,
 	m_sameZiplineCooldownTime: Float,
+	m_ziplineCooldownIndex: Int,
 	m_highSpeedViewmodelAnims: Int,
 	m_playAnimationType: Int,
 	m_detachGrappleOnPlayAnimationEnd: Int,
@@ -2050,25 +2048,10 @@ sizeof: `0x18b0`
 
 ```
 {
-	m_minimapData: DT_MinimapBaseEntityData,
+	m_minimapData: DataTable(?),
 	m_impactEffectColorID: Int,
 	m_lootBeingGrabbed: Int,
 	m_lootGrabDist: Float,
-}
-```
-
-</details>
-<details>
-<summary><code>class DT_MinimapBaseEntityData</code></summary>
-
-```
-{
-	visibilityDefaultFlag: DataTable,
-	visibilityShowFlag: DataTable,
-	flags: Int,
-	zOrder: Int,
-	customState: Int,
-	objectScale: Float,
 }
 ```
 
@@ -2243,7 +2226,7 @@ sizeof: `0x18b0`
 	m_crossPlayChat: Int,
 	m_crossPlayChatFriends: Int,
 	m_classModsActive: BitMask,
-	m_passives[ 0 ]: BitMask,
+	"m_passives[ 0 ]": BitMask,
 	m_bleedoutState: Int,
 	m_bleedoutStartTime: Float,
 	m_statusEffectsTimedPlayerNV: DataTable,
@@ -3023,7 +3006,7 @@ sizeof: `0x18b0`
 	m_networkedFlags: Int,
 	m_iHealth: Int,
 	m_iMaxHealth: Int,
-	m_minimapData: DT_MinimapBaseEntityData,
+	m_minimapData: DataTable(?),
 	m_nameVisibilityFlags: Int,
 	m_title: String,
 	m_footstepType: String,
@@ -3192,34 +3175,6 @@ sizeof: `0x18b0`
 
 </details>
 <details>
-<summary><code>class DT_TEScriptParticleSystem extends DT_BaseTempEntity</code></summary>
-
-```
-{
-	m_effectIndex: Int,
-	m_origin: Vector,
-	m_angles: Vector,
-	m_controlPoint1: Vector,
-}
-```
-
-</details>
-<details>
-<summary><code>class DT_TEScriptParticleSystemOnEntity extends DT_BaseTempEntity</code></summary>
-
-```
-{
-	m_effectIndex: Int,
-	m_ent: Int,
-	m_attachType: Int,
-	m_attachmentIndex: Int,
-	m_attachType2: Int,
-	m_attachmentIndex2: Int,
-}
-```
-
-</details>
-<details>
 <summary><code>class DT_TEShatterSurface extends DT_BaseTempEntity</code></summary>
 
 ```
@@ -3242,7 +3197,7 @@ sizeof: `0x18b0`
 ```
 {
 	player_array_element: Int,
-	"player_array": Array,
+	"\"player_array\"": Array,
 	m_score: Int,
 	m_score2: Int,
 	m_kills: Int,
@@ -3480,6 +3435,7 @@ sizeof: `0x18b0`
 	m_noiseScale: Vector,
 	m_noiseAmplitude: Float,
 	m_noiseCenter: Float,
+	m_size: Vector,
 	m_enabled: Int,
 }
 ```
@@ -3672,8 +3628,8 @@ sizeof: `0x18b0`
 	m_iWorldModelIndex: Int,
 	m_holsterModelIndex: Int,
 	m_droppedModelIndex: Int,
-	m_nIdealSequence: Int,
-	m_IdealActivity: Int,
+	m_idealSequence: Int,
+	m_idealActivity: Int,
 	m_weaponActivity: Int,
 	m_ActiveState: Int,
 	m_weapState: Int,
@@ -3858,27 +3814,29 @@ sizeof: `0x18b0`
 ```
 
 </details>
-
-## Datamaps
-
 <details>
-<summary><code>class CBaseGrenade extends C_BaseAnimating</code></summary>
+<summary><code>class entity_error_on_hitbox_count_mismatch extends DT_Projectile</code></summary>
 
 ```
 {
-	m_vecVelocity: Vector,
-	m_doesExplode: Bool,
-	m_DmgRadius: Bool,
-	m_grenadeCreationTime: Float,
-	m_grenadeCreationOrigin: Vector,
-	m_useMaskAbility: Bool,
-	m_grenadeStatusFlags: Int,
-	m_flDamage: Float,
-	m_hThrower: EHANDLE,
+	moveparent: Int,
+	m_parentAttachmentType: Int,
+	m_parentAttachmentIndex: Int,
+	"ed hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
+	"nt of %s (%s %i) to itself.\n": Int,
+	m_parentAttachmentHitbox: Int,
+	m_parentAttachmentModel: Int,
+	"%s' isn't valid.\n": Int,
+	"nt #%d's model '%s' isn't valid.\n": Float,
+	"SetParentRaw() - Specified hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
+	"SetParentRaw() - No model for specified ent #%d.\n": Vector,
 }
 ```
 
 </details>
+
+## Datamaps
+
 <details>
 <summary><code>class CBaseViewModel</code></summary>
 
@@ -3899,8 +3857,8 @@ sizeof: `0x18b0`
 	m_currentFrameBaseAnimating.animStartCycle: Float,
 	m_currentFrameBaseAnimating.animPlaybackRate: Float,
 	m_currentFrameBaseAnimating.animModelIndex: Int,
-	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameBaseAnimating.animSequenceParity: Int,
+	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameAnimatingOverlay.animOverlayIsActive: Bool,
 	m_currentFrameAnimatingOverlay.animOverlayStartTime: Float,
 	m_currentFrameAnimatingOverlay.animOverlayStartCycle: Float,
@@ -3987,7 +3945,6 @@ sizeof: `0x18b0`
 	m_vecVelocity: Vector,
 	m_angNetworkAngles: Vector,
 	m_SequenceTransitioner: C_SequenceTransitioner,
-	m_camoIndex: Int,
 }
 ```
 
@@ -3999,135 +3956,135 @@ sizeof: `0x18b0`
 {
 	m_ragdoll.listCount: Int,
 	m_ragdoll.allowStretch: Bool,
-	m_ragdoll.list[0 + 0].originParentSpace: Vector,
-	m_ragdoll.list[0 + 0].pObject: Custom,
-	m_ragdoll.list[0 + 0].pConstraint: Custom,
-	m_ragdoll.list[0 + 0].parentIndex: Int,
-	m_ragdoll.list[0 + 1].originParentSpace: Vector,
-	m_ragdoll.list[0 + 1].pObject: Custom,
-	m_ragdoll.list[0 + 1].pConstraint: Custom,
-	m_ragdoll.list[0 + 1].parentIndex: Int,
-	m_ragdoll.list[0 + 2].originParentSpace: Vector,
-	m_ragdoll.list[0 + 2].pObject: Custom,
-	m_ragdoll.list[0 + 2].pConstraint: Custom,
-	m_ragdoll.list[0 + 2].parentIndex: Int,
-	m_ragdoll.list[0 + 3].originParentSpace: Vector,
-	m_ragdoll.list[0 + 3].pObject: Custom,
-	m_ragdoll.list[0 + 3].pConstraint: Custom,
-	m_ragdoll.list[0 + 3].parentIndex: Int,
-	m_ragdoll.list[0 + 4].originParentSpace: Vector,
-	m_ragdoll.list[0 + 4].pObject: Custom,
-	m_ragdoll.list[0 + 4].pConstraint: Custom,
-	m_ragdoll.list[0 + 4].parentIndex: Int,
-	m_ragdoll.list[0 + 5].originParentSpace: Vector,
-	m_ragdoll.list[0 + 5].pObject: Custom,
-	m_ragdoll.list[0 + 5].pConstraint: Custom,
-	m_ragdoll.list[0 + 5].parentIndex: Int,
-	m_ragdoll.list[0 + 6].originParentSpace: Vector,
-	m_ragdoll.list[0 + 6].pObject: Custom,
-	m_ragdoll.list[0 + 6].pConstraint: Custom,
-	m_ragdoll.list[0 + 6].parentIndex: Int,
-	m_ragdoll.list[0 + 7].originParentSpace: Vector,
-	m_ragdoll.list[0 + 7].pObject: Custom,
-	m_ragdoll.list[0 + 7].pConstraint: Custom,
-	m_ragdoll.list[0 + 7].parentIndex: Int,
-	m_ragdoll.list[8 + 0].originParentSpace: Vector,
-	m_ragdoll.list[8 + 0].pObject: Custom,
-	m_ragdoll.list[8 + 0].pConstraint: Custom,
-	m_ragdoll.list[8 + 0].parentIndex: Int,
-	m_ragdoll.list[8 + 1].originParentSpace: Vector,
-	m_ragdoll.list[8 + 1].pObject: Custom,
-	m_ragdoll.list[8 + 1].pConstraint: Custom,
-	m_ragdoll.list[8 + 1].parentIndex: Int,
-	m_ragdoll.list[8 + 2].originParentSpace: Vector,
-	m_ragdoll.list[8 + 2].pObject: Custom,
-	m_ragdoll.list[8 + 2].pConstraint: Custom,
-	m_ragdoll.list[8 + 2].parentIndex: Int,
-	m_ragdoll.list[8 + 3].originParentSpace: Vector,
-	m_ragdoll.list[8 + 3].pObject: Custom,
-	m_ragdoll.list[8 + 3].pConstraint: Custom,
-	m_ragdoll.list[8 + 3].parentIndex: Int,
-	m_ragdoll.list[8 + 4].originParentSpace: Vector,
-	m_ragdoll.list[8 + 4].pObject: Custom,
-	m_ragdoll.list[8 + 4].pConstraint: Custom,
-	m_ragdoll.list[8 + 4].parentIndex: Int,
-	m_ragdoll.list[8 + 5].originParentSpace: Vector,
-	m_ragdoll.list[8 + 5].pObject: Custom,
-	m_ragdoll.list[8 + 5].pConstraint: Custom,
-	m_ragdoll.list[8 + 5].parentIndex: Int,
-	m_ragdoll.list[8 + 6].originParentSpace: Vector,
-	m_ragdoll.list[8 + 6].pObject: Custom,
-	m_ragdoll.list[8 + 6].pConstraint: Custom,
-	m_ragdoll.list[8 + 6].parentIndex: Int,
-	m_ragdoll.list[8 + 7].originParentSpace: Vector,
-	m_ragdoll.list[8 + 7].pObject: Custom,
-	m_ragdoll.list[8 + 7].pConstraint: Custom,
-	m_ragdoll.list[8 + 7].parentIndex: Int,
-	m_ragdoll.list[16 + 0].originParentSpace: Vector,
-	m_ragdoll.list[16 + 0].pObject: Custom,
-	m_ragdoll.list[16 + 0].pConstraint: Custom,
-	m_ragdoll.list[16 + 0].parentIndex: Int,
-	m_ragdoll.list[16 + 1].originParentSpace: Vector,
-	m_ragdoll.list[16 + 1].pObject: Custom,
-	m_ragdoll.list[16 + 1].pConstraint: Custom,
-	m_ragdoll.list[16 + 1].parentIndex: Int,
-	m_ragdoll.list[16 + 2].originParentSpace: Vector,
-	m_ragdoll.list[16 + 2].pObject: Custom,
-	m_ragdoll.list[16 + 2].pConstraint: Custom,
-	m_ragdoll.list[16 + 2].parentIndex: Int,
-	m_ragdoll.list[16 + 3].originParentSpace: Vector,
-	m_ragdoll.list[16 + 3].pObject: Custom,
-	m_ragdoll.list[16 + 3].pConstraint: Custom,
-	m_ragdoll.list[16 + 3].parentIndex: Int,
-	m_ragdoll.list[16 + 4].originParentSpace: Vector,
-	m_ragdoll.list[16 + 4].pObject: Custom,
-	m_ragdoll.list[16 + 4].pConstraint: Custom,
-	m_ragdoll.list[16 + 4].parentIndex: Int,
-	m_ragdoll.list[16 + 5].originParentSpace: Vector,
-	m_ragdoll.list[16 + 5].pObject: Custom,
-	m_ragdoll.list[16 + 5].pConstraint: Custom,
-	m_ragdoll.list[16 + 5].parentIndex: Int,
-	m_ragdoll.list[16 + 6].originParentSpace: Vector,
-	m_ragdoll.list[16 + 6].pObject: Custom,
-	m_ragdoll.list[16 + 6].pConstraint: Custom,
-	m_ragdoll.list[16 + 6].parentIndex: Int,
-	m_ragdoll.list[16 + 7].originParentSpace: Vector,
-	m_ragdoll.list[16 + 7].pObject: Custom,
-	m_ragdoll.list[16 + 7].pConstraint: Custom,
-	m_ragdoll.list[16 + 7].parentIndex: Int,
-	m_ragdoll.list[24 + 0].originParentSpace: Vector,
-	m_ragdoll.list[24 + 0].pObject: Custom,
-	m_ragdoll.list[24 + 0].pConstraint: Custom,
-	m_ragdoll.list[24 + 0].parentIndex: Int,
-	m_ragdoll.list[24 + 1].originParentSpace: Vector,
-	m_ragdoll.list[24 + 1].pObject: Custom,
-	m_ragdoll.list[24 + 1].pConstraint: Custom,
-	m_ragdoll.list[24 + 1].parentIndex: Int,
-	m_ragdoll.list[24 + 2].originParentSpace: Vector,
-	m_ragdoll.list[24 + 2].pObject: Custom,
-	m_ragdoll.list[24 + 2].pConstraint: Custom,
-	m_ragdoll.list[24 + 2].parentIndex: Int,
-	m_ragdoll.list[24 + 3].originParentSpace: Vector,
-	m_ragdoll.list[24 + 3].pObject: Custom,
-	m_ragdoll.list[24 + 3].pConstraint: Custom,
-	m_ragdoll.list[24 + 3].parentIndex: Int,
-	m_ragdoll.list[24 + 4].originParentSpace: Vector,
-	m_ragdoll.list[24 + 4].pObject: Custom,
-	m_ragdoll.list[24 + 4].pConstraint: Custom,
-	m_ragdoll.list[24 + 4].parentIndex: Int,
-	m_ragdoll.list[24 + 5].originParentSpace: Vector,
-	m_ragdoll.list[24 + 5].pObject: Custom,
-	m_ragdoll.list[24 + 5].pConstraint: Custom,
-	m_ragdoll.list[24 + 5].parentIndex: Int,
-	m_ragdoll.list[24 + 6].originParentSpace: Vector,
-	m_ragdoll.list[24 + 6].pObject: Custom,
-	m_ragdoll.list[24 + 6].pConstraint: Custom,
-	m_ragdoll.list[24 + 6].parentIndex: Int,
-	m_ragdoll.list[24 + 7].originParentSpace: Vector,
-	m_ragdoll.list[24 + 7].pObject: Custom,
-	m_ragdoll.list[24 + 7].pConstraint: Custom,
-	m_ragdoll.list[24 + 7].parentIndex: Int,
-	m_ragdoll.boneIndex: Int,
+	"m_ragdoll.list[0 + 0].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 0].pObject": Custom,
+	"m_ragdoll.list[0 + 0].pConstraint": Custom,
+	"m_ragdoll.list[0 + 0].parentIndex": Int,
+	"m_ragdoll.list[0 + 1].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 1].pObject": Custom,
+	"m_ragdoll.list[0 + 1].pConstraint": Custom,
+	"m_ragdoll.list[0 + 1].parentIndex": Int,
+	"m_ragdoll.list[0 + 2].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 2].pObject": Custom,
+	"m_ragdoll.list[0 + 2].pConstraint": Custom,
+	"m_ragdoll.list[0 + 2].parentIndex": Int,
+	"m_ragdoll.list[0 + 3].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 3].pObject": Custom,
+	"m_ragdoll.list[0 + 3].pConstraint": Custom,
+	"m_ragdoll.list[0 + 3].parentIndex": Int,
+	"m_ragdoll.list[0 + 4].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 4].pObject": Custom,
+	"m_ragdoll.list[0 + 4].pConstraint": Custom,
+	"m_ragdoll.list[0 + 4].parentIndex": Int,
+	"m_ragdoll.list[0 + 5].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 5].pObject": Custom,
+	"m_ragdoll.list[0 + 5].pConstraint": Custom,
+	"m_ragdoll.list[0 + 5].parentIndex": Int,
+	"m_ragdoll.list[0 + 6].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 6].pObject": Custom,
+	"m_ragdoll.list[0 + 6].pConstraint": Custom,
+	"m_ragdoll.list[0 + 6].parentIndex": Int,
+	"m_ragdoll.list[0 + 7].originParentSpace": Vector,
+	"m_ragdoll.list[0 + 7].pObject": Custom,
+	"m_ragdoll.list[0 + 7].pConstraint": Custom,
+	"m_ragdoll.list[0 + 7].parentIndex": Int,
+	"m_ragdoll.list[8 + 0].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 0].pObject": Custom,
+	"m_ragdoll.list[8 + 0].pConstraint": Custom,
+	"m_ragdoll.list[8 + 0].parentIndex": Int,
+	"m_ragdoll.list[8 + 1].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 1].pObject": Custom,
+	"m_ragdoll.list[8 + 1].pConstraint": Custom,
+	"m_ragdoll.list[8 + 1].parentIndex": Int,
+	"m_ragdoll.list[8 + 2].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 2].pObject": Custom,
+	"m_ragdoll.list[8 + 2].pConstraint": Custom,
+	"m_ragdoll.list[8 + 2].parentIndex": Int,
+	"m_ragdoll.list[8 + 3].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 3].pObject": Custom,
+	"m_ragdoll.list[8 + 3].pConstraint": Custom,
+	"m_ragdoll.list[8 + 3].parentIndex": Int,
+	"m_ragdoll.list[8 + 4].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 4].pObject": Custom,
+	"m_ragdoll.list[8 + 4].pConstraint": Custom,
+	"m_ragdoll.list[8 + 4].parentIndex": Int,
+	"m_ragdoll.list[8 + 5].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 5].pObject": Custom,
+	"m_ragdoll.list[8 + 5].pConstraint": Custom,
+	"m_ragdoll.list[8 + 5].parentIndex": Int,
+	"m_ragdoll.list[8 + 6].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 6].pObject": Custom,
+	"m_ragdoll.list[8 + 6].pConstraint": Custom,
+	"m_ragdoll.list[8 + 6].parentIndex": Int,
+	"m_ragdoll.list[8 + 7].originParentSpace": Vector,
+	"m_ragdoll.list[8 + 7].pObject": Custom,
+	"m_ragdoll.list[8 + 7].pConstraint": Custom,
+	"m_ragdoll.list[8 + 7].parentIndex": Int,
+	"m_ragdoll.list[16 + 0].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 0].pObject": Custom,
+	"m_ragdoll.list[16 + 0].pConstraint": Custom,
+	"m_ragdoll.list[16 + 0].parentIndex": Int,
+	"m_ragdoll.list[16 + 1].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 1].pObject": Custom,
+	"m_ragdoll.list[16 + 1].pConstraint": Custom,
+	"m_ragdoll.list[16 + 1].parentIndex": Int,
+	"m_ragdoll.list[16 + 2].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 2].pObject": Custom,
+	"m_ragdoll.list[16 + 2].pConstraint": Custom,
+	"m_ragdoll.list[16 + 2].parentIndex": Int,
+	"m_ragdoll.list[16 + 3].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 3].pObject": Custom,
+	"m_ragdoll.list[16 + 3].pConstraint": Custom,
+	"m_ragdoll.list[16 + 3].parentIndex": Int,
+	"m_ragdoll.list[16 + 4].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 4].pObject": Custom,
+	"m_ragdoll.list[16 + 4].pConstraint": Custom,
+	"m_ragdoll.list[16 + 4].parentIndex": Int,
+	"m_ragdoll.list[16 + 5].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 5].pObject": Custom,
+	"m_ragdoll.list[16 + 5].pConstraint": Custom,
+	"m_ragdoll.list[16 + 5].parentIndex": Int,
+	"m_ragdoll.list[16 + 6].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 6].pObject": Custom,
+	"m_ragdoll.list[16 + 6].pConstraint": Custom,
+	"m_ragdoll.list[16 + 6].parentIndex": Int,
+	"m_ragdoll.list[16 + 7].originParentSpace": Vector,
+	"m_ragdoll.list[16 + 7].pObject": Custom,
+	"m_ragdoll.list[16 + 7].pConstraint": Custom,
+	"m_ragdoll.list[16 + 7].parentIndex": Int,
+	"m_ragdoll.list[24 + 0].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 0].pObject": Custom,
+	"m_ragdoll.list[24 + 0].pConstraint": Custom,
+	"m_ragdoll.list[24 + 0].parentIndex": Int,
+	"m_ragdoll.list[24 + 1].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 1].pObject": Custom,
+	"m_ragdoll.list[24 + 1].pConstraint": Custom,
+	"m_ragdoll.list[24 + 1].parentIndex": Int,
+	"m_ragdoll.list[24 + 2].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 2].pObject": Custom,
+	"m_ragdoll.list[24 + 2].pConstraint": Custom,
+	"m_ragdoll.list[24 + 2].parentIndex": Int,
+	"m_ragdoll.list[24 + 3].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 3].pObject": Custom,
+	"m_ragdoll.list[24 + 3].pConstraint": Custom,
+	"m_ragdoll.list[24 + 3].parentIndex": Int,
+	"m_ragdoll.list[24 + 4].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 4].pObject": Custom,
+	"m_ragdoll.list[24 + 4].pConstraint": Custom,
+	"m_ragdoll.list[24 + 4].parentIndex": Int,
+	"m_ragdoll.list[24 + 5].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 5].pObject": Custom,
+	"m_ragdoll.list[24 + 5].pConstraint": Custom,
+	"m_ragdoll.list[24 + 5].parentIndex": Int,
+	"m_ragdoll.list[24 + 6].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 6].pObject": Custom,
+	"m_ragdoll.list[24 + 6].pConstraint": Custom,
+	"m_ragdoll.list[24 + 6].parentIndex": Int,
+	"m_ragdoll.list[24 + 7].originParentSpace": Vector,
+	"m_ragdoll.list[24 + 7].pObject": Custom,
+	"m_ragdoll.list[24 + 7].pConstraint": Custom,
+	"m_ragdoll.list[24 + 7].parentIndex": Int,
+	m_ragdoll.boneIndex: Short,
 }
 ```
 
@@ -4161,8 +4118,8 @@ sizeof: `0x18b0`
 	m_iWorldModelIndex: Int,
 	m_holsterModelIndex: Int,
 	m_droppedModelIndex: Int,
-	m_nIdealSequence: Int,
-	m_IdealActivity: Int,
+	m_idealSequence: Int,
+	m_idealActivity: Int,
 	m_weaponActivity: Int,
 	m_ActiveState: Int,
 	m_ammoInClip: Int,
@@ -4241,6 +4198,7 @@ sizeof: `0x18b0`
 	m_nSkin: Int,
 	m_skinMod: Short,
 	m_nBody: Int,
+	m_camoIndex: Int,
 	m_nResetEventsParity: Int,
 	m_bSequenceFinished: Bool,
 	m_bSequenceLooped: Bool,
@@ -4251,8 +4209,8 @@ sizeof: `0x18b0`
 	m_currentFrameBaseAnimating.animStartCycle: Float,
 	m_currentFrameBaseAnimating.animPlaybackRate: Float,
 	m_currentFrameBaseAnimating.animModelIndex: Int,
-	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameBaseAnimating.animSequenceParity: Int,
+	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameBaseAnimating.m_flPoseParameters: Float,
 }
 ```
@@ -4669,8 +4627,8 @@ sizeof: `0x18b0`
 	m_currentFrameBaseAnimating.animStartTime: Float,
 	m_currentFrameBaseAnimating.animStartCycle: Float,
 	m_currentFrameBaseAnimating.animPlaybackRate: Float,
-	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameBaseAnimating.animSequenceParity: Int,
+	m_currentFrameBaseAnimating.animSequence: Int,
 	m_currentFrameBaseAnimating.m_flPoseParameters: Float,
 	m_bZooming: Bool,
 	m_zoomToggleOnStartTime: Time,
@@ -4679,7 +4637,7 @@ sizeof: `0x18b0`
 	m_zoomFullStartTime: Time,
 	m_lastUCmdSimulationTicks: Int,
 	m_lastUCmdSimulationRemainderTime: Float,
-	m_Local: C_PlayerLocalData,
+	m_Local: fx_debug,
 	m_currentFramePlayer.timeBase: Float,
 	m_currentFramePlayer.statusEffectsTimedPlayerCUR: StatusEffectTimedData,
 	m_currentFramePlayer.statusEffectsEndlessPlayerCUR: StatusEffectEndlessData,
@@ -4699,7 +4657,7 @@ sizeof: `0x18b0`
 	pl: CPlayerState,
 	m_ammoPoolCapacity: Int,
 	m_classModsActive: 29,
-	m_gestureSequences: Int,
+	m_gestureSequences: Short,
 	m_gestureStartTimes: Time,
 	m_gestureBlendInDuration: Float,
 	m_gestureBlendOutDuration: Float,
@@ -4781,6 +4739,15 @@ sizeof: `0x18b0`
 	m_blackholeActive: Bool,
 	m_jetDriveActive: Bool,
 	m_jetDriveTargetPos: Vector,
+	m_jetDriveTargetEntOffset: Vector,
+	m_jetDriveStartPos: Vector,
+	m_jetDriveStartTime: Time,
+	m_jetDriveSpeed: Float,
+	m_jetDriveAccel: Float,
+	m_jetDriveDecelWindowTimeOutTime: Time,
+	m_jetDriveInDecelWindow: Bool,
+	m_jetDriveTimeout: Float,
+	m_jetDriveDoubleJumpVelocity: Vector,
 	m_grapple: GrappleData,
 	m_grapple: GrappleData,
 	m_grappleActive: Bool,
@@ -4811,6 +4778,7 @@ sizeof: `0x18b0`
 	m_ziplineGrenadeBeginStationEntity: EHANDLE,
 	m_ziplineGrenadeBeginStationAttachmentIndex: Int,
 	m_sameZiplineCooldownTime: Float,
+	m_ziplineCooldownIndex: Char,
 	m_playAnimationType: Int,
 	m_detachGrappleOnPlayAnimationEnd: Bool,
 	m_playAnimationNext: Int,
@@ -4942,86 +4910,6 @@ sizeof: `0x18b0`
 	m_updraftLiftAcceleration: Float,
 	m_updraftLiftExitDuration: Float,
 	m_updraftSlowTime: Time,
-}
-```
-
-</details>
-<details>
-<summary><code>class C_PlayerLocalData</code></summary>
-
-```
-{
-	m_nStepside: Int,
-	m_nOldButtons: Int,
-	m_nOldVehicleButtons: Int,
-	m_iHideHUD: Int,
-	m_superJumpsUsed: Int,
-	m_jumpedOffRodeo: Bool,
-	m_jumpPressTime: Time,
-	m_prevJumpPressTime: Time,
-	m_jetpackActivateTime: Time,
-	m_jetpackDeactivateTime: Time,
-	m_flSuitPower: Float,
-	m_flSuitJumpPower: Float,
-	m_flSuitGrapplePower: Float,
-	m_flFallVelocity: Float,
-	m_flStepSize: Float,
-	m_airSlowMoFrac: Float,
-	predictableFlags: Int,
-	m_bitsActiveDevices: Int,
-	m_forceStance: Int,
-	m_forceSlide: Bool,
-	m_duckToggleOn: Bool,
-	m_bDrawViewmodel: Bool,
-	m_bAllowAutoMovement: Bool,
-	m_airMoveBlockPlanes: Vector,
-	m_airMoveBlockPlaneTime: Time,
-	m_airMoveBlockPlaneCount: Int,
-	m_queuedMeleePressTime: Time,
-	m_queuedGrappleMeleeTime: Time,
-	m_disableMeleeUntilRelease: Bool,
-	m_meleePressTime: Time,
-	m_meleeDisabledCounter: Int,
-	m_meleeInputIndex: Int,
-	m_oneHandedWeaponUsage: Bool,
-	m_prevOneHandedWeaponUsage: Bool,
-	m_titanEmbarkEnabled: Bool,
-	m_titanDisembarkEnabled: Bool,
-	m_playerAnimStationaryGoalFeetYaw: Float,
-	m_playerAnimJumping: Bool,
-	m_playerAnimJumpStartTime: Time,
-	m_playerAnimFirstJumpFrame: Bool,
-	m_playerAnimDodging: Bool,
-	m_playerAnimJumpActivity: Int,
-	m_playerAnimLanding: Bool,
-	m_playerAnimShouldLand: Bool,
-	m_playerAnimLandStartTime: Time,
-	m_playerAnimInAirWalk: Bool,
-	m_playerAnimPrevFrameSequenceMotionYaw: Float,
-	m_playerAnimMeleeParity: Int,
-	m_playerAnimMeleeStartTime: Time,
-	m_playerLocalGravityToWorldTransform: Quaternion,
-	m_playerLocalGravityBlendStartRotation: Quaternion,
-	m_playerLocalGravityBlendEndRotation: Quaternion,
-	m_playerLocalGravityBlendEndDirection: Vector,
-	m_playerLocalGravityBlendStartTime: Time,
-	m_playerLocalGravityBlendEndTime: Time,
-	m_playerLocalGravityBlendStrength: Float,
-	m_playerLocalGravityStrength: Float,
-	m_playerLocalGravityType: Int,
-	m_playerLocalGravityPoint: Vector,
-	m_playerLocalGravityLineStart: Vector,
-	m_playerLocalGravityLineEnd: Vector,
-	m_playerLocalGravityEntity: EHANDLE,
-	m_playerLocalGravityLineStartEntity: EHANDLE,
-	m_playerLocalGravityLineEndEntity: EHANDLE,
-	m_playerFloatLookStartTime: Time,
-	m_playerFloatLookEndTime: Time,
-	m_wallrunLatestFloorHeight: Float,
-	m_wallrunFromJetpack: Bool,
-	m_groundNormal: Vector,
-	m_continuousUseBlocked: Bool,
-	m_useEnt: EHANDLE,
 }
 ```
 
@@ -5582,8 +5470,107 @@ sizeof: `0x18b0`
 	vlParams.intensity: Float,
 	vlParams.scatter: Float,
 	vlParams.inShadowScatter: Float,
+	disableWhenVfogEnabled: Bool,
 	direction: Vector,
 	id: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class fx_debug</code></summary>
+
+```
+{
+	ParticleCreate: Int,
+	effect_name: Int,
+	ake: Int,
+	m_iHideHUD: Int,
+	m_superJumpsUsed: Int,
+	m_jumpedOffRodeo: Bool,
+	m_jumpPressTime: Time,
+	m_prevJumpPressTime: Time,
+	m_jetpackActivateTime: Time,
+	m_jetpackDeactivateTime: Time,
+	m_flSuitPower: Float,
+	m_flSuitJumpPower: Float,
+	" this npc titan.": Float,
+	" set from the server for this npc titan.": Float,
+	State: Float,
+	"kRequest is already pending.": Float,
+	dl_store: Int,
+	"Trying to load more than MAX_LOADED_PAKS(%d) pak files\n.": Int,
+	m_forceStance: Int,
+	m_forceSlide: Bool,
+	m_duckToggleOn: Bool,
+	DT_NPC_SentryTurret: Bool,
+	m_killCount: Bool,
+	"PAK_STATUS_FREED on success.": Vector,
+	STARTING: Time,
+	kFile_Unload: Int,
+	US_LOAD_PATCH_INIT: Time,
+	US_LOAD_REPAK_DONE: Time,
+	PAK_STATUS_LOAD_ASSETS: Bool,
+	PAK_STATUS_LOAD_PAKHDR: Time,
+	"alid pak file.": Int,
+	" %s.\n": Int,
+	"to hang if a pak request can't be done at this time.": Bool,
+	%s%s%s.scrb: Bool,
+	"%i/%s - %s:  SetDroppedModel:  modelname '%s' is not registered\n": Bool,
+	ime: Bool,
+	"odel:  modelname '%s' is not registered\n": Float,
+	e: Bool,
+	DT_ParticleSystem: Time,
+	RenderAlways: Bool,
+	m_nStopType: Bool,
+	rControlPoints[0]: Int,
+	m_bInSkybox: Bool,
+	nts[0]: Bool,
+	OverLimit: Time,
+	m_hControlPointEnts: Bool,
+	Points: Float,
+	PAK_STATUS_LOADED: Int,
+	US_LOAD_PATCH_EDIT_STREAM: Time,
+	"article system for %d!!\n": Quaternion,
+	US_FREE_PENDING: Quaternion,
+	PAK_STATUS_LOAD_DO_HOTSWAP: Quaternion,
+	US_CANCELING: Vector,
+	G: Time,
+	dl_mini: Time,
+	US_INVALID_PAKHANDLE: Float,
+	s: Float,
+	{empty}: Int,
+	m_iTeamNum: Vector,
+	m_vServerControlPointColorIds: Vector,
+	{empty}: Vector,
+	ttachmentIndex: EHANDLE,
+	in_skybox: EHANDLE,
+	tive: EHANDLE,
+	acters: Time,
+	m_ignoresCollisionWithCombatCharacters: Time,
+	m_isRolling: Float,
+	kTableRollSoundId: Bool,
+	ionMins: Vector,
+	m_spawnflags: Bool,
+	nd_pause: EHANDLE,
+}
+```
+
+</details>
+<details>
+<summary><code>class "me invalid." extends C_BaseAnimating</code></summary>
+
+```
+{
+	m_vecVelocity: Vector,
+	"%s' isn't valid.\n": Bool,
+	"nt #%d's model '%s' isn't valid.\n": Bool,
+	"ent #%d.\n": Float,
+	"tRaw() - Ent #%d's model '%s' has no hitboxes.\n": Vector,
+	"el.\n": Bool,
+	"SetParentRaw() - Specified hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
+	"boxes.\n": Float,
+	" '%s' has no hitboxes.\n": EHANDLE,
 }
 ```
 
@@ -5592,7 +5579,15 @@ sizeof: `0x18b0`
 ## ConVars
 
 <details>
-<summary><code></code></summary>
+<summary><code>{empty}</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>{empty}</code></summary>
 
 default: `"1.0"`  
 flags: `0x0`  
@@ -5635,6 +5630,14 @@ flags: `0x2002`
 Use friend on clubs querry
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>Clubs_oldJoinFlow</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -6076,7 +6079,7 @@ flags: `0x2002`
 
 enables cl_comms_filter
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -6270,6 +6273,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>autoConnect</code></summary>
+
+Automatically attempt to connect to a party server from the main menu, 0 = disabled, 1 = enabled, 2 = enabled w/ custom match
+
+default: `"0"`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>autohitch</code></summary>
@@ -6960,6 +6971,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>cam_pitchfreeze_on</code></summary>
+
+Freeze the cam pitch
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>cam_pitchlock_on</code></summary>
 
 
@@ -7019,6 +7038,22 @@ flags: `0x2`
 <summary><code>cam_showangles</code></summary>
 
 When in thirdperson, print viewangles/idealangles/cameraoffsets to the console.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cam_yawfreeze_on</code></summary>
+
+Freeze the cam yaw
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cam_zoomfreeze_on</code></summary>
+
+Freeze the cam zoom
 
 default: `"0"`  
 flags: `0x2`  
@@ -7480,6 +7515,22 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>cl_checkForFrametimeHitch</code></summary>
+
+Detect client hitches and avoid large UserCmd sim intervals that result. Instead use a recent avg frametime
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_checkForFrametimeHitch_thresh</code></summary>
+
+
+
+default: `"3"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>cl_clock_correction</code></summary>
 
 Enable/disable clock correction on the client.
@@ -7510,6 +7561,14 @@ Force clock correction to match the server tick + this offset (-999 disables it)
 
 default: `"999"`  
 flags: `0x4000`  
+</details>
+<details>
+<summary><code>cl_cmdFrametimes_print</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>cl_cmdbackup</code></summary>
@@ -8086,14 +8145,6 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>cl_move_use_dt</code></summary>
-
-Use the actual delta time for motion instead some super complicated system based on the server frame rate.
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>cl_mute_override_default</code></summary>
 
 If true, having a definitive setting for either a text/voice mute will override the default mute state of all comms methods to that value.
@@ -8639,6 +8690,14 @@ min value: `0.5`
 max value: `20000`  
 </details>
 <details>
+<summary><code>cl_restoreSimulationTimeBase</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>cl_retire_low_priority_lights</code></summary>
 
 Low priority dlights are replaced by high priority ones
@@ -8692,14 +8751,6 @@ flags: `0x2`
 
 
 default: `"10.0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>cl_showClanTags</code></summary>
-
-Only change this while disconnected from a server
-
-default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -8918,6 +8969,198 @@ flags: `0x4000`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voice_lvl_blocks</code></summary>
+
+Amount of frames for any signal volume trackers using default value
+
+default: `"30"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voice_lvl_samples_per_block</code></summary>
+
+Amount of samples per frame for any signal volume trackers using default value
+
+default: `"500"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize</code></summary>
+
+Normalize incoming voice chat
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_attack</code></summary>
+
+dB/sec to apply when returning to gain boost after surpassing min gain
+
+default: `"900"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_attenuate_on_clip</code></summary>
+
+If enabled, volume will be immediately attenuated in cases where samples would clip by this many dB below current gain
+
+default: `"6"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_db_decrease_per_sec</code></summary>
+
+Speed at which to drop someone's voice volume
+
+default: `"240"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_db_increase_per_sec</code></summary>
+
+Speed at which to ramp up someone's voice volume
+
+default: `"18"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_max_boost</code></summary>
+
+Maximum gain to boost voice chat by (dB)
+
+default: `"24"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_min_boost</code></summary>
+
+Minimum gain to boost voice chat by (dB)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_min_gain</code></summary>
+
+Minimum voice level to consider boosting (dBFS)
+
+default: `"-28"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_release</code></summary>
+
+dB/sec to attenuate when below min gain
+
+default: `"6"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_rms_tweak</code></summary>
+
+0.0 = boost peak to target, 1.0 = boost RMS to target
+
+default: `"0.2"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voicein_normalize_target</code></summary>
+
+Incoming voice chat will be normalized to this level (dBFS)
+
+default: `"-3"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize</code></summary>
+
+Normalize outgoing voice chat (pre-encode)
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_attack</code></summary>
+
+dB/sec to apply when returning to gain boost after surpassing min gain
+
+default: `"900"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_attenuate_on_clip</code></summary>
+
+If enabled, volume will be immediately attenuated in cases where samples would clip by this many dB below current gain
+
+default: `"6"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_db_decrease_per_sec</code></summary>
+
+Speed at which to drop outgoing voice volume
+
+default: `"240"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_db_increase_per_sec</code></summary>
+
+Speed at which to 'ramp up' outgoing voice volume
+
+default: `"18"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_max_boost</code></summary>
+
+Maximum gain to boost voice chat by (dB)
+
+default: `"24"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_min_boost</code></summary>
+
+Minimum gain to boost voice chat by (dB)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_min_gain</code></summary>
+
+Minimum voice level to consider boosting (dBFS)
+
+default: `"-28"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_release</code></summary>
+
+dB/sec to attenuate when below min gain
+
+default: `"6"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_rms_tweak</code></summary>
+
+0.0 = boost peak to target, 1.0 = boost RMS to target
+
+default: `"0.2"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_voiceout_normalize_target</code></summary>
+
+Outgoing voice chat will be normalized to this level (dBFS)
+
+default: `"-3"`  
 flags: `0x2`  
 </details>
 <details>
@@ -9168,6 +9411,14 @@ flags: `0x4000`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>clusteredlighting_no_realtime_check</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x4000`  
 </details>
 <details>
 <summary><code>clusteredlighting_pixels_per_cluster</code></summary>
@@ -9549,6 +9800,14 @@ default: `"120"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>comunities_ChatMsgUselongName</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>con_logfile</code></summary>
 
 Console output gets written to this file
@@ -9567,9 +9826,9 @@ flags: `0x2`
 <details>
 <summary><code>controller_use_cheat_detection_new</code></summary>
 
-Use new cheat detection. (Default disabled)
+Use new cheat detection. (Default enabled)
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -9957,6 +10216,14 @@ default: `"2"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>curved_zipline_skip_cooldown_increase</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>customMatchChannel_hostname</code></summary>
 
 
@@ -9987,6 +10254,14 @@ flags: `0x2002`
 
 default: `"0"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>customMatch_hasMultiplePlayers</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x200`  
 </details>
 <details>
 <summary><code>customMatch_playerToken</code></summary>
@@ -10369,10 +10644,10 @@ flags: `0x2`
 <details>
 <summary><code>discord_updatePresence</code></summary>
 
-
+Enable discord rich presence.
 
 default: `"0"`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>dlight_default_falloff</code></summary>
@@ -10397,6 +10672,14 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>dlight_lumen_conversion</code></summary>
+
+this value will be multiplier to all dlight colors when the map is set up with lighting mode 1.
+
+default: `"71.8"`  
+flags: `0x4000`  
 </details>
 <details>
 <summary><code>dlight_overlay</code></summary>
@@ -10761,6 +11044,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>eadpGroups_tagBadlistLocation</code></summary>
+
+Allow EADP Groups to run
+
+default: `"chatfilters/"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>eadpRtm_hostname</code></summary>
 
 
@@ -10783,6 +11074,14 @@ flags: `0x80000`
 
 default: `""`  
 flags: `0x80000`  
+</details>
+<details>
+<summary><code>eadp_do_pidinfo_fetch</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>eadp_force_nxNameDiscoverable</code></summary>
@@ -10847,14 +11146,6 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
-</details>
-<details>
-<summary><code>enable_code_weapon_energize</code></summary>
-
-enable code energize mechanic and disable script logic
-
-default: `"1"`  
-flags: `0x2002`  
 </details>
 <details>
 <summary><code>enable_code_weapon_reactive</code></summary>
@@ -13359,6 +13650,14 @@ default: `"1"`
 flags: `0x1000000`  
 </details>
 <details>
+<summary><code>hud_setting_showTeamNamesOnMap</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x1000000`  
+</details>
+<details>
 <summary><code>hud_setting_showTips</code></summary>
 
 
@@ -13381,6 +13680,14 @@ flags: `0x1000000`
 
 default: `"0"`  
 flags: `0x1000000`  
+</details>
+<details>
+<summary><code>hud_setting_ultDisplay</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>hudchat_enable_old_history_handling</code></summary>
@@ -14085,6 +14392,14 @@ Laser Sight Color's Red Channel
 
 default: `"255"`  
 flags: `0x41000200`  
+</details>
+<details>
+<summary><code>"le effect on my location"</code></summary>
+
+
+
+default: `""`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>leaf_threadedRecompute</code></summary>
@@ -16456,6 +16771,22 @@ default: `""`
 flags: `0x1000000`  
 </details>
 <details>
+<summary><code>miles_lfe_lowpass_hz</code></summary>
+
+(0=filter disabled) cutoff  threshold for lowpass applied to LFE channel(s)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_lfe_lowpass_iterations</code></summary>
+
+lfe lowpass falloff = -12dB/oct * miles_lfe_lowpass_iterations
+
+default: `"4"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>miles_listener_freeze</code></summary>
 
 When 1, stop updating listener position.
@@ -16784,22 +17115,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>monitor_snapshot_frame_delay</code></summary>
-
-
-
-default: `"20"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>monitor_zfar_default</code></summary>
-
-
-
-default: `"642"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>monitor_zfar_override</code></summary>
 
 
@@ -17078,7 +17393,7 @@ flags: `0x6002`
 
 
 
-default: `"1300"`  
+default: `"1310"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -17628,6 +17943,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>net_portTryMax</code></summary>
+
+The number of different ports to try to find an unused one.
+
+default: `"64"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>net_predictParentEntities</code></summary>
 
 
@@ -18053,6 +18376,22 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>net_traceroute</code></summary>
+
+On/Off traceroute.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_traceroute_ping</code></summary>
+
+Max number of ping in traceroute.
+
+default: `"255"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>net_trackerWarningInterval</code></summary>
 
 
@@ -18189,14 +18528,6 @@ default: `"2000000"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>nx_allow_ditherfade</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>nx_static_lobby_capture_debug</code></summary>
 
 Force lobby capture every frame to debug capture process.
@@ -18319,6 +18650,14 @@ The rate at which the transition to and from one handed weapon usage takes place
 
 default: `"1.25"`  
 flags: `0xa`  
+</details>
+<details>
+<summary><code>op</code></summary>
+
+lay
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>opaque_renderable_worker</code></summary>
@@ -18459,6 +18798,14 @@ default: `"10"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>origin_useGamePresence</code></summary>
+
+Use gamepresence instead of title name as the presence string for friends who are ingame
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>panel_showVisChanges</code></summary>
 
 
@@ -18507,6 +18854,14 @@ default: `"0"`
 flags: `0x40000000`  
 min value: `0`  
 max value: `2`  
+</details>
+<details>
+<summary><code>particle_create_on_me</code></summary>
+
+
+
+default: `"20"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>particle_delete_all_except</code></summary>
@@ -19969,7 +20324,7 @@ flags: `0x2002`
 
 Amount of time debug drawing persists with projectile_lagCompensationDebug enabled.
 
-default: `"3.0"`  
+default: `"5.0"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -20687,14 +21042,6 @@ default: `"-1"`
 flags: `0x4000`  
 </details>
 <details>
-<summary><code>r_fastzreject</code></summary>
-
-Activate/deactivates a fast z-setting algorithm to take advantage of hardware with fast z reject. Use -1 to default to hardware settings
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>r_jiggle_bones</code></summary>
 
 
@@ -21334,10 +21681,42 @@ flags: `0x2`
 <details>
 <summary><code>r_zfill</code></summary>
 
-
+Enable/disable all zfill passes. See r_zfill_xxxxxx for individual passes.
 
 default: `"1"`  
-flags: `0x2`  
+flags: `0x4000`  
+</details>
+<details>
+<summary><code>r_zfill_opaque_renderables</code></summary>
+
+When r_zfill is enabled, draw opaque renderables.
+
+default: `"0"`  
+flags: `0x4000`  
+</details>
+<details>
+<summary><code>r_zfill_static_props</code></summary>
+
+When r_zfill is enabled, draw static props.
+
+default: `"0"`  
+flags: `0x4000`  
+</details>
+<details>
+<summary><code>r_zfill_world_meshes</code></summary>
+
+When r_zfill is enabled, draw world meshes.
+
+default: `"0"`  
+flags: `0x4000`  
+</details>
+<details>
+<summary><code>r_zfill_world_occluder</code></summary>
+
+When r_zfill is enabled, draw world occluder mesh.
+
+default: `"1"`  
+flags: `0x4000`  
 </details>
 <details>
 <summary><code>ragdoll_debug</code></summary>
@@ -21700,6 +22079,14 @@ default: `"8"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>rope_visibility_fx_enable</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>rope_wiggle_harmonic_falloff</code></summary>
 
 Falloff for oscillation magnitude of wave of increasing frequency (ropes and grapple)
@@ -21895,6 +22282,15 @@ flags: `0x2`
 <details>
 <summary><code>rui_useWidgetDraws</code></summary>
 
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>"rval [0, %d)"</code></summary>
+
+rent has no model.
 
 
 default: `"0"`  
@@ -22118,6 +22514,14 @@ default: `"0"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>script_ranked_debug</code></summary>
+
+Turns on extra debugging for ranked script.
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>script_retry_after_compile_errors</code></summary>
 
 After a compile error, tries compiling again immediately.
@@ -22155,14 +22559,6 @@ flags: `0x2`
 
 
 default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>scriptremotefunctions_debug</code></summary>
-
-Enable debug print around remote functions
-
-default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22298,7 +22694,7 @@ flags: `0x40000000`
 
 
 
-default: `"1"`  
+default: `"10"`  
 flags: `0x40000000`  
 </details>
 <details>
@@ -22332,6 +22728,14 @@ flags: `0x2`
 
 default: `"1.0"`  
 flags: `0x4000`  
+</details>
+<details>
+<summary><code>shadow_combine_blendCopy_with_filter</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>shadow_dbg_cone_depthtest</code></summary>
@@ -23042,6 +23446,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>solid_obb_collide_playerclip</code></summary>
+
+Player OBB objects will collide with players if CONTENTS_PLAYERCLIP is set on them.
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>sort_opaque_meshes</code></summary>
 
 Sort opaque meshes front to back to try to improve rendering speed.  This may not be worth the CPU cost.
@@ -23378,6 +23790,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>speex_preprocess_agc</code></summary>
+
+Set encoder agc (automatic gain control) on/off
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>speex_preprocess_agc_max_gain</code></summary>
 
 Set maximal gain in dB. ( High values Risks swamping noise filter)
@@ -23394,7 +23814,7 @@ default: `"-20"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>speex_preprocess_set_agc_decrenment</code></summary>
+<summary><code>speex_preprocess_set_agc_decrement</code></summary>
 
 Set maximal gain decrease in dB/second.
 
@@ -23444,15 +23864,15 @@ flags: `0x2`
 <details>
 <summary><code>speex_use_highpass</code></summary>
 
-Controlls the running o a lowpass filter do help remove DC.
+Use a highpass filter do help remove DC before encode
 
 default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
-<summary><code>speex_use_preproser</code></summary>
+<summary><code>speex_use_preprocessor</code></summary>
 
-Controls the running of voice preprocessor.
+Controls the running of voice preprocessor before encode
 
 default: `"1"`  
 flags: `0x2`  
@@ -24543,6 +24963,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>sv_connectEnforceServerFilter</code></summary>
+
+A user must have a matching server filter to connect
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>sv_connectingClientDelay</code></summary>
 
 Amount of time to wait between resends of data to a connecting client
@@ -24695,6 +25123,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>sv_maxSetClientEntitlements</code></summary>
+
+Control the maximum number of time a client can request set entitlements.
+
+default: `"-1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>sv_max_prop_data_dwords_lobby</code></summary>
@@ -25445,9 +25881,25 @@ flags: `0x2`
 <details>
 <summary><code>test_fakeTimeDays</code></summary>
 
-Days worth of seconds that will be added to the result of GetUnixTimestamp() for script and playlist rotation. Server authoritive.
+Days worth of seconds that will be added to the result of GetUnixTimestamp() for script and playlist rotation. Server authoritive. Cannot be used in conjuction with test_fakeTimeStamp
 
 default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>test_fakeTimeStamp</code></summary>
+
+Set an epoch timestamp in seconds to fake time for the game. Leave as 0 to not fake any time. Server authoritive. Cannot be used in conjuction with test_fakeTimeDays. If this changes, time passed is set back to 0.
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>test_fakeTimeStampShouldAddTimePassed</code></summary>
+
+If set to true, time passed will be added to fake time stamp. If this changes, time passed is set back to 0.
+
+default: `"1"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -25867,6 +26319,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>tsaa_enable_dynamicviewport</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>tsaa_neighborhoodclamping</code></summary>
 
 
@@ -25961,6 +26421,15 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>ui_brightness</code></summary>
+
+Brightness scale factor for UI elements
+
+default: `"1.0f"`  
+flags: `0x2`  
+max value: `1`  
 </details>
 <details>
 <summary><code>ui_fadecloud_time</code></summary>
@@ -26187,6 +26656,14 @@ default: `"0"`
 flags: `0x12`  
 </details>
 <details>
+<summary><code>usercmd_byte_threshold</code></summary>
+
+Number of bytes above which we log a breakdown of how expensive each usercmd is.
+
+default: `"1024"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>users_hostname</code></summary>
 
 
@@ -26305,7 +26782,7 @@ flags: `0x2`
 
 Toggle volumetric fog on and off
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -26329,7 +26806,7 @@ flags: `0x2`
 
 fog buffer x
 
-default: `"240"`  
+default: `"160"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -26337,7 +26814,7 @@ flags: `0x4000`
 
 fog buffer y
 
-default: `"136"`  
+default: `"88"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -26355,6 +26832,14 @@ flags: `0x4000`
 
 default: `"4"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>vfog_perf_level</code></summary>
+
+Change vfog perf level, 0: off 1:lowres fog 2:highres fog
+
+default: `"2"`  
+flags: `0x4000`  
 </details>
 <details>
 <summary><code>vfog_show_volume_outline</code></summary>
@@ -26377,7 +26862,7 @@ flags: `0x2`
 
 global z far
 
-default: `"40000"`  
+default: `"100000"`  
 flags: `0x2`  
 </details>
 <details>
@@ -26757,14 +27242,6 @@ default: `"3"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>viewmodel_attachment_fov_fix</code></summary>
-
-
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>viewmodel_bounds_draw</code></summary>
 
 
@@ -27001,7 +27478,7 @@ flags: `0x2`
 <details>
 <summary><code>voice_decimate_at_bytes</code></summary>
 
-
+voice_decimate_rate is applied when at least this many bytes of uncompressed incoming voice have been queued
 
 default: `"22050"`  
 flags: `0x2`  
@@ -27009,7 +27486,7 @@ flags: `0x2`
 <details>
 <summary><code>voice_decimate_rate</code></summary>
 
-
+Every N'th sample is removed when above voice_decimate_at_bytes
 
 default: `"10"`  
 flags: `0x2`  
@@ -27961,6 +28438,30 @@ default: `"1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>zipline_cooldown_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_cooldown_decay</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_cooldown_decay_rate</code></summary>
+
+
+
+default: `"0.5"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>zipline_cooldown_time_0</code></summary>
 
 Zipline Cooldown.
@@ -28022,6 +28523,30 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>zipline_path_grapple_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_path_grapple_disable</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_path_max_jump_off_velocity</code></summary>
+
+
+
+default: `"1000.0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>zipline_path_max_subSectionLen</code></summary>
 
 
@@ -28046,11 +28571,51 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>zipline_path_mount_debug_crosshair_dist</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>zipline_path_section_tolerance</code></summary>
 
 
 
 default: `"10"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_path_speed_change</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_path_speed_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_roll_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>zipline_roll_minSpeedFraction</code></summary>
+
+
+
+default: `"0.5"`  
 flags: `0x2`  
 </details>
 <details>
@@ -30550,6 +31115,13 @@ flags: `0xa`
 flags: `0x20002`  
 </details>
 <details>
+<summary><code>mtxFakeTime_DisplayCurrentFakeTime</code></summary>
+
+Displays the current fake time
+
+flags: `0x20002`  
+</details>
+<details>
 <summary><code>multvar</code></summary>
 
 Multiply specified convar value.
@@ -31444,6 +32016,13 @@ flags: `0x40080000`
 Toggle ring survey data for the observer
 
 flags: `0x40000000`  
+</details>
+<details>
+<summary><code>toggle_observer_show_target_player_tag</code></summary>
+
+Toggle whether the observer should show the player tag(s) for player being looked at
+
+flags: `0x40080000`  
 </details>
 <details>
 <summary><code>ui_reloadscheme</code></summary>

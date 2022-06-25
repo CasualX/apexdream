@@ -1,5 +1,4 @@
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::pattern as pat;
@@ -7,19 +6,19 @@ use pelite::pattern as pat;
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let ifaces = interfaces(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## Interfaces\n\n"
 		"```\n"
-		for iface in (&ifaces) {
+		for iface in &ifaces {
 			{iface.name}"\n"
 		}
 		"```\n\n"
 	};
 
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[Interfaces]\n"
-		for iface in (&ifaces) {
-			{iface.name}"="{iface.address;#010x}"\n"
+		for iface in &ifaces {
+			{iface.name}"="{iface.address:#010x}"\n"
 		}
 		"\n"
 	};

@@ -1,15 +1,15 @@
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pe64::*;
+use super::ident;
 
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let globals = globals(bin);
 
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[Globals]\n"
-		for g in (&globals) {
-			{g.ty_name}"="{g.address;#010x}"\n"
+		for g in &globals {
+			{ident(g.ty_name)}"="{g.address:#010x}"\n"
 		}
 		"\n"
 	};
