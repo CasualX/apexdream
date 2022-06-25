@@ -1,37 +1,37 @@
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pe64::*;
 use pelite::{util::CStr, Pod};
 use pelite::pattern as pat;
+use super::ident;
 
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let cvars = convars(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## ConVars\n\n"
-		for cvar in (&cvars) {
+		for cvar in &cvars {
 			"<details>\n"
-			"<summary><code>"{cvar.name}"</code></summary>\n\n"
-			if let Some(desc) = (cvar.desc) {
+			"<summary><code>"{ident(cvar.name)}"</code></summary>\n\n"
+			if let Some(desc) = cvar.desc {
 				{desc}"\n\n"
 			}
-			"default: `"{cvar.default;?}"`  \n"
-			"flags: `"{cvar.flags;#x}"`  \n"
-			if let Some(min_value) = (cvar.min_value) {
+			"default: `"{cvar.default:?}"`  \n"
+			"flags: `"{cvar.flags:#x}"`  \n"
+			if let Some(min_value) = cvar.min_value {
 				"min value: `"{min_value}"`  \n"
 			}
-			if let Some(max_value) = (cvar.max_value) {
+			if let Some(max_value) = cvar.max_value {
 				"max value: `"{max_value}"`  \n"
 			}
 			"</details>\n"
 		}
 		"\n"
 	};
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[ConVars]\n"
-		for cvar in (&cvars) {
-			{cvar.name}"="{cvar.address;#010x}"\n"
+		for cvar in &cvars {
+			{ident(cvar.name)}"="{cvar.address:#010x}"\n"
 		}
 		"\n"
 	};

@@ -1,41 +1,41 @@
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pe64::{Va, Ptr, Pe, PeFile};
 use pelite::util::CStr;
 use pelite::pattern as pat;
 use dataview::Pod;
+use super::ident;
 
 //----------------------------------------------------------------
 
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let classes = classes(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## ClientClasses\n\n"
-		for cls in (&classes) {
+		for cls in &classes {
 			"<details>\n"
-			"<summary><code>client_class "{cls.name}"</code></summary>\n\n"
+			"<summary><code>client_class "{ident(cls.name)}"</code></summary>\n\n"
 			"class_id: `"{cls.id}"`  \n"
-			"sizeof: `"{cls.size;#x}"`  \n"
+			"sizeof: `"{cls.size:#x}"`  \n"
 			"</details>\n"
 		}
 		"```\n\n"
 	};
-	let _ = template::write! { f.ini,
+	let _ = fmtools::write! { f.ini,
 		"[ClientClasses]\n"
-		for cls in (&classes) {
-			{cls.name}"="{cls.address;#010x}"\n"
+		for cls in &classes {
+			{ident(cls.name)}"="{cls.address:#010x}"\n"
 		}
 		"\n"
 		"[ClientClass.Ids]\n"
-		for cls in (&classes) {
-			{cls.name}"="{cls.id}"\n"
+		for cls in &classes {
+			{ident(cls.name)}"="{cls.id}"\n"
 		}
 		"\n"
 		"[ClientClass.Sizes]\n"
-		for cls in (&classes) {
-			{cls.name}"="{cls.size;#x}"\n"
+		for cls in &classes {
+			{ident(cls.name)}"="{cls.size:#x}"\n"
 		}
 		"\n"
 	};

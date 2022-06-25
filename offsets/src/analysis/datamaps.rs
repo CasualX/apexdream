@@ -1,45 +1,45 @@
+use std::mem;
 use std::fmt::Write;
-use format_xml::template;
 use pelite;
 use pelite::pattern as pat;
 use pelite::{Pod, util::CStr};
 use pelite::pe64::*;
-use std::mem;
+use super::ident;
 
 pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	let datamaps = datamaps(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## Datamaps\n\n"
-		for datamap in (&datamaps) {
+		for datamap in &datamaps {
 			"<details>\n"
-			"<summary><code>class "{datamap.name}
-			if let Some(base) = (datamap.base) {
-				" extends "{base}
+			"<summary><code>class "{ident(datamap.name)}
+			if let Some(base) = datamap.base {
+				" extends "{ident(base)}
 			}
 			"</code></summary>\n\n"
 			"```\n{\n"
-			for field in (&datamap.fields) {
-				"\t"{field.name}": "{field.ty}",\n"
+			for field in &datamap.fields {
+				"\t"{ident(field.name)}": "{field.ty}",\n"
 			}
 			"}\n```\n\n"
 			"</details>\n"
 		}
 		"\n"
 	};
-	let _ = template::write! { f.ini,
-		for datamap in (&datamaps) {
-			"[DataMap."{datamap.name}"]\n"
-			for field in (&datamap.fields) {
-				{field.name}"="{field.offset;#06x}"\n"
+	let _ = fmtools::write! { f.ini,
+		for datamap in &datamaps {
+			"[DataMap."{ident(datamap.name)}"]\n"
+			for field in &datamap.fields {
+				{ident(field.name)}"="{field.offset:#06x}"\n"
 			}
 			"\n"
-			"[DataMapTypes."{datamap.name}"]\n"
-			if let Some(base) = (datamap.base) {
-				"@extends="{base}"\n"
+			"[DataMapTypes."{ident(datamap.name)}"]\n"
+			if let Some(base) = datamap.base {
+				"@extends="{ident(base)}"\n"
 			}
-			for field in (&datamap.fields) {
-				{field.name}"="{field.ty}"\n"
+			for field in &datamap.fields {
+				{ident(field.name)}"="{field.ty}"\n"
 			}
 			"\n"
 		}

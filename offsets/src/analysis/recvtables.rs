@@ -1,43 +1,43 @@
 use std::{fmt::{self, Write}, mem};
-use format_xml::template;
 use pelite::pe64::*;
 use pelite::pattern as pat;
 use pelite::{Pod, util::CStr};
+use super::ident;
 
 pub fn print(f: &mut super::Output, bin: PeFile) {
 	let tables = tables(bin);
 
-	let _ = template::write! { f.human,
+	let _ = fmtools::write! { f.human,
 		"## RecvTables\n\n"
-		for table in (&tables) {
+		for table in &tables {
 			"<details>\n"
-			"<summary><code>class "{table.name}
-			if let Some(base) = (table.base) {
+			"<summary><code>class "{ident(table.name)}
+			if let Some(base) = table.base {
 				" extends "{base}
 			}
 			"</code></summary>\n\n"
 			"```\n{\n"
-			for prop in (&table.props) {
-				"\t"{prop.name}": "{prop.ty}",\n"
+			for prop in &table.props {
+				"\t"{ident(prop.name)}": "{prop.ty}",\n"
 			}
 			"}\n```\n\n"
 			"</details>\n"
 		}
 		"\n"
 	};
-	let _ = template::write! { f.ini,
-		for table in (&tables) {
-			"[RecvTable."{table.name}"]\n"
-			for prop in (&table.props) {
-				{prop.name}"="{prop.offset;#06x}"\n"
+	let _ = fmtools::write! { f.ini,
+		for table in &tables {
+			"[RecvTable."{ident(table.name)}"]\n"
+			for prop in &table.props {
+				{ident(prop.name)}"="{prop.offset;#06x}"\n"
 			}
 			"\n"
-			"[RecvTableTypes."{table.name}"]\n"
-			if let Some(base) = (table.base) {
+			"[RecvTableTypes."{ident(table.name)}"]\n"
+			if let Some(base) = table.base {
 				"@extends="{base}"\n"
 			}
-			for prop in (&table.props) {
-				{prop.name}"="{prop.ty}"\n"
+			for prop in &table.props {
+				{ident(prop.name)}"="{prop.ty}"\n"
 			}
 			"\n"
 		}
@@ -103,7 +103,12 @@ impl fmt::Display for Type<'_> {
 				}
 			},
 			Type::DataTable(name) => {
-				name.fmt(f)
+				if name.contains("\"") || name.contains("\n") {
+					write!(f, "DataTable(?)")
+				}
+				else {
+					name.fmt(f)
+				}
 			},
 		}
 	}
