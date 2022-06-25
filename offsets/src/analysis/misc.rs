@@ -67,7 +67,7 @@ fn local_entity_handle(f: &mut super::Output, bin: PeFile<'_>) {
 fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 	// The global instance of C_GameMovement contains as its first member a pointer to local player right after its vtable.
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("48 89 05 ${[8]'} 48 85 C9 74 % 48 8D 05"), &mut save) {
+	if bin.scanner().finds_code(pat!("488905${[8]'} 74% 488D05"), &mut save) {
 		let local_player_ptr = save[1];
 		let _ = writeln!(f.ini, "LocalPlayer={:#x}", local_player_ptr);
 	}
