@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x62a3d3b8
-CheckSum = 0x213262f
-GameVersion = "v3.0.3.26"
+TimeDateStamp = 0x62b5f5e3
+CheckSum = 0x212e034
+GameVersion = "v3.0.4.32"
 ```
 
 ## NetworkedStringTables
@@ -86,30 +86,6 @@ kbutton_t in_zoom;
 ## ClientClasses
 
 <details>
-<summary><code>client_class {empty}</code></summary>
-
-class_id: `0`  
-sizeof: `0x50`  
-</details>
-<details>
-<summary><code>client_class {empty}</code></summary>
-
-class_id: `0`  
-sizeof: `0x40`  
-</details>
-<details>
-<summary><code>client_class {empty}</code></summary>
-
-class_id: `0`  
-sizeof: `0x58`  
-</details>
-<details>
-<summary><code>client_class {empty}</code></summary>
-
-class_id: `0`  
-sizeof: `0xa80`  
-</details>
-<details>
 <summary><code>client_class CAI_BaseNPC</code></summary>
 
 class_id: `0`  
@@ -150,6 +126,12 @@ sizeof: `0x1c50`
 
 class_id: `0`  
 sizeof: `0xa60`  
+</details>
+<details>
+<summary><code>client_class CBaseGrenade</code></summary>
+
+class_id: `0`  
+sizeof: `0x2ef0`  
 </details>
 <details>
 <summary><code>client_class CBaseParticleEntity</code></summary>
@@ -344,6 +326,12 @@ class_id: `0`
 sizeof: `0xa80`  
 </details>
 <details>
+<summary><code>client_class CInfoPlacementHelper</code></summary>
+
+class_id: `0`  
+sizeof: `0xa80`  
+</details>
+<details>
 <summary><code>client_class CInfoTarget</code></summary>
 
 class_id: `0`  
@@ -450,6 +438,12 @@ sizeof: `0x1d60`
 
 class_id: `0`  
 sizeof: `0xd60`  
+</details>
+<details>
+<summary><code>client_class CPointCamera</code></summary>
+
+class_id: `0`  
+sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPortal_PointPush</code></summary>
@@ -644,6 +638,24 @@ class_id: `0`
 sizeof: `0x58`  
 </details>
 <details>
+<summary><code>client_class CTEScriptParticleSystem</code></summary>
+
+class_id: `0`  
+sizeof: `0x50`  
+</details>
+<details>
+<summary><code>client_class CTEScriptParticleSystemOnEntity</code></summary>
+
+class_id: `0`  
+sizeof: `0x40`  
+</details>
+<details>
+<summary><code>client_class CTEScriptParticleSystemOnEntityWithPos</code></summary>
+
+class_id: `0`  
+sizeof: `0x58`  
+</details>
+<details>
 <summary><code>client_class CTEShatterSurface</code></summary>
 
 class_id: `0`  
@@ -776,12 +788,6 @@ class_id: `0`
 sizeof: `0xa70`  
 </details>
 <details>
-<summary><code>client_class "Destroys the particle effect created with the particle_create console command."</code></summary>
-
-class_id: `0`  
-sizeof: `0xb10`  
-</details>
-<details>
 <summary><code>client_class DoorMover</code></summary>
 
 class_id: `0`  
@@ -799,60 +805,10 @@ sizeof: `0x18e0`
 class_id: `0`  
 sizeof: `0x18a0`  
 </details>
-<details>
-<summary><code>client_class "me invalid."</code></summary>
-
-class_id: `0`  
-sizeof: `0x2ef0`  
-</details>
 ```
 
 ## RecvTables
 
-<details>
-<summary><code>class {empty} extends DT_BaseTempEntity</code></summary>
-
-```
-{
-	{empty}: Int,
-	{empty}: Int,
-	{empty}: Int,
-	{empty}: Int,
-	{empty}: Int,
-	{empty}: Int,
-}
-```
-
-</details>
-<details>
-<summary><code>class {empty} extends DT_BaseTempEntity</code></summary>
-
-```
-{
-	{empty}: Int,
-	{empty}: Vector,
-	{empty}: Vector,
-	{empty}: Vector,
-}
-```
-
-</details>
-<details>
-<summary><code>class {empty}</code></summary>
-
-```
-{
-	m_localOrigin: Vector,
-	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
-	m_localAngles: Vector,
-	m_parentAttachmentHitbox: Int,
-	m_parentAttachmentModel: Int,
-}
-```
-
-</details>
 <details>
 <summary><code>class DT_AI_BaseNPC extends DT_BaseCombatCharacter</code></summary>
 
@@ -1005,7 +961,7 @@ sizeof: `0x2ef0`
 	m_cloakFlickerEndTime: Time,
 	m_networkedFlags: Int,
 	m_deathVelocity: Vector,
-	m_minimapData: DataTable(?),
+	m_minimapData: DT_MinimapBaseEntityData,
 	m_nameVisibilityFlags: Int,
 	m_lastFiredTime: Time,
 	m_lastFiredWeapon: Int,
@@ -1091,8 +1047,8 @@ sizeof: `0x2ef0`
 	m_holdUsePrompt: String,
 	m_pressUsePrompt: String,
 	m_phaseShiftFlags: Int,
-	"ed hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
-	"nt of %s (%s %i) to itself.\n": Int,
+	m_baseTakeDamage: Int,
+	m_invulnerableToDamageCount: Int,
 	m_attachmentLerpStartTime: Time,
 	m_attachmentLerpEndTime: Time,
 	m_attachmentLerpStartOrigin: Vector,
@@ -1108,6 +1064,26 @@ sizeof: `0x2ef0`
 	m_firstChildEntityLink: Int,
 	m_firstParentEntityLink: Int,
 	m_realmsBitMask: BitMask,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_BaseGrenade extends DT_Projectile</code></summary>
+
+```
+{
+	moveparent: Int,
+	m_parentAttachmentType: Int,
+	m_parentAttachmentIndex: Int,
+	m_baseTakeDamage: Int,
+	m_invulnerableToDamageCount: Int,
+	m_parentAttachmentHitbox: Int,
+	m_parentAttachmentModel: Int,
+	m_doesExplode: Int,
+	m_DmgRadius: Float,
+	m_grenadeStatusFlags: Int,
+	m_ziplineGrenadeExpectedEndPosition: Vector,
 }
 ```
 
@@ -1638,7 +1614,7 @@ sizeof: `0x2ef0`
 {
 	m_localOrigin: Vector,
 	m_iTeamNum: Int,
-	m_minimapData: DataTable(?),
+	m_minimapData: DT_MinimapBaseEntityData,
 	m_state: Int,
 	m_estimatedCaptureTime: Float,
 	m_progressRefPoint: Float,
@@ -1685,6 +1661,22 @@ sizeof: `0x2ef0`
 
 </details>
 <details>
+<summary><code>class DT_InfoPlacementHelper</code></summary>
+
+```
+{
+	m_localOrigin: Vector,
+	moveparent: Int,
+	m_parentAttachmentType: Int,
+	m_parentAttachmentIndex: Int,
+	m_localAngles: Vector,
+	m_parentAttachmentHitbox: Int,
+	m_parentAttachmentModel: Int,
+}
+```
+
+</details>
+<details>
 <summary><code>class DT_InfoTarget</code></summary>
 
 ```
@@ -1718,7 +1710,7 @@ sizeof: `0x2ef0`
 
 ```
 {
-	"PAK_STATUS_FREED on success.": Array,
+	m_airMoveBlockPlanes: Array,
 	m_iHideHUD: Int,
 	m_superJumpsUsed: Int,
 	m_jumpedOffRodeo: Int,
@@ -1728,111 +1720,111 @@ sizeof: `0x2ef0`
 	m_jetpackDeactivateTime: Time,
 	m_flSuitPower: Float,
 	m_flSuitJumpPower: Float,
-	" this npc titan.": Float,
-	" set from the server for this npc titan.": Float,
-	State: Float,
-	"kRequest is already pending.": Float,
-	dl_store: Int,
-	"Trying to load more than MAX_LOADED_PAKS(%d) pak files\n.": Int,
+	m_flSuitGrapplePower: Float,
+	m_flFallVelocity: Float,
+	m_flStepSize: Float,
+	m_airSlowMoFrac: Float,
+	predictableFlags: Int,
+	m_bitsActiveDevices: Int,
 	m_forceStance: Int,
 	m_forceSlide: Int,
 	m_duckToggleOn: Int,
-	DT_NPC_SentryTurret: Int,
-	m_killCount: Int,
-	GetCanStand: Float,
-	C_NPC_Titan: Float,
-	CNPC_SentryTurret: Float,
-	"ady pending.": Int,
-	" files\n.": Int,
-	" MAX_LOADED_PAKS(%d) pak files\n.": Int,
-	" unload a pak file that isn't loaded. Pak status %s.\n": Float,
+	m_bDrawViewmodel: Int,
+	m_bAllowAutoMovement: Int,
+	m_accelScale: Float,
+	m_powerRegenRateScale: Float,
+	m_dodgePowerDelayScale: Float,
+	m_hSkyCamera: Int,
+	m_skybox3d.scale: Int,
+	m_skybox3d.useWorldFog: Int,
+	m_skybox3d.fog.botAlt: Float,
 	m_skybox3d.fog.topAlt: Float,
 	m_skybox3d.fog.halfDistBot: Float,
-	{empty}: Float,
-	"he server": Float,
-	" turret's control panel set on the server": Float,
+	m_skybox3d.fog.halfDistTop: Float,
+	m_skybox3d.fog.distColorStr: Float,
+	m_skybox3d.fog.dirColorStr: Float,
 	m_skybox3d.fog.distOffset: Float,
-	T_***: Float,
-	"t state. Enum values under TURRET_***": Float,
-	NNING: Float,
-	{empty}: Int,
-	led: Int,
-	C_NPC_Dropship: Vector,
-	"isn't loaded. Pak status %s.\n": Int,
-	CNPC_Titan: Vector,
-	ed: Vector,
-	itan: Vector,
-	n: Vector,
-	ClientPakFile_TryToGetLock: Vector,
-	"ucceeds or fails.": Vector,
-	questAsyncLoad: Vector,
-	ck: Vector,
-	{empty}: Int,
-	pakPath: Int,
-	"eturns an error code or PAK_STATUS_FREED on success.": Int,
-	"asset pakfile. Returns an error code or PAK_STATUS_FREED on success.": Float,
-	"s prevents need to hang if a pak request can't be done at this time.": Int,
-	"et pak lock. This prevents need to hang if a pak request can't be done at this time.": Int,
-	ess.: Vector,
-	STARTING: Time,
-	kFile_Unload: Int,
-	US_LOAD_PATCH_INIT: Time,
-	US_LOAD_REPAK_DONE: Time,
-	PAK_STATUS_LOAD_ASSETS: Int,
-	PAK_STATUS_LOAD_PAKHDR: Time,
-	"alid pak file.": Int,
-	" %s.\n": Int,
-	" can't be done at this time.": Int,
-	"to hang if a pak request can't be done at this time.": Int,
-	"ile a ClientPakFile_RequestAsyncLoad is still pending.\n": Time,
-	"Tried to unload a pak while a ClientPakFile_RequestAsyncLoad is still pending.\n": Time,
-	"nding.\n": Time,
-	"estAsyncLoad is still pending.\n": Time,
-	"turn the file handle or -1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Time,
-	" of an asset pakfile. Return the file handle or -1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Int,
-	"deCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Int,
-	"-1 if it fails. ClientCodeCallback_PakRequestFinished is called with the file status when load succeeds or fails.": Time,
-	" file status when load succeeds or fails.": Int,
-	"ished is called with the file status when load succeeds or fails.": Int,
-	fterWarmup: Time,
-	over_limit: Time,
-	"%i/%s - %s:  SetDroppedModel:  modelname '%s' is not registered\n": Int,
-	ime: Int,
-	{empty}: Int,
-	"odel:  modelname '%s' is not registered\n": Float,
-	e: Int,
-	DT_ParticleSystem: Time,
-	RenderAlways: Int,
-	m_nStopType: Int,
-	rControlPoints[0]: Int,
-	m_bInSkybox: Int,
-	nts[0]: Int,
-	OverLimit: Time,
-	m_hControlPointEnts: Int,
-	Points: Float,
-	PAK_STATUS_LOADED: Int,
-	US_LOAD_PATCH_EDIT_STREAM: Time,
-	US_FREE_PENDING: Rotation,
-	PAK_STATUS_LOAD_DO_HOTSWAP: Rotation,
-	US_CANCELING: Vector,
-	G: Time,
-	dl_mini: Time,
-	US_INVALID_PAKHANDLE: Float,
-	s: Float,
-	{empty}: Int,
-	m_iTeamNum: Vector,
-	m_vServerControlPointColorIds: Vector,
-	{empty}: Vector,
-	ttachmentIndex: Int,
-	in_skybox: Int,
-	tive: Int,
-	acters: Time,
-	m_ignoresCollisionWithCombatCharacters: Time,
-	m_isRolling: Float,
-	kTableRollSoundId: Int,
-	ionMins: Vector,
-	m_spawnflags: Int,
-	nd_pause: Int,
+	m_skybox3d.fog.densityScale: Float,
+	m_skybox3d.fog.halfAngleDeg: Float,
+	m_skybox3d.fog.HDRColorScale: Float,
+	m_skybox3d.fog.distColor: Int,
+	m_skybox3d.fog.dirColor: Int,
+	m_skybox3d.fog.direction: Vector,
+	m_skybox3d.fog.enable: Int,
+	m_audio.localSound[0]: Vector,
+	m_audio.localSound[1]: Vector,
+	m_audio.localSound[2]: Vector,
+	m_audio.localSound[3]: Vector,
+	m_audio.localSound[4]: Vector,
+	m_audio.localSound[5]: Vector,
+	m_audio.localSound[6]: Vector,
+	m_audio.localSound[7]: Vector,
+	m_audio.soundscapeIndex: Int,
+	m_audio.localBits: Int,
+	m_audio.entIndex: Int,
+	m_animNearZ: Float,
+	lastAttacker: Int,
+	attackedCount: Int,
+	m_airMoveBlockPlanes[0]: Vector,
+	m_airMoveBlockPlaneTime: Time,
+	m_airMoveBlockPlaneCount: Int,
+	m_queuedMeleePressTime: Time,
+	m_queuedGrappleMeleeTime: Time,
+	m_disableMeleeUntilRelease: Int,
+	m_meleePressTime: Time,
+	m_meleeDisabledCounter: Int,
+	m_meleeInputIndex: Int,
+	m_trackedChildProjectileCount: Int,
+	m_oneHandedWeaponUsage: Int,
+	m_flCockpitEntryTime: Time,
+	m_ejectStartTime: Time,
+	m_disembarkStartTime: Time,
+	m_hotDropImpactTime: Time,
+	m_outOfBoundsDeadTime: Time,
+	m_objectiveIndex: Int,
+	m_objectiveEntity: Int,
+	m_objectiveEndTime: Time,
+	m_cinematicEventFlags: Int,
+	m_forcedDialogueOnly: Int,
+	m_titanBuildTime: Time,
+	m_titanBubbleShieldTime: Time,
+	m_titanEmbarkEnabled: Int,
+	m_titanDisembarkEnabled: Int,
+	m_voicePackIndex: Int,
+	m_playerAnimStationaryGoalFeetYaw: Float,
+	m_playerAnimJumping: Int,
+	m_playerAnimJumpStartTime: Time,
+	m_playerAnimFirstJumpFrame: Int,
+	m_playerAnimDodging: Int,
+	m_playerAnimJumpActivity: Int,
+	m_playerAnimLanding: Int,
+	m_playerAnimShouldLand: Int,
+	m_playerAnimLandStartTime: Time,
+	m_playerAnimInAirWalk: Int,
+	m_playerAnimPrevFrameSequenceMotionYaw: Float,
+	m_playerAnimMeleeParity: Int,
+	m_playerAnimMeleeStartTime: Time,
+	m_playerLocalGravityBlendStartRotation: Rotation,
+	m_playerLocalGravityBlendEndRotation: Rotation,
+	m_playerLocalGravityBlendEndDirection: Vector,
+	m_playerLocalGravityBlendStartTime: Time,
+	m_playerLocalGravityBlendEndTime: Time,
+	m_playerLocalGravityBlendStrength: Float,
+	m_playerLocalGravityStrength: Float,
+	m_playerLocalGravityType: Int,
+	m_playerLocalGravityPoint: Vector,
+	m_playerLocalGravityLineStart: Vector,
+	m_playerLocalGravityLineEnd: Vector,
+	m_playerLocalGravityEntity: Int,
+	m_playerLocalGravityLineStartEntity: Int,
+	m_playerLocalGravityLineEndEntity: Int,
+	m_playerFloatLookStartTime: Time,
+	m_playerFloatLookEndTime: Time,
+	m_wallrunLatestFloorHeight: Float,
+	m_wallrunFromJetpack: Int,
+	m_groundNormal: Vector,
+	m_continuousUseBlocked: Int,
+	m_useEnt: Int,
 }
 ```
 
@@ -2048,10 +2040,25 @@ sizeof: `0x2ef0`
 
 ```
 {
-	m_minimapData: DataTable(?),
+	m_minimapData: DT_MinimapBaseEntityData,
 	m_impactEffectColorID: Int,
 	m_lootBeingGrabbed: Int,
 	m_lootGrabDist: Float,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_MinimapBaseEntityData</code></summary>
+
+```
+{
+	visibilityDefaultFlag: DataTable,
+	visibilityShowFlag: DataTable,
+	flags: Int,
+	zOrder: Int,
+	customState: Int,
+	objectScale: Float,
 }
 ```
 
@@ -3006,7 +3013,7 @@ sizeof: `0x2ef0`
 	m_networkedFlags: Int,
 	m_iHealth: Int,
 	m_iMaxHealth: Int,
-	m_minimapData: DataTable(?),
+	m_minimapData: DT_MinimapBaseEntityData,
 	m_nameVisibilityFlags: Int,
 	m_title: String,
 	m_footstepType: String,
@@ -3170,6 +3177,34 @@ sizeof: `0x2ef0`
 	m_modBitfield: Int,
 	m_projectileTrailIndex: Int,
 	m_impactEffectTable: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_TEScriptParticleSystem extends DT_BaseTempEntity</code></summary>
+
+```
+{
+	m_effectIndex: Int,
+	m_origin: Vector,
+	m_angles: Vector,
+	m_controlPoint1: Vector,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_TEScriptParticleSystemOnEntity extends DT_BaseTempEntity</code></summary>
+
+```
+{
+	m_effectIndex: Int,
+	m_ent: Int,
+	m_attachType: Int,
+	m_attachmentIndex: Int,
+	m_attachType2: Int,
+	m_attachmentIndex2: Int,
 }
 ```
 
@@ -3814,29 +3849,27 @@ sizeof: `0x2ef0`
 ```
 
 </details>
+
+## Datamaps
+
 <details>
-<summary><code>class entity_error_on_hitbox_count_mismatch extends DT_Projectile</code></summary>
+<summary><code>class CBaseGrenade extends C_BaseAnimating</code></summary>
 
 ```
 {
-	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
-	"ed hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
-	"nt of %s (%s %i) to itself.\n": Int,
-	m_parentAttachmentHitbox: Int,
-	m_parentAttachmentModel: Int,
-	"%s' isn't valid.\n": Int,
-	"nt #%d's model '%s' isn't valid.\n": Float,
-	"SetParentRaw() - Specified hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
-	"SetParentRaw() - No model for specified ent #%d.\n": Vector,
+	m_vecVelocity: Vector,
+	m_doesExplode: Bool,
+	m_DmgRadius: Bool,
+	m_grenadeCreationTime: Float,
+	m_grenadeCreationOrigin: Vector,
+	m_useMaskAbility: Bool,
+	m_grenadeStatusFlags: Int,
+	m_flDamage: Float,
+	m_hThrower: EHANDLE,
 }
 ```
 
 </details>
-
-## Datamaps
-
 <details>
 <summary><code>class CBaseViewModel</code></summary>
 
@@ -4637,7 +4670,7 @@ sizeof: `0x2ef0`
 	m_zoomFullStartTime: Time,
 	m_lastUCmdSimulationTicks: Int,
 	m_lastUCmdSimulationRemainderTime: Float,
-	m_Local: fx_debug,
+	m_Local: C_PlayerLocalData,
 	m_currentFramePlayer.timeBase: Float,
 	m_currentFramePlayer.statusEffectsTimedPlayerCUR: StatusEffectTimedData,
 	m_currentFramePlayer.statusEffectsEndlessPlayerCUR: StatusEffectEndlessData,
@@ -4910,6 +4943,86 @@ sizeof: `0x2ef0`
 	m_updraftLiftAcceleration: Float,
 	m_updraftLiftExitDuration: Float,
 	m_updraftSlowTime: Time,
+}
+```
+
+</details>
+<details>
+<summary><code>class C_PlayerLocalData</code></summary>
+
+```
+{
+	m_nStepside: Int,
+	m_nOldButtons: Int,
+	m_nOldVehicleButtons: Int,
+	m_iHideHUD: Int,
+	m_superJumpsUsed: Int,
+	m_jumpedOffRodeo: Bool,
+	m_jumpPressTime: Time,
+	m_prevJumpPressTime: Time,
+	m_jetpackActivateTime: Time,
+	m_jetpackDeactivateTime: Time,
+	m_flSuitPower: Float,
+	m_flSuitJumpPower: Float,
+	m_flSuitGrapplePower: Float,
+	m_flFallVelocity: Float,
+	m_flStepSize: Float,
+	m_airSlowMoFrac: Float,
+	predictableFlags: Int,
+	m_bitsActiveDevices: Int,
+	m_forceStance: Int,
+	m_forceSlide: Bool,
+	m_duckToggleOn: Bool,
+	m_bDrawViewmodel: Bool,
+	m_bAllowAutoMovement: Bool,
+	m_airMoveBlockPlanes: Vector,
+	m_airMoveBlockPlaneTime: Time,
+	m_airMoveBlockPlaneCount: Int,
+	m_queuedMeleePressTime: Time,
+	m_queuedGrappleMeleeTime: Time,
+	m_disableMeleeUntilRelease: Bool,
+	m_meleePressTime: Time,
+	m_meleeDisabledCounter: Int,
+	m_meleeInputIndex: Int,
+	m_oneHandedWeaponUsage: Bool,
+	m_prevOneHandedWeaponUsage: Bool,
+	m_titanEmbarkEnabled: Bool,
+	m_titanDisembarkEnabled: Bool,
+	m_playerAnimStationaryGoalFeetYaw: Float,
+	m_playerAnimJumping: Bool,
+	m_playerAnimJumpStartTime: Time,
+	m_playerAnimFirstJumpFrame: Bool,
+	m_playerAnimDodging: Bool,
+	m_playerAnimJumpActivity: Int,
+	m_playerAnimLanding: Bool,
+	m_playerAnimShouldLand: Bool,
+	m_playerAnimLandStartTime: Time,
+	m_playerAnimInAirWalk: Bool,
+	m_playerAnimPrevFrameSequenceMotionYaw: Float,
+	m_playerAnimMeleeParity: Int,
+	m_playerAnimMeleeStartTime: Time,
+	m_playerLocalGravityToWorldTransform: Quaternion,
+	m_playerLocalGravityBlendStartRotation: Quaternion,
+	m_playerLocalGravityBlendEndRotation: Quaternion,
+	m_playerLocalGravityBlendEndDirection: Vector,
+	m_playerLocalGravityBlendStartTime: Time,
+	m_playerLocalGravityBlendEndTime: Time,
+	m_playerLocalGravityBlendStrength: Float,
+	m_playerLocalGravityStrength: Float,
+	m_playerLocalGravityType: Int,
+	m_playerLocalGravityPoint: Vector,
+	m_playerLocalGravityLineStart: Vector,
+	m_playerLocalGravityLineEnd: Vector,
+	m_playerLocalGravityEntity: EHANDLE,
+	m_playerLocalGravityLineStartEntity: EHANDLE,
+	m_playerLocalGravityLineEndEntity: EHANDLE,
+	m_playerFloatLookStartTime: Time,
+	m_playerFloatLookEndTime: Time,
+	m_wallrunLatestFloorHeight: Float,
+	m_wallrunFromJetpack: Bool,
+	m_groundNormal: Vector,
+	m_continuousUseBlocked: Bool,
+	m_useEnt: EHANDLE,
 }
 ```
 
@@ -5477,115 +5590,9 @@ sizeof: `0x2ef0`
 ```
 
 </details>
-<details>
-<summary><code>class fx_debug</code></summary>
-
-```
-{
-	ParticleCreate: Int,
-	effect_name: Int,
-	ake: Int,
-	m_iHideHUD: Int,
-	m_superJumpsUsed: Int,
-	m_jumpedOffRodeo: Bool,
-	m_jumpPressTime: Time,
-	m_prevJumpPressTime: Time,
-	m_jetpackActivateTime: Time,
-	m_jetpackDeactivateTime: Time,
-	m_flSuitPower: Float,
-	m_flSuitJumpPower: Float,
-	" this npc titan.": Float,
-	" set from the server for this npc titan.": Float,
-	State: Float,
-	"kRequest is already pending.": Float,
-	dl_store: Int,
-	"Trying to load more than MAX_LOADED_PAKS(%d) pak files\n.": Int,
-	m_forceStance: Int,
-	m_forceSlide: Bool,
-	m_duckToggleOn: Bool,
-	DT_NPC_SentryTurret: Bool,
-	m_killCount: Bool,
-	"PAK_STATUS_FREED on success.": Vector,
-	STARTING: Time,
-	kFile_Unload: Int,
-	US_LOAD_PATCH_INIT: Time,
-	US_LOAD_REPAK_DONE: Time,
-	PAK_STATUS_LOAD_ASSETS: Bool,
-	PAK_STATUS_LOAD_PAKHDR: Time,
-	"alid pak file.": Int,
-	" %s.\n": Int,
-	"to hang if a pak request can't be done at this time.": Bool,
-	%s%s%s.scrb: Bool,
-	"%i/%s - %s:  SetDroppedModel:  modelname '%s' is not registered\n": Bool,
-	ime: Bool,
-	"odel:  modelname '%s' is not registered\n": Float,
-	e: Bool,
-	DT_ParticleSystem: Time,
-	RenderAlways: Bool,
-	m_nStopType: Bool,
-	rControlPoints[0]: Int,
-	m_bInSkybox: Bool,
-	nts[0]: Bool,
-	OverLimit: Time,
-	m_hControlPointEnts: Bool,
-	Points: Float,
-	PAK_STATUS_LOADED: Int,
-	US_LOAD_PATCH_EDIT_STREAM: Time,
-	"article system for %d!!\n": Quaternion,
-	US_FREE_PENDING: Quaternion,
-	PAK_STATUS_LOAD_DO_HOTSWAP: Quaternion,
-	US_CANCELING: Vector,
-	G: Time,
-	dl_mini: Time,
-	US_INVALID_PAKHANDLE: Float,
-	s: Float,
-	{empty}: Int,
-	m_iTeamNum: Vector,
-	m_vServerControlPointColorIds: Vector,
-	{empty}: Vector,
-	ttachmentIndex: EHANDLE,
-	in_skybox: EHANDLE,
-	tive: EHANDLE,
-	acters: Time,
-	m_ignoresCollisionWithCombatCharacters: Time,
-	m_isRolling: Float,
-	kTableRollSoundId: Bool,
-	ionMins: Vector,
-	m_spawnflags: Bool,
-	nd_pause: EHANDLE,
-}
-```
-
-</details>
-<details>
-<summary><code>class "me invalid." extends C_BaseAnimating</code></summary>
-
-```
-{
-	m_vecVelocity: Vector,
-	"%s' isn't valid.\n": Bool,
-	"nt #%d's model '%s' isn't valid.\n": Bool,
-	"ent #%d.\n": Float,
-	"tRaw() - Ent #%d's model '%s' has no hitboxes.\n": Vector,
-	"el.\n": Bool,
-	"SetParentRaw() - Specified hitbox #%d on model ent #%d's model '%s' isn't valid.\n": Int,
-	"boxes.\n": Float,
-	" '%s' has no hitboxes.\n": EHANDLE,
-}
-```
-
-</details>
 
 ## ConVars
 
-<details>
-<summary><code>{empty}</code></summary>
-
-
-
-default: `"1"`  
-flags: `0x2`  
-</details>
 <details>
 <summary><code>{empty}</code></summary>
 
@@ -8751,6 +8758,14 @@ flags: `0x2`
 
 
 default: `"10.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_showClanTags</code></summary>
+
+Only change this while disconnected from a server
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -14394,14 +14409,6 @@ default: `"255"`
 flags: `0x41000200`  
 </details>
 <details>
-<summary><code>"le effect on my location"</code></summary>
-
-
-
-default: `""`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>leaf_threadedRecompute</code></summary>
 
 
@@ -17115,6 +17122,22 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>monitor_snapshot_frame_delay</code></summary>
+
+
+
+default: `"20"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>monitor_zfar_default</code></summary>
+
+
+
+default: `"642"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>monitor_zfar_override</code></summary>
 
 
@@ -18652,14 +18675,6 @@ default: `"1.25"`
 flags: `0xa`  
 </details>
 <details>
-<summary><code>op</code></summary>
-
-lay
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>opaque_renderable_worker</code></summary>
 
 
@@ -18854,14 +18869,6 @@ default: `"0"`
 flags: `0x40000000`  
 min value: `0`  
 max value: `2`  
-</details>
-<details>
-<summary><code>particle_create_on_me</code></summary>
-
-
-
-default: `"20"`  
-flags: `0x2`  
 </details>
 <details>
 <summary><code>particle_delete_all_except</code></summary>
@@ -22288,15 +22295,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>"rval [0, %d)"</code></summary>
-
-rent has no model.
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>save_enable</code></summary>
 
 
@@ -22559,6 +22557,14 @@ flags: `0x2`
 
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>scriptremotefunctions_debug</code></summary>
+
+Enable debug print around remote functions
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -27239,6 +27245,14 @@ flags: `0x2`
 The range of weapon kick roll that will be sampled for viewmodel shake.
 
 default: `"3"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>viewmodel_attachment_fov_fix</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
