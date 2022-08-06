@@ -30,7 +30,7 @@ enum class WeaponIndex: uint32_t {
 	SENTINEL = 1,
 	BOCEK = 2,
 	MELEE_SURVIVAL = 14,
-	ALTERNATOR = 70,
+	ALTERNATOR = 94,
 	RE45,
 	CHARGE_RIFLE,
 	DEVOTION,
