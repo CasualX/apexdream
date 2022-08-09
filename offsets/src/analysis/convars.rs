@@ -89,7 +89,7 @@ pub fn convars(bin: PeFile<'_>) -> Vec<ConVar<'_>> {
 	// Alternative slow pattern: @3 *{'*{}} *{} [8] *"thirdperson_override" (just find a specific ConVar, in .data)
 	let mut save = [0; 4];
 	if !bin.scanner().finds_code(pat!("488B79? 488D05${'} 4889? 488D"), &mut save) {
-		crate::print_error(&"ERR: unable to find ConVar vftable");
+		crate::print_error("ERR: unable to find ConVar vftable");
 		return Vec::new();
 	}
 	// Get the virtual address of the ConVar vtable

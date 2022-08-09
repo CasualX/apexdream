@@ -21,13 +21,19 @@ pub struct Global<'a> {
 }
 
 // Very common instances that aren't very interesting
-const BLACKLIST: [&'static str; 6] = [
+const BLACKLIST: [&'static str; 12] = [
 	".?AVConCommand@@",
 	".?AVConVar@@",
 	".?AVtype_info@@",
 	".?AVCMaterialGlue@@",
 	".?AVServerDataBlockSender@@",
 	".?AVCClient@@",
+	".?AVC_OP_WorldTraceConstraint@@",
+	".?AVC_OP_TurbulenceForce@@",
+	".?AVCEntityListAlongRay@@",
+	".?AVCTraceFilterHitAll@@",
+	".?AVSVC_PersistenceUpdateVar@@",
+	".?AVCSurface@@",
 ];
 
 pub fn globals(bin: PeFile<'_>) -> Vec<Global<'_>> {

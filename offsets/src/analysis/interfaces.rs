@@ -42,7 +42,7 @@ pub fn interfaces(bin: PeFile<'_>) -> Vec<Interface<'_>> {
 	}
 
 	if list.is_empty() {
-		crate::print_error(&"unable to find any interfaces!");
+		crate::print_error("unable to find any interfaces!");
 	}
 
 	list.sort_by_key(|item| item.name);

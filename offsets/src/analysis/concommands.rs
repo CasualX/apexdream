@@ -72,7 +72,7 @@ pub fn concommands(bin: PeFile<'_>) -> Vec<ConCommand<'_>> {
 	// Find the ConCommand vtable
 	// No fast pattern, just find the vtable of a specific command
 	if !bin.scanner().finds(pat!("@3 *{'*{}} *{} [8] *\"quit\""), data_section.virtual_range(), &mut save) {
-		crate::print_error(&"ERR: unable to find ConCommand vftable");
+		crate::print_error("ERR: unable to find ConCommand vftable");
 		return concommands;
 	}
 	let vftable = save[1];

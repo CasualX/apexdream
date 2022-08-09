@@ -52,7 +52,7 @@ struct ClientClass {
 	pNetworkName: Ptr<CStr>,
 	pRecvTable: Va,
 	pNext: Ptr<ClientClass>,
-	ClassID: i32,
+	ClassID: u32,
 	SizeOfClass: u32,
 }
 
@@ -62,7 +62,7 @@ struct ClientClass {
 pub struct Class<'a> {
 	pub name: &'a str,
 	pub address: u32,
-	pub id: i32,
+	pub id: u32,
 	pub size: u32,
 }
 

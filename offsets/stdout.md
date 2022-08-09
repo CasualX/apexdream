@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x62b5f5e3
-CheckSum = 0x212e034
-GameVersion = "v3.0.4.32"
+TimeDateStamp = 0x62f5651a
+CheckSum = 0x218775e
+GameVersion = "v3.0.10.29"
 ```
 
 ## NetworkedStringTables
@@ -89,25 +89,25 @@ kbutton_t in_zoom;
 <summary><code>client_class CAI_BaseNPC</code></summary>
 
 class_id: `0`  
-sizeof: `0x1e10`  
+sizeof: `0x1d80`  
 </details>
 <details>
 <summary><code>client_class CAmbientGeneric</code></summary>
 
-class_id: `0`  
+class_id: `1`  
 sizeof: `0xad0`  
 </details>
 <details>
 <summary><code>client_class CBaseAnimating</code></summary>
 
-class_id: `0`  
-sizeof: `0x16a0`  
+class_id: `2`  
+sizeof: `0x1620`  
 </details>
 <details>
 <summary><code>client_class CBaseAnimatingOverlay</code></summary>
 
-class_id: `0`  
-sizeof: `0x19e0`  
+class_id: `3`  
+sizeof: `0x1960`  
 </details>
 <details>
 <summary><code>client_class CBaseButton</code></summary>
@@ -118,20 +118,20 @@ sizeof: `0xaa0`
 <details>
 <summary><code>client_class CBaseCombatCharacter</code></summary>
 
-class_id: `0`  
-sizeof: `0x1c50`  
+class_id: `4`  
+sizeof: `0x1bc0`  
 </details>
 <details>
 <summary><code>client_class CBaseEntity</code></summary>
 
-class_id: `0`  
+class_id: `5`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CBaseGrenade</code></summary>
 
-class_id: `0`  
-sizeof: `0x2ef0`  
+class_id: `6`  
+sizeof: `0x2e80`  
 </details>
 <details>
 <summary><code>client_class CBaseParticleEntity</code></summary>
@@ -142,668 +142,668 @@ sizeof: `0xa60`
 <details>
 <summary><code>client_class CBaseTempEntity</code></summary>
 
-class_id: `0`  
+class_id: `7`  
 sizeof: `0x28`  
 </details>
 <details>
 <summary><code>client_class CBaseToggle</code></summary>
 
-class_id: `0`  
+class_id: `8`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CBaseTrigger</code></summary>
 
-class_id: `0`  
+class_id: `9`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CBaseVPhysicsTrigger</code></summary>
 
-class_id: `0`  
+class_id: `11`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CBaseViewModel</code></summary>
 
-class_id: `0`  
-sizeof: `0x4fa0`  
+class_id: `10`  
+sizeof: `0x4f00`  
 </details>
 <details>
 <summary><code>client_class CBoneFollower</code></summary>
 
-class_id: `0`  
+class_id: `12`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CBreakableProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x16a0`  
+class_id: `13`  
+sizeof: `0x1620`  
 </details>
 <details>
 <summary><code>client_class CBreakableSurface</code></summary>
 
-class_id: `0`  
+class_id: `14`  
 sizeof: `0xec0`  
 </details>
 <details>
 <summary><code>client_class CCascadeLight</code></summary>
 
-class_id: `0`  
+class_id: `15`  
 sizeof: `0xbb0`  
 </details>
 <details>
 <summary><code>client_class CColorCorrection</code></summary>
 
-class_id: `0`  
+class_id: `16`  
 sizeof: `0xbb0`  
 </details>
 <details>
 <summary><code>client_class CCrossbowBolt</code></summary>
 
-class_id: `0`  
-sizeof: `0x2e60`  
+class_id: `17`  
+sizeof: `0x2df0`  
 </details>
 <details>
 <summary><code>client_class CDeathBoxProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x1720`  
+class_id: `18`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CDynamicLight</code></summary>
 
-class_id: `0`  
+class_id: `19`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CDynamicProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x16e0`  
+class_id: `20`  
+sizeof: `0x1660`  
 </details>
 <details>
 <summary><code>client_class CDynamicPropLightweight</code></summary>
 
-class_id: `0`  
-sizeof: `0x16e0`  
+class_id: `21`  
+sizeof: `0x1660`  
 </details>
 <details>
 <summary><code>client_class CEntityBlocker</code></summary>
 
-class_id: `0`  
+class_id: `22`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CEntityDissolve</code></summary>
 
-class_id: `0`  
+class_id: `23`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CEntityLinkPage</code></summary>
 
-class_id: `0`  
+class_id: `24`  
 sizeof: `0x1270`  
 </details>
 <details>
 <summary><code>client_class CEnvDecoy</code></summary>
 
-class_id: `0`  
-sizeof: `0x16a0`  
+class_id: `25`  
+sizeof: `0x1620`  
 </details>
 <details>
 <summary><code>client_class CEnvWind</code></summary>
 
-class_id: `0`  
+class_id: `26`  
 sizeof: `0xbe0`  
 </details>
 <details>
 <summary><code>client_class CFirstPersonProxy</code></summary>
 
-class_id: `0`  
-sizeof: `0x1710`  
+class_id: `27`  
+sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CFuncBrush</code></summary>
 
-class_id: `0`  
+class_id: `28`  
 sizeof: `0xad0`  
 </details>
 <details>
 <summary><code>client_class CFuncBrushLightweight</code></summary>
 
-class_id: `0`  
+class_id: `29`  
 sizeof: `0xad0`  
 </details>
 <details>
 <summary><code>client_class CFuncMoveLinear</code></summary>
 
-class_id: `0`  
+class_id: `30`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CGameRulesProxy</code></summary>
 
-class_id: `0`  
+class_id: `31`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CGlobalNonRewinding</code></summary>
 
-class_id: `0`  
+class_id: `32`  
 sizeof: `0x1270`  
 </details>
 <details>
 <summary><code>client_class CGrappleHook</code></summary>
 
-class_id: `0`  
-sizeof: `0x16b0`  
+class_id: `33`  
+sizeof: `0x1630`  
 </details>
 <details>
 <summary><code>client_class CHardPointEntity</code></summary>
 
-class_id: `0`  
+class_id: `34`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CHardPointFrontierEntity</code></summary>
 
-class_id: `0`  
+class_id: `35`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CHealthKit</code></summary>
 
-class_id: `0`  
-sizeof: `0x16a0`  
+class_id: `36`  
+sizeof: `0x1620`  
 </details>
 <details>
 <summary><code>client_class CImportantOnEntSound</code></summary>
 
-class_id: `0`  
+class_id: `37`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CInfoPlacementHelper</code></summary>
 
-class_id: `0`  
+class_id: `38`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CInfoTarget</code></summary>
 
-class_id: `0`  
+class_id: `39`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetGravity</code></summary>
 
-class_id: `0`  
+class_id: `40`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetMinimap</code></summary>
 
-class_id: `0`  
+class_id: `41`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CLootGrabber</code></summary>
 
-class_id: `0`  
-sizeof: `0x16f0`  
+class_id: `42`  
+sizeof: `0x1670`  
 </details>
 <details>
 <summary><code>client_class CLootRoller</code></summary>
 
-class_id: `0`  
-sizeof: `0x1710`  
+class_id: `43`  
+sizeof: `0x1690`  
 </details>
 <details>
 <summary><code>client_class CMissile</code></summary>
 
-class_id: `0`  
-sizeof: `0x2fb0`  
+class_id: `44`  
+sizeof: `0x2f40`  
 </details>
 <details>
 <summary><code>client_class CMovieDisplay</code></summary>
 
-class_id: `0`  
+class_id: `45`  
 sizeof: `0xbc0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Drone</code></summary>
 
-class_id: `0`  
-sizeof: `0x1e30`  
+class_id: `46`  
+sizeof: `0x1da0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Dropship</code></summary>
 
-class_id: `0`  
-sizeof: `0x1e40`  
+class_id: `47`  
+sizeof: `0x1db0`  
 </details>
 <details>
 <summary><code>client_class CNPC_SentryTurret</code></summary>
 
-class_id: `0`  
-sizeof: `0x1e30`  
+class_id: `48`  
+sizeof: `0x1da0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Titan</code></summary>
 
-class_id: `0`  
-sizeof: `0x1eb0`  
+class_id: `49`  
+sizeof: `0x1e20`  
 </details>
 <details>
 <summary><code>client_class CParticleSystem</code></summary>
 
-class_id: `0`  
-sizeof: `0xb20`  
+class_id: `50`  
+sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPhysicsProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x1700`  
+class_id: `51`  
+sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CPlayer</code></summary>
 
-class_id: `0`  
-sizeof: `0x48d0`  
+class_id: `52`  
+sizeof: `0x4840`  
 </details>
 <details>
 <summary><code>client_class CPlayerDecoy</code></summary>
 
-class_id: `0`  
-sizeof: `0x1710`  
+class_id: `53`  
+sizeof: `0x1690`  
 </details>
 <details>
 <summary><code>client_class CPlayerTasklist</code></summary>
 
-class_id: `0`  
+class_id: `54`  
 sizeof: `0xfb0`  
 </details>
 <details>
 <summary><code>client_class CPlayerVehicle</code></summary>
 
-class_id: `0`  
-sizeof: `0x1d60`  
+class_id: `55`  
+sizeof: `0x1ce0`  
 </details>
 <details>
 <summary><code>client_class CPlayerWaypoint</code></summary>
 
-class_id: `0`  
+class_id: `56`  
 sizeof: `0xd60`  
 </details>
 <details>
 <summary><code>client_class CPointCamera</code></summary>
 
-class_id: `0`  
+class_id: `57`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPortal_PointPush</code></summary>
 
-class_id: `0`  
+class_id: `58`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPostProcessController</code></summary>
 
-class_id: `0`  
+class_id: `59`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPredictedFirstPersonProxy</code></summary>
 
-class_id: `0`  
-sizeof: `0x1730`  
+class_id: `60`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CProjectile</code></summary>
 
-class_id: `0`  
-sizeof: `0x2e30`  
+class_id: `61`  
+sizeof: `0x2dc0`  
 </details>
 <details>
 <summary><code>client_class CPropDoor</code></summary>
 
-class_id: `0`  
-sizeof: `0x17a0`  
+class_id: `62`  
+sizeof: `0x1720`  
 </details>
 <details>
 <summary><code>client_class CPropSurvival</code></summary>
 
-class_id: `0`  
-sizeof: `0x16d0`  
+class_id: `63`  
+sizeof: `0x1650`  
 </details>
 <details>
 <summary><code>client_class CRopeKeyframe</code></summary>
 
-class_id: `0`  
+class_id: `64`  
 sizeof: `0xf60`  
 </details>
 <details>
 <summary><code>client_class CScriptMover</code></summary>
 
-class_id: `0`  
-sizeof: `0x18d0`  
+class_id: `65`  
+sizeof: `0x1850`  
 </details>
 <details>
 <summary><code>client_class CScriptMoverTrainNode</code></summary>
 
-class_id: `0`  
+class_id: `66`  
 sizeof: `0x1090`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData</code></summary>
 
-class_id: `0`  
+class_id: `67`  
 sizeof: `0xc70`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobal</code></summary>
 
-class_id: `0`  
+class_id: `75`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobalNonRewind</code></summary>
 
-class_id: `0`  
+class_id: `76`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_DEATH_BOX</code></summary>
 
-class_id: `0`  
+class_id: `68`  
 sizeof: `0xcc0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL</code></summary>
 
-class_id: `0`  
+class_id: `69`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL_NON_REWIND</code></summary>
 
-class_id: `0`  
+class_id: `70`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE</code></summary>
 
-class_id: `0`  
+class_id: `71`  
 sizeof: `0xd40`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE_EXPANDED</code></summary>
 
-class_id: `0`  
+class_id: `72`  
 sizeof: `0xdb0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_GLOBAL</code></summary>
 
-class_id: `0`  
+class_id: `73`  
 sizeof: `0xd40`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_TITAN_SOUL</code></summary>
 
-class_id: `0`  
+class_id: `74`  
 sizeof: `0xcf0`  
 </details>
 <details>
 <summary><code>client_class CScriptProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x1780`  
+class_id: `77`  
+sizeof: `0x1700`  
 </details>
 <details>
 <summary><code>client_class CScriptTraceVolume</code></summary>
 
-class_id: `0`  
+class_id: `78`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CShieldProp</code></summary>
 
-class_id: `0`  
-sizeof: `0x16f0`  
+class_id: `79`  
+sizeof: `0x1670`  
 </details>
 <details>
 <summary><code>client_class CSkyCamera</code></summary>
 
-class_id: `0`  
+class_id: `80`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CStatueProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x1730`  
+sizeof: `0x16b0`  
 </details>
 <details>
 <summary><code>client_class CStatusEffectPlugin</code></summary>
 
-class_id: `0`  
+class_id: `81`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTEBreakModel</code></summary>
 
-class_id: `0`  
+class_id: `83`  
 sizeof: `0x70`  
 </details>
 <details>
 <summary><code>client_class CTEEffectDispatch</code></summary>
 
-class_id: `0`  
-sizeof: `0xd0`  
+class_id: `84`  
+sizeof: `0xc8`  
 </details>
 <details>
 <summary><code>client_class CTEExplosion</code></summary>
 
-class_id: `0`  
+class_id: `85`  
 sizeof: `0x80`  
 </details>
 <details>
 <summary><code>client_class CTEGibEvent</code></summary>
 
-class_id: `0`  
+class_id: `86`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEParticleSystem</code></summary>
 
-class_id: `0`  
+class_id: `87`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEPhysicsProp</code></summary>
 
-class_id: `0`  
+class_id: `88`  
 sizeof: `0x60`  
 </details>
 <details>
 <summary><code>client_class CTEProjectileTrail</code></summary>
 
-class_id: `0`  
+class_id: `89`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystem</code></summary>
 
-class_id: `0`  
+class_id: `90`  
 sizeof: `0x50`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntity</code></summary>
 
-class_id: `0`  
+class_id: `91`  
 sizeof: `0x40`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntityWithPos</code></summary>
 
-class_id: `0`  
+class_id: `92`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEShatterSurface</code></summary>
 
-class_id: `0`  
+class_id: `93`  
 sizeof: `0x68`  
 </details>
 <details>
 <summary><code>client_class CTESoundDispatch</code></summary>
 
-class_id: `0`  
+class_id: `94`  
 sizeof: `0x48`  
 </details>
 <details>
 <summary><code>client_class CTeam</code></summary>
 
-class_id: `0`  
+class_id: `82`  
 sizeof: `0xba0`  
 </details>
 <details>
 <summary><code>client_class CTitanSoul</code></summary>
 
-class_id: `0`  
+class_id: `95`  
 sizeof: `0xde0`  
 </details>
 <details>
 <summary><code>client_class CTriggerCylinderHeavy</code></summary>
 
-class_id: `0`  
+class_id: `96`  
 sizeof: `0xb90`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoGrapple</code></summary>
 
-class_id: `0`  
+class_id: `97`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoObjectPlacement</code></summary>
 
-class_id: `0`  
+class_id: `98`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoZipline</code></summary>
 
-class_id: `0`  
+class_id: `99`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerOutOfBounds</code></summary>
 
-class_id: `0`  
+class_id: `100`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPlayerMovement</code></summary>
 
-class_id: `0`  
+class_id: `101`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPointGravity</code></summary>
 
-class_id: `0`  
+class_id: `102`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerSlip</code></summary>
 
-class_id: `0`  
+class_id: `103`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerUpdraft</code></summary>
 
-class_id: `0`  
+class_id: `104`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTurret</code></summary>
 
-class_id: `0`  
-sizeof: `0x1aa0`  
+class_id: `105`  
+sizeof: `0x1a10`  
 </details>
 <details>
 <summary><code>client_class CVFogVolume</code></summary>
 
-class_id: `0`  
+class_id: `106`  
 sizeof: `0xb20`  
 </details>
 <details>
 <summary><code>client_class CVGuiScreen</code></summary>
 
-class_id: `0`  
+class_id: `107`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CVortexSphere</code></summary>
 
-class_id: `0`  
+class_id: `108`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CWaterLODControl</code></summary>
 
-class_id: `0`  
+class_id: `109`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CWeaponX</code></summary>
 
-class_id: `0`  
-sizeof: `0x6990`  
+class_id: `110`  
+sizeof: `0x6730`  
 </details>
 <details>
 <summary><code>client_class CWorld</code></summary>
 
-class_id: `0`  
+class_id: `111`  
 sizeof: `0x1330`  
 </details>
 <details>
 <summary><code>client_class CZipline</code></summary>
 
-class_id: `0`  
+class_id: `112`  
 sizeof: `0x1490`  
 </details>
 <details>
 <summary><code>client_class CZiplineEnd</code></summary>
 
-class_id: `0`  
+class_id: `113`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class DoorMover</code></summary>
 
-class_id: `0`  
-sizeof: `0x18e0`  
+class_id: `114`  
+sizeof: `0x1860`  
 </details>
 <details>
 <summary><code>client_class ScriptMoverLightweight</code></summary>
 
-class_id: `0`  
-sizeof: `0x18e0`  
+class_id: `115`  
+sizeof: `0x1860`  
 </details>
 <details>
 <summary><code>client_class Titan_Cockpit</code></summary>
 
 class_id: `0`  
-sizeof: `0x18a0`  
+sizeof: `0x1820`  
 </details>
 ```
 
@@ -1006,15 +1006,15 @@ sizeof: `0x18a0`
 	predictable_id: DT_PredictableId,
 	HighlightSettings: DT_HighlightSettings,
 	moveparent: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_usableType: Int,
 	m_cellX: Int,
 	m_cellY: Int,
-	m_clrRender: Int,
 	m_cellZ: Int,
-	m_clIntensity: Int,
+	m_clrRender: Int,
 	m_localOrigin: Vector,
+	m_clIntensity: Int,
 	m_nModelIndex: Int,
 	m_bossPlayer: Int,
 	m_shieldHealth: Int,
@@ -1074,11 +1074,9 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_baseTakeDamage: Int,
 	m_invulnerableToDamageCount: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_doesExplode: Int,
 	m_DmgRadius: Float,
@@ -1303,8 +1301,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_usableType: Int,
 	m_cellX: Int,
@@ -1350,8 +1347,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_usableType: Int,
 	m_cellX: Int,
@@ -1369,7 +1365,6 @@ sizeof: `0x18a0`
 	m_scriptNameIndex: Int,
 	m_holdUsePrompt: String,
 	m_pressUsePrompt: String,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_fadeDist: Float,
 	m_usablePriority: Int,
@@ -1417,8 +1412,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_cellX: Int,
 	m_cellY: Int,
@@ -1457,8 +1451,8 @@ sizeof: `0x18a0`
 	m_flScale: Float,
 	m_flMagnitude: Float,
 	m_flRadius: Float,
-	m_nAttachmentIndex: Int,
-	m_attachmentIndexForViewmodel: Int,
+	m_nAttachmentId: Int,
+	m_attachmentIdForViewmodel: Int,
 	m_nSurfaceProp: Int,
 	m_nDamageType: Int,
 	m_nOtherEntIndex: Int,
@@ -1525,8 +1519,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_cellX: Int,
 	m_cellY: Int,
 	m_cellZ: Int,
@@ -1537,7 +1530,6 @@ sizeof: `0x18a0`
 	m_localAngles: Vector,
 	m_Collision: DT_CollisionProperty,
 	m_CollisionGroup: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 }
 ```
@@ -1590,8 +1582,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_cellX: Int,
 	m_cellY: Int,
 	m_cellZ: Int,
@@ -1600,7 +1591,6 @@ sizeof: `0x18a0`
 	m_visibilityFlags: Int,
 	m_localAngles: Vector,
 	m_hOwnerEntity: Int,
-	m_parentAttachmentHitbox: Int,
 	m_realmsBitMask: BitMask,
 	m_grappleZipline: Int,
 }
@@ -1667,10 +1657,8 @@ sizeof: `0x18a0`
 {
 	m_localOrigin: Vector,
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_localAngles: Vector,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 }
 ```
@@ -1682,8 +1670,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_cellX: Int,
 	m_cellY: Int,
 	m_cellZ: Int,
@@ -1697,7 +1684,6 @@ sizeof: `0x18a0`
 	m_iName: String,
 	m_scriptNameIndex: Int,
 	m_instanceNameIndex: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_firstChildEntityLink: Int,
 	m_firstParentEntityLink: Int,
@@ -1881,8 +1867,10 @@ sizeof: `0x18a0`
 	m_gravityLiftEjectTime: Float,
 	m_gravityLiftHoverTime: Float,
 	m_blackholeActive: Int,
+	m_jetDriveWasActive: Int,
 	m_jetDriveActive: Int,
 	m_jetDriveTargetPos: Vector,
+	m_jetDriveTargetEnt: Int,
 	m_jetDriveTargetEntOffset: Vector,
 	m_jetDriveStartPos: Vector,
 	m_jetDriveStartTime: Time,
@@ -1900,7 +1888,6 @@ sizeof: `0x18a0`
 	m_sprintTiltVel: Float,
 	m_sprintTiltPoseParameter: Int,
 	m_sprintFracPoseParameter: Int,
-	m_laserSightColor: Vector,
 	m_ziplineAllowed: Int,
 	m_lastZipline: Int,
 	m_lastZiplineDetachTime: Time,
@@ -2145,14 +2132,12 @@ sizeof: `0x18a0`
 {
 	m_localOrigin: Vector,
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_visibilityFlags: Int,
 	m_iTeamNum: Int,
 	m_localAngles: Vector,
 	m_hOwnerEntity: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_realmsBitMask: BitMask,
 	m_iEffectIndex: Int,
@@ -2166,7 +2151,7 @@ sizeof: `0x18a0`
 	m_vServerControlPoints: DataTable,
 	m_hControlPointEnts: DataTable,
 	m_controlPointAttachTypes: DataTable,
-	m_controlPoint1AttachmentIndex: Int,
+	m_controlPoint1AttachmentId: Int,
 	m_vServerControlPointColorIds: DataTable,
 	m_parentAttachType: Int,
 }
@@ -2232,6 +2217,8 @@ sizeof: `0x18a0`
 	m_EadpUserId: BitMask,
 	m_crossPlayChat: Int,
 	m_crossPlayChatFriends: Int,
+	m_laserSightColorCustomized: Int,
+	m_laserSightColor: Vector,
 	m_classModsActive: BitMask,
 	"m_passives[ 0 ]": BitMask,
 	m_bleedoutState: Int,
@@ -2285,7 +2272,7 @@ sizeof: `0x18a0`
 	m_ziplineValid3pWeaponLayerAnim: Int,
 	m_ziplineState: Int,
 	m_ziplineGrenadeBeginStationEntity: Int,
-	m_ziplineGrenadeBeginStationAttachmentIndex: Int,
+	m_ziplineGrenadeBeginStationAttachmentId: Int,
 	m_isPerformingBoostAction: Int,
 	m_lastJumpPadTouched: Int,
 	m_launchCount: Int,
@@ -2353,6 +2340,9 @@ sizeof: `0x18a0`
 
 ```
 {
+	m_vecViewOffset.x: Float,
+	m_vecViewOffset.y: Float,
+	m_vecViewOffset.z: Float,
 	m_cloakEndTime: Float,
 	m_cloakFadeInEndTime: Time,
 	m_cloakFadeOutStartTime: Float,
@@ -2496,7 +2486,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_cellX: Int,
 	m_cellY: Int,
 	m_cellZ: Int,
@@ -2584,7 +2574,6 @@ sizeof: `0x18a0`
 	m_localOrigin: VectorXY,
 	m_localOrigin.z: Float,
 	m_sliding: Int,
-	m_laserSightColor: Vector,
 }
 ```
 
@@ -2675,8 +2664,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_usableType: Int,
 	m_cellX: Int,
@@ -2717,13 +2705,11 @@ sizeof: `0x18a0`
 {
 	m_localOrigin: Vector,
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_clrRender: Int,
 	m_visibilityFlags: Int,
 	m_hOwnerEntity: Int,
 	m_nRenderMode: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_fadeDist: Float,
 	m_ropeZiplineAutoDetachDistance: Float,
@@ -2769,11 +2755,10 @@ sizeof: `0x18a0`
 
 ```
 {
-	m_parentAttachmentType: Int,
+	m_parentAttachment: Int,
 	m_vecAngVelocity: Vector,
 	m_vecVelocity: Vector,
 	m_localAngles: Vector,
-	m_parentAttachmentHitbox: Int,
 }
 ```
 
@@ -2784,8 +2769,7 @@ sizeof: `0x18a0`
 ```
 {
 	moveparent: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
+	m_parentAttachment: Int,
 	m_fEffects: Int,
 	m_moverNetworkCellX: Int,
 	m_moverNetworkCellY: Int,
@@ -2797,7 +2781,6 @@ sizeof: `0x18a0`
 	m_moverNetworkLinearVelocity: Vector,
 	m_moverNetworkLocalAngles: Vector,
 	m_scriptNameIndex: Int,
-	m_parentAttachmentHitbox: Int,
 	m_parentAttachmentModel: Int,
 	m_fadeDist: Float,
 	m_moveModeNonPhysics: Int,
@@ -3202,9 +3185,9 @@ sizeof: `0x18a0`
 	m_effectIndex: Int,
 	m_ent: Int,
 	m_attachType: Int,
-	m_attachmentIndex: Int,
 	m_attachType2: Int,
-	m_attachmentIndex2: Int,
+	m_attachmentId: Int,
+	m_attachmentId2: Int,
 }
 ```
 
@@ -3484,7 +3467,7 @@ sizeof: `0x18a0`
 	m_flWidth: Float,
 	m_flHeight: Float,
 	m_nPanelName: Int,
-	m_nAttachmentIndex: Int,
+	m_nAttachmentId: Int,
 	m_nOverlayMaterial: Int,
 	m_fScreenFlags: Int,
 	m_hPlayerOwner: Int,
@@ -3609,7 +3592,7 @@ sizeof: `0x18a0`
 	m_realtimeModCmdCount: Int,
 	m_realtimeModCanADS: Int,
 	m_customActivityAttachedModelIndex: Int,
-	m_customActivityAttachedModelAttachmentIndex: Int,
+	m_customActivityAttachedModelAttachmentId: Int,
 	m_fireRateLerp_startTime: Time,
 	m_fireRateLerp_startFraction: Float,
 	m_fireRateLerp_stopTime: Time,
@@ -3707,6 +3690,8 @@ sizeof: `0x18a0`
 	m_scriptActivated: Int,
 	m_curKillCount: Int,
 	m_curKnockdownCount: Int,
+	m_attachmentIndices: DataTable,
+	m_lockedSet: Int,
 	m_isLoadoutPickup: Int,
 	m_utilityEnt: Int,
 	m_weaponNameIndex: Int,
@@ -3908,10 +3893,10 @@ sizeof: `0x18a0`
 	m_bBlockEventLayer: Bool,
 	m_isAdsTransition: Bool,
 	m_hWeapon: EHANDLE,
-	m_tracerAttachments: Int,
-	m_tracerAttachments: Int,
-	m_tracerAttachmentsScoped: Int,
-	m_tracerAttachmentsScoped: Int,
+	m_tracerAttachments: Char,
+	m_tracerAttachments: Char,
+	m_tracerAttachmentsScoped: Char,
+	m_tracerAttachmentsScoped: Char,
 }
 ```
 
@@ -3940,9 +3925,7 @@ sizeof: `0x18a0`
 	m_localOrigin: Vector,
 	m_localAngles: Vector,
 	m_visibilityFlags: Int,
-	m_parentAttachmentType: Int,
-	m_parentAttachmentIndex: Int,
-	m_parentAttachmentHitbox: Int,
+	m_parentAttachment: Char,
 	m_grappleZipline: EHANDLE,
 }
 ```
@@ -4208,6 +4191,7 @@ sizeof: `0x18a0`
 	m_scriptActivated: Bool,
 	m_curKillCount: Char,
 	m_curKnockdownCount: Char,
+	m_attachmentIndices: Char,
 	m_flNextEmptySoundTime: Float,
 	m_bRemoveable: Bool,
 }
@@ -4770,8 +4754,10 @@ sizeof: `0x18a0`
 	m_gravityLiftLastOrigin: Vector,
 	m_gravityLiftEjectVelocity: Vector,
 	m_blackholeActive: Bool,
+	m_jetDriveWasActive: Bool,
 	m_jetDriveActive: Bool,
 	m_jetDriveTargetPos: Vector,
+	m_jetDriveTargetEnt: EHANDLE,
 	m_jetDriveTargetEntOffset: Vector,
 	m_jetDriveStartPos: Vector,
 	m_jetDriveStartTime: Time,
@@ -4809,7 +4795,7 @@ sizeof: `0x18a0`
 	m_ziplineViewOffsetVelocity: Vector,
 	m_ziplineGrenadeEntity: EHANDLE,
 	m_ziplineGrenadeBeginStationEntity: EHANDLE,
-	m_ziplineGrenadeBeginStationAttachmentIndex: Int,
+	m_ziplineGrenadeBeginStationAttachmentId: Char,
 	m_sameZiplineCooldownTime: Float,
 	m_ziplineCooldownIndex: Char,
 	m_playAnimationType: Int,
@@ -5525,7 +5511,7 @@ sizeof: `0x18a0`
 	m_realtimeModCmdCount: Char,
 	m_realtimeModCanADS: Bool,
 	m_customActivityAttachedModelIndex: Int,
-	m_customActivityAttachedModelAttachmentIndex: Int,
+	m_customActivityAttachedModelAttachmentId: Char,
 	m_fireRateLerp_startTime: Time,
 	m_fireRateLerp_startFraction: Float,
 	m_fireRateLerp_stopTime: Time,
@@ -5551,7 +5537,7 @@ sizeof: `0x18a0`
 	m_currentAltFireAnimIndex: Int,
 	m_legendaryModelIndex: Int,
 	m_charmModelIndex: Int,
-	m_charmAttachment: Int,
+	m_charmAttachment: Char,
 	m_charmScriptIndex: Int,
 	m_stickerSkinIndex: Short,
 }
@@ -5593,6 +5579,14 @@ sizeof: `0x18a0`
 
 ## ConVars
 
+<details>
+<summary><code>{empty}</code></summary>
+
+Print when SteamNetworkingIdentities are allocated/deallocated
+
+default: `"0"`  
+flags: `0x2`  
+</details>
 <details>
 <summary><code>{empty}</code></summary>
 
@@ -5752,11 +5746,27 @@ default: `"proxy/commerce_gateway/coderedemption/redeem"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>EADP_friends_invite_has_platform</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>EADP_http_inbound_friend_invite_can_use_commentforname</code></summary>
 
 
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>EADP_optin_crossplay_old_flow</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -5767,7 +5777,6 @@ flags: `0x2`
 default: `"2"`  
 flags: `0x2`  
 min value: `0.1`  
-max value: `5`  
 </details>
 <details>
 <summary><code>EADP_search_accountname_count</code></summary>
@@ -5842,14 +5851,6 @@ default: `"fetchpromo"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>EAPD_friends_invite_has_platform</code></summary>
-
-
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>Invite_Flyout_Off</code></summary>
 
 Used to disable Invite Fly Outs.
@@ -5899,6 +5900,14 @@ flags: `0x2002`
 </details>
 <details>
 <summary><code>StreamMicDisabled</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>Stryder3PToken_debug</code></summary>
 
 
 
@@ -6023,6 +6032,14 @@ flags: `0x2`
 Change the character boost bias
 
 default: `"0.1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>adjustableCharacterBoostIndirectDiffuse</code></summary>
+
+Scale the global amount of indirect diffuse lighting on characters.
+
+default: `"1.0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -6522,6 +6539,14 @@ default: `"45"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>backtrace_disable</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>baseanimatingoverlay_playbackRateThreshold</code></summary>
 
 
@@ -6535,14 +6560,6 @@ flags: `0x2`
 
 
 default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>battlepass_expansion_enabled</code></summary>
-
-Enables the new about and purchase panels for the Battlepass
-
-default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -7625,7 +7642,6 @@ flags: `0x2`
 default: `"0.0"`  
 flags: `0x2`  
 min value: `0`  
-max value: `1`  
 </details>
 <details>
 <summary><code>cl_deathhints_enabled</code></summary>
@@ -7875,7 +7891,7 @@ flags: `0x2`
 default: `"1.27216005"`  
 flags: `0x41000200`  
 min value: `1`  
-max value: `1.7`  
+max value: `0`  
 </details>
 <details>
 <summary><code>cl_gib_allow</code></summary>
@@ -8125,7 +8141,6 @@ Total time allowed for the client to resend the 'connect' attempt when matchmaki
 default: `"1"`  
 flags: `0x80000`  
 min value: `0.5`  
-max value: `20000`  
 </details>
 <details>
 <summary><code>cl_model_fx_gib_cull_front_dist</code></summary>
@@ -8640,7 +8655,6 @@ flags: `0x2`
 default: `"8"`  
 flags: `0x40000000`  
 min value: `0`  
-max value: `8`  
 </details>
 <details>
 <summary><code>cl_ragdoll_self_collision</code></summary>
@@ -8658,7 +8672,6 @@ Total time allowed for the client to resend the 'connect' attempt when reconnect
 default: `"15"`  
 flags: `0x80000`  
 min value: `0.5`  
-max value: `20000`  
 </details>
 <details>
 <summary><code>cl_replayDelayTolerance</code></summary>
@@ -8684,7 +8697,6 @@ Delay in seconds before the client will resend the 'connect' attempt
 default: `"0.5"`  
 flags: `0x80000`  
 min value: `0.5`  
-max value: `20`  
 </details>
 <details>
 <summary><code>cl_resend_timeout</code></summary>
@@ -8694,7 +8706,6 @@ Total time allowed for the client to resend the 'connect' attempt
 default: `"10"`  
 flags: `0x80000`  
 min value: `0.5`  
-max value: `20000`  
 </details>
 <details>
 <summary><code>cl_restoreSimulationTimeBase</code></summary>
@@ -8888,7 +8899,6 @@ Smooth client's view after prediction error over this many seconds
 default: `"0.25"`  
 flags: `0x2`  
 min value: `0.01`  
-max value: `2`  
 </details>
 <details>
 <summary><code>cl_snapshot_draw</code></summary>
@@ -9392,7 +9402,7 @@ flags: `0x4000`
 
 
 
-default: `"8"`  
+default: `"16"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -9457,7 +9467,7 @@ flags: `0x4000`
 
 use depth prepass result to skip clusters behind. 0 - never, 1 - only outside lobby, 2 - always
 
-default: `"1"`  
+default: `"2"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -9660,7 +9670,6 @@ flags: `0x2002`
 default: `"0"`  
 flags: `0x41000000`  
 min value: `0`  
-max value: `3`  
 </details>
 <details>
 <summary><code>communicationBlock_block_num</code></summary>
@@ -9683,7 +9692,7 @@ flags: `0x2`
 
 Check communication for muted words and taking action when they are found
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -9834,6 +9843,70 @@ flags: `0x2`
 <summary><code>con_timestamp</code></summary>
 
 Prefix console.log entries with timestamps
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_fast_duration_time_generic</code></summary>
+
+In miliseconds, the maximum possible time duration of a press that is not suspicious.
+
+default: `"4"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_fast_press_time_generic</code></summary>
+
+In miliseconds, the maximum possible time between presses that is not rapid fire.
+
+default: `"100"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_max_fast_presses_generic</code></summary>
+
+The maximum number of rapid presses allowed in a second that are not suspicious.
+
+default: `"10"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_out_of_bounds_threshold_generic</code></summary>
+
+Maximum distance from center considered legal input (Default 40960)
+
+default: `"40960"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_pattern_rec_error_generic</code></summary>
+
+The margin of error for pattern recognition. Default (1024).
+
+default: `"1024"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_report_freq_generic</code></summary>
+
+Seconds between controller reports.
+
+default: `"300"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_trigger_max_velocity_generic</code></summary>
+
+The margin of error for pattern recognition. Default (150).
+
+default: `"150"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_use_cheat_detection_generic</code></summary>
+
+Use new cheat detection. (Default disabled)
 
 default: `"0"`  
 flags: `0x2`  
@@ -10335,6 +10408,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>debug_controller_menu_test_generic</code></summary>
+
+Enable the controller testing within the menu.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>debug_debug_overlay</code></summary>
 
 Enable debug of the debug overlays
@@ -10495,6 +10576,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>destroy_doors_crushing_players</code></summary>
+
+Destroys a door if it would otherwise crush a player
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>devStats</code></summary>
 
 True if game should report dev stats.
@@ -10631,14 +10720,6 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
-</details>
-<details>
-<summary><code>disable_player_use_prompts</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x1000000`  
 </details>
 <details>
 <summary><code>discord_largeImage</code></summary>
@@ -10992,7 +11073,6 @@ Smallest scale the viewport dimensions can be scaled by.
 default: `"0.5f"`  
 flags: `0x2`  
 min value: `0.01`  
-max value: `1`  
 </details>
 <details>
 <summary><code>ea_qvt_ident</code></summary>
@@ -11203,6 +11283,14 @@ default: `"0"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>enable_new_weapon_attachment_system</code></summary>
+
+using new weapon attachment system rather than body groups
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>enable_skeleton_draw</code></summary>
 
 Render skeletons in wireframe
@@ -11371,6 +11459,14 @@ default: `"-1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>feature_suppression_flags</code></summary>
+
+Flags to indicate which features to suppress on startup
+
+default: `"0"`  
+flags: `0x12`  
+</details>
+<details>
 <summary><code>filesystem_buffer_size</code></summary>
 
 Size of per file buffers. 0 for none
@@ -11449,6 +11545,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x6000`  
+</details>
+<details>
+<summary><code>first_time_player_state</code></summary>
+
+The current stage a new user is at
+
+default: `"0"`  
+flags: `0x1000000`  
 </details>
 <details>
 <summary><code>firsttime_mp_message</code></summary>
@@ -11675,6 +11779,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>ftue_flow_enabled</code></summary>
+
+Enables the FTUE/New Player flow
+
+default: `"1"`  
+flags: `0x12`  
+</details>
+<details>
 <summary><code>fullscreen_enabled</code></summary>
 
 Expose fullscreen state so that the popup thread can disable itself when we're in fullscreen (otherwise it kicks us out of fullscreen).
@@ -11802,7 +11914,6 @@ Gamepad ads sensitivity for 1x scopes / ironsights.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_1</code></summary>
@@ -11812,7 +11923,6 @@ Gamepad ads sensitivity for 2x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_2</code></summary>
@@ -11822,7 +11932,6 @@ Gamepad ads sensitivity for 3x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_3</code></summary>
@@ -11832,7 +11941,6 @@ Gamepad ads sensitivity for 4x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_4</code></summary>
@@ -11842,7 +11950,6 @@ Gamepad ads sensitivity for 6x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_5</code></summary>
@@ -11852,7 +11959,6 @@ Gamepad ads sensitivity for 8x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_6</code></summary>
@@ -11862,7 +11968,6 @@ Gamepad ads sensitivity for 10x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_7</code></summary>
@@ -11872,7 +11977,6 @@ Gamepad ads sensitivity for an unused scope.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_aim_assist_ads_high_power_scopes</code></summary>
@@ -11922,7 +12026,6 @@ flags: `0x1000000`
 default: `"2"`  
 flags: `0x1000000`  
 min value: `0`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_0</code></summary>
@@ -11932,7 +12035,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_1</code></summary>
@@ -11942,7 +12044,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_2</code></summary>
@@ -11952,7 +12053,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_3</code></summary>
@@ -11962,7 +12062,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_4</code></summary>
@@ -11972,7 +12071,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_5</code></summary>
@@ -11982,7 +12080,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_6</code></summary>
@@ -11992,7 +12089,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_7</code></summary>
@@ -12002,7 +12098,6 @@ max value: `7`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
-max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_button_layout</code></summary>
@@ -12204,7 +12299,6 @@ True if the gamepad is enabled, false otherwise.
 default: `"1"`  
 flags: `0x2`  
 min value: `0`  
-max value: `1`  
 </details>
 <details>
 <summary><code>gamepad_look_curve</code></summary>
@@ -12214,7 +12308,6 @@ max value: `1`
 default: `"0"`  
 flags: `0x1000000`  
 min value: `0`  
-max value: `4`  
 </details>
 <details>
 <summary><code>gamepad_stick_layout</code></summary>
@@ -13665,6 +13758,14 @@ default: `"1"`
 flags: `0x1000000`  
 </details>
 <details>
+<summary><code>hud_setting_showOffscreenPortrait</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x1000000`  
+</details>
+<details>
 <summary><code>hud_setting_showTeamNamesOnMap</code></summary>
 
 
@@ -13905,6 +14006,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>ignore_material_flags_for_decals</code></summary>
+
+When turned on, decals will ignore checking the material to see if they accept decals. This is mostly used for stickers currently.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>ignore_script_errors</code></summary>
 
 Ignore script errors.
@@ -14113,6 +14222,15 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>inflight_stream_texture_max</code></summary>
+
+
+
+default: `"8"`  
+flags: `0x2`  
+min value: `1`  
+</details>
+<details>
 <summary><code>infoblock_requestInterval</code></summary>
 
 Time between info block requests
@@ -14227,7 +14345,7 @@ flags: `0x2`
 <details>
 <summary><code>joy_rumble</code></summary>
 
-Controller rumble.
+Controller rumble. 0: off, 1: on (default), 2: advanced.
 
 default: `"1"`  
 flags: `0x1000000`  
@@ -14385,28 +14503,20 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>laser_sight_color_b</code></summary>
+<summary><code>laserSightColor</code></summary>
 
-Laser Sight Color's Blue Channel
+Custom Laser Sight Color
 
-default: `"0"`  
-flags: `0x41000200`  
+default: `"0000"`  
+flags: `0x1000202`  
 </details>
 <details>
-<summary><code>laser_sight_color_g</code></summary>
+<summary><code>laserSightColorCustomized</code></summary>
 
-Laser Sight Color's Green Channel
+Custom Laser Sight Color Enabled
 
 default: `"0"`  
-flags: `0x41000200`  
-</details>
-<details>
-<summary><code>laser_sight_color_r</code></summary>
-
-Laser Sight Color's Red Channel
-
-default: `"255"`  
-flags: `0x41000200`  
+flags: `0x1000202`  
 </details>
 <details>
 <summary><code>leaf_threadedRecompute</code></summary>
@@ -14519,6 +14629,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>lobatac_fix</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>lobby_flicker_fix_disable</code></summary>
@@ -15304,7 +15422,6 @@ If you want to use SSR again, uncomment the line with (1u << MTLENVOPT_SSR) in s
 
 default: `"0"`  
 flags: `0x2`  
-max value: `1`  
 </details>
 <details>
 <summary><code>mat_envmap_capture_res</code></summary>
@@ -15378,7 +15495,6 @@ flags: `0x4000`
 default: `"2"`  
 flags: `0x40000000`  
 min value: `0`  
-max value: `16`  
 </details>
 <details>
 <summary><code>mat_frame_color_bias</code></summary>
@@ -15812,7 +15928,6 @@ flags: `0x4000`
 default: `"0"`  
 flags: `0x40000000`  
 min value: `0`  
-max value: `4`  
 </details>
 <details>
 <summary><code>mat_postprocess_enable</code></summary>
@@ -16946,6 +17061,14 @@ default: `"0.0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>miles_soundscape_skipfloors_mode</code></summary>
+
+Determines how many floors to skip, 0=max() logic, mode 1=min() logic, and mode 2=always listener
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>miles_soundscape_skipfloors_offset</code></summary>
 
 Offsets listener Z position used for floor skip logic
@@ -17161,7 +17284,6 @@ Mouse sensitivity.
 default: `"5"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_use_per_scope_sensitivity_scalars</code></summary>
@@ -17179,7 +17301,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_1</code></summary>
@@ -17189,7 +17310,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_2</code></summary>
@@ -17199,7 +17319,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_3</code></summary>
@@ -17209,7 +17328,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_4</code></summary>
@@ -17219,7 +17337,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_5</code></summary>
@@ -17229,7 +17346,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_6</code></summary>
@@ -17239,7 +17355,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_7</code></summary>
@@ -17249,7 +17364,6 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
-max value: `20`  
 </details>
 <details>
 <summary><code>move_one_cmd_per_client_frame</code></summary>
@@ -17416,7 +17530,7 @@ flags: `0x6002`
 
 
 
-default: `"1310"`  
+default: `"1400"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -17496,7 +17610,7 @@ flags: `0x80000`
 
 Discards incoming message: <0|1|name>
 
-default: `"none"`  
+default: `"0"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -17780,6 +17894,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>net_encrypt_relay_traffic</code></summary>
+
+Manually encrypt / decrypt traffic that is sent over the Valve Relay. Note that the Valve Relay already encrypts traffic on its own.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>net_encryptionDebug</code></summary>
 
 
@@ -17802,14 +17924,6 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x4000`  
-</details>
-<details>
-<summary><code>net_frames_max_gap</code></summary>
-
-Maximum gap allowable between packets.
-
-default: `"1000"`  
-flags: `0x2`  
 </details>
 <details>
 <summary><code>net_highPacketLatencyThreshold</code></summary>
@@ -17891,7 +18005,6 @@ Requested max packet size before packets are 'split'.
 default: `"1200"`  
 flags: `0x202`  
 min value: `576`  
-max value: `1200`  
 </details>
 <details>
 <summary><code>net_minConnectionTimeForSpam</code></summary>
@@ -17956,14 +18069,6 @@ Enable/disable bandwidth optimizations made to weapons. Additional experimental 
 
 default: `"2"`  
 flags: `0x2002`  
-</details>
-<details>
-<summary><code>net_ping_debug</code></summary>
-
-Debug latency calculation.
-
-default: `"0"`  
-flags: `0x2`  
 </details>
 <details>
 <summary><code>net_portTryMax</code></summary>
@@ -18099,6 +18204,14 @@ flags: `0x2`
 
 
 default: `"2"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_recentWindowTime</code></summary>
+
+
+
+default: `"4.0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18407,11 +18520,19 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>net_traceroute_ping</code></summary>
+<summary><code>net_traceroute_max_hops</code></summary>
 
-Max number of ping in traceroute.
+Max number of hops to attempt during a traceroute.
 
 default: `"255"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_trackEnt_bandwidthFrame</code></summary>
+
+Turn on/off bandwidth tracker clearing/swapping when tracking an entity (entity tracking is not on main thread).
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18428,6 +18549,22 @@ flags: `0x2`
 Record and report network transmission events for I/O bandwidth estimation
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_use_valve_relay</code></summary>
+
+Enable connection to Valve Relay and transport over Steam Datagram sockets
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_use_valve_relay_only</code></summary>
+
+When in use, stop listening for connections over UDP and exclusively use Valve's Relay
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18484,6 +18621,14 @@ flags: `0x80200`
 
 
 default: `"0.031"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>netchan_stats_window_time</code></summary>
+
+How long are NetChan stats valid. Packet loss, etc
+
+default: `"3"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18589,7 +18734,6 @@ Sets the max viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
-max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_max_handheld_lobby</code></summary>
@@ -18598,7 +18742,6 @@ Sets the max viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
-max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_min_handheld</code></summary>
@@ -18607,7 +18750,6 @@ Sets the min viewportscale value on Switch handheld
 
 default: `"0.7"`  
 flags: `0x80000`  
-max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_min_handheld_lobby</code></summary>
@@ -18616,7 +18758,6 @@ Sets the min viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
-max value: `1`  
 </details>
 <details>
 <summary><code>object_placement_debug</code></summary>
@@ -18868,7 +19009,6 @@ flags: `0x2002`
 default: `"0"`  
 flags: `0x40000000`  
 min value: `0`  
-max value: `2`  
 </details>
 <details>
 <summary><code>particle_delete_all_except</code></summary>
@@ -19463,6 +19603,14 @@ default: `"1"`
 flags: `0x6`  
 </details>
 <details>
+<summary><code>persistence_use_rson_schema</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>persistent_warningRate</code></summary>
 
 
@@ -19783,6 +19931,22 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>pin_telemetry_throttling_enabled</code></summary>
+
+Controls whether we throttle PIN events or not
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>pin_telemetry_throttling_warnings</code></summary>
+
+Controls whether print warnings about PIN throttling
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>ping_max_green</code></summary>
 
 
@@ -19866,6 +20030,14 @@ flags: `0x2`
 <summary><code>platform_user_id</code></summary>
 
 Platform user id (origin user id on PC, xuid on xboxone)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>playerArrayRemovesMarkForDelete</code></summary>
+
+Enable fix for GetPlayerArray that removes markedfordelete players from the array
 
 default: `"0"`  
 flags: `0x2`  
@@ -20021,6 +20193,14 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>player_use_prompt_enabled</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x1000000`  
 </details>
 <details>
 <summary><code>player_usercmd_skipping_enabled</code></summary>
@@ -20231,14 +20411,6 @@ default: `"5"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>printConnectTimings</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>print_timeprefix</code></summary>
 
 
@@ -20274,6 +20446,14 @@ flags: `0x2`
 <summary><code>progressbar_single_bar</code></summary>
 
 Use a single bar.
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>projectile_arcIndicatorAccountsForParentMoverVelocity</code></summary>
+
+If enabled, the projectile arc indicator will try to account for our parent mover's velocity. If the projectile only hits the parent, we will use our velocity relative to the parent to display the arc, otherwise we will use its true velocity as normal.
 
 default: `"1"`  
 flags: `0x2`  
@@ -20519,11 +20699,43 @@ default: `"-1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>push_exit_traversal_if_goal_position_blocked</code></summary>
+
+If enabled, will end the players traversal if their traversal end position is blocked
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>push_ignore_execution_entity_blockers</code></summary>
+
+Push trace will ignore entity blockers that are generated by an execution
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>push_ragdolls</code></summary>
 
 Toggles whether to push ragdoll entities
 
 default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>push_search_along_traversal_during_crush_resolution</code></summary>
+
+If enabled, searches along the traversal path to place the player in a spot where they won't be crushed
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>putEntityInSafeSpot_maskExcludesMonster</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -20766,7 +20978,6 @@ flags: `0x2`
 default: `"256"`  
 flags: `0x40000000`  
 min value: `0`  
-max value: `256`  
 </details>
 <details>
 <summary><code>r_deferred_decals</code></summary>
@@ -21331,7 +21542,6 @@ Root LOD
 default: `"0"`  
 flags: `0x4800002`  
 min value: `0`  
-max value: `2`  
 </details>
 <details>
 <summary><code>r_ropetranslucent</code></summary>
@@ -21555,6 +21765,14 @@ flags: `0x4000`
 Toggle Volumetric Light
 
 default: `"2"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>r_volumetric_lighting_min_relative_contribution</code></summary>
+
+
+
+default: `"0.02"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21806,6 +22024,14 @@ default: `"2400"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>reconnect_cache_delete</code></summary>
+
+Allow / Disallow reconnect to remove cached reconnect params.
+
+default: `"1"`  
+flags: `0x80000`  
+</details>
+<details>
 <summary><code>reconnect_check_platform_id</code></summary>
 
 Check platform id from local file. Useful when testing with multiple local win64 clients.
@@ -21826,7 +22052,7 @@ flags: `0x2`
 
 Amount of seconds for which reconnect is waiting before connecting.
 
-default: `"5"`  
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21900,6 +22126,14 @@ List all clientside entities thinking and time - will report and turn itself off
 
 default: `"0"`  
 flags: `0x4000`  
+</details>
+<details>
+<summary><code>report_legacy_attachment_errors</code></summary>
+
+Give attachment-related script errors that old code wouldn't give because it checked for -1 instead of 0.
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>reticle_color</code></summary>
@@ -22090,7 +22324,7 @@ flags: `0x2`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22268,7 +22502,6 @@ Fraction of safe area to use
 
 default: `"0.0"`  
 flags: `0x2`  
-max value: `1`  
 </details>
 <details>
 <summary><code>rui_standardTextHeight</code></summary>
@@ -22560,6 +22793,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>scriptremotefunctions_assert_on_bad_params</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>scriptremotefunctions_debug</code></summary>
 
 Enable debug print around remote functions
@@ -22597,6 +22838,14 @@ flags: `0x2`
 Save script function name for easier debugging
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>scriptremotefunctions_stringMaxStored</code></summary>
+
+Maximum cache size for strings
+
+default: `"512"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22742,6 +22991,14 @@ flags: `0x4000`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>shadow_cull_in_lobby</code></summary>
+
+Allow culling of any kind of shadow when in the lobby, if it's outside of the view frustum.
+
+default: `"1"`  
+flags: `0x4000`  
 </details>
 <details>
 <summary><code>shadow_dbg_cone_depthtest</code></summary>
@@ -22959,7 +23216,6 @@ How many pcf samples to take. A value of 'n' means nxn samples across (2n)x(2n) 
 default: `"3"`  
 flags: `0x4000`  
 min value: `0`  
-max value: `3`  
 </details>
 <details>
 <summary><code>shadow_pcf_mode</code></summary>
@@ -23258,6 +23514,14 @@ flags: `0x2`
 
 default: `""`  
 flags: `0x80000`  
+</details>
+<details>
+<summary><code>skipIntroVideos</code></summary>
+
+skip intro videos
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>skip_jump_height_fraction</code></summary>
@@ -24041,7 +24305,7 @@ flags: `0x40000000`
 
 
 
-default: `"1.5"`  
+default: `"1.0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -24212,7 +24476,6 @@ The maximum number of static props that will be drawn.
 default: `"8192"`  
 flags: `0x2`  
 min value: `100`  
-max value: `8192`  
 </details>
 <details>
 <summary><code>staticProp_buildlists_on_worker</code></summary>
@@ -25226,7 +25489,6 @@ Server upper bound on net_maxroutable that a client can use.
 default: `"1200"`  
 flags: `0x2`  
 min value: `576`  
-max value: `1200`  
 </details>
 <details>
 <summary><code>sv_maxspeed</code></summary>
@@ -25672,6 +25934,14 @@ flags: `0x2002`
 <summary><code>sv_transmitToAllPlayersMask_allBitsSet</code></summary>
 
 This enables the legacy behavior of setting all bits inside of PerPlayerBitMask when we want to transmit an entities to all clients. This includes setting bits to clients that can't even exist(compare GetMaxClients to ABSOLUTE_PLAYER_LIMIT)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>sv_transmitToAllPlayersMask_print</code></summary>
+
+
 
 default: `"0"`  
 flags: `0x2`  
@@ -26357,6 +26627,14 @@ default: `"64"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>tts_usejob</code></summary>
+
+Use a job when synthesizing TTS audio
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>tweak_light_shadows_every_frame</code></summary>
 
 
@@ -26435,7 +26713,6 @@ Brightness scale factor for UI elements
 
 default: `"1.0f"`  
 flags: `0x2`  
-max value: `1`  
 </details>
 <details>
 <summary><code>ui_fadecloud_time</code></summary>
@@ -26622,6 +26899,14 @@ default: `"220 215 210 255"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>use_latest_predicted_time_for_calc_anim_position</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>use_monitors</code></summary>
 
 
@@ -26692,6 +26977,33 @@ flags: `0x2`
 
 default: `"500"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>valve_relay_cert_refresh_threshold</code></summary>
+
+Time (in hours) left of a valid certificate at which it should be renewed
+
+default: `"2"`  
+flags: `0x2`  
+min value: `1`  
+</details>
+<details>
+<summary><code>valve_relay_config_refresh_time</code></summary>
+
+Time (in minutes) between refreshing the relay network configuration.
+
+default: `"60"`  
+flags: `0x2`  
+min value: `1`  
+</details>
+<details>
+<summary><code>valve_relay_debug_log_level</code></summary>
+
+Debug output level (8 for everything, 1 for critical only, 0 to disable)
+
+default: `"3"`  
+flags: `0x2`  
+min value: `0`  
 </details>
 <details>
 <summary><code>variable_sights_gravity_scale_override</code></summary>
@@ -26842,9 +27154,9 @@ flags: `0x2`
 <details>
 <summary><code>vfog_perf_level</code></summary>
 
-Change vfog perf level, 0: off 1:lowres fog 2:highres fog
+Override vfog perf level, -1 default to video config, 0: off 1:lowres fog 2:highres fog
 
-default: `"2"`  
+default: `"-1"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -27303,7 +27615,6 @@ Scale down the main viewport (to reduce GPU impact on CPU profiling)
 default: `"1.0"`  
 flags: `0x80000`  
 min value: `0.0015625`  
-max value: `2`  
 </details>
 <details>
 <summary><code>viewpunch_base_springConstantX</code></summary>
@@ -27704,7 +28015,6 @@ Voice chat uses a vox-style always on
 
 default: `"1"`  
 flags: `0x80`  
-max value: `1`  
 </details>
 <details>
 <summary><code>voice_writevoices</code></summary>
@@ -27794,14 +28104,6 @@ flags: `0x2`
 
 default: `"production"`  
 flags: `0x80000`  
-</details>
-<details>
-<summary><code>vx_do_not_throttle_events</code></summary>
-
-Force VXConsole updates every frame; smoother vprof data but at a slight (~0.2ms) perf cost.
-
-default: `"0"`  
-flags: `0x2`  
 </details>
 <details>
 <summary><code>wall_climb_pose_paramteter_hands_enabled</code></summary>
@@ -28098,6 +28400,14 @@ Output debug log messages for watchdog system.
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>watchdog_dialog</code></summary>
+
+Show a dialog prompt (for PC). Default is 1 (enabled)
+
+default: `"1"`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>watchdog_sleep_time_milliseconds</code></summary>
@@ -28553,14 +28863,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>zipline_path_max_jump_off_velocity</code></summary>
-
-
-
-default: `"1000.0"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>zipline_path_max_subSectionLen</code></summary>
 
 
@@ -28648,7 +28950,6 @@ Zipline subdivision amount around the rope, affects roundedness.
 default: `"6"`  
 flags: `0x2`  
 min value: `1`  
-max value: `12`  
 </details>
 <details>
 <summary><code>zipline_subdiv_slices_lod</code></summary>
@@ -28658,7 +28959,6 @@ Zipline subdivision amount around the rope when lod is active, affects roundedne
 default: `"4"`  
 flags: `0x2`  
 min value: `0`  
-max value: `12`  
 </details>
 <details>
 <summary><code>zipline_subdiv_stacks</code></summary>
@@ -28668,7 +28968,89 @@ Zipline subdivision amount between each zipline node.
 default: `"6"`  
 flags: `0x2`  
 min value: `1`  
-max value: `24`  
+</details>
+<details>
+<summary><code>ziprail_3pBank</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>ziprail_adaptive_stackSubdiv</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_max_tolerance_distance</code></summary>
+
+
+
+default: `"60000"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_max_tolerance_value</code></summary>
+
+
+
+default: `"10"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_rope_render</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_shape</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_shape_bigAngleStep</code></summary>
+
+Angles determining how big the side of a ziprail is. Valid value is 0.0 to 120.0
+
+default: `"100"`  
+flags: `0x2`  
+min value: `0`  
+</details>
+<details>
+<summary><code>ziprail_subdiv_stacks</code></summary>
+
+Ziprail rope subdivision amount along the rope. Affects curve smoothness.
+
+default: `"16"`  
+flags: `0x2`  
+min value: `0`  
+</details>
+<details>
+<summary><code>ziprail_subdiv_stacks_lod</code></summary>
+
+Ziprail rope subdivision amount along the rope when lod is active. Affects curve smoothness.
+
+default: `"2"`  
+flags: `0x2`  
+min value: `0`  
+</details>
+<details>
+<summary><code>ziprail_width</code></summary>
+
+ziprail width
+
+default: `"4.0"`  
+flags: `0x2002`  
 </details>
 
 ## ConCommands
@@ -30216,6 +30598,13 @@ flags: `0x20002`
 Connect to specified server with a reservation token.
 
 flags: `0xa0000`  
+</details>
+<details>
+<summary><code>controller_test_pad_report_generic</code></summary>
+
+Send current pad detection reports to server.
+
+flags: `0x2`  
 </details>
 <details>
 <summary><code>convar_differences</code></summary>
@@ -32154,6 +32543,20 @@ flags: `0x2`
 <summary><code>users</code></summary>
 
 Show user info for players on server.
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>valve_relay_known_identities</code></summary>
+
+Print a list of all known Valve Relay identities
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>valve_relay_translateAddress</code></summary>
+
+Check if a given address is a valid relay address
 
 flags: `0x2`  
 </details>

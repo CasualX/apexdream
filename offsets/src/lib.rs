@@ -17,7 +17,7 @@ pub fn print_ini(string: &str) {
 pub fn print_human(string: &str) {
 	unsafe { setHuman(string.as_ptr(), string.len()); }
 }
-pub fn print_error<T: fmt::Display>(error: &T) {
+pub fn print_error(error: impl fmt::Display) {
 	let msg = error.to_string();
 	unsafe { setError(msg.as_ptr(), msg.len()); }
 }

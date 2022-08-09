@@ -17,7 +17,7 @@ fn parse_arg() -> Option<(PathBuf, bool)> {
 	Some((path, human))
 }
 
-pub fn print_error<T: fmt::Display>(error: &T) {
+pub fn print_error(error: impl fmt::Display) {
 	eprintln!("{}", error);
 }
 

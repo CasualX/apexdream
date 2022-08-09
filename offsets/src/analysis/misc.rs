@@ -19,6 +19,7 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	projectile_speed(f, bin);
 	unknown_magic(f, bin);
 	local_camera(f, bin);
+	studio_hdr(f, bin);
 	network_var(f, bin);
 	let _ = writeln!(f.human, "```\n");
 	let _ = writeln!(f.ini);
@@ -49,7 +50,7 @@ fn entity_list(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "cl_entitylist={:#x}", cl_entitylist);
 	}
 	else {
-		crate::print_error(&"unable to find cl_entitylist!");
+		crate::print_error("unable to find cl_entitylist!");
 	}
 }
 
@@ -60,32 +61,31 @@ fn local_entity_handle(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "LocalEntityHandle={:#x}", local_entity_handle);
 	}
 	else {
-		crate::print_error(&"unable to find LocalEntityHandle!");
+		crate::print_error("unable to find LocalEntityHandle!");
 	}
 }
 
 fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 	// The global instance of C_GameMovement contains as its first member a pointer to local player right after its vtable.
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488905${[8]'} 74% 488D05"), &mut save) {
+	if bin.scanner().finds_code(pat!("8981??0000 488B1D${'}"), &mut save) {
 		let local_player_ptr = save[1];
 		let _ = writeln!(f.ini, "LocalPlayer={:#x}", local_player_ptr);
 	}
 	else {
-		crate::print_error(&"unable to find LocalPlayerPtr!");
+		crate::print_error("unable to find LocalPlayerPtr!");
 	}
 }
 
 fn global_vars(f: &mut super::Output, bin: PeFile<'_>) {
-	// Right above "Client.dll Init_PostVideo() in library "
-	// lea rdx, qword_XXX
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B01 ???${'} [10-20] $\"Client.dll Init_PostVideo\""), &mut save) {
+	if bin.scanner().finds_code(pat!("488B15${*'} BE01000000 8B4234 3BC6"), &mut save) ||
+		bin.scanner().finds_code(pat!("F20F11?${'} [50-100] F30F11????? F30F11????? F30F11????? F30F11????? F30F11????? 72"), &mut save) {
 		let global_vars = save[1];
 		let _ = writeln!(f.ini, "GlobalVars={:#x}", global_vars);
 	}
 	else {
-		crate::print_error(&"unable to find GlobalVars!");
+		crate::print_error("unable to find GlobalVars!");
 	}
 }
 
@@ -96,20 +96,20 @@ fn name_list(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "NameList={:#x}", name_list);
 	}
 	else {
-		crate::print_error(&"unable to find NameList!");
+		crate::print_error("unable to find NameList!");
 	}
 }
 
 fn game_version(f: &mut super::Output, bin: PeFile<'_>) {
 	// References "gameversion.txt"
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488D1D${'} C605????01 488BD3 488D0D$\"gameversion.txt\"00"), &mut save) {
+	if bin.scanner().finds_code(pat!("8D?${'\"v\"} [1-32] 8D?$\"gameversion.txt\"00"), &mut save) {
 		let game_version = bin.derva_c_str(save[1]).unwrap().to_str().unwrap();
 		let _ = writeln!(f.human, "GameVersion = {:?}", game_version);
 		let _ = writeln!(f.ini, "GameVersion={}", game_version);
 	}
 	else {
-		crate::print_error(&"unable to find GameVersion!");
+		crate::print_error("unable to find GameVersion!");
 	}
 }
 
@@ -122,7 +122,7 @@ fn view_render(f: &mut super::Output, bin: PeFile<'_>) {
 		view_render = save[1];
 	}
 	else {
-		crate::print_error(&"unable to find ViewRender");
+		crate::print_error("unable to find ViewRender");
 		return;
 	}
 
@@ -130,7 +130,7 @@ fn view_render(f: &mut super::Output, bin: PeFile<'_>) {
 		view_matrix = save[1];
 	}
 	else {
-		crate::print_error(&"unable to find ViewMatrix");
+		crate::print_error("unable to find ViewMatrix");
 		return;
 	}
 
@@ -142,12 +142,12 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
 
 	// Address of global CClientState instance
-	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} (???75%|) 488D0D$'"), &mut save) {
+	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} [1-10] 75% 488D0D$'"), &mut save) {
 		let client_state = save[1];
 		let _ = writeln!(f.ini, "ClientState={:#x}", client_state);
 	}
 	else {
-		crate::print_error(&"unable to find ClientState");
+		crate::print_error("unable to find ClientState");
 		return;
 	}
 
@@ -159,7 +159,7 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 		println!("{}!{:#x} SignonState", dll_name, signon_state);
 	}
 	else {
-		crate::print_error(&"unable to find SignonState");
+		crate::print_error("unable to find SignonState");
 	}
 	*/
 	// LevelName and SignonState together, look for string "dedicated" the smaller of the two routines
@@ -171,7 +171,7 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "LevelName={:#x}", level_name);
 	}
 	else {
-		crate::print_error(&"unable to find LevelName");
+		crate::print_error("unable to find LevelName");
 	}
 }
 
@@ -185,7 +185,7 @@ fn projectile_speed(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "CWeaponX!m_flProjectileScale={:#x}", projectile_scale);
 	}
 	else {
-		crate::print_error(&"unable to find projectile_speed");
+		crate::print_error("unable to find projectile_speed");
 	}
 }
 
@@ -210,19 +210,31 @@ fn local_camera(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "CPlayer!camera_angles={:#x}", camera_angles);
 	}
 	else {
-		crate::print_error(&"unable to find CPlayer camera offsets");
+		crate::print_error("unable to find CPlayer camera offsets");
+	}
+}
+
+fn studio_hdr(f: &mut super::Output, bin: PeFile<'_>) {
+	let mut save = [0; 4];
+	// First call in a function referencing "Entity has no model"
+	if bin.scanner().finds_code(pat!("4883B9u4? 488BD9 7536"), &mut save) {
+		let studio_hdr = save[1];
+		let _ = writeln!(f.ini, "CBaseAnimating!m_pStudioHdr={:#x}", studio_hdr);
+	}
+	else {
+		crate::print_error("unable to find studio hdr");
 	}
 }
 
 fn network_var(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
 
-	if bin.scanner().finds_code(pat!("486BCA38 488D15${'} 837C110C07"), &mut save) {
+	if bin.scanner().finds_code(pat!("486BCA38 488D15${'} 837C110C07 [1-20]$\"Network var\""), &mut save) {
 		let network_var_table_ptr = save[1];
 		let _ = writeln!(f.ini, "NetworkVarTablePtr={:#x}", network_var_table_ptr);
 	}
 	else {
-		crate::print_error(&"unable to find NetworkVarTablePtr");
+		crate::print_error("unable to find NetworkVarTablePtr");
 	}
 
 	if bin.scanner().finds_code(pat!("81?u4 73% [1-10]$ \"Network var\""), &mut save) {
@@ -230,15 +242,15 @@ fn network_var(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "NetworkVarTableLen={}", network_var_table_len);
 	}
 	else {
-		crate::print_error(&"unable to find NetworkVarTableLen");
+		crate::print_error("unable to find NetworkVarTableLen");
 	}
 
-	if bin.scanner().finds_code(pat!("@4 8B01 83F8FF 741C 0FB7C8 488D15${'}"), &mut save) {
+	if bin.scanner().matches_code(pat!("@4 8B01 83F8FF 741C 0FB7C8 488D15${'}")).next(&mut save) {
 		let network_data_table_ptr = save[1];
 		let _ = writeln!(f.ini, "NetworkDataTablePtr={:#x}", network_data_table_ptr);
 	}
 	else {
-		crate::print_error(&"unable to find NetworkDataTablePtr");
+		crate::print_error("unable to find NetworkDataTablePtr");
 	}
 }
 
@@ -249,6 +261,6 @@ fn input_system(f: &mut super::Output, bin: PeFile<'_>) {
 		let _ = writeln!(f.ini, "InputSystem={:#x}", input_system);
 	}
 	else {
-		crate::print_error(&"unable to find InputSystem");
+		crate::print_error("unable to find InputSystem");
 	}
 }
