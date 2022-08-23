@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x62e316ce
-CheckSum = 0x2189f51
-GameVersion = ""
+TimeDateStamp = 0x62f5651a
+CheckSum = 0x218775e
+GameVersion = "v3.0.10.29"
 ```
 
 ## NetworkedStringTables
@@ -1867,6 +1867,7 @@ sizeof: `0x1820`
 	m_gravityLiftEjectTime: Float,
 	m_gravityLiftHoverTime: Float,
 	m_blackholeActive: Int,
+	m_jetDriveWasActive: Int,
 	m_jetDriveActive: Int,
 	m_jetDriveTargetPos: Vector,
 	m_jetDriveTargetEnt: Int,
@@ -3690,6 +3691,7 @@ sizeof: `0x1820`
 	m_curKillCount: Int,
 	m_curKnockdownCount: Int,
 	m_attachmentIndices: DataTable,
+	m_lockedSet: Int,
 	m_isLoadoutPickup: Int,
 	m_utilityEnt: Int,
 	m_weaponNameIndex: Int,
@@ -4752,6 +4754,7 @@ sizeof: `0x1820`
 	m_gravityLiftLastOrigin: Vector,
 	m_gravityLiftEjectVelocity: Vector,
 	m_blackholeActive: Bool,
+	m_jetDriveWasActive: Bool,
 	m_jetDriveActive: Bool,
 	m_jetDriveTargetPos: Vector,
 	m_jetDriveTargetEnt: EHANDLE,
@@ -11774,6 +11777,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>ftue_flow_enabled</code></summary>
+
+Enables the FTUE/New Player flow
+
+default: `"1"`  
+flags: `0x12`  
 </details>
 <details>
 <summary><code>fullscreen_enabled</code></summary>
@@ -22982,6 +22993,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>shadow_cull_in_lobby</code></summary>
+
+Allow culling of any kind of shadow when in the lobby, if it's outside of the view frustum.
+
+default: `"1"`  
+flags: `0x4000`  
+</details>
+<details>
 <summary><code>shadow_dbg_cone_depthtest</code></summary>
 
 for shadow_dbg_cones
@@ -32667,3 +32686,4 @@ flags: `0x40080000`
 
 flags: `0x40080000`  
 </details>
+
