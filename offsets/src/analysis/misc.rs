@@ -17,6 +17,7 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	view_render(f, bin);
 	client_state(f, bin);
 	projectile_speed(f, bin);
+	weapon_singlefire(f, bin);
 	unknown_magic(f, bin);
 	local_camera(f, bin);
 	studio_hdr(f, bin);
@@ -186,6 +187,19 @@ fn projectile_speed(f: &mut super::Output, bin: PeFile<'_>) {
 	}
 	else {
 		crate::print_error("unable to find projectile_speed");
+	}
+}
+
+fn weapon_singlefire(f: &mut super::Output, bin: PeFile<'_>) {
+	// Credits: https://www.unknowncheats.me/forum/3403807-post9036.html
+	// Find near the string "ForceRechamberMilestone: Cannot force a rechamber on weapon '%s' that is not semi-auto."
+	let mut save = [0; 4];
+	if bin.scanner().finds_code(pat!("80B9 u4 00 [1-15] 488D0D${\"ForceRechamberMilestone: Cannot force a rechamber on weapon\"}"), &mut save) {
+		let singlefire = save[1];
+		let _ = writeln!(f.ini, "CWeaponX!m_singlefire={:#x}", singlefire);
+	}
+	else {
+		crate::print_error("unable to find weapon_singlefire");
 	}
 }
 
