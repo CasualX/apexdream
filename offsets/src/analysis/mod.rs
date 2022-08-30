@@ -10,6 +10,7 @@ mod convars;
 mod concommands;
 mod globals;
 mod string_tables;
+mod modifiers;
 
 #[derive(Default)]
 pub struct Output {
@@ -32,6 +33,7 @@ pub fn parse(f: &mut Output, image: &[u8]) {
 	interfaces::print(f, bin);
 	misc::print(f, bin);
 	string_tables::print(f, bin);
+	modifiers::print(f, bin);
 	kbuttons::print(f, bin);
 	classes::print(f, bin);
 	recvtables::print(f, bin);
