@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x62f5651a
-CheckSum = 0x218775e
-GameVersion = "v3.0.10.29"
+TimeDateStamp = 0x63079559
+CheckSum = 0x2184952
+GameVersion = "v3.0.11.32"
 ```
 
 ## NetworkedStringTables
@@ -79,8 +79,10 @@ crate
 crypto_drone_access
 crypto_has_camera
 data_knife
+death_spectre
 dev_mod_low_recharge
 disable_lunge
+disabled
 double_link_mod
 drill_error
 elevator_shooter
@@ -90,12 +92,16 @@ energy_mag_l2
 energy_mag_l3
 energy_mag_l4
 extra_tactical_charges
+fast_heal
 fast_reload_mod
 fuse_long_throw_passive
 g7_reactive_ammo_counter_mod
 gold_paintball
 grapple_regen_stop
 has_been_energized
+health_large
+health_small
+heirloom
 highcal_mag_l1
 highcal_mag_l2
 highcal_mag_l3
@@ -118,6 +124,7 @@ hopup_smart_reload
 hopup_turbocharger
 hopup_unshielded_dmg
 in_ads
+incap_lvl_0
 infinite_ammo_clips
 interception_pylon_super_charge
 kinetic_choke
@@ -159,9 +166,13 @@ overloaded_ammo
 pariah_ads_melee
 pas_ordnance_pack
 pas_power_cell
+passive_revive_incap_shield_mod
+passive_revive_incap_shield_outro_mod
+phoenix_kit
 proto_door_kick
 proto_door_kick_impact_table
 purple_paintball
+quick_heal
 rampart_gunner
 redirect_mod
 s07_reactive_holo_ironsight
@@ -169,6 +180,8 @@ s07_reactive_holo_ironsight_alt
 seer_heartbeat_sensor_active
 seer_tac_movespeed_modifier
 shatter_rounds_hipfire
+shield_large
+shield_small
 shotgun_bolt_l1
 shotgun_bolt_l1_double_tap
 shotgun_bolt_l2
@@ -201,9 +214,19 @@ survival_finite_ordnance
 ult_active
 ultimate_active
 ultimate_active_no_regen
+ultimate_battery
+ultimate_battery_supercharged_fx
 ultimates_charge_over_time_disabled
 using_jets
 vantage_ads_melee
+vantage_can_interrupt
+vantage_failed_los_mod
+vantage_from_perched_mod
+vantage_is_launching_mod
+vantage_whistle_back
+vantage_whistle_fwd
+vantage_whistle_left
+vantage_whistle_right
 vertical_firestar_disabled
 vkp
 ```
@@ -2044,8 +2067,8 @@ sizeof: `0x1820`
 	m_wallDangleLastPushedForward: Int,
 	m_wallDangleDisableWeapon: Int,
 	m_gravityLiftActive: Int,
-	m_gravityLiftEnterTime: Float,
-	m_gravityLiftEjectTime: Float,
+	m_gravityLiftEnterTime: Time,
+	m_gravityLiftEjectTime: Time,
 	m_gravityLiftHoverTime: Float,
 	m_blackholeActive: Int,
 	m_jetDriveWasActive: Int,
@@ -4929,8 +4952,8 @@ sizeof: `0x1820`
 	m_wallClimbSetUp: Bool,
 	m_wallHanging: Bool,
 	m_gravityLiftActive: Bool,
-	m_gravityLiftEnterTime: Float,
-	m_gravityLiftEjectTime: Float,
+	m_gravityLiftEnterTime: Time,
+	m_gravityLiftEjectTime: Time,
 	m_gravityLiftHoverTime: Float,
 	m_gravityLiftLastOrigin: Vector,
 	m_gravityLiftEjectVelocity: Vector,
@@ -5767,12 +5790,6 @@ Print when SteamNetworkingIdentities are allocated/deallocated
 
 default: `"0"`  
 flags: `0x2`  
-</details>
-<details>
-<summary><code>{empty}</code></summary>
-
-default: `"1.0"`  
-flags: `0x0`  
 </details>
 <details>
 <summary><code>Allow_auto_Party</code></summary>
@@ -11965,7 +11982,7 @@ flags: `0x2`
 Enables the FTUE/New Player flow
 
 default: `"1"`  
-flags: `0x12`  
+flags: `0x2012`  
 </details>
 <details>
 <summary><code>fullscreen_enabled</code></summary>
@@ -15618,6 +15635,14 @@ flags: `0x2`
 The output resolution for envmaps. Downsampled from mat_envmap_capture_res.
 
 default: `"256"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>mat_envmap_scale</code></summary>
+
+
+
+default: `"1.0"`  
 flags: `0x2`  
 </details>
 <details>

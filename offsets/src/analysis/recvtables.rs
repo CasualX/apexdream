@@ -48,7 +48,7 @@ pub fn print(f: &mut super::Output, bin: PeFile) {
 #[repr(C)]
 struct RecvTable {
 	inst: Ptr,
-	props: Ptr<Ptr<RecvProp>>, // Goes through heap :(
+	props: Ptr<[Ptr<RecvProp>]>, // Goes through heap :(
 	num_props: i32,
 	_unk0: [u32; 256],
 	_unk1: [u32; 43],
