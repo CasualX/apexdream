@@ -85,14 +85,18 @@ pub fn classes<'a>(bin: PeFile<'a>) -> Vec<Class<'a>> {
 			continue;
 		}
 		// Now dealing with a ClientClass
-		let address = save[3];
-		let client_class: &ClientClass = bin.derva(address).unwrap();
-		let name = bin.deref_c_str(client_class.pNetworkName).unwrap().to_str().unwrap();
-		let id = client_class.ClassID;
-		let size = client_class.SizeOfClass;
-		list.push(Class { name, address, id, size })
+		let _ = read(bin, save[3], &mut list);
 	}
 
 	list.sort_by_key(|item| item.name);
 	list
+}
+
+fn read<'a>(bin: PeFile<'a>, address: u32, list: &mut Vec<Class<'a>>) -> pelite::Result<()> {
+	let client_class: &ClientClass = bin.derva(address)?;
+	let name = bin.deref_c_str(client_class.pNetworkName)?.to_str()?;
+	let id = client_class.ClassID;
+	let size = client_class.SizeOfClass;
+	list.push(Class { name, address, id, size });
+	Ok(())
 }

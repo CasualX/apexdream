@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x63079559
-CheckSum = 0x2184952
-GameVersion = "v3.0.11.32"
+TimeDateStamp = 0x631bd8e7
+CheckSum = 0x21b694b
+GameVersion = "v3.0.12.19"
 ```
 
 ## NetworkedStringTables
@@ -140,6 +140,7 @@ legendary_nrg_ice_reactive_charge
 marksmans_tempo_active
 marksmans_tempo_buildup
 melee_crypto_drone
+melee_loba_blunt
 melee_valk_helmet
 mobile_hmg_active
 mobile_hmg_fast_switch
@@ -178,6 +179,7 @@ redirect_mod
 s07_reactive_holo_ironsight
 s07_reactive_holo_ironsight_alt
 seer_heartbeat_sensor_active
+seer_passive_throwingknife
 seer_tac_movespeed_modifier
 shatter_rounds_hipfire
 shield_large
@@ -293,7 +295,7 @@ kbutton_t in_zoom;
 <summary><code>client_class CAI_BaseNPC</code></summary>
 
 class_id: `0`  
-sizeof: `0x1d80`  
+sizeof: `0x1dc0`  
 </details>
 <details>
 <summary><code>client_class CAmbientGeneric</code></summary>
@@ -323,7 +325,7 @@ sizeof: `0xaa0`
 <summary><code>client_class CBaseCombatCharacter</code></summary>
 
 class_id: `4`  
-sizeof: `0x1bc0`  
+sizeof: `0x1c00`  
 </details>
 <details>
 <summary><code>client_class CBaseEntity</code></summary>
@@ -335,7 +337,7 @@ sizeof: `0xa60`
 <summary><code>client_class CBaseGrenade</code></summary>
 
 class_id: `6`  
-sizeof: `0x2e80`  
+sizeof: `0x2ea0`  
 </details>
 <details>
 <summary><code>client_class CBaseParticleEntity</code></summary>
@@ -371,7 +373,7 @@ sizeof: `0xa70`
 <summary><code>client_class CBaseViewModel</code></summary>
 
 class_id: `10`  
-sizeof: `0x4f00`  
+sizeof: `0x4f10`  
 </details>
 <details>
 <summary><code>client_class CBoneFollower</code></summary>
@@ -407,7 +409,7 @@ sizeof: `0xbb0`
 <summary><code>client_class CCrossbowBolt</code></summary>
 
 class_id: `17`  
-sizeof: `0x2df0`  
+sizeof: `0x2e10`  
 </details>
 <details>
 <summary><code>client_class CDeathBoxProp</code></summary>
@@ -569,7 +571,7 @@ sizeof: `0x1690`
 <summary><code>client_class CMissile</code></summary>
 
 class_id: `44`  
-sizeof: `0x2f40`  
+sizeof: `0x2f60`  
 </details>
 <details>
 <summary><code>client_class CMovieDisplay</code></summary>
@@ -581,25 +583,25 @@ sizeof: `0xbc0`
 <summary><code>client_class CNPC_Drone</code></summary>
 
 class_id: `46`  
-sizeof: `0x1da0`  
+sizeof: `0x1de0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Dropship</code></summary>
 
 class_id: `47`  
-sizeof: `0x1db0`  
+sizeof: `0x1df0`  
 </details>
 <details>
 <summary><code>client_class CNPC_SentryTurret</code></summary>
 
 class_id: `48`  
-sizeof: `0x1da0`  
+sizeof: `0x1de0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Titan</code></summary>
 
 class_id: `49`  
-sizeof: `0x1e20`  
+sizeof: `0x1e60`  
 </details>
 <details>
 <summary><code>client_class CParticleSystem</code></summary>
@@ -617,7 +619,7 @@ sizeof: `0x1680`
 <summary><code>client_class CPlayer</code></summary>
 
 class_id: `52`  
-sizeof: `0x4840`  
+sizeof: `0x4880`  
 </details>
 <details>
 <summary><code>client_class CPlayerDecoy</code></summary>
@@ -671,7 +673,7 @@ sizeof: `0x16a0`
 <summary><code>client_class CProjectile</code></summary>
 
 class_id: `61`  
-sizeof: `0x2dc0`  
+sizeof: `0x2de0`  
 </details>
 <details>
 <summary><code>client_class CPropDoor</code></summary>
@@ -971,7 +973,7 @@ sizeof: `0xa70`
 <summary><code>client_class CWeaponX</code></summary>
 
 class_id: `110`  
-sizeof: `0x6730`  
+sizeof: `0x6760`  
 </details>
 <details>
 <summary><code>client_class CWorld</code></summary>
@@ -1186,6 +1188,7 @@ sizeof: `0x1820`
 	m_weaponDelayEnableTime: Time,
 	m_weaponDisabledInScript: Int,
 	m_weaponDisabledFlags: Int,
+	m_weaponInventorySlotLockedFlags: Int,
 	m_weaponTypeDisabledFlags: Int,
 	m_weaponTypeDisabledRefCount: DataTable,
 	m_weaponAmmoRegenDisabled: Int,
@@ -1223,6 +1226,7 @@ sizeof: `0x1820`
 	m_bossPlayer: Int,
 	m_shieldHealth: Int,
 	m_shieldHealthMax: Int,
+	m_wantsScopeHighlight: Int,
 	m_networkedFlags: Int,
 	m_visibilityFlags: Int,
 	m_iTeamNum: Int,
@@ -1398,7 +1402,7 @@ sizeof: `0x1820`
 	m_startAngleVel: Float,
 	m_startMoveTime: Time,
 	m_isLocked: Int,
-	m_isFrozen: Int,
+	m_isReinforced: Int,
 	m_oppositeDoor: Int,
 	m_interactingPlayer: Int,
 	m_interactingPlayerWantsOpen: Int,
@@ -1494,6 +1498,7 @@ sizeof: `0x1820`
 	m_angEyeAngles.y: Float,
 	m_traversalAnimProgress: Float,
 	m_sprintTiltFrac: Float,
+	m_ziprailBankTiltFrac: Float,
 	m_ammoPoolCount: DataTable,
 }
 ```
@@ -1539,7 +1544,6 @@ sizeof: `0x1820`
 	m_realmsBitMask: BitMask,
 	m_bUseHitboxesForRenderBox: Int,
 	m_bAnimateInStaticShadow: Int,
-	m_wantsScopeHighlight: Int,
 	m_customOwnerName: String,
 }
 ```
@@ -1605,7 +1609,6 @@ sizeof: `0x1820`
 	m_lifeState: Int,
 	m_bUseHitboxesForRenderBox: Int,
 	m_bAnimateInStaticShadow: Int,
-	m_wantsScopeHighlight: Int,
 }
 ```
 
@@ -2087,6 +2090,8 @@ sizeof: `0x1820`
 	m_slowMoEnabled: Int,
 	m_sliding: Int,
 	m_slideLongJumpAllowed: Int,
+	m_ziprailBankTiltVel: Float,
+	m_ziprailBankTiltPoseParameter: Int,
 	m_bIsStickySprinting: Int,
 	m_prevMoveYaw: Float,
 	m_sprintTiltVel: Float,
@@ -2099,7 +2104,7 @@ sizeof: `0x1820`
 	m_ziplineViewOffsetPosition: Vector,
 	m_ziplineViewOffsetVelocity: Vector,
 	m_ziplineGrenadeEntity: Int,
-	m_sameZiplineCooldownTime: Float,
+	m_ziplineReattachCooldownTime: Float,
 	m_ziplineCooldownIndex: Int,
 	m_highSpeedViewmodelAnims: Int,
 	m_playAnimationType: Int,
@@ -2582,6 +2587,7 @@ sizeof: `0x1820`
 	scriptedState: Int,
 	pendingMeleePress: Int,
 	lungeBoost: Vector,
+	previousMainOffhand: Int,
 }
 ```
 
@@ -3831,7 +3837,9 @@ sizeof: `0x1820`
 	m_charmModelIndex: Int,
 	m_charmAttachment: Int,
 	m_charmScriptIndex: Int,
-	m_stickerSkinIndex: Int,
+	m_stickerDecalMaterialIndex: Int,
+	m_stickerDecalAttachment: Int,
+	m_stickerScale: Float,
 }
 ```
 
@@ -3990,6 +3998,7 @@ sizeof: `0x1820`
 	m_ziplineVerticalPreserveVelocity: Int,
 	m_ziplineWidth: Float,
 	m_ziplineEnabled: Int,
+	m_ziplineAutoAttachEnabled: Int,
 	m_ziplineRestPositions: DataTable,
 	m_numZiplineRestPositions: Int,
 	m_ziplineFadeDist: Float,
@@ -4865,6 +4874,7 @@ sizeof: `0x1820`
 	m_currentFramePlayer.m_flHullHeight: Float,
 	m_currentFramePlayer.m_traversalAnimProgress: Float,
 	m_currentFramePlayer.m_sprintTiltFrac: Float,
+	m_currentFramePlayer.m_ziprailBankTiltFrac: Float,
 	m_currentFramePlayer.m_ammoPoolCount: Int,
 	m_currentFrameLocalPlayer.m_stepSmoothingOffset: Vector,
 	m_currentFrameLocalPlayer.m_duckTransitionRemainderMsec: Int,
@@ -4983,6 +4993,7 @@ sizeof: `0x1820`
 	m_lastSlideTime: Time,
 	m_lastSlideBoost: Float,
 	m_gravityGrenadeStatusEffect: Int,
+	m_ziprailBankTiltVel: Float,
 	m_bIsStickySprinting: Bool,
 	m_prevMoveYaw: Float,
 	m_sprintTiltVel: Float,
@@ -5000,7 +5011,7 @@ sizeof: `0x1820`
 	m_ziplineGrenadeEntity: EHANDLE,
 	m_ziplineGrenadeBeginStationEntity: EHANDLE,
 	m_ziplineGrenadeBeginStationAttachmentId: Char,
-	m_sameZiplineCooldownTime: Float,
+	m_ziplineReattachCooldownTime: Float,
 	m_ziplineCooldownIndex: Char,
 	m_playAnimationType: Int,
 	m_detachGrappleOnPlayAnimationEnd: Bool,
@@ -5590,6 +5601,7 @@ sizeof: `0x1820`
 	scriptedState: Int,
 	pendingMeleePress: Bool,
 	lungeBoost: Vector,
+	previousMainOffhand: EHANDLE,
 }
 ```
 
@@ -5743,7 +5755,9 @@ sizeof: `0x1820`
 	m_charmModelIndex: Int,
 	m_charmAttachment: Char,
 	m_charmScriptIndex: Int,
-	m_stickerSkinIndex: Short,
+	m_stickerDecalMaterialIndex: Int,
+	m_stickerDecalAttachment: Char,
+	m_stickerDecalAttachment: Float,
 }
 ```
 
@@ -6235,9 +6249,9 @@ flags: `0x2`
 <details>
 <summary><code>adjustableCharacterBoostIndirectDiffuse</code></summary>
 
-Scale the global amount of indirect diffuse lighting on characters.
+Scale the global amount of indirect diffuse lighting on characters in gameplay. Does not affect the lobby.
 
-default: `"1.0"`  
+default: `"1.5"`  
 flags: `0x2`  
 </details>
 <details>
@@ -6745,6 +6759,38 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>backtrace_reporting_disconnect</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>backtrace_reporting_error</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>banktilt_accel</code></summary>
+
+Acceleration of ziprail bank tilt
+
+default: `"20"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>banktilt_maxvel</code></summary>
+
+Maximum speed of ziprail bank tilt
+
+default: `"1.25"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>baseanimatingoverlay_playbackRateThreshold</code></summary>
 
 
@@ -6815,6 +6861,14 @@ Number of teams to reserve and fill with bots(autoplayers)
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>brushmodel_colors</code></summary>
+
+If true, brush models pass their entity's color to the GPU, so shaders can use it as diffuse modulation. If false, they use white instead, which is the old behavior.
+
+default: `"0"`  
+flags: `0x6000`  
 </details>
 <details>
 <summary><code>budget_animatingEntities</code></summary>
@@ -9539,6 +9593,14 @@ default: `"0"`
 flags: `0x1000000`  
 </details>
 <details>
+<summary><code>closecaption</code></summary>
+
+Enable close captioning. 1 = dialogue only, 2 = dialogue and sound effects.
+
+default: `"0"`  
+flags: `0x1000000`  
+</details>
+<details>
 <summary><code>clubs_allow_text_to_speech</code></summary>
 
 Enables text-to-speech for club chat. hudchat_play_text_to_speech must also be enabled!
@@ -9870,6 +9932,94 @@ flags: `0x41000000`
 min value: `0`  
 </details>
 <details>
+<summary><code>comms_connect_delay</code></summary>
+
+Wait this long before actually connecting to pending addr/token
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_deditext</code></summary>
+
+Use new chatserver for dedi text chat (NOTE - relies on comms_newchatserver!)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_dedivoice</code></summary>
+
+Use new chatserver for dedi voice chat (NOTE - relies on comms_newchatserver!)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_keepalive</code></summary>
+
+Keepalive interval (0 = disabled)
+
+default: `"60.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_lobbytext</code></summary>
+
+Use new chatserver for lobby text chat (NOTE - relies on comms_newchatserver!)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_newchatserver</code></summary>
+
+Use new chatserver (replaces lobby voice chat)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_reconnect</code></summary>
+
+Interval to wait between reconnection attempts (0=disabled)
+
+default: `"0.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_udp_keepalive</code></summary>
+
+UDP Keepalive interval
+
+default: `"10.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_udp_minactivity</code></summary>
+
+UDP - max silence interval allowed. Sends 0-length message to keep line open
+
+default: `"10.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_udpestablish</code></summary>
+
+UDP connection establish interval
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_udpestablish_early</code></summary>
+
+Allow UDP connection establish prior to joining room
+
+default: `"0.0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>communicationBlock_block_num</code></summary>
 
 Number of timeouts
@@ -9924,6 +10074,22 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x1000200`  
+</details>
+<details>
+<summary><code>communicationBlock_warning_fade</code></summary>
+
+Seconds for a communication block to complete the fadeout
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>communicationBlock_warning_sustain</code></summary>
+
+Seconds for a communication block warning to appear before it fades
+
+default: `"120"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>communicationBlock_warning_threshold</code></summary>
@@ -10104,9 +10270,9 @@ flags: `0x2`
 <details>
 <summary><code>controller_use_cheat_detection_generic</code></summary>
 
-Use new cheat detection. (Default disabled)
+Use new cheat detection. (Default enabled)
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -10144,7 +10310,7 @@ flags: `0x4000`
 <details>
 <summary><code>crossPlay_Enabled</code></summary>
 
-Allow crossPlay code to work!
+Allow crossPlay code to work
 
 default: `"1"`  
 flags: `0x2`  
@@ -10518,6 +10684,14 @@ default: `""`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>customMatchPub_hostname</code></summary>
+
+
+
+default: `""`  
+flags: `0x80000`  
+</details>
+<details>
 <summary><code>customMatch_channel</code></summary>
 
 
@@ -10531,6 +10705,14 @@ flags: `0x2`
 
 
 default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>customMatch_forceHiddenPlaylistAccess</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -10772,14 +10954,6 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
-</details>
-<details>
-<summary><code>destroy_doors_crushing_players</code></summary>
-
-Destroys a door if it would otherwise crush a player
-
-default: `"1"`  
-flags: `0x2002`  
 </details>
 <details>
 <summary><code>devStats</code></summary>
@@ -11237,7 +11411,7 @@ flags: `0x2`
 Enable dynamic viewport scaling.
 
 default: `"1"`  
-flags: `0x2`  
+flags: `0x40000000`  
 </details>
 <details>
 <summary><code>dvs_enable_in_lobby</code></summary>
@@ -11479,6 +11653,14 @@ flags: `0x2002`
 
 default: `"0"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>enable_io_error_reporting_to_backtrace</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>enable_new_weapon_attachment_system</code></summary>
@@ -11815,22 +11997,6 @@ fps_max can't rise above this absolute cap
 
 default: `"300.0"`  
 flags: `0x2002`  
-</details>
-<details>
-<summary><code>fps_input_max</code></summary>
-
-Max movement updates run per second - Set well above fps_absolute_max to not lose variable frames!
-
-default: `"350.0"`  
-flags: `0x2002`  
-</details>
-<details>
-<summary><code>fps_input_max_lobby</code></summary>
-
-see fps_input_max
-
-default: `"60.0"`  
-flags: `0x2`  
 </details>
 <details>
 <summary><code>fps_max</code></summary>
@@ -12646,9 +12812,17 @@ flags: `0x4000`
 <details>
 <summary><code>gl_clear_randomcolor</code></summary>
 
-Clear the back buffer to random colors every frame. Helps spot open seams in geometry.
+Clear the back buffer to different colors. Helps spot open seams in geometry. This used to be random per-frame but it was too flashy, now controlled by gl_clear_randomcolor_period_sec.
 
 default: `"0"`  
+flags: `0x4000`  
+</details>
+<details>
+<summary><code>gl_clear_randomcolor_period_sec</code></summary>
+
+The amount of seconds between switching the clear to a different random color.
+
+default: `"1.0"`  
 flags: `0x4000`  
 </details>
 <details>
@@ -13218,6 +13392,14 @@ flags: `0x2002`
 
 default: `"0"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>grx_vertical_dialogue_confirmation</code></summary>
+
+Enables the new vertical UI confirmation dialogue for store item purchases
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>gtao_angle_bias</code></summary>
@@ -14573,11 +14755,19 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>jump_grace_cutoff_speed</code></summary>
+
+If the player's speed is above this value we prevent them from lurching entirely.
+
+default: `"1500"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>jump_grace_decay_start_tap_count</code></summary>
 
 The first tap when we start the decay of the grace tap strength.
 
-default: `"2"`  
+default: `"1000"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -14609,7 +14799,7 @@ flags: `0x2002`
 
 Maximum grace taps per jump. See also jump_grace_decay_start_tap_count
 
-default: `"10"`  
+default: `"1000"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -14625,7 +14815,31 @@ flags: `0x2002`
 
 Scale the power of the normal grace jump by this amount for each grace tap after jump_grace_decay_start_tap_count.
 
-default: `"0.5"`  
+default: `"1.0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>jump_grace_multi_tap_decay_velocity_based_easing_type</code></summary>
+
+The easing function that will be used to determine how much to decay the player's tap strafe strength based on velocity. 0 = cubic, 1 = sine, 2 = circular, 3 = linear, 4 = cutoff
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>jump_grace_multi_tap_decay_velocity_based_max_decay</code></summary>
+
+This is the max amount we'll dampen the players tap strafe strength in a single iteration
+
+default: `"0.0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>jump_grace_multi_tap_decay_velocity_based_max_speed</code></summary>
+
+If the player's velocity exceeds this value, we'll use the max damping value. otherwise we'll damp their tap strafe strength along an easing curve
+
+default: `"900"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -14706,7 +14920,7 @@ flags: `0x2`
 Custom Laser Sight Color
 
 default: `"0000"`  
-flags: `0x1000202`  
+flags: `0x1000200`  
 </details>
 <details>
 <summary><code>laserSightColorCustomized</code></summary>
@@ -14714,7 +14928,7 @@ flags: `0x1000202`
 Custom Laser Sight Color Enabled
 
 default: `"0"`  
-flags: `0x1000202`  
+flags: `0x1000200`  
 </details>
 <details>
 <summary><code>leaf_threadedRecompute</code></summary>
@@ -14803,6 +15017,14 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>liveapi_session</code></summary>
+
+Allows LiveAPI for this match session. See LiveAPI_Session_e
+
+default: `"0"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>load_during_video</code></summary>
@@ -15201,7 +15423,7 @@ flags: `0x2`
 
 
 
-default: `"2.0"`  
+default: `"1.5"`  
 flags: `0x2`  
 </details>
 <details>
@@ -15265,7 +15487,15 @@ flags: `0x2`
 
 
 
-default: `"1.5"`  
+default: `"0.4"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>mat_bloom_wide_clamp</code></summary>
+
+
+
+default: `"10"`  
 flags: `0x2`  
 </details>
 <details>
@@ -15273,7 +15503,7 @@ flags: `0x2`
 
 
 
-default: `"1.5f"`  
+default: `"1.4"`  
 flags: `0x2`  
 </details>
 <details>
@@ -16330,10 +16560,10 @@ flags: `0x4000`
 <details>
 <summary><code>mat_sync_rt_flushes_gpu</code></summary>
 
-
+Synchronizing the render thread to the main thread will also force both threads to wait for the GPU to be done. Makes the hitch/stutter from a synchronization worse, but might fix some stability issues.
 
 default: `"0"`  
-flags: `0x2`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>mat_translucency_errors</code></summary>
@@ -17103,7 +17333,7 @@ flags: `0x1000000`
 
 (0=filter disabled) cutoff  threshold for lowpass applied to LFE channel(s)
 
-default: `"0"`  
+default: `"120"`  
 flags: `0x2`  
 </details>
 <details>
@@ -17328,6 +17558,46 @@ flags: `0x2`
 Use emitter suffixed versions of sounds.
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_voice_buffer_ms</code></summary>
+
+Amount of ms to buffer incoming voice before playback. Smooths out pops/clicks, but incurs a delay
+
+default: `"60"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_voice_decimate_at_bytes</code></summary>
+
+voice_decimate_rate is applied when at least this many bytes of uncompressed incoming voice have been queued
+
+default: `"22050"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_voice_decimate_rate</code></summary>
+
+Every N'th sample is removed when above voice_decimate_at_bytes
+
+default: `"10"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_voice_max_queued_bytes</code></summary>
+
+If this many incoming voice bytes are queued for playback, drain the buffer and reject incoming samples
+
+default: `"33000"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_voice_part_size</code></summary>
+
+When filling CSOMV parts, we will attempt to continue to the next part once the current part has this many bytes in it.
+
+default: `"320"`  
 flags: `0x2`  
 </details>
 <details>
@@ -17732,11 +18002,19 @@ default: `"-1"`
 flags: `0x6002`  
 </details>
 <details>
+<summary><code>mtx_giftingEnabled</code></summary>
+
+Allow gifting feature to enabled/disabled.
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>mtx_svEdition</code></summary>
 
 
 
-default: `"1400"`  
+default: `"1410"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -17770,6 +18048,14 @@ Current user name
 
 default: `"unnamed"`  
 flags: `0x480`  
+</details>
+<details>
+<summary><code>nemesis_use_looping_sound</code></summary>
+
+Nemesis uses looping sound when fully charged, or it's using burst fire sound
+
+default: `"0"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>net_RunInvalidatePhysics</code></summary>
@@ -18104,7 +18390,7 @@ flags: `0x2`
 
 Manually encrypt / decrypt traffic that is sent over the Valve Relay. Note that the Valve Relay already encrypts traffic on its own.
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -20913,9 +21199,9 @@ default: `"1"`
 flags: `0x2002`  
 </details>
 <details>
-<summary><code>push_ignore_execution_entity_blockers</code></summary>
+<summary><code>push_ignore_animation_entity_blockers</code></summary>
 
-Push trace will ignore entity blockers that are generated by an execution
+Push trace will ignore entity blockers that are generated by a revive or execution animation
 
 default: `"1"`  
 flags: `0x2002`  
@@ -21466,6 +21752,14 @@ default: `"-1"`
 flags: `0x4000`  
 </details>
 <details>
+<summary><code>r_fix_decal_mirroring</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>r_jiggle_bones</code></summary>
 
 
@@ -21562,6 +21856,14 @@ flags: `0x4000`
 
 
 default: `"75"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>r_modeldecal_transform_non_rigid</code></summary>
+
+Should be set to 1 after 14.1 copy-up. This ConVar only exists to maintain a previous behavior where non-rigid decals would accidentally not draw at all.
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22299,6 +22601,14 @@ flags: `0x2`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>remote_function_pin_tracking</code></summary>
+
+do we want to send PIN data on server remote function data
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -23041,9 +23351,9 @@ flags: `0x2`
 <details>
 <summary><code>scriptremotefunctions_saveFuncName</code></summary>
 
-Save script function name for easier debugging
+Save script function name for easier debugging & also for PIN data tracking
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -23938,6 +24248,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>sound_ambientgeneric_allow_refresh</code></summary>
+
+Tell all ambient_generics to re-think when calling the RefreshSoundSytem() client script function
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>sound_classic_music</code></summary>
 
 classic music volume
@@ -24066,30 +24384,6 @@ default: `"0"`
 flags: `0x1000000`  
 </details>
 <details>
-<summary><code>soundscape_fadetime</code></summary>
-
-Time to crossfade sounds between soundscapes
-
-default: `"2.0"`  
-flags: `0x4000`  
-</details>
-<details>
-<summary><code>soundscape_message</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>soundscape_radius_debug</code></summary>
-
-Prints current volume of radius sounds
-
-default: `"0"`  
-flags: `0x4000`  
-</details>
-<details>
 <summary><code>soundtrigger_repeat_interval</code></summary>
 
 Decides how long to wait before repeating a soundtrigger event on the given player. Set to 0 to wait until the current sound ends.
@@ -24135,14 +24429,6 @@ flags: `0x2002`
 Specify the minimum time between spectator command.
 
 default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>speech_queue_bytes</code></summary>
-
-
-
-default: `"33000"`  
 flags: `0x2`  
 </details>
 <details>
@@ -25071,6 +25357,14 @@ flags: `0x2`
 <summary><code>stream_freeze_camera</code></summary>
 
 Freezes camera for purposes of streaming map textures.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>stream_highest_quality_pc</code></summary>
+
+Stream at highest quality for PC (1: on / 0: off)
 
 default: `"0"`  
 flags: `0x2`  
@@ -26531,7 +26825,7 @@ flags: `0x2`
 <details>
 <summary><code>timeout_during_load</code></summary>
 
-Seconds without communication during a level load before clients or servers will decide to disconnect.
+Timeout while the client is loading a level
 
 default: `"60"`  
 flags: `0x2`  
@@ -27145,6 +27439,14 @@ default: `"1.0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>use_ziprail_activity</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>user_tracking_enabled</code></summary>
 
 
@@ -27159,6 +27461,30 @@ Number of bytes above which we log a breakdown of how expensive each usercmd is.
 
 default: `"1024"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>usercmd_frametime_max</code></summary>
+
+The largest amount of simulation seconds a UserCmd can have
+
+default: `"0.100"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>usercmd_frametime_min</code></summary>
+
+The smallest amount of simulation seconds a UserCmd can have
+
+default: `"0.002857"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>usercmd_frametime_min_lobby</code></summary>
+
+The smallest amount of simulation seconds a UserCmd can have
+
+default: `"0.0166"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>users_hostname</code></summary>
@@ -28007,22 +28333,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>voice_decimate_at_bytes</code></summary>
-
-voice_decimate_rate is applied when at least this many bytes of uncompressed incoming voice have been queued
-
-default: `"22050"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>voice_decimate_rate</code></summary>
-
-Every N'th sample is removed when above voice_decimate_at_bytes
-
-default: `"10"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>voice_enabled</code></summary>
 
 Toggle voice transmit and receive.
@@ -28696,6 +29006,14 @@ default: `""`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>weapon_hide_heirlooms_during_valk_ult</code></summary>
+
+Hides heirloom weapons during valk ult as their position is not setup during the animation.
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>weapon_meleeButtonPressProtection</code></summary>
 
 
@@ -28968,6 +29286,14 @@ default: `"1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>zipline_cooldown_apply_cooldown_across_ziplines</code></summary>
+
+If enabled, the zipline reattach cooldown time will be applied even if your attaching to a different zipline. This should prevent using two parallel ziplines as a speed boost.
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>zipline_cooldown_debug</code></summary>
 
 
@@ -29176,11 +29502,27 @@ flags: `0x2`
 min value: `1`  
 </details>
 <details>
+<summary><code>zipline_use_range</code></summary>
+
+
+
+default: `"120.0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>ziprail_3pBank</code></summary>
 
 
 
 default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>ziprail_3pBank_Anim</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -29204,7 +29546,7 @@ flags: `0x2`
 
 
 
-default: `"10"`  
+default: `"5"`  
 flags: `0x2`  
 </details>
 <details>
@@ -29246,7 +29588,7 @@ min value: `0`
 
 Ziprail rope subdivision amount along the rope when lod is active. Affects curve smoothness.
 
-default: `"2"`  
+default: `"6"`  
 flags: `0x2`  
 min value: `0`  
 </details>
@@ -30550,27 +30892,6 @@ dump particle profiling info to particle_profile.csv
 flags: `0x2`  
 </details>
 <details>
-<summary><code>cl_ent_absbox</code></summary>
-
-Displays the client's absbox for the entity under the crosshair.
-
-flags: `0x4008`  
-</details>
-<details>
-<summary><code>cl_ent_bbox</code></summary>
-
-Displays the client's bounding box for the entity under the crosshair.
-
-flags: `0x4008`  
-</details>
-<details>
-<summary><code>cl_ent_rbox</code></summary>
-
-Displays the client's render box for the entity under the crosshair.
-
-flags: `0x4008`  
-</details>
-<details>
 <summary><code>cl_find_ent</code></summary>
 
 Find and list all client entities with classnames that contain the specified substring.
@@ -30650,13 +30971,6 @@ flags: `0x4000`
 Dump entity list to console.
 
 flags: `0x4000`  
-</details>
-<details>
-<summary><code>cl_soundscape_flush</code></summary>
-
-Flushes the client side soundscapes
-
-flags: `0x10004008`  
 </details>
 <details>
 <summary><code>cl_trace_start_solid</code></summary>
@@ -30755,6 +31069,27 @@ flags: `0x4008`
 Show/hide the color correction tools UI.
 
 flags: `0x4000`  
+</details>
+<details>
+<summary><code>comms_connect</code></summary>
+
+comms_connect [port=7777] [addr=127.0.0.1] [usertoken='token'] : Connect to commserver at addr:port using specified user token
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_disconnect</code></summary>
+
+comms_disconnect [kill]
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>comms_say</code></summary>
+
+send text message
+
+flags: `0x2`  
 </details>
 <details>
 <summary><code>communicationBlock_enable_block</code></summary>
@@ -31563,6 +31898,34 @@ Dump memory stats to text file.
 flags: `0x2`  
 </details>
 <details>
+<summary><code>mem_dump_all</code></summary>
+
+Dump all tracked allocations to text file.
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>mem_dump_features</code></summary>
+
+Dump feature based memory report to text file.
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>mem_dump_rpak_summary</code></summary>
+
+Dump RPAK summary memory report to text file.
+
+flags: `0x2`  
+</details>
+<details>
+<summary><code>mem_dump_rpaks</code></summary>
+
+Dump RPAK memory report to text file.
+
+flags: `0x2`  
+</details>
+<details>
 <summary><code>mem_dump_vm</code></summary>
 
 Dump vm allocations to console.
@@ -32017,13 +32380,6 @@ flags: `0x40004002`
 Dump contents of playlist to console (Without changing any state.)
 
 flags: `0x2`  
-</details>
-<details>
-<summary><code>playsoundscape</code></summary>
-
-Forces a soundscape to play
-
-flags: `0x4008`  
 </details>
 <details>
 <summary><code>playvideo</code></summary>
@@ -32483,13 +32839,6 @@ flags: `0x2`
 Fades out all transition videos playing to the screen: <time>
 
 flags: `0x40000008`  
-</details>
-<details>
-<summary><code>stopsoundscape</code></summary>
-
-Stops all soundscape processing and fades current looping sounds
-
-flags: `0x4008`  
 </details>
 <details>
 <summary><code>stopvideos</code></summary>
