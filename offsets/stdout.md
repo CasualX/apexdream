@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x631bd8e7
-CheckSum = 0x21b694b
-GameVersion = "v3.0.12.19"
+TimeDateStamp = 0x63488ce6
+CheckSum = 0x21ae85b
+GameVersion = "v3.0.15.37"
 ```
 
 ## NetworkedStringTables
@@ -9583,14 +9583,6 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2`  
-</details>
-<details>
-<summary><code>closecaption</code></summary>
-
-Enable close captioning. 1 = dialogue only, 2 = dialogue and sound effects.
-
-default: `"0"`  
-flags: `0x1000000`  
 </details>
 <details>
 <summary><code>closecaption</code></summary>
