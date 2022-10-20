@@ -18,6 +18,7 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	client_state(f, bin);
 	projectile_speed(f, bin);
 	weapon_is_semi_auto(f, bin);
+	weapon_zoom_time_in(f, bin);
 	unknown_magic(f, bin);
 	local_camera(f, bin);
 	studio_hdr(f, bin);
@@ -200,6 +201,17 @@ fn weapon_is_semi_auto(f: &mut super::Output, bin: PeFile<'_>) {
 	}
 	else {
 		crate::print_error("unable to find weapon_is_semi_auto");
+	}
+}
+
+fn weapon_zoom_time_in(f: &mut super::Output, bin: PeFile<'_>) {
+	let mut save = [0; 4];
+	if bin.scanner().finds_code(pat!("4885C0 75 %{ F30F1088 u4 0F57C0 0F2EC8 7A? }"), &mut save) {
+		let zoom_time_in = save[1];
+		let _ = writeln!(f.ini, "CWeaponX!m_zoomTimeIn={:#x}", zoom_time_in);
+	}
+	else {
+		crate::print_error("unable to find weapon_zoom_time_in");
 	}
 }
 
