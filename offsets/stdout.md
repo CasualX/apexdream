@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x63488ce6
-CheckSum = 0x21ae85b
-GameVersion = "v3.0.15.37"
+TimeDateStamp = 0x637d58a9
+CheckSum = 0x222ae68
+GameVersion = "v3.0.20.42"
 ```
 
 ## NetworkedStringTables
@@ -33,6 +33,7 @@ localize
 MP_BASE
 PVE_BASE
 SP_BASE
+ability_active_mod
 ability_in_effect_regen_paused
 ability_used_mod
 alt_ammo
@@ -102,6 +103,7 @@ has_been_energized
 health_large
 health_small
 heirloom
+heirloom_equipped
 highcal_mag_l1
 highcal_mag_l2
 highcal_mag_l3
@@ -295,7 +297,7 @@ kbutton_t in_zoom;
 <summary><code>client_class CAI_BaseNPC</code></summary>
 
 class_id: `0`  
-sizeof: `0x1dc0`  
+sizeof: `0x1df0`  
 </details>
 <details>
 <summary><code>client_class CAmbientGeneric</code></summary>
@@ -307,13 +309,13 @@ sizeof: `0xad0`
 <summary><code>client_class CBaseAnimating</code></summary>
 
 class_id: `2`  
-sizeof: `0x1620`  
+sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CBaseAnimatingOverlay</code></summary>
 
 class_id: `3`  
-sizeof: `0x1960`  
+sizeof: `0x1980`  
 </details>
 <details>
 <summary><code>client_class CBaseButton</code></summary>
@@ -325,7 +327,7 @@ sizeof: `0xaa0`
 <summary><code>client_class CBaseCombatCharacter</code></summary>
 
 class_id: `4`  
-sizeof: `0x1c00`  
+sizeof: `0x1c30`  
 </details>
 <details>
 <summary><code>client_class CBaseEntity</code></summary>
@@ -337,7 +339,7 @@ sizeof: `0xa60`
 <summary><code>client_class CBaseGrenade</code></summary>
 
 class_id: `6`  
-sizeof: `0x2ea0`  
+sizeof: `0x2ec0`  
 </details>
 <details>
 <summary><code>client_class CBaseParticleEntity</code></summary>
@@ -373,7 +375,7 @@ sizeof: `0xa70`
 <summary><code>client_class CBaseViewModel</code></summary>
 
 class_id: `10`  
-sizeof: `0x4f10`  
+sizeof: `0x4f50`  
 </details>
 <details>
 <summary><code>client_class CBoneFollower</code></summary>
@@ -385,7 +387,7 @@ sizeof: `0xa70`
 <summary><code>client_class CBreakableProp</code></summary>
 
 class_id: `13`  
-sizeof: `0x1620`  
+sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CBreakableSurface</code></summary>
@@ -409,13 +411,13 @@ sizeof: `0xbb0`
 <summary><code>client_class CCrossbowBolt</code></summary>
 
 class_id: `17`  
-sizeof: `0x2e10`  
+sizeof: `0x2e30`  
 </details>
 <details>
 <summary><code>client_class CDeathBoxProp</code></summary>
 
 class_id: `18`  
-sizeof: `0x16a0`  
+sizeof: `0x16c0`  
 </details>
 <details>
 <summary><code>client_class CDynamicLight</code></summary>
@@ -427,13 +429,13 @@ sizeof: `0xa80`
 <summary><code>client_class CDynamicProp</code></summary>
 
 class_id: `20`  
-sizeof: `0x1660`  
+sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CDynamicPropLightweight</code></summary>
 
 class_id: `21`  
-sizeof: `0x1660`  
+sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CEntityBlocker</code></summary>
@@ -457,7 +459,7 @@ sizeof: `0x1270`
 <summary><code>client_class CEnvDecoy</code></summary>
 
 class_id: `25`  
-sizeof: `0x1620`  
+sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CEnvWind</code></summary>
@@ -466,550 +468,562 @@ class_id: `26`
 sizeof: `0xbe0`  
 </details>
 <details>
-<summary><code>client_class CFirstPersonProxy</code></summary>
+<summary><code>client_class CFerroProp</code></summary>
 
 class_id: `27`  
 sizeof: `0x1680`  
 </details>
 <details>
-<summary><code>client_class CFuncBrush</code></summary>
+<summary><code>client_class CFirstPersonProxy</code></summary>
 
 class_id: `28`  
-sizeof: `0xad0`  
+sizeof: `0x16a0`  
 </details>
 <details>
-<summary><code>client_class CFuncBrushLightweight</code></summary>
+<summary><code>client_class CFuncBrush</code></summary>
 
 class_id: `29`  
 sizeof: `0xad0`  
 </details>
 <details>
-<summary><code>client_class CFuncMoveLinear</code></summary>
+<summary><code>client_class CFuncBrushLightweight</code></summary>
 
 class_id: `30`  
+sizeof: `0xad0`  
+</details>
+<details>
+<summary><code>client_class CFuncMoveLinear</code></summary>
+
+class_id: `31`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CGameRulesProxy</code></summary>
 
-class_id: `31`  
+class_id: `32`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CGlobalNonRewinding</code></summary>
 
-class_id: `32`  
+class_id: `33`  
 sizeof: `0x1270`  
 </details>
 <details>
 <summary><code>client_class CGrappleHook</code></summary>
 
-class_id: `33`  
-sizeof: `0x1630`  
+class_id: `34`  
+sizeof: `0x1650`  
 </details>
 <details>
 <summary><code>client_class CHardPointEntity</code></summary>
-
-class_id: `34`  
-sizeof: `0xaa0`  
-</details>
-<details>
-<summary><code>client_class CHardPointFrontierEntity</code></summary>
 
 class_id: `35`  
 sizeof: `0xaa0`  
 </details>
 <details>
-<summary><code>client_class CHealthKit</code></summary>
+<summary><code>client_class CHardPointFrontierEntity</code></summary>
 
 class_id: `36`  
-sizeof: `0x1620`  
+sizeof: `0xaa0`  
+</details>
+<details>
+<summary><code>client_class CHealthKit</code></summary>
+
+class_id: `37`  
+sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CImportantOnEntSound</code></summary>
-
-class_id: `37`  
-sizeof: `0xa80`  
-</details>
-<details>
-<summary><code>client_class CInfoPlacementHelper</code></summary>
 
 class_id: `38`  
 sizeof: `0xa80`  
 </details>
 <details>
-<summary><code>client_class CInfoTarget</code></summary>
+<summary><code>client_class CInfoPlacementHelper</code></summary>
 
 class_id: `39`  
+sizeof: `0xa80`  
+</details>
+<details>
+<summary><code>client_class CInfoTarget</code></summary>
+
+class_id: `40`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetGravity</code></summary>
 
-class_id: `40`  
+class_id: `41`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetMinimap</code></summary>
 
-class_id: `41`  
+class_id: `42`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CLootGrabber</code></summary>
 
-class_id: `42`  
-sizeof: `0x1670`  
-</details>
-<details>
-<summary><code>client_class CLootRoller</code></summary>
-
 class_id: `43`  
 sizeof: `0x1690`  
 </details>
 <details>
-<summary><code>client_class CMissile</code></summary>
+<summary><code>client_class CLootRoller</code></summary>
 
 class_id: `44`  
-sizeof: `0x2f60`  
+sizeof: `0x16b0`  
+</details>
+<details>
+<summary><code>client_class CMissile</code></summary>
+
+class_id: `45`  
+sizeof: `0x2f80`  
 </details>
 <details>
 <summary><code>client_class CMovieDisplay</code></summary>
 
-class_id: `45`  
+class_id: `46`  
 sizeof: `0xbc0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Drone</code></summary>
 
-class_id: `46`  
-sizeof: `0x1de0`  
+class_id: `47`  
+sizeof: `0x1e10`  
 </details>
 <details>
 <summary><code>client_class CNPC_Dropship</code></summary>
 
-class_id: `47`  
-sizeof: `0x1df0`  
+class_id: `48`  
+sizeof: `0x1e20`  
 </details>
 <details>
 <summary><code>client_class CNPC_SentryTurret</code></summary>
 
-class_id: `48`  
-sizeof: `0x1de0`  
+class_id: `49`  
+sizeof: `0x1e10`  
 </details>
 <details>
 <summary><code>client_class CNPC_Titan</code></summary>
 
-class_id: `49`  
-sizeof: `0x1e60`  
+class_id: `50`  
+sizeof: `0x1e90`  
 </details>
 <details>
 <summary><code>client_class CParticleSystem</code></summary>
 
-class_id: `50`  
-sizeof: `0xb10`  
+class_id: `51`  
+sizeof: `0xb20`  
 </details>
 <details>
 <summary><code>client_class CPhysicsProp</code></summary>
 
-class_id: `51`  
-sizeof: `0x1680`  
+class_id: `52`  
+sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CPlayer</code></summary>
 
-class_id: `52`  
-sizeof: `0x4880`  
+class_id: `53`  
+sizeof: `0x48e0`  
 </details>
 <details>
 <summary><code>client_class CPlayerDecoy</code></summary>
 
-class_id: `53`  
-sizeof: `0x1690`  
+class_id: `54`  
+sizeof: `0x16b0`  
 </details>
 <details>
 <summary><code>client_class CPlayerTasklist</code></summary>
 
-class_id: `54`  
+class_id: `55`  
 sizeof: `0xfb0`  
 </details>
 <details>
 <summary><code>client_class CPlayerVehicle</code></summary>
 
-class_id: `55`  
-sizeof: `0x1ce0`  
+class_id: `56`  
+sizeof: `0x1d00`  
 </details>
 <details>
 <summary><code>client_class CPlayerWaypoint</code></summary>
 
-class_id: `56`  
+class_id: `57`  
 sizeof: `0xd60`  
 </details>
 <details>
 <summary><code>client_class CPointCamera</code></summary>
 
-class_id: `57`  
+class_id: `58`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPortal_PointPush</code></summary>
 
-class_id: `58`  
+class_id: `59`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPostProcessController</code></summary>
 
-class_id: `59`  
+class_id: `60`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPredictedFirstPersonProxy</code></summary>
 
-class_id: `60`  
-sizeof: `0x16a0`  
+class_id: `61`  
+sizeof: `0x16c0`  
 </details>
 <details>
 <summary><code>client_class CProjectile</code></summary>
 
-class_id: `61`  
-sizeof: `0x2de0`  
+class_id: `62`  
+sizeof: `0x2e00`  
 </details>
 <details>
 <summary><code>client_class CPropDoor</code></summary>
 
-class_id: `62`  
-sizeof: `0x1720`  
+class_id: `63`  
+sizeof: `0x1740`  
 </details>
 <details>
 <summary><code>client_class CPropSurvival</code></summary>
 
-class_id: `63`  
-sizeof: `0x1650`  
+class_id: `64`  
+sizeof: `0x1670`  
 </details>
 <details>
 <summary><code>client_class CRopeKeyframe</code></summary>
 
-class_id: `64`  
+class_id: `65`  
 sizeof: `0xf60`  
 </details>
 <details>
 <summary><code>client_class CScriptMover</code></summary>
 
-class_id: `65`  
-sizeof: `0x1850`  
+class_id: `66`  
+sizeof: `0x1870`  
 </details>
 <details>
 <summary><code>client_class CScriptMoverTrainNode</code></summary>
 
-class_id: `66`  
+class_id: `67`  
 sizeof: `0x1090`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData</code></summary>
 
-class_id: `67`  
+class_id: `68`  
 sizeof: `0xc70`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobal</code></summary>
 
-class_id: `75`  
+class_id: `76`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobalNonRewind</code></summary>
 
-class_id: `76`  
+class_id: `77`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_DEATH_BOX</code></summary>
 
-class_id: `68`  
+class_id: `69`  
 sizeof: `0xcc0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL</code></summary>
 
-class_id: `69`  
+class_id: `70`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL_NON_REWIND</code></summary>
 
-class_id: `70`  
+class_id: `71`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE</code></summary>
 
-class_id: `71`  
+class_id: `72`  
 sizeof: `0xd40`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE_EXPANDED</code></summary>
 
-class_id: `72`  
+class_id: `73`  
 sizeof: `0xdb0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_GLOBAL</code></summary>
 
-class_id: `73`  
+class_id: `74`  
 sizeof: `0xd40`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_TITAN_SOUL</code></summary>
 
-class_id: `74`  
+class_id: `75`  
 sizeof: `0xcf0`  
 </details>
 <details>
 <summary><code>client_class CScriptProp</code></summary>
 
-class_id: `77`  
-sizeof: `0x1700`  
+class_id: `78`  
+sizeof: `0x1720`  
 </details>
 <details>
 <summary><code>client_class CScriptTraceVolume</code></summary>
 
-class_id: `78`  
+class_id: `79`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CShieldProp</code></summary>
 
-class_id: `79`  
-sizeof: `0x1670`  
+class_id: `80`  
+sizeof: `0x1690`  
 </details>
 <details>
 <summary><code>client_class CSkyCamera</code></summary>
 
-class_id: `80`  
+class_id: `81`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CStatueProp</code></summary>
 
 class_id: `0`  
-sizeof: `0x16b0`  
+sizeof: `0x16d0`  
 </details>
 <details>
 <summary><code>client_class CStatusEffectPlugin</code></summary>
 
-class_id: `81`  
+class_id: `82`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTEBreakModel</code></summary>
 
-class_id: `83`  
+class_id: `84`  
 sizeof: `0x70`  
 </details>
 <details>
 <summary><code>client_class CTEEffectDispatch</code></summary>
 
-class_id: `84`  
+class_id: `85`  
 sizeof: `0xc8`  
 </details>
 <details>
 <summary><code>client_class CTEExplosion</code></summary>
 
-class_id: `85`  
+class_id: `86`  
 sizeof: `0x80`  
 </details>
 <details>
 <summary><code>client_class CTEGibEvent</code></summary>
 
-class_id: `86`  
+class_id: `87`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEParticleSystem</code></summary>
 
-class_id: `87`  
+class_id: `88`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEPhysicsProp</code></summary>
 
-class_id: `88`  
+class_id: `89`  
 sizeof: `0x60`  
 </details>
 <details>
 <summary><code>client_class CTEProjectileTrail</code></summary>
 
-class_id: `89`  
+class_id: `90`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystem</code></summary>
 
-class_id: `90`  
+class_id: `91`  
 sizeof: `0x50`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntity</code></summary>
 
-class_id: `91`  
+class_id: `92`  
 sizeof: `0x40`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntityWithPos</code></summary>
 
-class_id: `92`  
+class_id: `93`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEShatterSurface</code></summary>
 
-class_id: `93`  
+class_id: `94`  
 sizeof: `0x68`  
 </details>
 <details>
 <summary><code>client_class CTESoundDispatch</code></summary>
 
-class_id: `94`  
+class_id: `95`  
 sizeof: `0x48`  
 </details>
 <details>
 <summary><code>client_class CTeam</code></summary>
 
-class_id: `82`  
+class_id: `83`  
 sizeof: `0xba0`  
 </details>
 <details>
 <summary><code>client_class CTitanSoul</code></summary>
 
-class_id: `95`  
+class_id: `96`  
 sizeof: `0xde0`  
 </details>
 <details>
 <summary><code>client_class CTriggerCylinderHeavy</code></summary>
 
-class_id: `96`  
+class_id: `97`  
 sizeof: `0xb90`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoGrapple</code></summary>
 
-class_id: `97`  
+class_id: `98`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoObjectPlacement</code></summary>
 
-class_id: `98`  
+class_id: `99`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoZipline</code></summary>
 
-class_id: `99`  
+class_id: `100`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerOutOfBounds</code></summary>
 
-class_id: `100`  
+class_id: `101`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPlayerMovement</code></summary>
 
-class_id: `101`  
+class_id: `102`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPointGravity</code></summary>
 
-class_id: `102`  
+class_id: `103`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerSlip</code></summary>
 
-class_id: `103`  
+class_id: `104`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerUpdraft</code></summary>
 
-class_id: `104`  
+class_id: `105`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTurret</code></summary>
 
-class_id: `105`  
-sizeof: `0x1a10`  
+class_id: `106`  
+sizeof: `0x1a30`  
 </details>
 <details>
 <summary><code>client_class CVFogVolume</code></summary>
 
-class_id: `106`  
+class_id: `107`  
 sizeof: `0xb20`  
 </details>
 <details>
 <summary><code>client_class CVGuiScreen</code></summary>
 
-class_id: `107`  
+class_id: `108`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CVortexSphere</code></summary>
 
-class_id: `108`  
+class_id: `109`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CWaterLODControl</code></summary>
 
-class_id: `109`  
+class_id: `110`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CWeaponX</code></summary>
 
-class_id: `110`  
-sizeof: `0x6760`  
+class_id: `111`  
+sizeof: `0x6790`  
 </details>
 <details>
 <summary><code>client_class CWorld</code></summary>
 
-class_id: `111`  
+class_id: `112`  
 sizeof: `0x1330`  
 </details>
 <details>
 <summary><code>client_class CZipline</code></summary>
 
-class_id: `112`  
-sizeof: `0x1490`  
+class_id: `113`  
+sizeof: `0x1070`  
 </details>
 <details>
 <summary><code>client_class CZiplineEnd</code></summary>
 
-class_id: `113`  
+class_id: `114`  
 sizeof: `0xa70`  
+</details>
+<details>
+<summary><code>client_class CZiprail</code></summary>
+
+class_id: `115`  
+sizeof: `0x13c0`  
 </details>
 <details>
 <summary><code>client_class DoorMover</code></summary>
 
-class_id: `114`  
-sizeof: `0x1860`  
+class_id: `116`  
+sizeof: `0x1880`  
 </details>
 <details>
 <summary><code>client_class ScriptMoverLightweight</code></summary>
 
-class_id: `115`  
-sizeof: `0x1860`  
+class_id: `117`  
+sizeof: `0x1880`  
 </details>
 <details>
 <summary><code>client_class Titan_Cockpit</code></summary>
 
 class_id: `0`  
-sizeof: `0x1820`  
+sizeof: `0x1840`  
 </details>
 ```
 
@@ -1323,6 +1337,7 @@ sizeof: `0x1820`
 	m_animOverlayFadeOutDuration: DataTable,
 	m_nRenderMode: Int,
 	m_nBody: Int,
+	m_nResetEventsStartTime: Time,
 	m_nResetEventsParity: Int,
 	m_bSequenceFinished: Int,
 	m_flModelScale: Float,
@@ -1716,6 +1731,55 @@ sizeof: `0x1820`
 	m_iGustDirChange: Int,
 	m_iInitialWindDir: Int,
 	m_flInitialWindSpeed: Float,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_FerroProp extends DT_DynamicProp</code></summary>
+
+```
+{
+	moveparent: Int,
+	m_parentAttachment: Int,
+	m_fEffects: Int,
+	m_usableType: Int,
+	m_cellX: Int,
+	m_cellY: Int,
+	m_cellZ: Int,
+	m_localOrigin: Vector,
+	m_nModelIndex: Int,
+	m_highlightFunctionBits: DataTable,
+	m_networkedFlags: Int,
+	m_visibilityFlags: Int,
+	m_iTeamNum: Int,
+	m_passThroughFlags: Int,
+	m_passThroughThickness: Int,
+	m_passThroughDirection: Float,
+	m_localAngles: Vector,
+	m_hOwnerEntity: Int,
+	m_Collision: DT_CollisionProperty,
+	m_CollisionGroup: Int,
+	m_iSignifierName: String,
+	m_iName: String,
+	m_scriptNameIndex: Int,
+	m_holdUsePrompt: String,
+	m_pressUsePrompt: String,
+	m_lifeState: Int,
+	m_phaseShiftFlags: Int,
+	m_parentAttachmentModel: Int,
+	m_fadeDist: Float,
+	m_usablePriority: Int,
+	m_usableDistanceOverride: Float,
+	m_usableFOV: Float,
+	m_usePromptSize: Float,
+	m_minimapData: DT_MinimapBaseEntityData,
+	m_firstChildEntityLink: Int,
+	m_firstParentEntityLink: Int,
+	m_realmsBitMask: BitMask,
+	m_flModelScale: Float,
+	m_bUseHitboxesForRenderBox: Int,
+	m_bAnimateInStaticShadow: Int,
 }
 ```
 
@@ -2357,6 +2421,8 @@ sizeof: `0x1820`
 	m_bInSkybox: Int,
 	m_killForReplay: Int,
 	m_killIfOverLimit: Int,
+	m_enemyControlPoint: Int,
+	m_enemyControlPointOverride: Int,
 	m_vServerControlPoints: DataTable,
 	m_hControlPointEnts: DataTable,
 	m_controlPointAttachTypes: DataTable,
@@ -2540,6 +2606,7 @@ sizeof: `0x1820`
 	m_dragReviveState: Int,
 	m_dragReviveOutroStartTime: Float,
 	m_reviveTarget: Int,
+	m_duelTarget: Int,
 }
 ```
 
@@ -3255,6 +3322,20 @@ sizeof: `0x1820`
 	m_sequenceTransitionerLayerPlaybackRate: Float,
 	m_sequenceTransitionerLayerStartTime: Time,
 	m_sequenceTransitionerLayerFadeOutDuration: Cycle,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_ServerAnimationData</code></summary>
+
+```
+{
+	m_animStartTime: Time,
+	m_animStartCycle: Float,
+	m_animSequence: Int,
+	m_nResetEventsStartTime: Time,
+	m_nResetEventsParity: Int,
 }
 ```
 
@@ -3987,10 +4068,6 @@ sizeof: `0x1820`
 {
 	m_numZiplinePoints: Int,
 	m_ziplinePositions: DataTable,
-	m_ziplinePhysics: DT_ZiplinePhysics,
-	m_ziplineMaterialIndex: Int,
-	m_prevZipline: Int,
-	m_nextZipline: Int,
 	m_detachEndOnUse: Int,
 	m_dropToBottom: Int,
 	m_ziplineAutoDetachDistance: Float,
@@ -3999,18 +4076,15 @@ sizeof: `0x1820`
 	m_ziplineWidth: Float,
 	m_ziplineEnabled: Int,
 	m_ziplineAutoAttachEnabled: Int,
-	m_ziplineRestPositions: DataTable,
-	m_numZiplineRestPositions: Int,
 	m_ziplineFadeDist: Float,
 	m_ziplineSpeedScale: Float,
 	m_ziplineFollowsPath: Int,
-	m_smoothDistanceToNode: DataTable,
-	m_numPathNodes: Int,
-	m_zipSplineLen: Float,
-	m_pathFirstNode: Int,
-	m_pathStopNode: Int,
-	m_pathExtentsMins: Vector,
-	m_pathExtentsMaxs: Vector,
+	m_prevZipline: Int,
+	m_nextZipline: Int,
+	m_ziplinePhysics: DT_ZiplinePhysics,
+	m_ziplineMaterialIndex: Int,
+	m_ziplineRestPositions: DataTable,
+	m_numZiplineRestPositions: Int,
 }
 ```
 
@@ -4043,6 +4117,24 @@ sizeof: `0x1820`
 	m_nodes: DataTable,
 	m_numNodes: Int,
 	m_remainingUnsimulatedTime: Float,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_Ziprail extends DT_Zipline</code></summary>
+
+```
+{
+	m_numZiprailPathNodes: Int,
+	m_numSmoothPointsForPathNodes: DataTable,
+	m_tangentTypesForPathNodes: DataTable,
+	m_positionsForPathNodes: DataTable,
+	m_smoothDistanceToNode: DataTable,
+	m_ziprailPathLen: Float,
+	m_pathExtentsMins: Vector,
+	m_pathExtentsMaxs: Vector,
+	m_ziprailUseAutoDetachSpeed: Int,
 }
 ```
 
@@ -4082,6 +4174,7 @@ sizeof: `0x1820`
 	m_fEffects: Int,
 	m_angNetworkAngles: Vector,
 	m_nBody: Int,
+	m_nResetEventsStartTime: Time,
 	m_nResetEventsParity: Int,
 	m_bSequenceFinished: Bool,
 	m_currentFrameBaseAnimating.animStartTime: Float,
@@ -4429,6 +4522,7 @@ sizeof: `0x1820`
 	m_skinMod: Short,
 	m_nBody: Int,
 	m_camoIndex: Int,
+	m_nResetEventsStartTime: Time,
 	m_nResetEventsParity: Int,
 	m_bSequenceFinished: Bool,
 	m_bSequenceLooped: Bool,
@@ -5489,12 +5583,12 @@ sizeof: `0x1820`
 
 ```
 {
-	m_ziplinePhysics: C_ZiplinePhysics,
 	m_detachEndOnUse: Bool,
 	m_currentFrameZipline.numZiplinePoints: Int,
 	m_currentFrameZipline.ziplinePositions: Vector,
 	m_currentFrameZipline.ziplinePreviousPositions: Vector,
 	m_currentFrameZipline.ziplineDistances: Float,
+	m_ziplinePhysics: C_ZiplinePhysics,
 }
 ```
 
@@ -6095,6 +6189,14 @@ default: `"16"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>PresenceForFirstPartyFriends</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>ScriptDisallowedToUsePersistenceOnSP</code></summary>
 
 
@@ -6124,6 +6226,14 @@ flags: `0x2`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>StryderEaIdFetchEnabled</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -6779,7 +6889,7 @@ flags: `0x2`
 
 Acceleration of ziprail bank tilt
 
-default: `"20"`  
+default: `"14"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -6787,7 +6897,7 @@ flags: `0x2002`
 
 Maximum speed of ziprail bank tilt
 
-default: `"1.25"`  
+default: `"4"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -7887,15 +7997,6 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>cl_dataBlockFragmentPL</code></summary>
-
-
-
-default: `"0.0"`  
-flags: `0x2`  
-min value: `0`  
-</details>
-<details>
 <summary><code>cl_deathhints_enabled</code></summary>
 
 
@@ -8349,6 +8450,14 @@ flags: `0x80000`
 <summary><code>cl_liveapi_pretty_print_log</code></summary>
 
 [LiveAPI] Makes the JSON output more human-readable (dev mode only)
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_liveapi_protobuf</code></summary>
+
+[LiveAPI] Use work-in-progress protobuf serialization backend
 
 default: `"0"`  
 flags: `0x2`  
@@ -9016,6 +9125,30 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>cl_serverQueryResponse_dumpBin</code></summary>
+
+Dump the binary Server Query response to C:/temp
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_serverQueryResponse_print</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_serverQuery_version</code></summary>
+
+Override the Query Protocol version the debug command cl_serverQuery uses
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>cl_shadowupdatespacing</code></summary>
 
 
@@ -9218,6 +9351,14 @@ flags: `0x2`
 </details>
 <details>
 <summary><code>cl_useLobbyTypeForChatroom</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cl_use_target_visibility_collision_group</code></summary>
 
 
 
@@ -10014,7 +10155,7 @@ flags: `0x2`
 <details>
 <summary><code>communicationBlock_block_num</code></summary>
 
-Number of timeouts
+Number of times the user has been comm blocked
 
 default: `"0"`  
 flags: `0x12`  
@@ -10036,14 +10177,6 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>communicationBlock_num_bad_words</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x12`  
-</details>
-<details>
 <summary><code>communicationBlock_report_self</code></summary>
 
 Send a self-report if your own communication triggers the toxic phrase filter
@@ -10060,9 +10193,17 @@ default: `"2"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>communicationBlock_server_authoritative</code></summary>
+
+Query Stryder to load / save comm block state
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>communicationBlock_time_to_unblock</code></summary>
 
-
+Int timestamp indicating expiration of the comm block
 
 default: `"0"`  
 flags: `0x1000200`  
@@ -10074,6 +10215,14 @@ Seconds for a communication block to complete the fadeout
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>communicationBlock_warning_num</code></summary>
+
+Number of times the user has been warned about toxic communication
+
+default: `"0"`  
+flags: `0x12`  
 </details>
 <details>
 <summary><code>communicationBlock_warning_sustain</code></summary>
@@ -10105,7 +10254,7 @@ flags: `0x2`
 
 
 default: `""`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>community</code></summary>
@@ -10144,7 +10293,7 @@ flags: `0x2`
 
 
 
-default: `"1"`  
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -10199,6 +10348,14 @@ flags: `0x2`
 <summary><code>con_timestamp</code></summary>
 
 Prefix console.log entries with timestamps
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>controller_debug_show_detection</code></summary>
+
+Toggle cheat detection debug messages.
 
 default: `"0"`  
 flags: `0x2`  
@@ -10261,14 +10418,6 @@ flags: `0x2`
 </details>
 <details>
 <summary><code>controller_use_cheat_detection_generic</code></summary>
-
-Use new cheat detection. (Default enabled)
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>controller_use_cheat_detection_new</code></summary>
 
 Use new cheat detection. (Default enabled)
 
@@ -11052,6 +11201,15 @@ default: `"0"`
 flags: `0x4000`  
 </details>
 <details>
+<summary><code>directlighting_emissive_mul</code></summary>
+
+Debug only. Lighting mode 1 only. global mutliplier for all emissive textures.
+This is used to convert emissive texel values to Nit values. (ex. if set 3, 1.0 in emissive texture becomes 3.0 Nit.)
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>directlighting_falloff</code></summary>
 
 Debug only. 0 - off, 1 - only on for lighting_mode 1, 2 - always on.
@@ -11402,7 +11560,7 @@ flags: `0x2`
 
 Enable dynamic viewport scaling.
 
-default: `"1"`  
+default: `""`  
 flags: `0x40000000`  
 </details>
 <details>
@@ -11539,7 +11697,7 @@ flags: `0x80000`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -11676,14 +11834,6 @@ flags: `0x4000`
 Enable crashing of the game when uninitialized network variables are used (QA only)! 1 - on, 0 - off (default).
 
 default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>encrypt_multiKey</code></summary>
-
-
-
-default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -14178,6 +14328,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>hudchat_clear_on_hide</code></summary>
+
+Clear chat input when chatbox gets hidden (e.g. when opening a menu)
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>hudchat_enable_old_history_handling</code></summary>
 
 
@@ -14208,6 +14366,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x1000000`  
+</details>
+<details>
+<summary><code>hudchat_retain_input_state</code></summary>
+
+When chatbox loses focus, save the input string and restore the input state to the next visible chatbox
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>hudchat_text_check_teams</code></summary>
@@ -14717,7 +14883,7 @@ flags: `0x2`
 <details>
 <summary><code>joy_rumble</code></summary>
 
-Controller rumble. 0: off, 1: on (default), 2: advanced.
+Controller rumble. 0: off, 1: on (default).
 
 default: `"1"`  
 flags: `0x1000000`  
@@ -14751,7 +14917,7 @@ flags: `0x2`
 
 If the player's speed is above this value we prevent them from lurching entirely.
 
-default: `"1500"`  
+default: `"1100"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -15997,14 +16163,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>mat_hdr_level</code></summary>
-
-Set to 0 for no HDR, 1 for LDR+bloom on HDR maps, and 2 for full HDR on HDR maps.
-
-default: `"2"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>mat_hdrcolcorrection_editor</code></summary>
 
 
@@ -16555,7 +16713,7 @@ flags: `0x4000`
 Synchronizing the render thread to the main thread will also force both threads to wait for the GPU to be done. Makes the hitch/stutter from a synchronization worse, but might fix some stability issues.
 
 default: `"0"`  
-flags: `0x2002`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>mat_translucency_errors</code></summary>
@@ -17095,6 +17253,38 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>mem_saving_release_mb</code></summary>
+
+Amount of free mem that stops memory saving (in MB). Should be higher than mem_saving_trigger_mb + mem_saving_request_mb to prevent thrashing
+
+default: `"40"`  
+flags: `0x80000`  
+</details>
+<details>
+<summary><code>mem_saving_request_mb</code></summary>
+
+Amount of memory to request from streaming systems when saving is active (in MB)
+
+default: `"20"`  
+flags: `0x80000`  
+</details>
+<details>
+<summary><code>mem_saving_trigger_mb</code></summary>
+
+Amount of free mem that triggers memory saving (in MB)
+
+default: `"10"`  
+flags: `0x80000`  
+</details>
+<details>
+<summary><code>mem_saving_use_factor</code></summary>
+
+Memory saving will not trigger unless streamers are using a total of (mem_saving_use_factor * mem_saving_request_mb)
+
+default: `"10"`  
+flags: `0x80000`  
+</details>
+<details>
 <summary><code>mem_test_each_frame</code></summary>
 
 Run heap check at end of every frame
@@ -17265,9 +17455,33 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>miles_error_counter_data_error_threshold</code></summary>
+
+Errors per second beyond which Miles data error icons are shown. Negative = disabled
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>miles_error_counter_display</code></summary>
 
 Show error icons when we exceed sound playback error thresholds.
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_error_counter_limits_error_threshold</code></summary>
+
+Errors per second beyond which Miles limiting error icons are shown. Negative = disabled
+
+default: `"-1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_error_counter_starvation_error_threshold</code></summary>
+
+Errors per second beyond which Miles starvation error icons are shown. Negative = disabled
 
 default: `"0"`  
 flags: `0x2`  
@@ -17340,6 +17554,38 @@ flags: `0x2`
 <summary><code>miles_listener_freeze</code></summary>
 
 When 1, stop updating listener position.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_listener_soundscape_roof_iter_count</code></summary>
+
+Number of iterations we test the roof offset to find the listener soundscape.
+
+default: `"4"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_listener_soundscape_roof_min_z_separation</code></summary>
+
+How far above the listener an event must be to qualify as a potential soundscape roof event
+
+default: `"15.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_listener_soundscape_roof_offset</code></summary>
+
+How far down below the sound source to test for the listener soundscape
+
+default: `"-46.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_listener_soundscape_roof_old_logic</code></summary>
+
+Use the simple old ss roof check that is marginally faster but doesn't properly handle certain cases with delegate soundscapes.
 
 default: `"0"`  
 flags: `0x2`  
@@ -17441,6 +17687,30 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>miles_scale_floor_occlusion</code></summary>
+
+Scale occlusion applied due to soundscape floors/roofs (floor_occlusion_base, floor_occlusion_incremental, floor_skip)
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_scale_soundscape_occlusion</code></summary>
+
+Scale occlusion applied due to soundscapes (i.e. occlusion_adjustment)
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_scale_unadjusted_occlusion</code></summary>
+
+Scale all occlusion
+
+default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>miles_server_sounds_debug</code></summary>
 
 
@@ -17477,7 +17747,7 @@ flags: `0x2`
 
 Enables soundscape floor skip logic
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -17491,9 +17761,9 @@ flags: `0x2`
 <details>
 <summary><code>miles_soundscape_skipfloors_mode</code></summary>
 
-Determines how many floors to skip, 0=max() logic, mode 1=min() logic, and mode 2=always listener
+Determines how many floors to skip, max(listenerFloorSkip, eventFloorSkip), mode 1=min(listenerFloorSkip, eventFloorSkip) logic, and mode 2=just listenerFloorSkip
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18002,11 +18272,35 @@ default: `"1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>mtx_giftingLimit</code></summary>
+
+Max number of times a person can gift per reset period.
+
+default: `"5"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>mtx_giftingMinAccountLevel</code></summary>
+
+Minimum level your account needs to be to gift.
+
+default: `"10"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>mtx_giftingMinFriendshipInDays</code></summary>
+
+Minimum length of time players can be friends for gifting to be allowed.
+
+default: `"14"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>mtx_svEdition</code></summary>
 
 
 
-default: `"1410"`  
+default: `"1500"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -18378,19 +18672,27 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>net_encrypt_relay_traffic</code></summary>
+<summary><code>net_encrypt_debug</code></summary>
 
-Manually encrypt / decrypt traffic that is sent over the Valve Relay. Note that the Valve Relay already encrypts traffic on its own.
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_encrypt_multiKey</code></summary>
+
+
 
 default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
-<summary><code>net_encryptionDebug</code></summary>
+<summary><code>net_encrypt_relay_traffic</code></summary>
 
+Manually encrypt / decrypt traffic that is sent over the Valve Relay. Note that the Valve Relay already encrypts traffic on its own.
 
-
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18536,7 +18838,7 @@ flags: `0x2`
 
 
 default: `"1"`  
-flags: `0x2002`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>net_optimize_playlists</code></summary>
@@ -18544,7 +18846,7 @@ flags: `0x2002`
 
 
 default: `"1"`  
-flags: `0x2002`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>net_optimize_weapons</code></summary>
@@ -19124,6 +19426,14 @@ default: `"0"`
 flags: `0x4000`  
 </details>
 <details>
+<summary><code>nextEnergizeCooldownTime</code></summary>
+
+If player cancel energize or just energized the weapon, it will take this time to be able to start next try
+
+default: `"0.25"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>noReloadAfterUse</code></summary>
 
 Disables reloads for "+useAndReload" input if a use is triggered.
@@ -19271,6 +19581,14 @@ flags: `0x2`
 <summary><code>offhand_cancelled_by_melee_v2</code></summary>
 
 Use the offhand_cancelled_by_melee weapon setting to decide if an offhand weapon can be cancelled via a melee attack
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>old_anim_parity</code></summary>
+
+(fallback) use the old anim parity code
 
 default: `"1"`  
 flags: `0x2002`  
@@ -19523,7 +19841,7 @@ flags: `0x2`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -19812,7 +20130,7 @@ flags: `0x2`
 
 
 default: `""`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>party_httpHandleTimeout</code></summary>
@@ -19853,6 +20171,14 @@ Whether a player should quit the match they're in when they join a party
 
 default: `"0"`  
 flags: `0x2002`  
+</details>
+<details>
+<summary><code>party_migrateFromMatch</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>party_minSize</code></summary>
@@ -19919,12 +20245,12 @@ default: `"1"`
 flags: `0x40000000`  
 </details>
 <details>
-<summary><code>path_zip_mount_duration</code></summary>
+<summary><code>paused</code></summary>
 
+Is the server paused.
 
-
-default: `"0.15"`  
-flags: `0x2`  
+default: `"0"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>perTriangleCollisionForced</code></summary>
@@ -20871,6 +21197,14 @@ default: `"0"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>possible_temp_freeze_fix</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x80000`  
+</details>
+<details>
 <summary><code>postdataupdate_threaded</code></summary>
 
 
@@ -21148,7 +21482,7 @@ flags: `0x210`
 
 
 default: `""`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>push_cl</code></summary>
@@ -21343,6 +21677,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>r_allow_unattached_skinned_decals</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>r_aspectratio</code></summary>
 
 
@@ -21373,6 +21715,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x4000`  
+</details>
+<details>
+<summary><code>r_check_models_for_decal_correctness_on_load</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>r_createmodeldecals</code></summary>
@@ -21704,6 +22054,14 @@ default: `"3"`
 flags: `0x40004000`  
 </details>
 <details>
+<summary><code>r_dump_sticker_load_state</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>r_dynamic</code></summary>
 
 
@@ -21748,7 +22106,7 @@ flags: `0x4000`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21855,7 +22213,7 @@ flags: `0x2`
 
 Should be set to 1 after 14.1 copy-up. This ConVar only exists to maintain a previous behavior where non-rigid decals would accidentally not draw at all.
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22588,9 +22946,9 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>remoteMatchInfo_print</code></summary>
+<summary><code>remote_function_clear_stats_on_game_state_change</code></summary>
 
-
+do we want to clear stats on server remote function data during match state changes - Prematch/Match/Epilogue.
 
 default: `"0"`  
 flags: `0x2`  
@@ -22793,14 +23151,6 @@ flags: `0x2`
 Helps visualize ropes effected by a shake.
 
 default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>rope_parallelMeshBuilder</code></summary>
-
-
-
-default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -23034,6 +23384,14 @@ flags: `0x2`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>s15_freeze_fix</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>save_enable</code></summary>
@@ -23373,6 +23731,14 @@ default: `"-1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>send_pin_on_error</code></summary>
+
+Send a PIN event on an internal error.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>sequence_transitioner_enable</code></summary>
 
 
@@ -23394,7 +23760,7 @@ flags: `0x80000`
 
 
 default: `""`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>server_build_datenum</code></summary>
@@ -24224,9 +24590,9 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>solid_obb_collide_playerclip</code></summary>
+<summary><code>solid_obb_pass_standard_filter</code></summary>
 
-Player OBB objects will collide with players if CONTENTS_PLAYERCLIP is set on them.
+SOLID_OBB objects pass standard filter rules.
 
 default: `"1"`  
 flags: `0x2002`  
@@ -25370,6 +25736,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>stream_low_mips_to_batch</code></summary>
+
+Stream in up to this many of the lowest mips together. 1 disables batching, 2 will batch up to 2 mips, and so on.
+
+default: `"2"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>stream_memory</code></summary>
 
 Stream memory to target (in kb).
@@ -25545,7 +25919,7 @@ flags: `0x2002`
 
 
 default: `""`  
-flags: `0x2`  
+flags: `0x80000`  
 </details>
 <details>
 <summary><code>superjump_disabled_from_water</code></summary>
@@ -25996,7 +26370,7 @@ flags: `0x2002`
 Maximum updates per second that the server will allow
 
 default: `"60"`  
-flags: `0x2002`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>sv_maxvelocity</code></summary>
@@ -26012,7 +26386,7 @@ flags: `0x2002`
 Minimum updates per second that the server will allow
 
 default: `"1"`  
-flags: `0x2002`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>sv_optimizedmovement</code></summary>
@@ -27435,7 +27809,7 @@ flags: `0x2`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -27528,6 +27902,14 @@ Debug output level (8 for everything, 1 for critical only, 0 to disable)
 default: `"3"`  
 flags: `0x2`  
 min value: `0`  
+</details>
+<details>
+<summary><code>valve_relay_timeout_jitter</code></summary>
+
+Time (in seconds) added to the known timeout period to avoid dropping packets that the main loop has not processed.
+
+default: `"1"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>variable_sights_gravity_scale_override</code></summary>
@@ -29371,38 +29753,6 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>zipline_path_grapple_debug</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>zipline_path_grapple_disable</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>zipline_path_max_subSectionLen</code></summary>
-
-
-
-default: `"600"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>zipline_path_mid_mount</code></summary>
-
-
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>zipline_path_mount_debug</code></summary>
 
 
@@ -29419,31 +29769,15 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>zipline_path_section_tolerance</code></summary>
+<summary><code>zipline_ping_enabled</code></summary>
 
-
-
-default: `"10"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>zipline_path_speed_change</code></summary>
-
-
+If enabled, you should be able to ping ziplines.
 
 default: `"1"`  
-flags: `0x2`  
+flags: `0x2002`  
 </details>
 <details>
-<summary><code>zipline_path_speed_debug</code></summary>
-
-
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>zipline_roll_debug</code></summary>
+<summary><code>zipline_roll_debug_draw</code></summary>
 
 
 
@@ -29514,7 +29848,7 @@ flags: `0x2002`
 
 
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -29523,6 +29857,22 @@ flags: `0x2002`
 
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_duck_detach</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>ziprail_grapple_disable</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -29539,6 +29889,54 @@ flags: `0x2`
 
 
 default: `"5"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_mid_mount</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_path_extends_fudge_factor</code></summary>
+
+
+
+default: `"128.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_path_max_subSectionLen</code></summary>
+
+
+
+default: `"600"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_path_section_tolerance</code></summary>
+
+
+
+default: `"10"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_roll_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_roll_strength</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -29565,6 +29963,22 @@ Angles determining how big the side of a ziprail is. Valid value is 0.0 to 120.0
 default: `"100"`  
 flags: `0x2`  
 min value: `0`  
+</details>
+<details>
+<summary><code>ziprail_speed_change</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>ziprail_speed_debug</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>ziprail_subdiv_stacks</code></summary>
@@ -30958,6 +31372,13 @@ Remove the decals from the entity under the crosshair.
 flags: `0x4000`  
 </details>
 <details>
+<summary><code>cl_serverQuery</code></summary>
+
+Send a Query Protocol request to a server. If no args are provided then request from the server we're connected to
+
+flags: `0x2`  
+</details>
+<details>
 <summary><code>cl_showents</code></summary>
 
 Dump entity list to console.
@@ -31084,20 +31505,6 @@ send text message
 flags: `0x2`  
 </details>
 <details>
-<summary><code>communicationBlock_enable_block</code></summary>
-
-Enables the client's communication block
-
-flags: `0x10000002`  
-</details>
-<details>
-<summary><code>communicationBlock_reset_convars</code></summary>
-
-Reset all chat muting to default values
-
-flags: `0x2`  
-</details>
-<details>
 <summary><code>community_showerror</code></summary>
 
 Get a random pending join request to answer
@@ -31109,21 +31516,21 @@ flags: `0x40000000`
 
 Connect to specified server.
 
-flags: `0x20002`  
+flags: `0xa0000`  
 </details>
 <details>
 <summary><code>connectAsSpectator</code></summary>
 
 Connect to specified server as a spectator
 
-flags: `0x20002`  
+flags: `0xa0000`  
 </details>
 <details>
 <summary><code>connectWithKey</code></summary>
 
 Connect to specified server with an explicit encryption key.
 
-flags: `0x20002`  
+flags: `0xa0000`  
 </details>
 <details>
 <summary><code>connectwithtoken</code></summary>
@@ -32640,13 +33047,6 @@ Single step a frame for server
 flags: `0x6`  
 </details>
 <details>
-<summary><code>serverinfo</code></summary>
-
-Request serverinfo from a remote ip and port
-
-flags: `0x2`  
-</details>
-<details>
 <summary><code>set</code></summary>
 
 Change a variable in the class settings (does not save out to disk)
@@ -32972,7 +33372,7 @@ flags: `0x40000000`
 
 Toggle whether the observer should show the player tag(s) for player being looked at
 
-flags: `0x40080000`  
+flags: `0x40080008`  
 </details>
 <details>
 <summary><code>ui_reloadscheme</code></summary>
