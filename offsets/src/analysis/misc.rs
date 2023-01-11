@@ -58,7 +58,8 @@ fn entity_list(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn local_entity_handle(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().matches_code(pat!("833D${?'}FF 74? 0FB70D${'} 0FB705${'}")).next(&mut save) {
+	// old: pat!("833D${?'}FF 74? 0FB70D${'} 0FB705${'}")
+	if bin.scanner().matches_code(pat!("8B05${'} 440FB705???? 83F8FF 74")).next(&mut save) {
 		let local_entity_handle = save[1];
 		let _ = writeln!(f.ini, "LocalEntityHandle={:#x}", local_entity_handle);
 	}
@@ -81,8 +82,9 @@ fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn global_vars(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B15${*'} BE01000000 8B4234 3BC6"), &mut save) ||
-		bin.scanner().finds_code(pat!("F20F11?${'} [50-100] F30F11????? F30F11????? F30F11????? F30F11????? F30F11????? 72"), &mut save) {
+	// old: pat!("488B15${*'} BE01000000 8B4234 3BC6")
+	// old: pat!("F20F11?${'} [50-100] F30F11????? F30F11????? F30F11????? F30F11????? F30F11????? 72")
+	if bin.scanner().finds_code(pat!("488B01 488D15${'} FF5010 85C0 75"), &mut save) {
 		let global_vars = save[1];
 		let _ = writeln!(f.ini, "GlobalVars={:#x}", global_vars);
 	}
@@ -120,7 +122,7 @@ fn view_render(f: &mut super::Output, bin: PeFile<'_>) {
 	let view_matrix;
 
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("4C 8B 05 ${'} 48 8D 15 $ [24]* 48 C7"), &mut save) {
+	if bin.scanner().finds_code(pat!("0F 85 ? ? ? ? 48 8B 0D ${'} 48 8B 01 FF 50 20 48 8B 0D"), &mut save) {
 		view_render = save[1];
 	}
 	else {
@@ -144,7 +146,8 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
 
 	// Address of global CClientState instance
-	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} [1-10] 75% 488D0D$'"), &mut save) {
+	// old: pat!("488D15${\"Missing client class\"} [1-10] 75% 488D0D$'")
+	if bin.scanner().finds_code(pat!("488D15${\"Missing client class\"} 488B05$'"), &mut save) {
 		let client_state = save[1];
 		let _ = writeln!(f.ini, "ClientState={:#x}", client_state);
 	}
@@ -243,7 +246,8 @@ fn local_camera(f: &mut super::Output, bin: PeFile<'_>) {
 fn studio_hdr(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
 	// First call in a function referencing "Entity has no model"
-	if bin.scanner().finds_code(pat!("4883B9u4? 488BD9 7536"), &mut save) {
+	// old: pat!("4883B9u4? 488BD9 7536")
+	if bin.scanner().finds_code(pat!("488B9Fu4 4885DB 75? 488D0D$\"Entity has no model\""), &mut save) {
 		let studio_hdr = save[1];
 		let _ = writeln!(f.ini, "CBaseAnimating!m_pStudioHdr={:#x}", studio_hdr);
 	}

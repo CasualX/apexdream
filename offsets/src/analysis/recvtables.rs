@@ -141,25 +141,42 @@ fn tables<'a>(bin: PeFile<'a>) -> Vec<Table<'a>> {
 48 8D 15 ?? ?? ?? ??            lea     rdx, g_RecvProps
 48 8D 0D ?? ?? ?? ??            lea     rcx, g_RecvTable
 E8 ?? ?? ?? ??                  call    constructor
+sometimes an extra instruction here
 B8 01 00 00 00                  mov     eax, 1
 */
-	let mut matches = bin.scanner().matches_code(pat!("4C8D0D${'} 41B8u4 488D15${'} 488D0D${'} E8${} B801000000"));
+	let mut matches = bin.scanner().matches_code(pat!("4C8D0D${'} 41B8u4 488D15${'} 488D0D${'} E8${}"));
 	while matches.next(&mut save) {
-		if let Ok(table) = table(bin, (save[4], save[3])) {
+		if let Ok(table) = table(bin, save[4], save[3]) {
 			list.push(table);
 		}
 	}
 
 /*
-48 8D 15 ?? ?? ?? ??                    lea     rdx, g_RecvProps
-41 B8 ?? ?? ?? ??                       mov     r8d, num props
-48 8D 0D ?? ?? ?? ??                    lea     rcx, g_RecvTable
-E8 ?? ?? ?? ??                          call    constructor
-B8 01 00 00 00                          mov     eax, 1
+48 8D 15 ?? ?? ?? ??            lea     rdx, g_RecvProps
+41 B8 ?? ?? ?? ??               mov     r8d, num props
+48 8D 0D ?? ?? ?? ??            lea     rcx, g_RecvTable
+E8 ?? ?? ?? ??                  call    constructor
+sometimes an extra instruction here
+B8 01 00 00 00                  mov     eax, 1
 */
-	let mut matches = bin.scanner().matches_code(pat!("488D15${'} 41B8???? 488D0D${'} E8${} B801000000"));
+	let mut matches = bin.scanner().matches_code(pat!("488D15${'} 41B8???? 488D0D${'} E8${}"));
 	while matches.next(&mut save) {
-		if let Ok(table) = table(bin, (save[2], save[1])) {
+		if let Ok(table) = table(bin, save[2], save[1]) {
+			list.push(table);
+		}
+	}
+
+/*
+48 8D 0D ?? ?? ?? ??            lea     rcx, RecvTableName
+C7 05 ?? ?? ?? ?? ?? ?? ?? ??   mov     g_RecvProps, num props
+48 89 0D ?? ?? ?? ??            mov     g_RecvName, rcx
+48 8D 0D ?? ?? ?? ??            lea     rcx, g_RecvTable
+*/
+	let mut matches = bin.scanner().matches_code(pat!("488D0D${'} C705${????'}u20000 48890D???? 488D0D${'}"));
+	while matches.next(&mut save) {
+		let recv_table = save[2] - 16;
+		let recv_props = save[4];
+		if let Ok(table) = table(bin, recv_table, recv_props) {
 			list.push(table);
 		}
 	}
@@ -183,7 +200,7 @@ fn read_prop<'a>(bin: PeFile<'a>, prop: &'a RecvProp) -> pelite::Result<Prop<'a>
 	Ok(Prop { name, offset, ty, flags, num_elements })
 }
 
-fn table<'a>(bin: PeFile<'a>, (recv_table, recv_props): (u32, u32)) -> pelite::Result<Table<'a>> {
+fn table<'a>(bin: PeFile<'a>, recv_table: u32, recv_props: u32) -> pelite::Result<Table<'a>> {
 	let offset = recv_table;
 	let recv_table = bin.derva::<RecvTable>(recv_table)?;
 	let recv_props = bin.derva_slice::<RecvProp>(recv_props, recv_table.num_props as usize)?;

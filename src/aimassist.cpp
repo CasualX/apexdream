@@ -36,12 +36,7 @@ void AimAssist::track(GameContext& ctx, const PlayerEntity* local) {
 
 	// Find a new target if desired
 	if (new_target) {
-		if (const auto target = find_target(ctx.state, local)) {
-			target_entity = target->handle;
-			target_locked = true;
-			pidx.reset();
-			pidy.reset();
-		}
+		find_target(ctx.state, local);
 	}
 
 	// Aim at the target if we have one
@@ -69,7 +64,7 @@ bool AimAssist::teleported(bool new_target, const TargetInfo& info) {
 	return teleported;
 }
 
-const BaseEntity* AimAssist::find_target(const GameState& state, const PlayerEntity* local) {
+void AimAssist::find_target(const GameState& state, const PlayerEntity* local) {
 	const BaseEntity* target = nullptr;
 	Rank rank = Rank::Low;
 	float priority = 99999999.0f;
@@ -89,7 +84,13 @@ const BaseEntity* AimAssist::find_target(const GameState& state, const PlayerEnt
 			}
 		}
 	}
-	return target;
+
+	if (target && target->handle != target_entity) {
+		target_entity = target->handle;
+		target_locked = true;
+		pidx.reset();
+		pidy.reset();
+	}
 }
 
 bool AimAssist::validate(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const {
@@ -186,6 +187,7 @@ bool AimAssist::fov_check(const GameState& state, const PlayerEntity* local, con
 	while (info.yaw <= -180.0f) info.yaw += 360.0f;
 	while (info.yaw > 180.0f) info.yaw -= 360.0f;
 	info.angle = sqrt(info.pitch * info.pitch + info.yaw * info.yaw);
+
 	const float fov = get_fov() * get_fov_scale(state, local);
 	return info.angle < fov;
 }
@@ -231,7 +233,7 @@ void AimAssist::aim(const TargetInfo& info, float fov_scale) {
 		aim_smooth(info, fov_scale, dx, dy);
 	}
 	// Moving the mouse can only be done in whole steps
-	// Keep track of the delta 'residue' and add it next time
+	// Keep track of the delta residuals and add it next time
 	dx += addx;
 	dy += addy;
 	const int mdx = static_cast<int>(dx);

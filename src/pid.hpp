@@ -7,6 +7,8 @@ struct PidConfig {
 	float ki;
 	// Derivative coefficient.
 	float kd;
+	// Damping factor for the integral coefficient.
+	float damp;
 };
 
 struct PidController {
@@ -20,6 +22,10 @@ inline float PidController::step(float err, float dt, const PidConfig& config) {
 	const float d = (err - p) / dt;
 	p = err;
 	i += err * dt;
+	// If integral and proportional disagree, make integral shut up
+	if (err * i <= 0.0) {
+		i *= config.damp;
+	}
 	return config.kp * p + config.ki * i + config.kd * d;
 }
 inline void PidController::reset() {

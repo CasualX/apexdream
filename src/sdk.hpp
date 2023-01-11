@@ -137,8 +137,19 @@ const size_t MAX_PLAYERS = 128;
 struct EHandle {
 	uint32_t value = 0xffffffff;
 
-	inline bool is_valid() const { return value != 0xffffffff; }
-	inline size_t index() const { return value & static_cast<uint32_t>(NUM_ENT_ENTRIES - 1); }
+	inline bool is_valid() const {
+		return value != 0xffffffff;
+	}
+	inline int index() const {
+		return is_valid() ? static_cast<int>(value & static_cast<uint32_t>(NUM_ENT_ENTRIES - 1)) : -1;
+	}
+
+	inline bool operator== (EHandle rhs) const {
+		return index() == rhs.index();
+	}
+	inline bool operator!= (EHandle rhs) const {
+		return index() != rhs.index();
+	}
 };
 
 struct NameEntry {

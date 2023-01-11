@@ -30,7 +30,7 @@ struct AimAssistConfig {
 	// Enable the PID controller for aim smoothing.
 	bool pid_enable = true;
 	// The PID controller configuration.
-	PidConfig pid_config = { 2.0, 10.0, 0.0 };
+	PidConfig pid_config = { 2.0, 10.0, 0.0, 0.9 };
 };
 
 // Target priority by rank.
@@ -80,8 +80,8 @@ public:
 	void track(GameContext& ctx, const PlayerEntity* local);
 	bool teleported(bool new_target, const TargetInfo& info);
 
-	// Finds a target to aim at, returns nullptr if no valid target was found.
-	const BaseEntity* find_target(const GameState& state, const PlayerEntity* local);
+	// Updates the current aim target.
+	void find_target(const GameState& state, const PlayerEntity* local);
 
 	// Checks if this target is valid to aim at.
 	bool validate(const GameState& state, const PlayerEntity* local, const BaseEntity* target, TargetInfo& info) const;
