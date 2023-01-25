@@ -11,6 +11,6 @@ name = "libapexdumper"
 debug = false
 
 [dependencies]
-pelite = { git = "https://github.com/CasualX/pelite" }
+pelite = "0.10"
 fmtools = "0.1"
-dataview = "0.1"
+dataview = "1.0"
