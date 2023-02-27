@@ -11,6 +11,7 @@ mod concommands;
 mod globals;
 mod string_tables;
 mod modifiers;
+mod weapondata;
 
 #[derive(Default)]
 pub struct Output {
@@ -38,6 +39,7 @@ pub fn parse(f: &mut Output, image: &[u8]) {
 	classes::print(f, bin);
 	recvtables::print(f, bin);
 	datamaps::print(f, bin);
+	weapondata::print(f, bin);
 	convars::print(f, bin);
 	concommands::print(f, bin);
 	globals::print(f, bin);
