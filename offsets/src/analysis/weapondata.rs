@@ -76,7 +76,6 @@ pub fn print(f: &mut super::Output, bin: PeFile) {
 		"```\n"
 		for item in &items {
 			{super::ident(item.name)}": "{item.default:?}"\n"
-			// {item:?}"\n"
 		}
 		"```\n\n"
 	);

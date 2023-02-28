@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x6397e29c
-CheckSum = 0x223f4e5
-GameVersion = "v3.0.22.23"
+TimeDateStamp = 0x63ebda42
+CheckSum = 0x22469ef
+GameVersion = "v3.0.26.26"
 ```
 
 ## NetworkedStringTables
@@ -44,9 +44,6 @@ ammo_type_swap
 amped_damage
 amped_damage_alt
 amped_tacticals
-arenas_regen_off
-arenas_regen_off_cooldown
-arenas_tac_max
 arenas_tac_max_cooldown
 arrows_shatter_dmg_lv0
 arrows_shatter_dmg_lv3
@@ -96,6 +93,7 @@ energy_mag_l4
 extra_tactical_charges
 fast_heal
 fast_reload_mod
+fully_heated
 fuse_long_throw_passive
 g7_reactive_ammo_counter_mod
 gold_paintball
@@ -144,11 +142,6 @@ legendary_nrg_ice_muzzle_flash
 legendary_nrg_ice_reactive_charge
 marksmans_tempo_active
 marksmans_tempo_buildup
-melee_crypto_drone
-melee_loba_blunt
-melee_seer_heart
-melee_seer_kick
-melee_valk_helmet
 mobile_hmg_active
 mobile_hmg_fast_switch
 mortar_ring_arc_disabled_mod
@@ -178,7 +171,6 @@ passive_revive_incap_shield_mod
 passive_revive_incap_shield_outro_mod
 phoenix_kit
 proto_door_kick
-proto_door_kick_impact_table
 purple_paintball
 quick_heal
 rampart_gunner
@@ -197,6 +189,8 @@ shotgun_bolt_l2
 shotgun_bolt_l2_double_tap
 shotgun_bolt_l3
 shotgun_bolt_l3_double_tap
+shotgun_bolt_l4
+shotgun_bolt_l4_double_tap
 sniper_mag_l1
 sniper_mag_l2
 sniper_mag_l3
@@ -216,6 +210,7 @@ stock_sniper_l3
 stock_tactical_l1
 stock_tactical_l2
 stock_tactical_l3
+sunglasses
 survival_ammo_regen_paused
 survival_ammo_regen_staging
 survival_armor_cooldown_mod
@@ -323,12 +318,6 @@ class_id: `3`
 sizeof: `0x1980`  
 </details>
 <details>
-<summary><code>client_class CBaseButton</code></summary>
-
-class_id: `0`  
-sizeof: `0xaa0`  
-</details>
-<details>
 <summary><code>client_class CBaseCombatCharacter</code></summary>
 
 class_id: `4`  
@@ -344,13 +333,7 @@ sizeof: `0xa60`
 <summary><code>client_class CBaseGrenade</code></summary>
 
 class_id: `6`  
-sizeof: `0x2ee0`  
-</details>
-<details>
-<summary><code>client_class CBaseParticleEntity</code></summary>
-
-class_id: `0`  
-sizeof: `0xa60`  
+sizeof: `0x2ef0`  
 </details>
 <details>
 <summary><code>client_class CBaseTempEntity</code></summary>
@@ -401,640 +384,634 @@ class_id: `14`
 sizeof: `0xec0`  
 </details>
 <details>
-<summary><code>client_class CCascadeLight</code></summary>
+<summary><code>client_class CCarePackageInsightProp</code></summary>
 
 class_id: `15`  
-sizeof: `0xbb0`  
+sizeof: `0x1690`  
 </details>
 <details>
-<summary><code>client_class CColorCorrection</code></summary>
+<summary><code>client_class CCascadeLight</code></summary>
 
 class_id: `16`  
 sizeof: `0xbb0`  
 </details>
 <details>
-<summary><code>client_class CCrossbowBolt</code></summary>
+<summary><code>client_class CColorCorrection</code></summary>
 
 class_id: `17`  
+sizeof: `0xbb0`  
+</details>
+<details>
+<summary><code>client_class CCrossbowBolt</code></summary>
+
+class_id: `18`  
 sizeof: `0x2e50`  
 </details>
 <details>
 <summary><code>client_class CDeathBoxProp</code></summary>
 
-class_id: `18`  
+class_id: `19`  
 sizeof: `0x16c0`  
 </details>
 <details>
 <summary><code>client_class CDynamicLight</code></summary>
 
-class_id: `19`  
+class_id: `20`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CDynamicProp</code></summary>
 
-class_id: `20`  
+class_id: `21`  
 sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CDynamicPropLightweight</code></summary>
 
-class_id: `21`  
+class_id: `22`  
 sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CEntityBlocker</code></summary>
 
-class_id: `22`  
+class_id: `23`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CEntityDissolve</code></summary>
 
-class_id: `23`  
+class_id: `24`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CEntityLinkPage</code></summary>
 
-class_id: `24`  
+class_id: `25`  
 sizeof: `0x1270`  
 </details>
 <details>
 <summary><code>client_class CEnvDecoy</code></summary>
 
-class_id: `25`  
+class_id: `26`  
 sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CEnvWind</code></summary>
 
-class_id: `26`  
+class_id: `27`  
 sizeof: `0xbe0`  
 </details>
 <details>
 <summary><code>client_class CFerroProp</code></summary>
 
-class_id: `27`  
+class_id: `28`  
 sizeof: `0x1680`  
 </details>
 <details>
 <summary><code>client_class CFirstPersonProxy</code></summary>
 
-class_id: `28`  
+class_id: `29`  
 sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CFuncBrush</code></summary>
 
-class_id: `29`  
+class_id: `30`  
 sizeof: `0xad0`  
 </details>
 <details>
 <summary><code>client_class CFuncBrushLightweight</code></summary>
 
-class_id: `30`  
+class_id: `31`  
 sizeof: `0xad0`  
 </details>
 <details>
 <summary><code>client_class CFuncMoveLinear</code></summary>
 
-class_id: `31`  
+class_id: `32`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CGameRulesProxy</code></summary>
 
-class_id: `32`  
+class_id: `33`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CGlobalNonRewinding</code></summary>
 
-class_id: `33`  
+class_id: `34`  
 sizeof: `0x1270`  
 </details>
 <details>
 <summary><code>client_class CGrappleHook</code></summary>
 
-class_id: `34`  
+class_id: `35`  
 sizeof: `0x1650`  
 </details>
 <details>
 <summary><code>client_class CHardPointEntity</code></summary>
 
-class_id: `35`  
+class_id: `36`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CHardPointFrontierEntity</code></summary>
 
-class_id: `36`  
+class_id: `37`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CHealthKit</code></summary>
 
-class_id: `37`  
+class_id: `38`  
 sizeof: `0x1640`  
 </details>
 <details>
 <summary><code>client_class CImportantOnEntSound</code></summary>
 
-class_id: `38`  
+class_id: `39`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CInfoPlacementHelper</code></summary>
 
-class_id: `39`  
+class_id: `40`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CInfoTarget</code></summary>
 
-class_id: `40`  
+class_id: `41`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetGravity</code></summary>
 
-class_id: `41`  
+class_id: `42`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CInfoTargetMinimap</code></summary>
 
-class_id: `42`  
+class_id: `43`  
 sizeof: `0xa60`  
 </details>
 <details>
 <summary><code>client_class CLootGrabber</code></summary>
 
-class_id: `43`  
+class_id: `44`  
 sizeof: `0x1690`  
 </details>
 <details>
 <summary><code>client_class CLootRoller</code></summary>
 
-class_id: `44`  
+class_id: `45`  
 sizeof: `0x16b0`  
 </details>
 <details>
 <summary><code>client_class CMaterialHarvester</code></summary>
 
-class_id: `45`  
+class_id: `46`  
 sizeof: `0x1700`  
 </details>
 <details>
 <summary><code>client_class CMissile</code></summary>
 
-class_id: `46`  
+class_id: `47`  
 sizeof: `0x2fa0`  
 </details>
 <details>
 <summary><code>client_class CMovieDisplay</code></summary>
 
-class_id: `47`  
+class_id: `48`  
 sizeof: `0xbc0`  
 </details>
 <details>
 <summary><code>client_class CNPC_Drone</code></summary>
 
-class_id: `48`  
+class_id: `49`  
 sizeof: `0x1e30`  
 </details>
 <details>
 <summary><code>client_class CNPC_Dropship</code></summary>
 
-class_id: `49`  
+class_id: `50`  
 sizeof: `0x1e40`  
 </details>
 <details>
 <summary><code>client_class CNPC_SentryTurret</code></summary>
 
-class_id: `50`  
+class_id: `51`  
 sizeof: `0x1e30`  
 </details>
 <details>
 <summary><code>client_class CNPC_Titan</code></summary>
 
-class_id: `51`  
+class_id: `52`  
 sizeof: `0x1eb0`  
 </details>
 <details>
 <summary><code>client_class CParticleSystem</code></summary>
 
-class_id: `52`  
+class_id: `53`  
 sizeof: `0xb20`  
 </details>
 <details>
 <summary><code>client_class CPhysicsProp</code></summary>
 
-class_id: `53`  
+class_id: `54`  
 sizeof: `0x16a0`  
 </details>
 <details>
 <summary><code>client_class CPlayer</code></summary>
 
-class_id: `54`  
+class_id: `55`  
 sizeof: `0x48d0`  
 </details>
 <details>
 <summary><code>client_class CPlayerDecoy</code></summary>
 
-class_id: `55`  
+class_id: `56`  
 sizeof: `0x16b0`  
 </details>
 <details>
 <summary><code>client_class CPlayerTasklist</code></summary>
 
-class_id: `56`  
+class_id: `57`  
 sizeof: `0xfb0`  
 </details>
 <details>
 <summary><code>client_class CPlayerVehicle</code></summary>
 
-class_id: `57`  
+class_id: `58`  
 sizeof: `0x1d00`  
 </details>
 <details>
 <summary><code>client_class CPlayerWaypoint</code></summary>
 
-class_id: `58`  
+class_id: `59`  
 sizeof: `0xd60`  
 </details>
 <details>
 <summary><code>client_class CPointCamera</code></summary>
 
-class_id: `59`  
+class_id: `60`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CPortal_PointPush</code></summary>
 
-class_id: `60`  
+class_id: `61`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPostProcessController</code></summary>
 
-class_id: `61`  
+class_id: `62`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CPredictedFirstPersonProxy</code></summary>
 
-class_id: `62`  
+class_id: `63`  
 sizeof: `0x16c0`  
 </details>
 <details>
 <summary><code>client_class CProjectile</code></summary>
 
-class_id: `63`  
+class_id: `64`  
 sizeof: `0x2e20`  
 </details>
 <details>
 <summary><code>client_class CPropDoor</code></summary>
 
-class_id: `64`  
+class_id: `65`  
 sizeof: `0x1740`  
 </details>
 <details>
 <summary><code>client_class CPropSurvival</code></summary>
 
-class_id: `65`  
+class_id: `66`  
 sizeof: `0x1670`  
 </details>
 <details>
 <summary><code>client_class CRopeKeyframe</code></summary>
 
-class_id: `66`  
+class_id: `67`  
 sizeof: `0xf60`  
 </details>
 <details>
 <summary><code>client_class CScriptMover</code></summary>
 
-class_id: `67`  
+class_id: `68`  
 sizeof: `0x1870`  
 </details>
 <details>
 <summary><code>client_class CScriptMoverTrainNode</code></summary>
 
-class_id: `68`  
+class_id: `69`  
 sizeof: `0x1090`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData</code></summary>
 
-class_id: `69`  
+class_id: `70`  
 sizeof: `0xc70`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobal</code></summary>
 
-class_id: `77`  
+class_id: `78`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetDataGlobalNonRewind</code></summary>
 
-class_id: `78`  
+class_id: `79`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_DEATH_BOX</code></summary>
 
-class_id: `70`  
+class_id: `71`  
 sizeof: `0xce0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL</code></summary>
 
-class_id: `71`  
+class_id: `72`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_GLOBAL_NON_REWIND</code></summary>
 
-class_id: `72`  
+class_id: `73`  
 sizeof: `0xda0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE</code></summary>
 
-class_id: `73`  
+class_id: `74`  
 sizeof: `0xd40`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_EXCLUSIVE_EXPANDED</code></summary>
 
-class_id: `74`  
+class_id: `75`  
 sizeof: `0xdb0`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_PLAYER_GLOBAL</code></summary>
 
-class_id: `75`  
+class_id: `76`  
 sizeof: `0xd60`  
 </details>
 <details>
 <summary><code>client_class CScriptNetData_SNDC_TITAN_SOUL</code></summary>
 
-class_id: `76`  
+class_id: `77`  
 sizeof: `0xcf0`  
 </details>
 <details>
 <summary><code>client_class CScriptProp</code></summary>
 
-class_id: `79`  
+class_id: `80`  
 sizeof: `0x1720`  
 </details>
 <details>
 <summary><code>client_class CScriptTraceVolume</code></summary>
 
-class_id: `80`  
+class_id: `81`  
 sizeof: `0xa90`  
 </details>
 <details>
 <summary><code>client_class CShieldProp</code></summary>
 
-class_id: `81`  
+class_id: `82`  
 sizeof: `0x1690`  
 </details>
 <details>
 <summary><code>client_class CSkyCamera</code></summary>
 
-class_id: `82`  
+class_id: `83`  
 sizeof: `0xa60`  
-</details>
-<details>
-<summary><code>client_class CStatueProp</code></summary>
-
-class_id: `0`  
-sizeof: `0x16d0`  
 </details>
 <details>
 <summary><code>client_class CStatusEffectPlugin</code></summary>
 
-class_id: `83`  
-sizeof: `0xaa0`  
+class_id: `84`  
+sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTEBreakModel</code></summary>
 
-class_id: `85`  
+class_id: `86`  
 sizeof: `0x70`  
 </details>
 <details>
 <summary><code>client_class CTEEffectDispatch</code></summary>
 
-class_id: `86`  
+class_id: `87`  
 sizeof: `0xc8`  
 </details>
 <details>
 <summary><code>client_class CTEExplosion</code></summary>
 
-class_id: `87`  
+class_id: `88`  
 sizeof: `0x80`  
 </details>
 <details>
 <summary><code>client_class CTEGibEvent</code></summary>
 
-class_id: `88`  
+class_id: `89`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEParticleSystem</code></summary>
 
-class_id: `89`  
+class_id: `90`  
 sizeof: `0x38`  
 </details>
 <details>
 <summary><code>client_class CTEPhysicsProp</code></summary>
 
-class_id: `90`  
+class_id: `91`  
 sizeof: `0x60`  
 </details>
 <details>
 <summary><code>client_class CTEProjectileTrail</code></summary>
 
-class_id: `91`  
+class_id: `92`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystem</code></summary>
 
-class_id: `92`  
+class_id: `93`  
 sizeof: `0x50`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntity</code></summary>
 
-class_id: `93`  
+class_id: `94`  
 sizeof: `0x40`  
 </details>
 <details>
 <summary><code>client_class CTEScriptParticleSystemOnEntityWithPos</code></summary>
 
-class_id: `94`  
+class_id: `95`  
 sizeof: `0x58`  
 </details>
 <details>
 <summary><code>client_class CTEShatterSurface</code></summary>
 
-class_id: `95`  
+class_id: `96`  
 sizeof: `0x68`  
 </details>
 <details>
 <summary><code>client_class CTESoundDispatch</code></summary>
 
-class_id: `96`  
+class_id: `97`  
 sizeof: `0x48`  
 </details>
 <details>
 <summary><code>client_class CTeam</code></summary>
 
-class_id: `84`  
+class_id: `85`  
 sizeof: `0xba0`  
 </details>
 <details>
 <summary><code>client_class CTitanSoul</code></summary>
 
-class_id: `97`  
+class_id: `98`  
 sizeof: `0xde0`  
 </details>
 <details>
 <summary><code>client_class CTriggerCylinderHeavy</code></summary>
 
-class_id: `98`  
+class_id: `99`  
 sizeof: `0xb90`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoGrapple</code></summary>
 
-class_id: `99`  
+class_id: `100`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoObjectPlacement</code></summary>
 
-class_id: `100`  
+class_id: `101`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerNoZipline</code></summary>
 
-class_id: `101`  
+class_id: `102`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerOutOfBounds</code></summary>
 
-class_id: `102`  
+class_id: `103`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPlayerMovement</code></summary>
 
-class_id: `103`  
+class_id: `104`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CTriggerPointGravity</code></summary>
 
-class_id: `104`  
+class_id: `105`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerSlip</code></summary>
 
-class_id: `105`  
+class_id: `106`  
 sizeof: `0xac0`  
 </details>
 <details>
 <summary><code>client_class CTriggerUpdraft</code></summary>
 
-class_id: `106`  
+class_id: `107`  
 sizeof: `0xaa0`  
 </details>
 <details>
 <summary><code>client_class CTurret</code></summary>
 
-class_id: `107`  
+class_id: `108`  
 sizeof: `0x1a30`  
 </details>
 <details>
 <summary><code>client_class CVFogVolume</code></summary>
 
-class_id: `108`  
+class_id: `109`  
 sizeof: `0xb20`  
 </details>
 <details>
 <summary><code>client_class CVGuiScreen</code></summary>
 
-class_id: `109`  
+class_id: `110`  
 sizeof: `0xb10`  
 </details>
 <details>
 <summary><code>client_class CVortexSphere</code></summary>
 
-class_id: `110`  
+class_id: `111`  
 sizeof: `0xab0`  
 </details>
 <details>
 <summary><code>client_class CWaterLODControl</code></summary>
 
-class_id: `111`  
+class_id: `112`  
 sizeof: `0xa70`  
 </details>
 <details>
 <summary><code>client_class CWeaponX</code></summary>
 
-class_id: `112`  
-sizeof: `0x67b0`  
+class_id: `113`  
+sizeof: `0x67e0`  
 </details>
 <details>
 <summary><code>client_class CWorld</code></summary>
 
-class_id: `113`  
+class_id: `114`  
 sizeof: `0x1330`  
 </details>
 <details>
 <summary><code>client_class CZipline</code></summary>
 
-class_id: `114`  
+class_id: `115`  
 sizeof: `0x1080`  
 </details>
 <details>
 <summary><code>client_class CZiplineEnd</code></summary>
 
-class_id: `115`  
+class_id: `116`  
 sizeof: `0xa80`  
 </details>
 <details>
 <summary><code>client_class CZiprail</code></summary>
 
-class_id: `116`  
+class_id: `117`  
 sizeof: `0x13d0`  
 </details>
 <details>
 <summary><code>client_class DoorMover</code></summary>
 
-class_id: `117`  
+class_id: `118`  
 sizeof: `0x1880`  
 </details>
 <details>
 <summary><code>client_class ScriptMoverLightweight</code></summary>
 
-class_id: `118`  
+class_id: `119`  
 sizeof: `0x1880`  
-</details>
-<details>
-<summary><code>client_class Titan_Cockpit</code></summary>
-
-class_id: `0`  
-sizeof: `0x1840`  
 </details>
 ```
 
@@ -1326,6 +1303,18 @@ sizeof: `0x1840`
 	m_DmgRadius: Float,
 	m_grenadeStatusFlags: Int,
 	m_ziplineGrenadeExpectedEndPosition: Vector,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_BaseToggle extends DT_BaseEntity</code></summary>
+
+```
+{
+	m_vecFinalDest: Vector,
+	m_movementType: Int,
+	m_flMoveTargetTime: Time,
 }
 ```
 
@@ -1679,6 +1668,7 @@ sizeof: `0x1840`
 	m_localAngles: Vector,
 	m_Collision: DT_CollisionProperty,
 	m_CollisionGroup: Int,
+	m_phaseShiftFlags: Int,
 	m_parentAttachmentModel: Int,
 	m_fadeDist: Float,
 	m_nSkin: Int,
@@ -1717,6 +1707,19 @@ sizeof: `0x1840`
 	m_nColor: Int,
 	m_persistentWeaponEffect: Int,
 	m_iEffectName: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_EmissiveScaleEvent</code></summary>
+
+```
+{
+	startTime: Float,
+	durRampUp: Float,
+	durPlateau: Float,
+	durRampDown: Float,
 }
 ```
 
@@ -2369,6 +2372,18 @@ sizeof: `0x1840`
 
 </details>
 <details>
+<summary><code>class DT_Missile extends DT_Projectile</code></summary>
+
+```
+{
+	m_hSpecificTarget: Int,
+	m_targetPosition: Vector,
+	m_useTargetPosition: Int,
+}
+```
+
+</details>
+<details>
 <summary><code>class DT_MovieDisplay extends DT_BaseEntity</code></summary>
 
 ```
@@ -2387,6 +2402,18 @@ sizeof: `0x1840`
 	m_flUMax: Float,
 	m_flVMin: Float,
 	m_flVMax: Float,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_NPC_Drone extends DT_AI_BaseNPC</code></summary>
+
+```
+{
+	m_bAttackTarget: Int,
+	m_scanTarget: Int,
+	m_beamSpread: Float,
 }
 ```
 
@@ -2673,7 +2700,7 @@ sizeof: `0x1840`
 	m_dragReviveState: Int,
 	m_dragReviveOutroStartTime: Float,
 	m_reviveTarget: Int,
-	m_duelTarget: Int,
+	m_akimboShouldAltFire: Int,
 }
 ```
 
@@ -2715,7 +2742,6 @@ sizeof: `0x1840`
 	attackRecoveryShouldBeQuick: Int,
 	isSprintAttack: Int,
 	attackStartTime: Time,
-	attackLastStartTime: Time,
 	attackHitEntity: Int,
 	attackHitEntityTime: Time,
 	attackLastHitNonWorldEntity: Time,
@@ -2733,6 +2759,19 @@ sizeof: `0x1840`
 ```
 {
 	m_nPlayerCond: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_PlayerState</code></summary>
+
+```
+{
+	currentClass: BitMask,
+	requestedClass: BitMask,
+	onDeathClass: BitMask,
+	deadflag: Int,
 }
 ```
 
@@ -2917,6 +2956,31 @@ sizeof: `0x1840`
 
 </details>
 <details>
+<summary><code>class DT_Player_ViewOffsetEntityData</code></summary>
+
+```
+{
+	viewOffsetEntityHandle: Int,
+	lerpInDuration: Float,
+	lerpOutDuration: Float,
+	stabilizePlayerEyeAngles: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_PointCamera extends DT_BaseEntity</code></summary>
+
+```
+{
+	m_FOV: Float,
+	m_bFogEnable: Int,
+	m_bActive: Int,
+}
+```
+
+</details>
+<details>
 <summary><code>class DT_PortalNonLocalPlayerExclusive</code></summary>
 
 ```
@@ -2943,6 +3007,17 @@ sizeof: `0x1840`
 	m_flRadius: Float,
 	m_flInnerRadius: Float,
 	m_flConeOfInfluence: Float,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_PostProcessController extends DT_BaseEntity</code></summary>
+
+```
+{
+	m_flPostProcessParameters: DataTable,
+	m_bMaster: Int,
 }
 ```
 
@@ -3443,20 +3518,6 @@ sizeof: `0x1840`
 
 </details>
 <details>
-<summary><code>class DT_StatueProp extends DT_PhysicsProp</code></summary>
-
-```
-{
-	m_hInitBaseAnimating: Int,
-	m_bShatter: Int,
-	m_nShatterFlags: Int,
-	m_vShatterPosition: Vector,
-	m_vShatterForce: Vector,
-}
-```
-
-</details>
-<details>
 <summary><code>class DT_StatusEffectEndlessData</code></summary>
 
 ```
@@ -3474,6 +3535,19 @@ sizeof: `0x1840`
 	m_hOwnerEntity: Int,
 	m_statusEffectsTimedPluginNV: DataTable,
 	m_statusEffectsEndlessPluginNV: DataTable,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_StatusEffectTimedData</code></summary>
+
+```
+{
+	seComboVars: Int,
+	seTimeEnd: Time,
+	seEaseOut: Float,
+	sePausedTimeRemaining: Time,
 }
 ```
 
@@ -3526,6 +3600,18 @@ sizeof: `0x1840`
 {
 	m_hVictim: Int,
 	m_attackDir: Vector,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_TEParticleSystem extends DT_BaseTempEntity</code></summary>
+
+```
+{
+	m_vecOrigin.x: Float,
+	m_vecOrigin.y: Float,
+	m_vecOrigin.z: Float,
 }
 ```
 
@@ -3811,6 +3897,18 @@ sizeof: `0x1840`
 
 </details>
 <details>
+<summary><code>class DT_TriggerSlip extends DT_BaseTrigger</code></summary>
+
+```
+{
+	m_defaultSlipDirection: Vector,
+	m_slipSpeed: Float,
+	m_slipAcceleration: Float,
+}
+```
+
+</details>
+<details>
 <summary><code>class DT_Turret extends DT_BaseAnimatingOverlay</code></summary>
 
 ```
@@ -4063,6 +4161,7 @@ sizeof: `0x1840`
 	m_energizedEndTime: Time,
 	m_heatValue: Float,
 	m_heatValueOnLastFire: Float,
+	m_fullyHeated: Int,
 	m_customActivity: Int,
 	m_customActivitySequence: Int,
 	m_customActivityOwner: Int,
@@ -4092,6 +4191,7 @@ sizeof: `0x1840`
 	m_scriptActivated: Int,
 	m_curReactiveSkinKillCount: Int,
 	m_curReactiveSkinKnockdownCount: Int,
+	m_emissiveEventData: DT_EmissiveScaleEvent,
 	m_attachmentIndices: DataTable,
 	m_lockedSet: Int,
 	m_isLoadoutPickup: Int,
@@ -4187,13 +4287,24 @@ sizeof: `0x1840`
 	m_ziplineAutoAttachEnabled: Int,
 	m_ziplineFadeDist: Float,
 	m_ziplineSpeedScale: Float,
-	m_ziplineFollowsPath: Int,
 	m_prevZipline: Int,
 	m_nextZipline: Int,
 	m_ziplinePhysics: DT_ZiplinePhysics,
 	m_ziplineMaterialIndex: Int,
 	m_ziplineRestPositions: DataTable,
 	m_numZiplineRestPositions: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_ZiplineEnd extends DT_BaseEntity</code></summary>
+
+```
+{
+	m_autoDetachDistance: Float,
+	m_verticalPushOffInDirectionX: Int,
+	m_prevZipline: Int,
 }
 ```
 
@@ -4214,6 +4325,18 @@ sizeof: `0x1840`
 	m_attachedEntities: DataTable,
 	m_numAttachedEntities: Int,
 	m_ziplineOwner: Int,
+}
+```
+
+</details>
+<details>
+<summary><code>class DT_ZiplinePhysicsExlusive</code></summary>
+
+```
+{
+	m_nodes: DataTable,
+	m_numNodes: Int,
+	m_remainingUnsimulatedTime: Float,
 }
 ```
 
@@ -4567,6 +4690,7 @@ sizeof: `0x1840`
 	m_energizedEndTime: Time,
 	m_heatValue: Float,
 	m_heatValueOnLastFire: Float,
+	m_fullyHeated: Bool,
 	m_customActivity: Int,
 	m_customActivitySequence: Int,
 	m_customActivityOwner: EHANDLE,
@@ -4606,6 +4730,7 @@ sizeof: `0x1840`
 	m_scriptActivated: Bool,
 	m_curReactiveSkinKillCount: Char,
 	m_curReactiveSkinKnockdownCount: Char,
+	m_emissiveEventData: EmissiveScaleEventData,
 	m_attachmentIndices: Char,
 	m_flNextEmptySoundTime: Float,
 	m_bRemoveable: Bool,
@@ -5347,6 +5472,7 @@ sizeof: `0x1840`
 	m_updraftLiftAcceleration: Float,
 	m_updraftLiftExitDuration: Float,
 	m_updraftSlowTime: Time,
+	m_akimboShouldAltFire: Bool,
 }
 ```
 
@@ -5503,7 +5629,6 @@ sizeof: `0x1840`
 	m_projectileLifeTimeEndTick: Tick,
 	m_projectileCreationTime: Float,
 	m_isVortexRefired: Bool,
-	m_damageAliveOnly: Bool,
 	m_usesPositionFunction: Bool,
 	m_lastCollisionNormal: Vector,
 	m_bounceIndex: Int,
@@ -5745,6 +5870,19 @@ sizeof: `0x1840`
 
 </details>
 <details>
+<summary><code>class EmissiveScaleEventData</code></summary>
+
+```
+{
+	startTime: Float,
+	durRampUp: Float,
+	durPlateau: Float,
+	durRampDown: Float,
+}
+```
+
+</details>
+<details>
 <summary><code>class GrappleData</code></summary>
 
 ```
@@ -5798,7 +5936,6 @@ sizeof: `0x1840`
 	attackRecoveryShouldBeQuick: Bool,
 	isSprintAttack: Bool,
 	attackStartTime: Time,
-	attackLastStartTime: Time,
 	attackHitEntity: EHANDLE,
 	attackHitEntityTime: Time,
 	attackLastHitNonWorldEntity: Time,
@@ -6197,6 +6334,8 @@ charge_time: Float(0.0)
 charge_weapon_fires_while_charging: Bool(false)
 chroma_color: Vector
 clear_fx_on_new_view_model: Bool(true)
+clone_anim_blending: Bool(false)
+clone_sync_to_player: Bool(false)
 cooldown_time: Float(0.0)
 cooldown_type: Enum("eWeaponCooldownType")
 cooldown_viewkick_adsScale: Float(1.0)
@@ -6325,6 +6464,7 @@ fire_sound_partial_burst_player_1p: String("")
 fire_sound_partial_burst_player_3p: String("")
 fire_to_redirect_projectile_mid_flight: Bool(false)
 force_has_weapon_clone: Bool(false)
+force_zoom_in_on_activate: Bool(false)
 fully_heated_effect_1p: Asset
 fully_heated_effect_3p: Asset
 fx_muzzle_flash2_attach: String("")
@@ -6414,6 +6554,7 @@ impulse_force: Float(0.0)
 impulse_force_explosions: Float(0.0)
 instant_swap_from: Bool(false)
 instant_swap_to: Bool(false)
+is_akimbo_weapon: Bool(false)
 is_burn_mod: Bool(false)
 is_consumable: Bool(false)
 is_heirloom: Bool(false)
@@ -6461,9 +6602,6 @@ melee_can_hit_titans: Bool(false)
 melee_damage: Int(-1)
 melee_damage_heavyarmor: Int(-1)
 melee_freezelook_on_hit: Float(0.3)
-melee_glow_duration_plateau: Float(2.0)
-melee_glow_duration_ramp_down: Float(2.0)
-melee_glow_duration_ramp_up: Float(0.5)
 melee_knockback_velocity_magnitude: Float(350.0)
 melee_lunge_no_target_range: Float(125.0)
 melee_lunge_target_angle: Float(30.0)
@@ -6587,7 +6725,7 @@ object_placement_top_distance_pierce_max: Float(0.0)
 object_placement_top_side_percent_pierce_max: Float(0.34)
 object_placement_trace_through_turrets: Bool(false)
 object_placement_use_top_trace: Bool(false)
-object_placement_vehicle_attachment_index: Byte(0)
+object_placement_vehicle_attachment_index: Int(-1)
 object_placement_vehicle_offset: Vector
 object_placer: Bool(false)
 offhand_activates_on_zoom: Bool(false)
@@ -7686,6 +7824,14 @@ default: `"1"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>akimbo_weapon_can_zoom</code></summary>
+
+Can player zoom when dual wielding
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>allow_comms_filter</code></summary>
 
 enables cl_comms_filter
@@ -8282,7 +8428,7 @@ flags: `0x2`
 
 
 
-default: `"250"`  
+default: `"400"`  
 flags: `0x2`  
 </details>
 <details>
@@ -8571,6 +8717,14 @@ flags: `0x2`
 When in thirdperson and cam_collision is set to 1, an attempt is made to keep the camera from passing though walls.
 
 default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>cam_debug_collision</code></summary>
+
+
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -9764,7 +9918,7 @@ flags: `0x80000`
 
 [LiveAPI] Use LiveAPI version 2.0
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x80000`  
 </details>
 <details>
@@ -9772,7 +9926,7 @@ flags: `0x80000`
 
 [LiveAPI] Use bidirectional websocket layer
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x80000`  
 </details>
 <details>
@@ -11454,7 +11608,7 @@ flags: `0x2`
 
 Use new chatserver (replaces lobby voice chat)
 
-default: `"0"`  
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -11631,14 +11785,6 @@ flags: `0x2`
 Communities should run it's frame update.
 
 default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>community_queryServerWhenOrphaned</code></summary>
-
-
-
-default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -12218,6 +12364,14 @@ default: `"0"`
 flags: `0x200`  
 </details>
 <details>
+<summary><code>customMatch_liveapi</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
 <summary><code>customMatch_playerToken</code></summary>
 
 
@@ -12458,6 +12612,14 @@ default: `"0"`
 flags: `0x80000`  
 </details>
 <details>
+<summary><code>devnet_client_log</code></summary>
+
+Set by devnet server. When it opens a log for clients.
+
+default: `"NotSet"`  
+flags: `0x202`  
+</details>
+<details>
 <summary><code>directlighting_debug</code></summary>
 
 1 - budget usage, 2 - light count per cell, 3 - attenuation check, 4 - cluster z coord
@@ -12587,6 +12749,14 @@ flags: `0x2`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>disable_zipline_in_oob_trigger</code></summary>
+
+Disallow ziplines from being placed inside of OOB triggers.
+
+default: `"1"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>discord_largeImage</code></summary>
@@ -12905,7 +13075,7 @@ flags: `0x2`
 
 Enable dynamic viewport scaling.
 
-default: `"1"`  
+default: `""`  
 flags: `0x40000000`  
 </details>
 <details>
@@ -13302,6 +13472,14 @@ default: `"0"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>fastpatch_uiscript_reset</code></summary>
+
+Call uiscript_reset to reload patched GUI scripts.
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>fatal_error_signal_abort</code></summary>
 
 
@@ -13460,6 +13638,14 @@ flags: `0x40000002`
 
 default: `"1"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>fol_wind_speed_multiplier</code></summary>
+
+Global wind speed multiplier for client animation.
+
+default: `"1"`  
+flags: `0xa`  
 </details>
 <details>
 <summary><code>force3PLaserAttachment</code></summary>
@@ -16594,6 +16780,22 @@ default: `"0"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>lobby_battlepass_milestone_enabled</code></summary>
+
+Enables the battle pass milestone page(this also disables the old popup)
+
+default: `"1"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>lobby_cullNetEntities</code></summary>
+
+Cull networked entities while in lobby only.
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>lobby_flicker_fix_disable</code></summary>
 
 
@@ -17210,7 +17412,7 @@ flags: `0x2`
 
 The highest luminance value that is unaffected by the Frostbite tonemapper.
 
-default: `"0.25"`  
+default: `"0.5"`  
 flags: `0x2`  
 min value: `0`  
 </details>
@@ -17614,7 +17816,7 @@ min value: `1`
 
 Minimum luminance (to be shown as black) for the heatmap visualization.
 
-default: `"32"`  
+default: `"1"`  
 flags: `0x2`  
 min value: `1`  
 </details>
@@ -18228,6 +18430,14 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>match_datacenter</code></summary>
+
+Which datacenter we are running on
+
+default: `"west us"`  
+flags: `0x82000`  
+</details>
+<details>
 <summary><code>match_defaultMap_party</code></summary>
 
 Default map to load if the dedicated server is empty
@@ -18241,6 +18451,14 @@ flags: `0x2`
 What dir to look in for the matchmaking scripts
 
 default: `""`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>match_displayDatacenter</code></summary>
+
+If set to 0, display datacenter as selected, if else match location
+
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18757,6 +18975,30 @@ default: `"10"`
 flags: `0x80000`  
 </details>
 <details>
+<summary><code>mem_saving_vram_release_mb</code></summary>
+
+
+
+default: `"512"`  
+flags: `0x40000000`  
+</details>
+<details>
+<summary><code>mem_saving_vram_request_mb</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x40000000`  
+</details>
+<details>
+<summary><code>mem_saving_vram_trigger_mb</code></summary>
+
+
+
+default: `"256"`  
+flags: `0x40000000`  
+</details>
+<details>
 <summary><code>mem_test_each_frame</code></summary>
 
 Run heap check at end of every frame
@@ -18835,7 +19077,7 @@ flags: `0x2`
 
 Use 0 to disable CMetricHttp functionality.
 
-default: `"1"`  
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -18908,7 +19150,23 @@ flags: `0x2`
 Number of audio channels, commonly 2(stereo), 6(5.1), 8(7.1). (0 is default)
 
 default: `"0"`  
-flags: `0x40000000`  
+flags: `0x80`  
+</details>
+<details>
+<summary><code>miles_channels_menuoption</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_channels_menuoption_headphones</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
 </details>
 <details>
 <summary><code>miles_devnet_screenshot_attach_dump</code></summary>
@@ -18924,6 +19182,22 @@ flags: `0x2`
 Attach recent miles output sample file to each DevNet screenshot
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_driver</code></summary>
+
+Options are 'wasapi' (default), 'xaudio2', 'directsound', 'wasapi_ss', 'null'
+
+default: `""`  
+flags: `0x80000`  
+</details>
+<details>
+<summary><code>miles_driver_mix_mode</code></summary>
+
+0 = auto, 1 = both indirect, 2 = both direct, 3 = direct upmixing
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -19119,6 +19393,22 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>miles_output_device</code></summary>
+
+empty = default
+
+default: `""`  
+flags: `0x80`  
+</details>
+<details>
+<summary><code>miles_recreate_on_default_changed</code></summary>
+
+Recreate driver when swapping devices with miles_output_device set to default
+
+default: `"1"`  
+flags: `0x80000`  
+</details>
+<details>
 <summary><code>miles_replay_transition_enable_early_cleanup</code></summary>
 
 
@@ -19180,6 +19470,14 @@ flags: `0x2`
 Scale all occlusion
 
 default: `"1.0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>miles_send_csom_telemetry</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -19804,7 +20102,7 @@ flags: `0x2002`
 
 
 
-default: `"1510"`  
+default: `"1600"`  
 flags: `0x2002`  
 </details>
 <details>
@@ -20438,6 +20736,22 @@ flags: `0x2`
 Print out stats of what packets we receive during the next process of sockets. Set to the enum of the socket you care about ie. NetSocketID_e
 
 default: `"-1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_protocol_base</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>net_protocol_increment</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21154,19 +21468,25 @@ default: `"0.25"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>orientation_matches_disabled</code></summary>
+
+Disables the Orientation Matches
+
+default: `"0"`  
+flags: `0x2012`  
+</details>
+<details>
 <summary><code>origin_Errorlevel_OldBehaviour</code></summary>
 
 Enables Setting errorlevel for as in the old code base did.
-
 
 default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
-<summary><code>origin_Errorlevel_Telementry</code></summary>
+<summary><code>origin_Errorlevel_Telemetry</code></summary>
 
 Enables sending host Telemetry event for Origin errorLevel
-
 
 default: `"1"`  
 flags: `0x2`  
@@ -21201,14 +21521,6 @@ flags: `0x2`
 Enable Origin HTTP debug logging (all HTTP queries and responses, token data etc.)
 
 default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>origin_disconnectWhenOffline</code></summary>
-
-
-
-default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21797,11 +22109,27 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>perfcharts_heartbeat_force</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>perfcharts_heartbeat_interval</code></summary>
 
 Interval between sending telemetry samples aka heartbeats
 
 default: `"900"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>perfcharts_json_builder</code></summary>
+
+Use json builder utility instead of printf
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -22167,7 +22495,7 @@ flags: `0x80000202`
 <details>
 <summary><code>pin_sid</code></summary>
 
-session id
+Session ID
 
 default: `"unknown"`  
 flags: `0x80000200`  
@@ -22506,6 +22834,22 @@ flags: `0x41000200`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>player_silence_listener_on_spectatee_swap</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>player_silence_on_spectatee_swap</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -23430,6 +23774,14 @@ default: `"1"`
 flags: `0x4000`  
 </details>
 <details>
+<summary><code>r_drawopaquestaticprops</code></summary>
+
+Toggle drawing of static props
+
+default: `"1"`  
+flags: `0x4000`  
+</details>
+<details>
 <summary><code>r_drawparticles</code></summary>
 
 Enable/disable particle rendering
@@ -23718,6 +24070,14 @@ flags: `0x2`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>r_particle_emit_sound</code></summary>
+
+
+
+default: `"1"`  
 flags: `0x2`  
 </details>
 <details>
@@ -25291,14 +25651,6 @@ default: `"1"`
 flags: `0x2`  
 </details>
 <details>
-<summary><code>server_query_interval</code></summary>
-
-
-
-default: `"0.5"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>settings_field_lookup_doesnt_exist_is_fatal</code></summary>
 
 If GlobalSettingsField doesn't exist, then Script Error
@@ -25870,30 +26222,6 @@ default: `"0"`
 flags: `0x4000`  
 </details>
 <details>
-<summary><code>skill_arena</code></summary>
-
-The arena that skill should be read from / written to (eg. fnf, experimental, etc)
-
-default: `""`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>skill_dediOnly</code></summary>
-
-Only do skill for dedicated servers
-
-default: `"0"`  
-flags: `0x2`  
-</details>
-<details>
-<summary><code>skill_enabled</code></summary>
-
-
-
-default: `"1"`  
-flags: `0x2`  
-</details>
-<details>
 <summary><code>skill_hostname</code></summary>
 
 
@@ -26323,6 +26651,14 @@ flags: `0x1000000`
 
 
 default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>speechtotext_gettokentime_interval</code></summary>
+
+
+
+default: `"20"`  
 flags: `0x2`  
 </details>
 <details>
@@ -27112,6 +27448,14 @@ default: `"0"`
 flags: `0x2`  
 </details>
 <details>
+<summary><code>stream_cache_align_memory_estimates</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x40000000`  
+</details>
+<details>
 <summary><code>stream_cache_capacity_animseq</code></summary>
 
 Stream Cache Capacity in MiB
@@ -27692,6 +28036,14 @@ default: `"9990000"`
 flags: `0x26`  
 </details>
 <details>
+<summary><code>sv_fixedUpdateRate</code></summary>
+
+Do NOT let MP clients decide their update rate
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>sv_footsteps</code></summary>
 
 Play footstep sound for players
@@ -27923,6 +28275,22 @@ Client limit for party dedi only
 
 default: `"124"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>sv_partyFiringRangeJIPAllowed</code></summary>
+
+Whether the party JIP in Firing Range feature is allowed or not
+
+default: `"0"`  
+flags: `0x2002`  
+</details>
+<details>
+<summary><code>sv_partySpectatingAllowed</code></summary>
+
+Whether the party spectator feature is allowed or not
+
+default: `"0"`  
+flags: `0x2002`  
 </details>
 <details>
 <summary><code>sv_pausable</code></summary>
