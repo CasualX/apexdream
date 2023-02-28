@@ -16,10 +16,7 @@ pub fn print(f: &mut super::Output, bin: PeFile<'_>) {
 	name_list(f, bin);
 	view_render(f, bin);
 	client_state(f, bin);
-	projectile_speed(f, bin);
-	weapon_is_semi_auto(f, bin);
-	weapon_zoom_time_in(f, bin);
-	unknown_magic(f, bin);
+	// unknown_magic(f, bin);
 	local_camera(f, bin);
 	studio_hdr(f, bin);
 	network_var(f, bin);
@@ -180,44 +177,6 @@ fn client_state(f: &mut super::Output, bin: PeFile<'_>) {
 	}
 }
 
-fn projectile_speed(f: &mut super::Output, bin: PeFile<'_>) {
-	// Find near the string 'Speed(%f) is greater than sv_maxvelocity(%f)'
-	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B05${*[24]*\"sv_maxvelocity\"} F30F??u20000 0F"), &mut save) {
-		let projectile_speed = save[1];
-		let projectile_scale = save[1] + 8;
-		let _ = writeln!(f.ini, "CWeaponX!m_flProjectileSpeed={:#x}", projectile_speed);
-		let _ = writeln!(f.ini, "CWeaponX!m_flProjectileScale={:#x}", projectile_scale);
-	}
-	else {
-		crate::print_error("unable to find projectile_speed");
-	}
-}
-
-fn weapon_is_semi_auto(f: &mut super::Output, bin: PeFile<'_>) {
-	// Credits: https://www.unknowncheats.me/forum/3403807-post9036.html
-	// Find near the string "ForceRechamberMilestone: Cannot force a rechamber on weapon '%s' that is not semi-auto."
-	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("80B9 u4 00 [1-15] 488D0D${\"ForceRechamberMilestone: Cannot force a rechamber on weapon\"}"), &mut save) {
-		let singlefire = save[1];
-		let _ = writeln!(f.ini, "CWeaponX!m_isSemiAuto={:#x}", singlefire);
-	}
-	else {
-		crate::print_error("unable to find weapon_is_semi_auto");
-	}
-}
-
-fn weapon_zoom_time_in(f: &mut super::Output, bin: PeFile<'_>) {
-	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("4885C0 75 %{ F30F1088 u4 0F57C0 0F2EC8 7A? }"), &mut save) {
-		let zoom_time_in = save[1];
-		let _ = writeln!(f.ini, "CWeaponX!m_zoomTimeIn={:#x}", zoom_time_in);
-	}
-	else {
-		crate::print_error("unable to find weapon_zoom_time_in");
-	}
-}
-
 fn unknown_magic(f: &mut super::Output, bin: PeFile<'_>) {
 	// Some unknown magic offsets
 	let mut save = [0; 4];
@@ -275,13 +234,14 @@ fn network_var(f: &mut super::Output, bin: PeFile<'_>) {
 		crate::print_error("unable to find NetworkVarTableLen");
 	}
 
-	if bin.scanner().matches_code(pat!("@4 8B01 83F8FF 741C 0FB7C8 488D15${'}")).next(&mut save) {
-		let network_data_table_ptr = save[1];
-		let _ = writeln!(f.ini, "NetworkDataTablePtr={:#x}", network_data_table_ptr);
-	}
-	else {
-		crate::print_error("unable to find NetworkDataTablePtr");
-	}
+	// // This is just cl_entitylist
+	// if bin.scanner().matches_code(pat!("@4 8B01 83F8FF 741C 0FB7C8 488D15${'}")).next(&mut save) {
+	// 	let network_data_table_ptr = save[1];
+	// 	let _ = writeln!(f.ini, "NetworkDataTablePtr={:#x}", network_data_table_ptr);
+	// }
+	// else {
+	// 	crate::print_error("unable to find NetworkDataTablePtr");
+	// }
 }
 
 fn input_system(f: &mut super::Output, bin: PeFile<'_>) {
