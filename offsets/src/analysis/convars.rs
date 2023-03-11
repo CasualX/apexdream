@@ -64,11 +64,11 @@ pub struct RawConVar {
 	pub fValue: f32,
 	pub nValue: i32,
 	pub bHasMin: u8,
-	_pad2: [u8; 3],
-	pub fMinVal: f32,
 	pub bHasMax: u8,
-	_pad3: [u8; 3],
+	_pad2: [u8; 2],
+	pub fMinVal: f32,
 	pub fMaxVal: f32,
+	_pad3: u32,
 	// Callback stuff...
 	// callback_stuff: [u64; 4],
 }

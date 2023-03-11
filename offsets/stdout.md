@@ -6,9 +6,9 @@
 ## Miscellaneous
 
 ```
-TimeDateStamp = 0x63ebda42
-CheckSum = 0x22469ef
-GameVersion = "v3.0.26.26"
+TimeDateStamp = 0x63fea9ae
+CheckSum = 0x22484b9
+GameVersion = "v3.0.28.31"
 ```
 
 ## NetworkedStringTables
@@ -7335,9 +7335,25 @@ default: `"2"`
 flags: `0x2002`  
 </details>
 <details>
+<summary><code>Clubs_AllowMalformedTags</code></summary>
+
+
+
+default: `"0"`  
+flags: `0x2`  
+</details>
+<details>
 <summary><code>Clubs_QueryPrefersFriend</code></summary>
 
 Use friend on clubs querry
+
+default: `"1"`  
+flags: `0x2`  
+</details>
+<details>
+<summary><code>Clubs_ValidateTagFromServer</code></summary>
+
+
 
 default: `"1"`  
 flags: `0x2`  
@@ -7486,6 +7502,7 @@ flags: `0x2`
 default: `"2"`  
 flags: `0x2`  
 min value: `0.1`  
+max value: `5`  
 </details>
 <details>
 <summary><code>EADP_search_accountname_count</code></summary>
@@ -9671,7 +9688,7 @@ flags: `0x2`
 default: `"1.27216005"`  
 flags: `0x41000200`  
 min value: `1`  
-max value: `0`  
+max value: `1.7`  
 </details>
 <details>
 <summary><code>cl_gib_allow</code></summary>
@@ -10001,6 +10018,7 @@ Total time allowed for the client to resend the 'connect' attempt when matchmaki
 default: `"1"`  
 flags: `0x80000`  
 min value: `0.5`  
+max value: `20000`  
 </details>
 <details>
 <summary><code>cl_model_fx_gib_cull_front_dist</code></summary>
@@ -10515,6 +10533,7 @@ flags: `0x2`
 default: `"8"`  
 flags: `0x40000000`  
 min value: `0`  
+max value: `8`  
 </details>
 <details>
 <summary><code>cl_ragdoll_self_collision</code></summary>
@@ -10532,6 +10551,7 @@ Total time allowed for the client to resend the 'connect' attempt when reconnect
 default: `"15"`  
 flags: `0x80000`  
 min value: `0.5`  
+max value: `20000`  
 </details>
 <details>
 <summary><code>cl_replayDelayTolerance</code></summary>
@@ -10557,6 +10577,7 @@ Delay in seconds before the client will resend the 'connect' attempt
 default: `"0.5"`  
 flags: `0x80000`  
 min value: `0.5`  
+max value: `20`  
 </details>
 <details>
 <summary><code>cl_resend_timeout</code></summary>
@@ -10566,6 +10587,7 @@ Total time allowed for the client to resend the 'connect' attempt
 default: `"10"`  
 flags: `0x80000`  
 min value: `0.5`  
+max value: `20000`  
 </details>
 <details>
 <summary><code>cl_restoreSimulationTimeBase</code></summary>
@@ -10783,6 +10805,7 @@ Smooth client's view after prediction error over this many seconds
 default: `"0.25"`  
 flags: `0x2`  
 min value: `0.01`  
+max value: `2`  
 </details>
 <details>
 <summary><code>cl_snapshot_draw</code></summary>
@@ -11562,6 +11585,7 @@ flags: `0x2002`
 default: `"0"`  
 flags: `0x41000000`  
 min value: `0`  
+max value: `3`  
 </details>
 <details>
 <summary><code>comms_connect_delay</code></summary>
@@ -13075,7 +13099,7 @@ flags: `0x2`
 
 Enable dynamic viewport scaling.
 
-default: `""`  
+default: `"1"`  
 flags: `0x40000000`  
 </details>
 <details>
@@ -13110,6 +13134,7 @@ Smallest scale the viewport dimensions can be scaled by.
 default: `"0.5f"`  
 flags: `0x2`  
 min value: `0.01`  
+max value: `1`  
 </details>
 <details>
 <summary><code>ea_qvt_ident</code></summary>
@@ -13332,7 +13357,7 @@ flags: `0x2002`
 
 
 
-default: `"1"`  
+default: `"0"`  
 flags: `0x2`  
 </details>
 <details>
@@ -13967,6 +13992,7 @@ Gamepad ads sensitivity for 1x scopes / ironsights.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_1</code></summary>
@@ -13976,6 +14002,7 @@ Gamepad ads sensitivity for 2x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_2</code></summary>
@@ -13985,6 +14012,7 @@ Gamepad ads sensitivity for 3x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_3</code></summary>
@@ -13994,6 +14022,7 @@ Gamepad ads sensitivity for 4x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_4</code></summary>
@@ -14003,6 +14032,7 @@ Gamepad ads sensitivity for 6x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_5</code></summary>
@@ -14012,6 +14042,7 @@ Gamepad ads sensitivity for 8x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_6</code></summary>
@@ -14021,6 +14052,7 @@ Gamepad ads sensitivity for 10x scopes.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_ads_advanced_sensitivity_scalar_7</code></summary>
@@ -14030,6 +14062,7 @@ Gamepad ads sensitivity for an unused scope.
 default: `"1.0"`  
 flags: `0x1000000`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>gamepad_aim_assist_ads_high_power_scopes</code></summary>
@@ -14079,6 +14112,7 @@ flags: `0x1000000`
 default: `"2"`  
 flags: `0x1000000`  
 min value: `0`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_0</code></summary>
@@ -14088,6 +14122,7 @@ min value: `0`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_1</code></summary>
@@ -14097,6 +14132,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_2</code></summary>
@@ -14106,6 +14142,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_3</code></summary>
@@ -14115,6 +14152,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_4</code></summary>
@@ -14124,6 +14162,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_5</code></summary>
@@ -14133,6 +14172,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_6</code></summary>
@@ -14142,6 +14182,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_aim_speed_ads_7</code></summary>
@@ -14151,6 +14192,7 @@ min value: `-1`
 default: `"-1"`  
 flags: `0x1000000`  
 min value: `-1`  
+max value: `7`  
 </details>
 <details>
 <summary><code>gamepad_button_layout</code></summary>
@@ -14352,6 +14394,7 @@ True if the gamepad is enabled, false otherwise.
 default: `"1"`  
 flags: `0x2`  
 min value: `0`  
+max value: `1`  
 </details>
 <details>
 <summary><code>gamepad_look_curve</code></summary>
@@ -14361,6 +14404,7 @@ min value: `0`
 default: `"0"`  
 flags: `0x1000000`  
 min value: `0`  
+max value: `4`  
 </details>
 <details>
 <summary><code>gamepad_stick_layout</code></summary>
@@ -16314,6 +16358,7 @@ flags: `0x2`
 default: `"8"`  
 flags: `0x2`  
 min value: `1`  
+max value: `8`  
 </details>
 <details>
 <summary><code>infoblock_requestInterval</code></summary>
@@ -17640,6 +17685,7 @@ If you want to use SSR again, uncomment the line with (1u << MTLENVOPT_SSR) in s
 
 default: `"0"`  
 flags: `0x2`  
+max value: `1`  
 </details>
 <details>
 <summary><code>mat_envmap_capture_res</code></summary>
@@ -17721,6 +17767,7 @@ flags: `0x4000`
 default: `"2"`  
 flags: `0x40000000`  
 min value: `0`  
+max value: `16`  
 </details>
 <details>
 <summary><code>mat_frame_color_bias</code></summary>
@@ -18180,6 +18227,7 @@ flags: `0x4000`
 default: `"0"`  
 flags: `0x40000000`  
 min value: `0`  
+max value: `4`  
 </details>
 <details>
 <summary><code>mat_postprocess_enable</code></summary>
@@ -19816,6 +19864,7 @@ Mouse sensitivity.
 default: `"5"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_use_per_scope_sensitivity_scalars</code></summary>
@@ -19833,6 +19882,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_1</code></summary>
@@ -19842,6 +19892,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_2</code></summary>
@@ -19851,6 +19902,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_3</code></summary>
@@ -19860,6 +19912,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_4</code></summary>
@@ -19869,6 +19922,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_5</code></summary>
@@ -19878,6 +19932,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_6</code></summary>
@@ -19887,6 +19942,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>mouse_zoomed_sensitivity_scalar_7</code></summary>
@@ -19896,6 +19952,7 @@ Mouse sensitivity.
 default: `"1.0"`  
 flags: `0x80`  
 min value: `0.1`  
+max value: `20`  
 </details>
 <details>
 <summary><code>move_one_cmd_per_client_frame</code></summary>
@@ -20601,6 +20658,7 @@ Requested max packet size before packets are 'split'.
 default: `"1200"`  
 flags: `0x202`  
 min value: `576`  
+max value: `1200`  
 </details>
 <details>
 <summary><code>net_minConnectionTimeForSpam</code></summary>
@@ -20751,7 +20809,7 @@ flags: `0x2`
 
 
 
-default: `"1"`  
+default: `"3"`  
 flags: `0x2`  
 </details>
 <details>
@@ -21354,6 +21412,7 @@ Sets the max viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
+max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_max_handheld_lobby</code></summary>
@@ -21362,6 +21421,7 @@ Sets the max viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
+max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_min_handheld</code></summary>
@@ -21370,6 +21430,7 @@ Sets the min viewportscale value on Switch handheld
 
 default: `"0.7"`  
 flags: `0x80000`  
+max value: `1`  
 </details>
 <details>
 <summary><code>nx_viewportscale_min_handheld_lobby</code></summary>
@@ -21378,6 +21439,7 @@ Sets the min viewportscale value on Switch handheld
 
 default: `"1.0"`  
 flags: `0x80000`  
+max value: `1`  
 </details>
 <details>
 <summary><code>object_placement_debug</code></summary>
@@ -21635,6 +21697,7 @@ flags: `0x2002`
 default: `"0"`  
 flags: `0x40000000`  
 min value: `0`  
+max value: `2`  
 </details>
 <details>
 <summary><code>particle_delete_all_except</code></summary>
@@ -23620,6 +23683,7 @@ flags: `0x2`
 default: `"256"`  
 flags: `0x40000000`  
 min value: `0`  
+max value: `256`  
 </details>
 <details>
 <summary><code>r_deferred_decals</code></summary>
@@ -24224,6 +24288,7 @@ Root LOD
 default: `"0"`  
 flags: `0x4800002`  
 min value: `0`  
+max value: `2`  
 </details>
 <details>
 <summary><code>r_ropetranslucent</code></summary>
@@ -24264,6 +24329,14 @@ flags: `0x4000`
 
 default: `"0"`  
 flags: `0x2`  
+</details>
+<details>
+<summary><code>r_skin_skip_invalid_materials</code></summary>
+
+
+
+default: `"1"`  
+flags: `0x40000000`  
 </details>
 <details>
 <summary><code>r_sky_ignoreAngles</code></summary>
@@ -25200,6 +25273,7 @@ Fraction of safe area to use
 
 default: `"0.0"`  
 flags: `0x2`  
+max value: `1`  
 </details>
 <details>
 <summary><code>rui_standardTextHeight</code></summary>
@@ -25954,6 +26028,7 @@ How many pcf samples to take. A value of 'n' means nxn samples across (2n)x(2n) 
 default: `"3"`  
 flags: `0x4000`  
 min value: `0`  
+max value: `3`  
 </details>
 <details>
 <summary><code>shadow_pcf_mode</code></summary>
@@ -27174,6 +27249,7 @@ The maximum number of static props that will be drawn.
 default: `"8192"`  
 flags: `0x2`  
 min value: `100`  
+max value: `8192`  
 </details>
 <details>
 <summary><code>staticProp_buildlists_on_worker</code></summary>
@@ -28219,6 +28295,7 @@ Server upper bound on net_maxroutable that a client can use.
 default: `"1200"`  
 flags: `0x2`  
 min value: `576`  
+max value: `1200`  
 </details>
 <details>
 <summary><code>sv_maxspeed</code></summary>
@@ -29459,6 +29536,7 @@ Brightness scale factor for UI elements
 
 default: `"1.0f"`  
 flags: `0x2`  
+max value: `1`  
 </details>
 <details>
 <summary><code>ui_fadecloud_time</code></summary>
@@ -29764,6 +29842,7 @@ Time (in hours) left of a valid certificate at which it should be renewed
 default: `"2"`  
 flags: `0x2`  
 min value: `1`  
+max value: `24`  
 </details>
 <details>
 <summary><code>valve_relay_config_refresh_time</code></summary>
@@ -29773,6 +29852,7 @@ Time (in minutes) between refreshing the relay network configuration.
 default: `"60"`  
 flags: `0x2`  
 min value: `1`  
+max value: `1440`  
 </details>
 <details>
 <summary><code>valve_relay_debug_log_level</code></summary>
@@ -29782,6 +29862,7 @@ Debug output level (8 for everything, 1 for critical only, 0 to disable)
 default: `"3"`  
 flags: `0x2`  
 min value: `0`  
+max value: `8`  
 </details>
 <details>
 <summary><code>valve_relay_timeout_jitter</code></summary>
@@ -30401,6 +30482,7 @@ Scale down the main viewport (to reduce GPU impact on CPU profiling)
 default: `"1.0"`  
 flags: `0x80000`  
 min value: `0.0015625`  
+max value: `2`  
 </details>
 <details>
 <summary><code>viewpunch_base_springConstantX</code></summary>
@@ -30785,6 +30867,7 @@ Voice chat uses a vox-style always on
 
 default: `"1"`  
 flags: `0x80`  
+max value: `1`  
 </details>
 <details>
 <summary><code>voice_writevoices</code></summary>
@@ -31704,6 +31787,7 @@ Zipline subdivision amount around the rope, affects roundedness.
 default: `"6"`  
 flags: `0x2`  
 min value: `1`  
+max value: `12`  
 </details>
 <details>
 <summary><code>zipline_subdiv_slices_lod</code></summary>
@@ -31713,6 +31797,7 @@ Zipline subdivision amount around the rope when lod is active, affects roundedne
 default: `"4"`  
 flags: `0x2`  
 min value: `0`  
+max value: `12`  
 </details>
 <details>
 <summary><code>zipline_subdiv_stacks</code></summary>
@@ -31722,6 +31807,7 @@ Zipline subdivision amount between each zipline node.
 default: `"6"`  
 flags: `0x2`  
 min value: `1`  
+max value: `24`  
 </details>
 <details>
 <summary><code>zipline_use_range</code></summary>
@@ -31859,6 +31945,7 @@ Angles determining how big the side of a ziprail is. Valid value is 0.0 to 120.0
 default: `"100"`  
 flags: `0x2`  
 min value: `0`  
+max value: `120`  
 </details>
 <details>
 <summary><code>ziprail_speed_change</code></summary>
@@ -31892,6 +31979,7 @@ Ziprail rope subdivision amount along the rope. Affects curve smoothness.
 default: `"16"`  
 flags: `0x2`  
 min value: `0`  
+max value: `24`  
 </details>
 <details>
 <summary><code>ziprail_subdiv_stacks_lod</code></summary>
@@ -31901,6 +31989,7 @@ Ziprail rope subdivision amount along the rope when lod is active. Affects curve
 default: `"8"`  
 flags: `0x2`  
 min value: `0`  
+max value: `24`  
 </details>
 <details>
 <summary><code>ziprail_width</code></summary>
