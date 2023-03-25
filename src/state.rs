@@ -141,17 +141,6 @@ impl GameState {
 		}
 	}
 }
-impl serde::Serialize for GameState {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("GameState"), 2)?;
-		state.serialize_field(unsafe_obfstr!("client"), &self.client)?;
-		state.serialize_field(unsafe_obfstr!("entity_list"), &self.entity_list)?;
-		state.serialize_field(unsafe_obfstr!("input_system"), &self.input_system)?;
-		state.serialize_field(unsafe_obfstr!("name_list"), &self.name_list)?;
-		state.end()
-	}
-}
 
 //----------------------------------------------------------------
 

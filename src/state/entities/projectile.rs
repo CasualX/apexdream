@@ -105,14 +105,3 @@ impl Entity for ProjectileEntity {
 		}
 	}
 }
-impl serde::Serialize for ProjectileEntity {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("Projectile"), 4)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("Projectile"))?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.end()
-	}
-}

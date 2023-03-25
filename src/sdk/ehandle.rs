@@ -1,7 +1,8 @@
 use std::fmt;
-use super::NUM_ENT_ENTRIES;
+use super::{NUM_ENT_ENTRIES, Pod};
 
-#[derive(Copy, Clone)]
+#[derive(Pod, Copy, Clone, Eq)]
+#[repr(transparent)]
 pub struct EHandle(u32);
 impl Default for EHandle {
 	fn default() -> EHandle {
@@ -44,15 +45,8 @@ impl EHandle {
 		else { (handle as usize & (NUM_ENT_ENTRIES - 1)) as i32 }
 	}
 }
-impl Eq for EHandle {}
 impl PartialEq for EHandle {
 	fn eq(&self, other: &Self) -> bool {
 		self.signed_index() == other.signed_index()
 	}
 }
-impl serde::Serialize for EHandle {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		serializer.serialize_i32(self.signed_index())
-	}
-}
-unsafe impl super::Pod for EHandle {}

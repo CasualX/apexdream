@@ -172,12 +172,3 @@ impl Entity for ScriptNetDataEntity {
 		}
 	}
 }
-
-impl serde::Serialize for ScriptNetDataEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let state = serializer.serialize_struct(unsafe_obfstr!("ScriptNetData"), 0)?;
-		state.end()
-	}
-}

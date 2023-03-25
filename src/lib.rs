@@ -124,13 +124,6 @@ impl Instance {
 			ctx.post(api);
 		}
 
-		// Update the clients with our game state
-		if api.gamestate_has_listeners() {
-			if let Ok(state) = serde_json::to_string(&self.state) {
-				api.gamestate_update(s!("apex/update"), &state);
-			}
-		}
-
 		self.tickcount = self.tickcount.wrapping_add(1);
 		self.pool.clear();
 	}

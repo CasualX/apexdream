@@ -1,7 +1,7 @@
 use super::{Pod, Ptr};
 
 pub const NUM_ENT_ENTRIES: usize = 0x10000;
-#[derive(Clone, Debug, Default)]
+#[derive(Pod, Clone, Debug, Default)]
 #[repr(C)]
 pub struct CEntInfo {
 	pub pEntity: Ptr, // IHandleEntity*
@@ -9,7 +9,6 @@ pub struct CEntInfo {
 	pub pPrev: Ptr<CEntInfo>,
 	pub pNext: Ptr<CEntInfo>,
 }
-unsafe impl Pod for CEntInfo {}
 
 pub const CPlayer: u32 = hash!("CPlayer");
 pub const CPropSurvival: u32 = hash!("CPropSurvival");

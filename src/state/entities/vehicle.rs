@@ -84,17 +84,3 @@ impl Entity for VehicleEntity {
 		self.update_rate = if ctx.time >= self.update_time + 1.0 { 128 } else { 2 };
 	}
 }
-impl serde::Serialize for VehicleEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("Vehicle"), 8)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("Vehicle"))?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.serialize_field(unsafe_obfstr!("driver"), &self.vehicle_driver)?;
-		state.serialize_field(unsafe_obfstr!("velocity"), &self.vehicle_velocity)?;
-		state.end()
-	}
-}

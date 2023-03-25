@@ -178,14 +178,6 @@ impl apexdream::Interface for Runtime {
 		}
 	}
 
-	fn gamestate_has_listeners(&mut self) -> bool {
-		false
-	}
-
-	fn gamestate_update(&mut self, _scope: &str, _state: &str) {
-		return;
-	}
-
 	fn mouse_move(&mut self, dx: i32, dy: i32) {
 		external::mouse::Mouse.mouse_move(dx, dy);
 	}

@@ -2,16 +2,6 @@
 Shared codebase.
 !*/
 
-pub fn unsafe_as_static_str(s: &str) -> &'static str {
-	unsafe { &*(s as *const str) }
-}
-
-macro_rules! unsafe_obfstr {
-	($string:literal) => {{
-		crate::base::unsafe_as_static_str(obfstr::obfstr!($string))
-	}};
-}
-
 macro_rules! strpool {
 	($ctx:expr, $needle:expr) => {{
 		let range = obfstr::position!($crate::STRING_POOL, $needle);

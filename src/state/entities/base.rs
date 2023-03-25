@@ -57,15 +57,3 @@ impl Entity for BaseEntity {
 		}
 	}
 }
-impl serde::Serialize for BaseEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("BaseEntity"), 4)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		// state.serialize_field(unsafe_obfstr!("signifier_name"), self.signifier_name())?;
-		state.serialize_field(unsafe_obfstr!("network_name"), self.network_name())?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.end()
-	}
-}

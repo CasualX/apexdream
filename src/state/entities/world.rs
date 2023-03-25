@@ -117,22 +117,3 @@ impl Entity for WorldEntity {
 		self.update_rate = if ctx.time >= self.update_time + 0.25 { 64 } else { 2 };
 	}
 }
-impl serde::Serialize for WorldEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("World"), 9)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("World"))?;
-
-		state.serialize_field(unsafe_obfstr!("death_field_is_active"), &self.death_field.is_active)?;
-		state.serialize_field(unsafe_obfstr!("death_field_origin"), &self.death_field.origin)?;
-		state.serialize_field(unsafe_obfstr!("death_field_radius_start"), &self.death_field.radius_start)?;
-		state.serialize_field(unsafe_obfstr!("death_field_radius_end"), &self.death_field.radius_end)?;
-		state.serialize_field(unsafe_obfstr!("death_field_time_start"), &self.death_field.time_start)?;
-		state.serialize_field(unsafe_obfstr!("death_field_time_end"), &self.death_field.time_end)?;
-
-		state.end()
-	}
-}

@@ -64,13 +64,3 @@ impl Entity for DeathboxEntity {
 		}
 	}
 }
-impl serde::Serialize for DeathboxEntity {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct("DeathBoxProp", 3)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("DeathBoxProp"))?;
-		state.end()
-	}
-}

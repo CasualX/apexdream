@@ -124,16 +124,3 @@ impl Entity for BaseNPCEntity {
 		self.is_visible = is_visible;
 	}
 }
-impl serde::Serialize for BaseNPCEntity {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("BaseNPC"), 6)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.serialize_field(unsafe_obfstr!("angles"), &self.angles)?;
-		state.serialize_field(unsafe_obfstr!("model_name"), &self.model_name.string)?;
-		state.serialize_field(unsafe_obfstr!("last_visible_time"), &self.last_visible_time)?;
-		state.end()
-	}
-}

@@ -13,14 +13,6 @@ impl InputSystem {
 		}
 	}
 }
-impl serde::Serialize for InputSystem {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("InputSystem"), 1)?;
-		state.serialize_field(unsafe_obfstr!("button_state"), &self.button_state[..])?;
-		state.end()
-	}
-}
 
 //----------------------------------------------------------------
 // GameState helpers

@@ -69,19 +69,6 @@ impl ClientState {
 		}
 	}
 }
-impl serde::Serialize for ClientState {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("ClientState"), 6)?;
-		state.serialize_field(unsafe_obfstr!("signon_state"), &self.signon_state)?;
-		state.serialize_field(unsafe_obfstr!("level_name"), &self.level_name)?;
-		state.serialize_field(unsafe_obfstr!("local_entity"), &self.local_entity)?;
-		state.serialize_field(unsafe_obfstr!("curtime"), &self.curtime)?;
-		state.serialize_field(unsafe_obfstr!("interval_per_tick"), &self.interval_per_tick)?;
-		state.serialize_field(unsafe_obfstr!("view_matrix"), &self.view_matrix)?;
-		state.end()
-	}
-}
 impl GameState {
 	pub fn is_in_game(&self) -> bool {
 		return

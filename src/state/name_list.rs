@@ -43,11 +43,6 @@ impl NameList {
 		}
 	}
 }
-impl serde::Serialize for NameList {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		serializer.collect_seq(self.names.iter())
-	}
-}
 impl GameState {
 	pub fn get_player_name(&self, handle: sdk::EHandle) -> Option<&str> {
 		let index = handle.index()?.wrapping_sub(1).wrapping_mul(2);

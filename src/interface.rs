@@ -21,12 +21,6 @@ pub trait Interface {
 	/// Write the dumped game binary to disk.
 	fn dump_bin(&mut self, path: &str, data: &[u8]);
 
-	/// Returns `true` if the game state should be serialized and updated.
-	fn gamestate_has_listeners(&mut self) -> bool;
-
-	/// Serializes the gamestate for further processing.
-	fn gamestate_update(&mut self, scope: &str, state: &str);
-
 	/// Moves the mouse relatively by the given deltas.
 	fn mouse_move(&mut self, dx: i32, dy: i32);
 

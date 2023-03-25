@@ -102,10 +102,3 @@ impl Entity for AnimatingEntity {
 		self.update_rate = if ctx.time >= self.update_time + 0.25 { 512 } else { 4 };
 	}
 }
-impl serde::Serialize for AnimatingEntity {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let state = serializer.serialize_struct(unsafe_obfstr!("Animating"), 0)?;
-		state.end()
-	}
-}

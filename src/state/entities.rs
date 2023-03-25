@@ -35,30 +35,6 @@ pub enum EntityRef<'a> {
 	Projectile(&'a ProjectileEntity),
 	ScriptNetData(&'a ScriptNetDataEntity),
 }
-impl serde::Serialize for EntityRef<'_> {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		match self {
-			EntityRef::BaseEntity(base) => base.serialize(serializer),
-			EntityRef::BaseNPC(npc) => npc.serialize(serializer),
-			EntityRef::World(world) => world.serialize(serializer),
-			EntityRef::Player(player) => player.serialize(serializer),
-			EntityRef::WeaponX(weapon) => weapon.serialize(serializer),
-			EntityRef::Loot(loot) => loot.serialize(serializer),
-			EntityRef::Waypoint(waypoint) => waypoint.serialize(serializer),
-			EntityRef::Vehicle(vehicle) => vehicle.serialize(serializer),
-			EntityRef::Deathbox(deathbox) => deathbox.serialize(serializer),
-			EntityRef::Animating(animating) => animating.serialize(serializer),
-			EntityRef::Projectile(projectile) => projectile.serialize(serializer),
-			EntityRef::ScriptNetData(snd) => snd.serialize(serializer),
-		}
-	}
-}
-impl serde::Serialize for dyn Entity + '_ {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		self.as_ref().serialize(serializer)
-	}
-}
 impl EntityRef<'_> {
 	pub fn get_type_name(self, buf: &mut [u8; 32]) -> &str {
 		match self {

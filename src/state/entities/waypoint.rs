@@ -81,18 +81,3 @@ impl Entity for WaypointEntity {
 		}
 	}
 }
-impl serde::Serialize for WaypointEntity {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("Waypoint"), 8)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.serialize_field(unsafe_obfstr!("network_flags"), &self.network_flags)?;
-		state.serialize_field(unsafe_obfstr!("visibility_flags"), &self.visibility_flags)?;
-		state.serialize_field(unsafe_obfstr!("team_num"), &self.team_num)?;
-		state.serialize_field(unsafe_obfstr!("team_member_index"), &self.team_member_index)?;
-		state.serialize_field(unsafe_obfstr!("owner_entity"), &self.owner_entity)?;
-		state.end()
-	}
-}

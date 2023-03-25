@@ -177,7 +177,7 @@ pub enum ModelName {
 //----------------------------------------------------------------
 
 #[named_constants]
-#[derive(Copy, Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Pod, Copy, Clone, Debug, Default, Eq, PartialEq)]
 #[repr(i32)]
 pub enum WeapState {
 	READY = 0,
@@ -191,8 +191,6 @@ pub enum WeapState {
 	RELOADING = 10,
 	IN_RELOAD_ANIMATION_FOR_LONG_WINDUP = 13,
 }
-
-unsafe impl Pod for WeapState {}
 
 //----------------------------------------------------------------
 

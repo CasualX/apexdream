@@ -90,18 +90,6 @@ impl EntityList {
 		}
 	}
 }
-impl serde::Serialize for EntityList {
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("EntityList"), 3)?;
-		state.serialize_field(unsafe_obfstr!("max_entities"), &sdk::NUM_ENT_ENTRIES)?;
-		let entities = self.entities.iter()
-			.filter_map(|entity| entity.as_ref().and_then(|entity| if entity.is_serialized() { Some(&**entity) } else { None }))
-			.collect::<Vec<&dyn Entity>>();
-		state.serialize_field(unsafe_obfstr!("entities"), &entities)?;
-		state.end()
-	}
-}
 
 //----------------------------------------------------------------
 // GetClientEntity

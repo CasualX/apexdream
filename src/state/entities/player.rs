@@ -529,50 +529,6 @@ impl Entity for PlayerEntity {
 		self.is_visible = is_visible;
 	}
 }
-impl serde::Serialize for PlayerEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("Player"), 25)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("Player"))?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.serialize_field(unsafe_obfstr!("angles"), &self.angles)?;
-
-		state.serialize_field(unsafe_obfstr!("model_name"), &self.model_name.string)?;
-		// state.serialize_field(unsafe_obfstr!("bone_array"), &self.bone_array)?;
-
-		state.serialize_field(unsafe_obfstr!("camera_origin"), &self.camera_origin)?;
-		state.serialize_field(unsafe_obfstr!("camera_angles"), &self.camera_angles)?;
-
-		state.serialize_field(unsafe_obfstr!("team_num"), &self.team_num)?;
-		state.serialize_field(unsafe_obfstr!("team_color"), &self.team_color)?;
-
-		state.serialize_field(unsafe_obfstr!("shields"), &self.shields)?;
-		state.serialize_field(unsafe_obfstr!("max_shields"), &self.max_shields)?;
-		state.serialize_field(unsafe_obfstr!("health"), &self.health)?;
-		state.serialize_field(unsafe_obfstr!("max_health"), &self.max_health)?;
-		state.serialize_field(unsafe_obfstr!("life_state"), &self.life_state)?;
-		state.serialize_field(unsafe_obfstr!("bleedout_state"), &self.bleedout_state)?;
-		// state.serialize_field(unsafe_obfstr!("flags"), &self.flags)?;
-
-		state.serialize_field(unsafe_obfstr!("observer_mode"), &self.observer_mode)?;
-		state.serialize_field(unsafe_obfstr!("observer_target"), &self.observer_target)?;
-
-		state.serialize_field(unsafe_obfstr!("last_visible_time"), &self.last_visible_time)?;
-
-		state.serialize_field(unsafe_obfstr!("armor_type"), &self.armor_type)?;
-		state.serialize_field(unsafe_obfstr!("helmet_type"), &self.helmet_type)?;
-
-		state.serialize_field(unsafe_obfstr!("primary_weapon"), &self.weapons[0])?;
-		state.serialize_field(unsafe_obfstr!("secondary_weapon"), &self.weapons[1])?;
-
-		state.serialize_field(unsafe_obfstr!("desired_items"), &sdk::item_set_to_string(&self.desired_items(None)))?;
-
-		state.end()
-	}
-}
 
 // Little hack to keep colors in sync everywhere
 static TEAM_COLORS: [[u8; 3]; 21] = [

@@ -231,33 +231,6 @@ impl Entity for WeaponXEntity {
 		self.weapon_name = state.weapon_name(self.weapon_name_index);
 	}
 }
-impl serde::Serialize for WeaponXEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("WeaponX"), 8)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("WeaponX"))?;
-
-		state.serialize_field(unsafe_obfstr!("weapon_owner"), &self.weapon_owner)?;
-		state.serialize_field(unsafe_obfstr!("weapon_index"), &self.weapon_name_index)?;
-		// self.weapon_index.to_str(|string| {
-		// 	state.serialize_field(unsafe_obfstr!("weapon_string"), string)
-		// })?;
-
-		// state.serialize_field(unsafe_obfstr!("next_primary_attack_time"), &self.next_primary_attack_time)?;
-
-		state.serialize_field(unsafe_obfstr!("ammo_in_clip"), &self.ammo_in_clip)?;
-		// state.serialize_field(unsafe_obfstr!("ammo_in_stockpile"), &self.ammo_in_stockpile)?;
-		state.serialize_field(unsafe_obfstr!("weap_state"), &self.weap_state.0)?;
-		// state.serialize_field(unsafe_obfstr!("in_reload"), &self.in_reload)?;
-
-		state.serialize_field(unsafe_obfstr!("desired_items"), &sdk::item_set_to_string(&sdk::ItemSet::default()))?;
-
-		state.end()
-	}
-}
 impl crate::base::solver::ProjectileWeapon for WeaponXEntity {
 	fn projectile_speed(&self) -> f32 {
 		if self.weapon_name == sdk::WeaponName::BOCEK {

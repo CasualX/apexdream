@@ -127,16 +127,3 @@ impl Entity for LootEntity {
 		self.known_item = state.known_item(self.custom_script_int);
 	}
 }
-impl serde::Serialize for LootEntity {
-	#[inline(never)]
-	fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
-		use serde::ser::*;
-		let mut state = serializer.serialize_struct(unsafe_obfstr!("PropSurvival"), 5)?;
-		state.serialize_field(unsafe_obfstr!("entity_ptr"), &self.entity_ptr)?;
-		state.serialize_field(unsafe_obfstr!("index"), &self.index)?;
-		state.serialize_field(unsafe_obfstr!("class_name"), s!("PropSurvival"))?;
-		state.serialize_field(unsafe_obfstr!("origin"), &self.origin)?;
-		state.serialize_field(unsafe_obfstr!("custom_script_int"), &self.known_item.0)?;
-		state.end()
-	}
-}
