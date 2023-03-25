@@ -1,0 +1,33 @@
+use crate::base::solver::{Trajectory, Collection};
+
+mod sentinel;
+pub use self::sentinel::COLLECTION as SENTINEL;
+mod kraber;
+pub use self::kraber::COLLECTION as KRABER;
+mod bocek;
+pub use self::bocek::COLLECTION as BOCEK;
+mod r301;
+pub use self::r301::COLLECTION as R301;
+mod g7_scout;
+pub use self::g7_scout::COLLECTION as G7_SCOUT;
+mod repeater;
+pub use self::repeater::COLLECTION as REPEATER;
+mod longbow;
+pub use self::longbow::COLLECTION as LONGBOW;
+mod flatline;
+pub use self::flatline::COLLECTION as FLATLINE;
+mod throwing_knife;
+pub use self::throwing_knife::COLLECTION as THROWING_KNIFE;
+
+mod wingman;
+pub use self::wingman::COLLECTION as WINGMAN;
+mod prowler;
+pub use self::prowler::COLLECTION as PROWLER;
+mod volt;
+pub use self::volt::COLLECTION as VOLT;
+mod devotion;
+pub use self::devotion::COLLECTION as DEVOTION;
+mod spitfire;
+pub use self::spitfire::COLLECTION as SPITFIRE;
+mod hemlok;
+pub use self::hemlok::COLLECTION as HEMLOK;

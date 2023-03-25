@@ -1,0 +1,37 @@
+[package]
+name = "apexdream"
+version = "0.0.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 2
+debug = false
+panic = "abort"
+lto = true
+
+[features]
+default = ["dev"]
+
+# Enable developer features
+dev = []
+
+# Write debug logs when read/write memory fails
+debug_api = []
+
+[dependencies]
+serde = "1.0"
+serde_json = "1.0"
+dataview = "~1.0"
+fmtools = { version = "0.1", features = ["obfstr"] }
+format_xml = { version = "0.3", features = ["obfstr"] }
+obfstr = "0.4"
+cvar = "0.4"
+intptr = { version = "0.1.6", features = ["serde", "dataview_1"] }
+ini_core = "0.1.0"
+bitset-core = { git = "https://github.com/CasualX/bitset-core" }
+vgc = { git = "https://github.com/CasualX/vgcolors" }
+named_constants = "0.2"
+pelite = { version = "0.10", features = ["unstable"] }
+
+[dev-dependencies]
+external = { git = "https://github.com/CasualX/external" }
