@@ -6,15 +6,16 @@ use pelite::util::CStr;
 use pelite::pattern as pat;
 
 #[derive(dataview::Pod)]
-#[repr(C)]
+#[repr(C, packed(1))] // It wouldn't compile without packed(1)
 struct RawWeaponDataField {
 	name: Ptr<CStr>,
 	default: u64,
+	description: u64,
 	ty: u8,
 	flags: u8,
 	index: u16,
 	offset: u16,
-	pad: [u8; 0xA], // Seems to always be zero
+	pad: [u8; 2], // Seems to always be zero
 }
 const _: [(); 32] = [(); mem::size_of::<RawWeaponDataField>()];
 
@@ -62,7 +63,7 @@ pub fn print(f: &mut super::Output, bin: PeFile) {
 	}
 
 	let offset;
-	if !bin.scanner().matches_code(pat!("4C8D8Bu4 [10-30] 488D0D$\"Error setting mods on weapon '%s'.\"")).next(&mut save) {
+	if !bin.scanner().matches_code(pat!("488D0D${\"Error setting mods on weapon \'%s\'. See console log for details.\"} [100-500] 4C8D8Bu20000")).next(&mut save) {
 		crate::print_error("ERR: unable to find WeaponSettings base offset");
 		offset = 0;
 	}
