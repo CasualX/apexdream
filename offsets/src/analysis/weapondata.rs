@@ -6,7 +6,7 @@ use pelite::util::CStr;
 use pelite::pattern as pat;
 
 #[derive(dataview::Pod)]
-#[repr(C, packed(1))]
+#[repr(C)]
 struct RawWeaponDataField {
 	name: Ptr<CStr>,
 	default: u64,
