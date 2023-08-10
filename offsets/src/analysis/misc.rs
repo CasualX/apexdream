@@ -68,8 +68,9 @@ fn local_entity_handle(f: &mut super::Output, bin: PeFile<'_>) {
 fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 	// The global instance of C_GameMovement contains as its first member a pointer to local player right after its vtable.
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("8981??0000 488B1D${'}"), &mut save) {
-		let local_player_ptr = save[1];
+	// old: pat!("8981??0000 488B1D${'}")
+	if bin.scanner().finds_code(pat!("488B05u4' 488D0D???? 4488????? 4C89"), &mut save) {
+		let local_player_ptr = save[1] + save[2] + 8;
 		let _ = writeln!(f.ini, "LocalPlayer={:#x}", local_player_ptr);
 	}
 	else {
@@ -127,7 +128,8 @@ fn view_render(f: &mut super::Output, bin: PeFile<'_>) {
 		return;
 	}
 
-	if bin.scanner().finds_code(pat!("480fbec2 488b84c1u4 c3"), &mut save) {
+	// old: pat!("480fbec2 488b84c1u4 c3")
+	if bin.scanner().finds_code(pat!("4889[5] 498BB6u4 498B9E[4] E8"), &mut save) {
 		view_matrix = save[1];
 	}
 	else {
