@@ -69,8 +69,8 @@ fn local_player(f: &mut super::Output, bin: PeFile<'_>) {
 	// The global instance of C_GameMovement contains as its first member a pointer to local player right after its vtable.
 	let mut save = [0; 4];
 	// old: pat!("8981??0000 488B1D${'}")
-	if bin.scanner().finds_code(pat!("488B05u4' 488D0D???? 4488????? 4C89"), &mut save) {
-		let local_player_ptr = save[1] + save[2] + 8;
+	if bin.scanner().finds_code(pat!("488B05${'} 488D0D???? 4488????? 4C89"), &mut save) {
+		let local_player_ptr = save[1] + 8;
 		let _ = writeln!(f.ini, "LocalPlayer={:#x}", local_player_ptr);
 	}
 	else {
