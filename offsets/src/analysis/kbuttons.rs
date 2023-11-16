@@ -50,7 +50,7 @@ fn buttons<'a>(file: PeFile<'a>) -> Vec<Button<'a>> {
 
 	// Match the ConCommand in .data section...
 	let data_section = file.section_headers().iter().find(|sect| &sect.Name == b".data\0\0\0").unwrap();
-	let pat = pat!("@3 [8] 0100000000000000 *{'2B} [48] *4053 [20-60] 8B05${'} 3BD8 74?");
+	let pat = pat!("@3 [8] 0100000000000000 *{'2B} [40] *4053 [20-60] 8B05${'} 3BD8 74?");
 	let mut matches = file.scanner().matches(pat, data_section.virtual_range());
 	while matches.next(&mut save) {
 		let name = file.derva_c_str(save[1]).unwrap().to_str().unwrap();
