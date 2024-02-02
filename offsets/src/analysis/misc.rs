@@ -217,7 +217,7 @@ fn local_camera(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn highlight_settings(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B05${'} 448944C8? 44894CC8? 488B4A50"), &mut save) {
+	if bin.scanner().finds_code(pat!("488B15${'} 4C8D0476"), &mut save) {
 		let settings = save[1];
 		let _ = writeln!(f.ini, "HighlightSettings={:#x}", settings);
 	}
