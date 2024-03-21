@@ -324,18 +324,3 @@ impl GameProcess {
 	}
 }
 
-impl cvar::IVisit for GameProcess {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		f(&mut cvar::Property(s!("drate"), &mut self.dump_rate, &0.0));
-		f(&mut cvar::Property(s!("dfast"), &mut self.dump_fast, &false));
-		f(&mut cvar::Action(s!("dump!"), |_, _| {
-			self.dump_game = true;
-			self.dump_cancel = false;
-			self.page_index = 0;
-			self.read_errors = 0;
-		}));
-		f(&mut cvar::Action(s!("dcancel!"), |_, _| {
-			self.dump_cancel = true;
-		}));
-	}
-}

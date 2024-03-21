@@ -23,7 +23,6 @@ dataview = "~1.0"
 fmtools = { version = "0.1", features = ["obfstr"] }
 format_xml = { version = "0.3", features = ["obfstr"] }
 obfstr = "0.4"
-cvar = "0.4"
 intptr = { version = "0.1.6", features = ["serde", "dataview_1"] }
 ini_core = "0.1.0"
 bitset-core = { git = "https://github.com/CasualX/bitset-core" }

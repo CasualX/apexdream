@@ -53,24 +53,7 @@ pub struct Scripts {
 	// Total time needed for this ready time to expire when it started
 	ready_timer: f32,
 }
-impl cvar::IVisit for Scripts {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("rapidfire"), &mut self.config.rapidfire, &default.rapidfire));
-		f(&mut cvar::Property(s!("bunnyhop"), &mut self.config.bunnyhop, &default.bunnyhop));
-		f(&mut cvar::Property(s!("autoreload"), &mut self.config.autoreload, &default.autoreload));
-		f(&mut cvar::Property(s!("tacreload"), &mut self.config.tacreload, &default.tacreload));
-		f(&mut cvar::Property(s!("acreload"), &mut self.config.acreload, &default.acreload));
-		f(&mut cvar::Property(s!("tapstrafekey"), &mut self.config.tapstrafekey, &default.tapstrafekey));
-		f(&mut cvar::Property(s!("thirdperson"), &mut self.config.thirdperson, &default.thirdperson));
-		f(&mut cvar::Property(s!("thirdperson_shoulder"), &mut self.config.thirdperson_shoulder, &default.thirdperson_shoulder));
-		f(&mut cvar::Property(s!("freecam"), &mut self.config.freecam, &default.freecam));
-		f(&mut cvar::Property(s!("fastloot"), &mut self.config.fastloot, &default.fastloot));
-		f(&mut cvar::Property(s!("autoloot"), &mut self.config.autoloot, &default.autoloot));
-		f(&mut cvar::Property(s!("limit_fps"), &mut self.config.limit_fps, &default.limit_fps));
-		f(&mut cvar::Property(s!("superglide"), &mut self.config.superglide, &default.superglide));
-	}
-}
+
 impl Scripts {
 	pub fn run(&mut self, api: &mut Api, ctx: &mut RunContext) {
 		self.bunnyhop(ctx);

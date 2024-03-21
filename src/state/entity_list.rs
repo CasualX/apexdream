@@ -24,13 +24,6 @@ impl Default for EntityList {
 	}
 }
 
-impl cvar::IVisit for EntityList {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		f(&mut cvar::Property(s!("log_uninteresting"), &mut self.gce.config.log_uninteresting, &false));
-		f(&mut cvar::Property(s!("log_errors"), &mut self.gce.config.log_errors, &false));
-		f(&mut cvar::Property(s!("full_entlist"), &mut self.gce.config.full_entlist, &false));
-	}
-}
 
 impl EntityList {
 	#[inline(never)]

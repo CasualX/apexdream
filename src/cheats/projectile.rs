@@ -23,11 +23,7 @@ pub struct Projectile {
 	projectile_scale: f32,
 }
 
-impl cvar::IVisit for Projectile {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		f(&mut cvar::Property(s!("enable"), &mut self.enable, &false));
-	}
-}
+
 
 impl Projectile {
 	pub fn run(&mut self, api: &mut Api, ctx: &mut RunContext) {

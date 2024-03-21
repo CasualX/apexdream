@@ -22,14 +22,12 @@ mod api;
 mod sdk;
 mod process;
 mod data;
-mod config;
 mod state;
 mod cheats;
 
 use self::api::*;
 use self::process::GameProcess;
 use self::data::GameData;
-use self::config::ConfigLoader;
 use self::state::{GameState, UpdateContext};
 use self::state::entities::*;
 use self::cheats::*;
@@ -46,7 +44,6 @@ pub struct Instance {
 	data: GameData,
 	state: GameState,
 	cheats: CheatManager,
-	config: ConfigLoader,
 	tickcount: u32,
 	pool: base::StringPool,
 }
@@ -114,7 +111,6 @@ impl Instance {
 
 		// Load the current weapon settings
 		let config_section = self.state.get_config_section();
-		self.config.run(api, config_section, &mut self.cheats);
 
 		// Run the cheat modules
 		{
@@ -129,17 +125,8 @@ impl Instance {
 	}
 
 	/// Loads a config string.
-	pub fn load_config(&mut self, api: &mut dyn Interface, config: &str) {
+	pub fn load_config(&mut self, api: &mut dyn Interface) {
 		let api = Api(api);
-		self.config.loads(api, config, &mut self.cheats);
 	}
 }
 
-impl cvar::IVisit for Instance {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		self.cheats.visit(f);
-		f(&mut cvar::List(s!("config"), &mut self.config));
-		f(&mut cvar::List(s!("state"), &mut self.state));
-		f(&mut cvar::List(s!("process"), &mut self.process));
-	}
-}

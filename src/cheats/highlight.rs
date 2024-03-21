@@ -12,19 +12,7 @@ struct Style {
 	post_process: bool,
 	brightness: f32,
 }
-impl cvar::IVisit for Style {
-	#[inline(never)]
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		f(&mut cvar::Property(s!("enable"), &mut self.enable, &true));
-		f(&mut cvar::Property(s!("inside"), &mut self.inside, &0));
-		f(&mut cvar::Property(s!("outline"), &mut self.outline, &0));
-		f(&mut cvar::Property(s!("radius"), &mut self.radius, &0));
-		f(&mut cvar::Property(s!("opacity"), &mut self.opacity, &0));
-		f(&mut cvar::Property(s!("visible"), &mut self.visible, &true));
-		f(&mut cvar::Property(s!("post_process"), &mut self.post_process, &false));
-		f(&mut cvar::Property(s!("brightness"), &mut self.brightness, &1.0));
-	}
-}
+
 impl Style {
 	const fn to_bits(&self) -> sdk::HighlightBits {
 		sdk::HighlightBits::new(self.inside, self.outline, self.radius, self.opacity, self.visible, self.post_process)
@@ -75,27 +63,7 @@ impl Default for Config {
 	}
 }
 
-impl cvar::IVisit for Highlight {
-	#[inline(never)]
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("enable.loot"), &mut self.config.enable_loot, &default.enable_loot));
-		f(&mut cvar::Property(s!("enable.deathbox"), &mut self.config.enable_deathbox, &default.enable_deathbox));
-		f(&mut cvar::Property(s!("enable.animating"), &mut self.config.enable_animating, &default.enable_animating));
-		f(&mut cvar::Property(s!("debug"), &mut self.config.debug, &default.debug));
-		f(&mut cvar::List(s!("player[vis]"), &mut self.config.player1));
-		f(&mut cvar::List(s!("player[los]"), &mut self.config.player2));
-		f(&mut cvar::List(s!("player[down]"), &mut self.config.player3));
-		f(&mut cvar::List(s!("npc[vis]"), &mut self.config.npc1));
-		f(&mut cvar::List(s!("npc[los]"), &mut self.config.npc2));
-		f(&mut cvar::List(s!("loot[rel]"), &mut self.config.loot1));
-		f(&mut cvar::List(s!("loot[ir]"), &mut self.config.loot2));
-		f(&mut cvar::List(s!("deathbox"), &mut self.config.deathbox));
-		f(&mut cvar::List(s!("object"), &mut self.config.object));
-		f(&mut cvar::List(s!("loot_bin"), &mut self.config.loot_bin));
-	}
-}
+
 
 #[derive(Debug, Default)]
 pub struct Highlight {

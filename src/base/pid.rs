@@ -22,16 +22,7 @@ impl Default for PidConfig {
 		}
 	}
 }
-impl cvar::IVisit for PidConfig {
-	#[inline(never)]
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = PidConfig::default();
-		f(&mut cvar::Property("kp", &mut self.kp, &default.kp));
-		f(&mut cvar::Property("ki", &mut self.ki, &default.ki));
-		f(&mut cvar::Property("kd", &mut self.kd, &default.kd));
-		f(&mut cvar::Property("damp", &mut self.damp, &default.damp));
-	}
-}
+
 
 #[derive(Copy, Clone, Default)]
 pub struct PidController {

@@ -34,19 +34,7 @@ impl Config {
 pub struct Radar {
 	config: Config,
 }
-impl cvar::IVisit for Radar {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("lock"), &mut self.config.lock, &default.lock));
-		f(&mut cvar::Property(s!("team"), &mut self.config.team, &default.team));
-		f(&mut cvar::Property(s!("cx"), &mut self.config.centerx, &default.centerx));
-		f(&mut cvar::Property(s!("cy"), &mut self.config.centery, &default.centery));
-		f(&mut cvar::Property(s!("scale"), &mut self.config.scale, &default.scale));
-		f(&mut cvar::Property(s!("clamp"), &mut self.config.clamp, &default.clamp));
-		f(&mut cvar::Property(s!("radius"), &mut self.config.radius, &default.radius));
-	}
-}
+
 
 impl Radar {
 	#[inline(never)]

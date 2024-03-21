@@ -20,13 +20,7 @@ pub struct Debugger {
 	config: Config,
 	timer: base::Timer,
 }
-impl cvar::IVisit for Debugger {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("weapon"), &mut self.config.weapon, &default.weapon));
-	}
-}
+
 impl Debugger {
 	pub fn run(&mut self, api: &mut Api, ctx: &mut RunContext) {
 

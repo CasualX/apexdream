@@ -426,10 +426,10 @@ impl Entity for PlayerEntity {
 
 			let health = fields.health[0] as i32;
 			let shields = fields.health[2] as i32;
-
-			if health + shields != self.health + self.shields {
+			// TODO! fix data history log add adding overflow
+/*			if health + shields != self.health + self.shields {
 				self.health_history.push(ValueChanged::new(ctx.time, self.health + self.shields, health + shields));
-			}
+			}*/
 
 			self.health = health;
 			self.max_health = fields.health[1] as i32;

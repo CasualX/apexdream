@@ -35,25 +35,7 @@ pub struct CheatManager {
 	pub show_outline: bool,
 	pub full_bones: bool,
 }
-impl cvar::IVisit for CheatManager {
-	#[inline(never)]
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		f(&mut cvar::List(s!("highlight"), &mut self.highlight));
-		f(&mut cvar::List(s!("aim"), &mut self.aimassist));
-		f(&mut cvar::List(s!("rcs"), &mut self.rcs));
-		#[cfg(feature = "dev")]
-		f(&mut cvar::List(s!("dbg"), &mut self.debugger));
-		f(&mut cvar::List(s!("scripts"), &mut self.scripts));
-		#[cfg(feature = "dev")]
-		f(&mut cvar::List(s!("projectile"), &mut self.projectile));
-		f(&mut cvar::List(s!("radar"), &mut self.radar));
-		f(&mut cvar::List(s!("esp"), &mut self.esp));
-		f(&mut cvar::List(s!("obs"), &mut self.obs));
-		f(&mut cvar::List(s!("ring"), &mut self.ring));
-		f(&mut cvar::Property(s!("show_outline"), &mut self.show_outline, &false));
-		f(&mut cvar::Property(s!("esp.full_bones"), &mut self.full_bones, &false));
-	}
-}
+
 impl CheatManager {
 	#[inline(never)]
 	pub fn run(&mut self, api: &mut Api, ctx: &mut RunContext) {

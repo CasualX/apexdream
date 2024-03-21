@@ -24,12 +24,7 @@ pub struct RingDamage {
 	tick_time: f64,
 }
 
-impl cvar::IVisit for RingDamage {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-	}
-}
+
 
 impl RingDamage {
 	pub fn render(&mut self, api: &mut Api, ctx: &RunContext) {

@@ -62,27 +62,7 @@ impl Default for Config {
 pub struct ESP {
 	config: Config,
 }
-impl cvar::IVisit for ESP {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("team"), &mut self.config.team, &default.team));
-		f(&mut cvar::Property(s!("debug.ents"), &mut self.config.debug_ents, &default.debug_ents));
-		f(&mut cvar::Property(s!("debug.bones"), &mut self.config.debug_bones, &default.debug_bones));
-		f(&mut cvar::Property(s!("debug.loot"), &mut self.config.debug_loot, &default.debug_loot));
-		f(&mut cvar::Property(s!("debug.models"), &mut self.config.debug_models, &default.debug_models));
-		f(&mut cvar::Property(s!("debug.local"), &mut self.config.debug_local, &default.debug_local));
-		f(&mut cvar::Property(s!("distance"), &mut self.config.distance, &default.distance));
-		f(&mut cvar::Property(s!("trail_fade"), &mut self.config.trail_fade, &default.trail_fade));
-		f(&mut cvar::Property(s!("flags.player"), &mut self.config.flags_player, &default.flags_player));
-		f(&mut cvar::Property(s!("flags.downed"), &mut self.config.flags_downed, &default.flags_downed));
-		f(&mut cvar::Property(s!("flags.npc"), &mut self.config.flags_npc, &default.flags_npc));
-		f(&mut cvar::Property(s!("flags.deathbox"), &mut self.config.flags_deathbox, &default.flags_deathbox));
-		f(&mut cvar::Property(s!("flags.loot"), &mut self.config.flags_loot, &default.flags_loot));
-		f(&mut cvar::Property(s!("flags.anim"), &mut self.config.flags_anim, &default.flags_anim));
-		f(&mut cvar::Property(s!("flags.vehicle"), &mut self.config.flags_vehicle, &default.flags_vehicle));
-	}
-}
+
 impl ESP {
 	#[inline(never)]
 	pub fn render(&mut self, api: &mut Api, ctx: &RunContext) {

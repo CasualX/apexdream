@@ -148,39 +148,7 @@ pub struct AimAssist {
 
 	config: Config,
 }
-impl cvar::IVisit for AimAssist {
-	#[inline(never)]
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("tickrate"), &mut self.config.tickrate, &default.tickrate));
-		f(&mut cvar::Property(s!("aim_team"), &mut self.config.aim_team, &default.aim_team));
-		f(&mut cvar::Property(s!("aim_visible"), &mut self.config.aim_visible, &default.aim_visible));
-		f(&mut cvar::Property(s!("aim_auto"), &mut self.config.aim_auto, &default.aim_auto));
-		f(&mut cvar::Property(s!("aim_camera"), &mut self.config.aim_camera, &default.aim_camera));
-		f(&mut cvar::Property(s!("aim_key"), &mut self.config.aim_key, &default.aim_key));
-		f(&mut cvar::Property(s!("aim_pitch"), &mut self.config.aim_pitch, &default.aim_pitch));
-		f(&mut cvar::Property(s!("aim_yaw"), &mut self.config.aim_yaw, &default.aim_yaw));
-		f(&mut cvar::Property(s!("aim_ramp"), &mut self.config.aim_ramp, &default.aim_ramp));
-		f(&mut cvar::Property(s!("aim_fade"), &mut self.config.aim_fade, &default.aim_fade));
-		f(&mut cvar::Property(s!("aim_react"), &mut self.config.aim_react, &default.aim_react));
-		f(&mut cvar::Property(s!("aim_idletime"), &mut self.config.aim_idletime, &default.aim_idletime));
-		f(&mut cvar::Property(s!("aim_mintime"), &mut self.config.aim_mintime, &default.aim_mintime));
-		f(&mut cvar::Property(s!("fov_radius"), &mut self.config.fov_radius, &default.fov_radius));
-		f(&mut cvar::Property(s!("fov_aim"), &mut self.config.fov_aim, &default.fov_aim));
-		f(&mut cvar::Property(s!("fov_min"), &mut self.config.fov_min, &default.fov_min));
-		f(&mut cvar::Property(s!("teledist"), &mut self.config.teledist, &default.teledist));
-		f(&mut cvar::Property(s!("pid.aim"), &mut self.config.pid_aim, &default.pid_aim));
-		f(&mut cvar::List(s!("pid"), &mut self.config.pid));
-		f(&mut cvar::Property(s!("trigger.enable"), &mut self.config.trigger_enable, &default.trigger_enable));
-		f(&mut cvar::Property(s!("trigger.radius"), &mut self.config.trigger_radius, &default.trigger_radius));
-		f(&mut cvar::Property(s!("trigger.radscale"), &mut self.config.trigger_radscale, &default.trigger_radscale));
-		f(&mut cvar::Property(s!("trigger.rdyfudge"), &mut self.config.trigger_rdyfudge, &default.trigger_rdyfudge));
-		f(&mut cvar::Property(s!("trigger.release"), &mut self.config.trigger_release, &default.trigger_release));
-		f(&mut cvar::Property(s!("trigger.again"), &mut self.config.trigger_again, &default.trigger_again));
-		f(&mut cvar::Property(s!("trigger.react"), &mut self.config.trigger_react, &default.trigger_react));
-	}
-}
+
 impl AimAssist {
 	fn is_auto_aim(&self, state: &GameState) -> bool {
 		if !self.config.aim_auto {

@@ -17,12 +17,6 @@ pub struct Observers {
 	config: Config,
 }
 
-impl cvar::IVisit for Observers {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-	}
-}
 
 impl Observers {
 	pub fn render(&mut self, api: &mut Api, ctx: &RunContext) {

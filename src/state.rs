@@ -35,11 +35,7 @@ pub struct GameState {
 	gamemode_hash: u32,
 }
 
-impl cvar::IVisit for GameState {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		self.entity_list.visit(f);
-	}
-}
+
 
 impl GameState {
 	#[inline(never)]

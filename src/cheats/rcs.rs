@@ -30,16 +30,7 @@ pub struct RCS {
 	mx: f32,
 }
 
-impl cvar::IVisit for RCS {
-	fn visit(&mut self, f: &mut dyn FnMut(&mut dyn cvar::INode)) {
-		let default = Config::default();
-		f(&mut cvar::Property(s!("enable"), &mut self.config.enable, &default.enable));
-		f(&mut cvar::Property(s!("filter"), &mut self.config.filter, &default.filter));
-		f(&mut cvar::Property(s!("debug"), &mut self.config.debug, &default.debug));
-		f(&mut cvar::Property(s!("pitch"), &mut self.config.pitch, &default.pitch));
-		f(&mut cvar::Property(s!("yaw"), &mut self.config.yaw, &default.yaw));
-	}
-}
+
 
 impl RCS {
 	#[inline(never)]
