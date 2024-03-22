@@ -1,4 +1,3 @@
-
 #[derive(Default)]
 pub struct GameData {
 	pub version: String,
@@ -27,6 +26,8 @@ pub struct GameData {
 	pub input_button_state: u32,
 
 	pub name_list: u32,
+
+	pub highlight_settings: u32,
 
 	pub network_var_table_ptr: u32,
 	pub network_var_table_len: u32,
@@ -108,9 +109,12 @@ pub struct GameData {
 	pub mods_list: u32,
 	pub mods_count: u32,
 }
+
 use serde::{Deserialize, Serialize, Serializer, Deserializer};
 use serde::de::{self, Visitor, MapAccess};
 use std::fmt;
+use std::str::FromStr;
+
 
 impl Serialize for GameData {
 	fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -137,6 +141,7 @@ impl Serialize for GameData {
 		map.serialize_entry("input_system", &format!("0x{:x}", self.input_system))?;
 		map.serialize_entry("input_button_state", &format!("0x{:x}", self.input_button_state))?;
 		map.serialize_entry("name_list", &format!("0x{:x}", self.name_list))?;
+		map.serialize_entry("highlight_settings", &format!("0x{:x}", self.highlight_settings))?;
 		map.serialize_entry("network_var_table_ptr", &format!("0x{:x}", self.network_var_table_ptr))?;
 		map.serialize_entry("network_var_table_len", &format!("0x{:x}", self.network_var_table_len))?;
 		map.serialize_entry("thirdperson_override", &format!("0x{:x}", self.thirdperson_override))?;
@@ -256,6 +261,7 @@ impl<'de> Deserialize<'de> for GameData {
 						"input_system" => gamedata.input_system = parse_hex(&value).map_err(de::Error::custom)?,
 						"input_button_state" => gamedata.input_button_state = parse_hex(&value).map_err(de::Error::custom)?,
 						"name_list" => gamedata.name_list = parse_hex(&value).map_err(de::Error::custom)?,
+						"highlight_settings" => gamedata.highlight_settings = parse_hex(&value).map_err(de::Error::custom)?,
 						"network_var_table_ptr" => gamedata.network_var_table_ptr = parse_hex(&value).map_err(de::Error::custom)?,
 						"network_var_table_len" => gamedata.network_var_table_len = parse_hex(&value).map_err(de::Error::custom)?,
 						"thirdperson_override" => gamedata.thirdperson_override = parse_hex(&value).map_err(de::Error::custom)?,
@@ -340,7 +346,7 @@ impl<'de> Deserialize<'de> for GameData {
 
 impl GameData {
 	pub fn load(&mut self, gd: &str, tds: u32) -> bool {
-		let Ok(offset_json) = serde_json::from_str(&gd) else { return false };
+		let Ok(offset_json) = serde_json::from_str(gd) else { return false };
 		*self = offset_json;
 		if self.time_date_stamp == tds { return true } else { return false }
 	}
