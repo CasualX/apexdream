@@ -195,7 +195,7 @@ impl GetClientEntity {
 		};
 
 		// This can be null?!?
-		if client_networkable.is_null() && client_networkable.into_raw() == 0xFFFFFFFFFFFFFFFF {
+		if client_networkable.is_null() || client_networkable.into_raw() == 0xFFFFFFFFFFFFFFFF {
 			return None;
 		}
 
