@@ -70,7 +70,7 @@ impl GameState {
 
 		if ctx.connected && ctx.data.mp_gamemode != 0 {
 			self.gamemode_hash = 0;
-			if let Ok(gamemode_ptr) = api.vm_read::<sdk::Ptr<[u8]>>(ctx.process.base.field(ctx.data.mp_gamemode + 0x58)) {
+			if let Ok(gamemode_ptr) = api.vm_read::<sdk::Ptr<[u8]>>(ctx.process.base.field(ctx.data.mp_gamemode + 0x50)) {
 				if !gamemode_ptr.is_null() {
 					if let Ok(gamemode) = api.vm_read_cstr(gamemode_ptr, &mut self.gamemode_buf) {
 						self.gamemode_hash = crate::hash(gamemode);
