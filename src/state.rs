@@ -12,6 +12,7 @@ mod itemids;
 mod modifiers;
 mod derivative;
 pub mod entities;
+mod highlight;
 
 pub use self::studio::StudioModel;
 pub use self::script_data::ScriptValue;
@@ -31,6 +32,8 @@ pub struct GameState {
 	pub items: itemids::LootItems,
 	pub mods: modifiers::Modifiers,
 
+	pub highlight: highlight::HighlightSettings,
+
 	gamemode_buf: [u8; 16],
 	gamemode_hash: u32,
 }
@@ -49,6 +52,8 @@ impl GameState {
 		self.script_data.update(api, ctx);
 		self.items.update(api, ctx);
 		self.mods.update(api, ctx);
+
+		self.highlight.update(api, ctx);
 
 		for i in 0..self.entity_list.entities.len() {
 			// Temporarily take the entity out of the list
