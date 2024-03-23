@@ -104,7 +104,7 @@ impl RCS {
 			self.mx = 0.0;
 			self.old_punch = weapon_punch;
 
-			let _ = api.vm_read_into(ctx.process.base.field(ctx.data.mouse_sensitivity + 0x68), &mut self.sens);
+			let _ = api.vm_read_into(ctx.process.base.field(ctx.data.mouse_sensitivity + 0x60/*0x68*/), &mut self.sens);
 		}
 		else {
 			// Pitch RCS only when it is increasing
