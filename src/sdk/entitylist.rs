@@ -4,10 +4,10 @@ pub const NUM_ENT_ENTRIES: usize = 0x10000;
 #[derive(Pod, Clone, Debug, Default)]
 #[repr(C)]
 pub struct CEntInfo {
-	pub pEntity: Ptr, // IHandleEntity*
-	pub SerialNumber: i64,
-	pub pPrev: Ptr<CEntInfo>,
-	pub pNext: Ptr<CEntInfo>,
+    pub pEntity: Ptr, // IHandleEntity*
+    pub SerialNumber: i64,
+    pub pPrev: Ptr<CEntInfo>,
+    pub pNext: Ptr<CEntInfo>,
 }
 
 pub const CPlayer: u32 = hash!("CPlayer");

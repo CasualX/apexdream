@@ -4,38 +4,38 @@ Game Data structures SDK.
 
 #![allow(non_snake_case, dead_code, non_upper_case_globals)]
 
+mod class;
+mod cvar;
 mod ehandle;
 mod entitylist;
-mod inputsystem;
-mod cvar;
 mod globalvars;
-mod class;
-mod items;
-mod input;
-mod tier1;
-mod studio;
 mod highlight;
-mod script_net_name;
+mod input;
+mod inputsystem;
+mod items;
 pub mod pitches;
 pub mod projectiles;
+mod script_net_name;
+mod studio;
+mod tier1;
 
 pub use dataview::Pod;
 pub use intptr::IntPtr64 as Ptr;
 
 pub use crate::base::math::*;
 
+pub use self::class::*;
+pub use self::cvar::*;
 pub use self::ehandle::*;
 pub use self::entitylist::*;
-pub use self::inputsystem::*;
-pub use self::cvar::*;
 pub use self::globalvars::*;
-pub use self::class::*;
-pub use self::items::*;
-pub use self::input::*;
-pub use self::tier1::*;
-pub use self::studio::*;
 pub use self::highlight::*;
+pub use self::input::*;
+pub use self::inputsystem::*;
+pub use self::items::*;
 pub use self::script_net_name::ScriptNetVarName;
+pub use self::studio::*;
+pub use self::tier1::*;
 
 pub const MAX_PLAYERS: usize = 128;
 pub const MAX_NAME_LENGTH: usize = 64;
@@ -85,6 +85,6 @@ pub const HARDWARE_SWITCH: u32 = 2313;
 #[derive(Copy, Clone, Default, Pod)]
 #[repr(C)]
 pub struct ConsumableItem {
-	pub item: u16,
-	pub count: u16,
+    pub item: u16,
+    pub count: u16,
 }
