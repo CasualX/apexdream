@@ -96,7 +96,7 @@ fn global_vars(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn name_list(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().matches_code(pat!("48634338 488D0D${'} 4803C0 488B44C1F0")).next(&mut save) {
+	if bin.scanner().matches_code(pat!("48634338 488D0D${'} 488D0440 488B44C1E8")).next(&mut save) {
 		let name_list = save[1];
 		let _ = writeln!(f.ini, "NameList={:#x}", name_list);
 	}
@@ -217,7 +217,7 @@ fn local_camera(f: &mut super::Output, bin: PeFile<'_>) {
 
 fn highlight_settings(f: &mut super::Output, bin: PeFile<'_>) {
 	let mut save = [0; 4];
-	if bin.scanner().finds_code(pat!("488B15${'} 4C8D0476"), &mut save) {
+	if bin.scanner().finds_code(pat!("488B15${'} 4803D1 4C8D0440"), &mut save) {
 		let settings = save[1];
 		let _ = writeln!(f.ini, "HighlightSettings={:#x}", settings);
 	}
